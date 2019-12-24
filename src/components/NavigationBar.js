@@ -14,6 +14,7 @@ export default class NavigationBar extends React.Component
                     text="Home"
                     page={<Page/>}
                     clear={true}
+                    clearPages={this.props.clearPages}
                 />
             </AppBar>
         );

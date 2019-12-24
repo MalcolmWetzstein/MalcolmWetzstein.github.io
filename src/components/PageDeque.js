@@ -7,13 +7,23 @@ export default class PageDeque extends React.Component
         super(props);
 
         this.state = {
-            pageStack: []
+            pageStack: [],
+            controllers: []
         };
 
-        this.pushPage = this.pushPage.bind(this);
-        this.unshiftPage = this.unshiftPage.bind(this);
-        this.popPage = this.popPage.bind(this);
-        this.shiftPage = this.shiftPage.bind(this);
+        this.push = this.push.bind(this);
+        this.unshift = this.unshift.bind(this);
+        this.insert = this.insert.bind(this);
+        this.pop = this.pop.bind(this);
+        this.shift = this.shift.bind(this);
+        this.remove = this.remove.bind(this);
+        this.clear = this.clear.bind(this);
+        this.top = this.top.bind(this);
+        this.bottom = this.bottom.bind(this);
+        this.pageAt = this.pageAt.bind(this);
+        this.swapTop = this.swapTop.bind(this);
+        this.swapBottom = this.swapBottom.bind(this);
+        this.swapAt = this.swapAt.bind(this);
     }
 
     render() 
@@ -23,66 +33,122 @@ export default class PageDeque extends React.Component
 
     componentDidMount() 
     {
-        if (this.props.landingPage)
-            this.pushPage(this.props.landingPage);
+        if (this.props.initial)
+        {
+            if (Array.isArray(this.props.initial))
+            {
+                for (let component in this.props.initial) 
+                {
+                    this.push(component);
+                }
+            }
+            else
+            {
+                this.push(this.props.initial);
+            }
+        }
     }
 
     clear()
     {
-        while (this.state.pageStack.length > 0)
-            this.popPage();
-
-        this.setState( { pageStack: this.state.pageStack } );
+        this.setState( { pageStack: [] } );
     }
 
-    pushPage(jsx) 
+    push(jsx) 
     {
-        this.state.pageStack.push(React.cloneElement(jsx, {
-                pushPage: this.pushPage,
-                unshiftPage: this.unshiftPage,
-                popPage: this.popPage,
-                shiftPage: this.shiftPage
-            }));
-
-        this.setState( { pageStack: this.state.pageStack } );
+        this.setState( { pageStack: [...this.state.pageStack, this.withDequeProps(jsx)] } );
     }
 
-    unshiftPage(jsx) 
+    unshift(jsx) 
     {
-        this.state.pageStack.unshift(React.cloneElement(jsx, {
-            pushPage: this.pushPage,
-            unshiftPage: this.unshiftPage,
-            popPage: this.popPage,
-            shiftPage: this.shiftPage
-        }));
-
-        this.setState( { pageStack: this.state.pageStack } );
+        this.setState( { pageStack: [this.withDequeProps(jsx), ...this.state.pageStack] } );
     }
 
-    popPage() 
+    insert(jsx, index)
     {
-        let page = this.state.pageStack.pop();
-        this.setState({ pageStack: this.state.pageStack });
-        return page;
+        index = this.wrapAroundIndex(index);
+        this.setState( { pageStack: this.state.pageStack.slice(0, index)
+            .concat([this.withDequeProps(jsx), ...(this.state.pageStack.slice(index))]) } );
     }
 
-    shiftPage() 
+    pop() 
     {
-        let page = this.state.pageStack.shift();
-        this.setState({ pageStack: this.state.pageStack });
-        return page;
+        return this.remove(-1);
     }
 
-    topPage() 
+    shift() 
     {
-        return this.state.pageStack[this.state.pageStack.length-1];
+        return this.remove(0);
+    }
+
+    remove(index)
+    {
+        const outPage = this.pageAt(index);
+        this.setState( { pageStack: this.state.pageStack.filter( (page, i) => i !== index ) } );
+        return outPage;
+    }
+
+    top() 
+    {
+        return this.pageAt(-1);
+    }
+
+    bottom()
+    {
+        return this.pageAt(0);
     }
 
     pageAt(index) 
     {
-        while (index < 0)
-            index += this.state.pageStack.length;
-
+        index = this.wrapAroundIndex(index);
         return this.state.pageStack[index];
     }
+
+    swapTop(jsx)
+    {
+        this.swapAt(jsx, -1);
+    }
+
+    swapBottom(jsx)
+    {
+        this.swapAt(jsx, 0);
+    }
+
+    swapAt(jsx, index)
+    {
+        index = this.wrapAroundIndex(index);
+        const outPage = this.state.pageStack[index];
+        this.setState( { pageStack: this.state.pageStack.map( (page, i) => index === i ? this.withDequeProps(jsx) : page ) } );
+        return outPage;
+    }
+
+    wrapAroundIndex(index)
+    {
+        while (index < 0)
+            index += this.state.pageStack.length;
+        return index;
+    }
+
+    withDequeProps(jsx)
+    {
+        return React.cloneElement(jsx, {
+            pageDeque: {
+                push: this.push,
+                unshift: this.unshift,
+                insert: this.insert,
+                pop: this.pop,
+                shift: this.shift,
+                remove: this.remove,
+                clear: this.clear,
+                top: this.top,
+                bottom: this.bottom,
+                pageAt: this.pageAt,
+                swapTop: this.swapTop,
+                swapBottom: this.swapBottom,
+                swapAt: this.swapAt
+            }
+        });
+    }
+
+    addControllers
 }

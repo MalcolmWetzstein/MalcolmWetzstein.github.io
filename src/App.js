@@ -3,7 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 
 import { MainTheme } from './themes/MainTheme';
-import Controller from './components/Controller';
+import PageDeque from './components/PageDeque';
+import NavigationBar from './components/NavigationBar';
 
 function App() 
 {
@@ -11,7 +12,7 @@ function App()
     <React.Fragment>
       <CssBaseline/>
       <ThemeProvider theme={MainTheme}>
-        <Controller/>
+        <PageDeque initial={[<NavigationBar/>]}/>
       </ThemeProvider>
     </React.Fragment>
   );
