@@ -7,8 +7,7 @@ export default class PageDeque extends React.Component
         super(props);
 
         this.state = {
-            pageStack: [],
-            controllers: []
+            pageStack: []
         };
 
         this.push = this.push.bind(this);
@@ -28,25 +27,8 @@ export default class PageDeque extends React.Component
 
     render() 
     {
-        return this.state.pageStack;
-    }
-
-    componentDidMount() 
-    {
-        if (this.props.initial)
-        {
-            if (Array.isArray(this.props.initial))
-            {
-                for (let component in this.props.initial) 
-                {
-                    this.push(component);
-                }
-            }
-            else
-            {
-                this.push(this.props.initial);
-            }
-        }
+        const childrenWithProps = React.Children.toArray(this.props.children).map(child => this.withDequeProps(child));
+        return this.state.pageStack.concat(childrenWithProps);
     }
 
     clear()
@@ -149,6 +131,4 @@ export default class PageDeque extends React.Component
             }
         });
     }
-
-    addControllers
 }

@@ -12,7 +12,9 @@ function App()
     <React.Fragment>
       <CssBaseline/>
       <ThemeProvider theme={MainTheme}>
-        <PageDeque initial={[<NavigationBar/>]}/>
+        <PageDeque>
+          <NavigationBar/>
+        </PageDeque>
       </ThemeProvider>
     </React.Fragment>
   );

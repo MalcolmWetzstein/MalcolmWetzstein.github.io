@@ -12,8 +12,8 @@ export default class NavigationButton extends React.Component
                     function () 
                     { 
                         if (this.props.clear) 
-                            this.props.clearPages();
-                        this.props.pushPage(this.props.page); 
+                            this.props.pageDeque.clear();
+                        //this.props.pushPage(this.props.page); 
                     }.bind(this)
                 }
             >
