@@ -23,11 +23,24 @@ export default class PageDeque extends React.Component
         this.swapTop = this.swapTop.bind(this);
         this.swapBottom = this.swapBottom.bind(this);
         this.swapAt = this.swapAt.bind(this);
+        this.withDequeProps = this.withDequeProps.bind(this);
+    }
+
+    componentDidMount()
+    {
+        if (this.props.initialPages)
+        {
+            if (Array.isArray(this.props.initialPages))
+                for (let page of this.props.initialPages)
+                    this.push(page);
+            else
+                this.push(this.props.initialPages);
+        }
     }
 
     render() 
     {
-        const childrenWithProps = React.Children.toArray(this.props.children).map(child => this.withDequeProps(child));
+        const childrenWithProps = React.Children.map(this.props.children, child => this.withDequeProps(child));
         return this.state.pageStack.concat(childrenWithProps);
     }
 
@@ -127,7 +140,8 @@ export default class PageDeque extends React.Component
                 pageAt: this.pageAt,
                 swapTop: this.swapTop,
                 swapBottom: this.swapBottom,
-                swapAt: this.swapAt
+                swapAt: this.swapAt,
+                withDequeProps: this.withDequeProps
             }
         });
     }
