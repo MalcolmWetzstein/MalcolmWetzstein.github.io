@@ -11,7 +11,7 @@ class Page extends React.Component
                 position="absolute" 
                 width={1} 
                 minHeight={1} 
-                paddingTop={this.props.theme.spacing(1)}
+                padding={this.props.theme.spacing(6, 0, 6, 0)}
             >
                 {this.props.children}
             </Box>
