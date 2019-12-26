@@ -1,23 +1,23 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
 
-import { DarkTheme } from './themes/DarkTheme';
 import PageDeque from './components/PageDeque';
 import NavigationBar from './components/NavigationBar';
-import NavigationButton from './components/NavigationButton';
+import * as themes from './themes/Themes';
+import * as content from './content/Content';
 
 function App() 
 {
   return (
     <React.Fragment>
       <CssBaseline/>
-      <ThemeProvider theme={DarkTheme}>
+      <ThemeProvider theme={themes.LightTheme}>
         <PageDeque>
           <NavigationBar>
-            <NavigationButton clear={true}>
-              Home
-            </NavigationButton>
+            <content.Home/>
+            <content.Education/>
+            <content.Contact/>
           </NavigationBar>
         </PageDeque>
       </ThemeProvider>

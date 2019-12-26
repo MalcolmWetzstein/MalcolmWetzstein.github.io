@@ -23,7 +23,10 @@ export default class PageDeque extends React.Component
         this.swapTop = this.swapTop.bind(this);
         this.swapBottom = this.swapBottom.bind(this);
         this.swapAt = this.swapAt.bind(this);
+        this.finish = this.finish.bind(this);
         this.withDequeProps = this.withDequeProps.bind(this);
+
+        this.stackUpdate = null;
     }
 
     componentDidMount()
@@ -41,29 +44,32 @@ export default class PageDeque extends React.Component
     render() 
     {
         const childrenWithProps = React.Children.map(this.props.children, child => this.withDequeProps(child));
-        return this.state.pageStack.concat(childrenWithProps);
+        return this.reKey(childrenWithProps.concat(this.state.pageStack));
     }
 
     clear()
     {
-        this.setState( { pageStack: [] } );
+        this.initUpdate();
+        this.stackUpdate = [];
     }
 
     push(jsx) 
     {
-        this.setState( { pageStack: [...this.state.pageStack, this.withDequeProps(jsx)] } );
+        this.initUpdate();
+        this.stackUpdate = [...this.stackUpdate, this.withDequeProps(jsx)];
     }
 
     unshift(jsx) 
     {
-        this.setState( { pageStack: [this.withDequeProps(jsx), ...this.state.pageStack] } );
+        this.initUpdate();
+        this.stackUpdate = [this.withDequeProps(jsx), ...this.stackUpdate];
     }
 
     insert(jsx, index)
     {
+        this.initUpdate();
         index = this.wrapAroundIndex(index);
-        this.setState( { pageStack: this.state.pageStack.slice(0, index)
-            .concat([this.withDequeProps(jsx), ...(this.state.pageStack.slice(index))]) } );
+        this.stackUpdate = this.stackUpdate.slice(0, index).concat([this.withDequeProps(jsx), ...(this.stackUpdate.slice(index))]);
     }
 
     pop() 
@@ -78,8 +84,9 @@ export default class PageDeque extends React.Component
 
     remove(index)
     {
+        this.initUpdate();
         const outPage = this.pageAt(index);
-        this.setState( { pageStack: this.state.pageStack.filter( (page, i) => i !== index ) } );
+        this.stackUpdate = this.stackUpdate.filter( (page, i) => i !== index );
         return outPage;
     }
 
@@ -96,7 +103,7 @@ export default class PageDeque extends React.Component
     pageAt(index) 
     {
         index = this.wrapAroundIndex(index);
-        return this.state.pageStack[index];
+        return this.stackUpdate === null ? this.state.pageStack[index] : this.stackUpdate[index];
     }
 
     swapTop(jsx)
@@ -111,10 +118,23 @@ export default class PageDeque extends React.Component
 
     swapAt(jsx, index)
     {
+        this.initUpdate();
         index = this.wrapAroundIndex(index);
-        const outPage = this.state.pageStack[index];
-        this.setState( { pageStack: this.state.pageStack.map( (page, i) => index === i ? this.withDequeProps(jsx) : page ) } );
+        const outPage = this.pageAt(index);
+        this.stackUpdate = this.stackUpdate.map( (page, i) => index === i ? this.withDequeProps(jsx) : page );
         return outPage;
+    }
+
+    finish()
+    {
+        this.setState( { pageStack: this.stackUpdate } );
+        this.stackUpdate = null;
+    }
+
+    initUpdate()
+    {
+        if (this.stackUpdate === null)
+            this.stackUpdate = this.state.pageStack;
     }
 
     wrapAroundIndex(index)
@@ -141,8 +161,14 @@ export default class PageDeque extends React.Component
                 swapTop: this.swapTop,
                 swapBottom: this.swapBottom,
                 swapAt: this.swapAt,
+                finish: this.finish,
                 withDequeProps: this.withDequeProps
             }
         });
+    }
+
+    reKey(componentArray)
+    {
+        return componentArray.map( (component, index) => React.cloneElement(component, { key: index.toString() }) );
     }
 }
