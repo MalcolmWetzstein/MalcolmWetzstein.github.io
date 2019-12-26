@@ -1,6 +1,7 @@
 import React from 'react';
+import { withTheme } from '@material-ui/core/styles';
 
-export default class PageDeque extends React.Component 
+class PageDeque extends React.Component 
 {
     constructor(props) 
     {
@@ -172,3 +173,5 @@ export default class PageDeque extends React.Component
         return componentArray.map( (component, index) => React.cloneElement(component, { key: index.toString() }) );
     }
 }
+
+export default withTheme(PageDeque);

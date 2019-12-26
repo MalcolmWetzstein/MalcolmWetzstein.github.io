@@ -2,8 +2,9 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { withTheme } from '@material-ui/core/styles';
 
-export default class NavigationBar extends React.Component 
+class NavigationBar extends React.Component 
 {
     constructor(props)
     {
@@ -11,7 +12,7 @@ export default class NavigationBar extends React.Component
 
         this.state = {
             currentTab: 0,
-            displayNames: []
+            tabNames: []
         }
 
         this.tabChange = this.tabChange.bind(this);
@@ -19,7 +20,7 @@ export default class NavigationBar extends React.Component
 
     componentDidMount()
     {
-        this.setState( { displayNames: React.Children.map(this.props.children, child => child.type.displayName) } );
+        this.setState( { tabNames: React.Children.map(this.props.children, child => child.type.buttonText) } );
         this.navigate(this.state.currentTab);
     }
 
@@ -33,7 +34,7 @@ export default class NavigationBar extends React.Component
                     onChange={this.tabChange} 
                     centered
                 >
-                    {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.displayNames[index]}/>)}
+                    {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
                 </Tabs>
            </AppBar>
         );
@@ -52,3 +53,5 @@ export default class NavigationBar extends React.Component
         this.props.pageDeque.finish();
     }
 }
+
+export default withTheme(NavigationBar);

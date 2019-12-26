@@ -10,18 +10,16 @@ import * as content from './content/Content';
 function App() 
 {
   return (
-    <React.Fragment>
+    <ThemeProvider theme={themes.DarkTheme}>
       <CssBaseline/>
-      <ThemeProvider theme={themes.LightTheme}>
-        <PageDeque>
-          <NavigationBar>
-            <content.Home/>
-            <content.Education/>
-            <content.Contact/>
-          </NavigationBar>
-        </PageDeque>
-      </ThemeProvider>
-    </React.Fragment>
+      <PageDeque>
+        <NavigationBar>
+          <content.Home/>
+          <content.Education/>
+          <content.Contact/>
+        </NavigationBar>
+      </PageDeque>
+    </ThemeProvider>
   );
 }
 

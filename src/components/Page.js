@@ -1,17 +1,22 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
+import { withTheme } from '@material-ui/core/styles';
 
-export default class Page extends React.Component
+class Page extends React.Component
 {
     render()
     {
         return (
-            <Box>
-                <Paper square elevation={0}>
-                    {this.props.children}
-                </Paper>
+            <Box 
+                position="absolute" 
+                width={1} 
+                minHeight={1} 
+                paddingTop={this.props.theme.spacing(1)}
+            >
+                {this.props.children}
             </Box>
         );
     }
 }
+
+export default withTheme(Page);

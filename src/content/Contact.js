@@ -1,11 +1,14 @@
 import React from 'react';
+import { withTheme } from '@material-ui/core/styles';
 
-export default class Contact extends React.Component 
+class Contact extends React.Component 
 {
-    static displayName = "Contact";
+    static buttonText = "Contact";
     
     render ()
     {
         return null;
     }
 }
+
+export default withTheme(Contact);

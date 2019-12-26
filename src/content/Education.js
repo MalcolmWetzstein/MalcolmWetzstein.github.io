@@ -1,11 +1,14 @@
 import React from 'react';
+import { withTheme } from '@material-ui/core/styles';
 
-export default class Education extends React.Component 
+class Education extends React.Component 
 {
-    static displayName = "Education";
+    static buttonText = "Education";
     
     render ()
     {
         return null;
     }
 }
+
+export default withTheme(Education);

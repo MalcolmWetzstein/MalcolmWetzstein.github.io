@@ -1,11 +1,12 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import { withTheme } from '@material-ui/core/styles';
 
 import Page from '../components/Page';
 
-export default class Home extends React.Component 
+class Home extends React.Component 
 {
-    static displayName = "Home";
+    static buttonText = "Home";
     
     render ()
     {
@@ -18,3 +19,5 @@ export default class Home extends React.Component
         );
     }
 }
+
+export default withTheme(Home);
