@@ -13,7 +13,7 @@ class Page extends React.Component
                 minHeight={1} 
                 padding={this.props.theme.spacing(6, 0, 6, 0)}
             >
-                {this.props.children}
+                {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
             </Box>
         );
     }

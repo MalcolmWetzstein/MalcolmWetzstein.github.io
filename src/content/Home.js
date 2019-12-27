@@ -1,10 +1,12 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import { withTheme } from '@material-ui/core/styles';
 
 import Page from '../components/Page';
 import Partition from '../components/Partition';
+import Suggestions from '../components/Suggestions';
+import Contact from './Contact';
 
 class Home extends React.Component 
 {
@@ -13,7 +15,7 @@ class Home extends React.Component
     render ()
     {
         return (
-            <Page>
+            <Page pageDeque={this.props.pageDeque}>
                 <Partition>
                     <React.Fragment>
                         <Typography variant="h1" align="center" gutterBottom>
@@ -25,21 +27,10 @@ class Home extends React.Component
                             Recent Master Graduate in Computer Science
                         </Typography>
                     </React.Fragment>
-                    <React.Fragment>
-                        <Typography variant="h2" gutterBottom>
-                            Personal Statement
-                        </Typography>
-                        <Typography variant="body1">
-                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                        </Typography>
-                    </React.Fragment>
-                    <React.Fragment>
-                        <Button>
-                            Learn More
-                        </Button>
-                    </React.Fragment>
+                    <Suggestions labels={['linkedin', 'contact me']}>
+                        <Link href='https://www.linkedin.com/in/malcolmwetzstein'/>
+                        <Contact/>
+                    </Suggestions>
                 </Partition>
             </Page>
         );
