@@ -1,10 +1,8 @@
 import React from 'react';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import { withTheme } from '@material-ui/core/styles';
+import CustomComponent from './CustomComponent';
+import { ButtonGroup, Button, Box, withTheme } from '@material-ui/core';
 
-class Suggestions extends React.Component
+class Suggestions extends CustomComponent
 {
     constructor(props)
     {
@@ -29,7 +27,6 @@ class Suggestions extends React.Component
         return React.Children.map(this.props.children,
             (child, index) =>
             {
-                console.log(child);
                 if (child.type.displayName.includes('Link'))
                     return (
                         <Button>

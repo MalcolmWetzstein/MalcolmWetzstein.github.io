@@ -1,8 +1,6 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
-import { withTheme } from '@material-ui/core/styles';
+import CustomComponent from './CustomComponent';
+import { Container, Box, Divider, withTheme } from '@material-ui/core';
 
 /*
  * TODO: 
@@ -10,7 +8,7 @@ import { withTheme } from '@material-ui/core/styles';
  * Add prop option for including footer spacing (defaults to true)
  */
 
-class Partition extends React.Component
+class Partition extends CustomComponent
 {
     render()
     {

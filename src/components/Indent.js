@@ -2,21 +2,18 @@ import React from 'react';
 import CustomComponent from './CustomComponent';
 import { Box, withTheme } from '@material-ui/core';
 
-class Page extends CustomComponent
+const FACTOR = 4;
+
+class Indent extends CustomComponent
 {
     render()
     {
         return (
-            <Box 
-                position="absolute" 
-                width={1} 
-                minHeight={1} 
-                padding={this.props.theme.spacing(6, 0, 6, 0)}
-            >
+            <Box margin={this.props.theme.spacing(0, 0, 0, this.props.level ? this.props.level * FACTOR : FACTOR)}>
                 {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
             </Box>
         );
     }
 }
 
-export default withTheme(Page);
+export default withTheme(Indent);

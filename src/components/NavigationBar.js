@@ -1,17 +1,14 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { withTheme } from '@material-ui/core/styles';
+import CustomComponent from './CustomComponent';
+import { AppBar, Tabs, Tab, withTheme } from '@material-ui/core';
 
-class NavigationBar extends React.Component 
+class NavigationBar extends CustomComponent 
 {
     constructor(props)
     {
         super(props);
 
         this.state = {
-            currentTab: 0,
             tabNames: []
         }
 
@@ -21,7 +18,7 @@ class NavigationBar extends React.Component
     componentDidMount()
     {
         this.setState( { tabNames: React.Children.map(this.props.children, child => child.type.buttonText) } );
-        this.navigate(this.state.currentTab);
+        this.navigate(0);
     }
 
     render()
@@ -30,7 +27,7 @@ class NavigationBar extends React.Component
            <AppBar>
                 <Tabs 
                     indicatorColor="secondary" 
-                    value={this.state.currentTab} 
+                    value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
                     onChange={this.tabChange} 
                     centered
                 >
@@ -42,7 +39,6 @@ class NavigationBar extends React.Component
 
     tabChange(event, tabIndex)
     {
-        this.setState( { currentTab: tabIndex } );
         this.navigate(tabIndex);
     }
 

@@ -1,14 +1,10 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
-import { withTheme } from '@material-ui/core/styles';
+import CustomComponent from '../components/CustomComponent';
+import { Typography, Link, withTheme } from '@material-ui/core';
+import { Page, Partition, Suggestions } from '../components/Custom';
+import { Contact } from './Pages';
 
-import Page from '../components/Page';
-import Partition from '../components/Partition';
-import Suggestions from '../components/Suggestions';
-import Contact from './Contact';
-
-class Home extends React.Component 
+class Home extends CustomComponent 
 {
     static buttonText = "Home";
     
@@ -28,7 +24,7 @@ class Home extends React.Component
                         </Typography>
                     </React.Fragment>
                     <Suggestions labels={['linkedin', 'contact me']}>
-                        <Link href='https://www.linkedin.com/in/malcolmwetzstein'/>
+                        <Link href='https://www.linkedin.com/in/malcolmwetzstein' target="_blank"/>
                         <Contact/>
                     </Suggestions>
                 </Partition>

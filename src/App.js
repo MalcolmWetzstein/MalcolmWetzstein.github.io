@@ -6,7 +6,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PageDeque from './components/PageDeque';
 import NavigationBar from './components/NavigationBar';
 import * as themes from './themes/Themes';
-import * as content from './content/Content';
+import * as pages from './pages/Pages';
 
 function App() 
 {
@@ -15,9 +15,9 @@ function App()
       <CssBaseline/>
       <PageDeque>
         <NavigationBar>
-          <content.Home/>
-          <content.Education/>
-          <content.Contact/>
+          <pages.Home/>
+          <pages.Education/>
+          <pages.Contact/>
         </NavigationBar>
       </PageDeque>
     </ThemeProvider>

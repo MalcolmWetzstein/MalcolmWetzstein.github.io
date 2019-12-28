@@ -1,7 +1,7 @@
-import React from 'react';
+import CustomComponent from '../components/CustomComponent';
 import { withTheme } from '@material-ui/core/styles';
 
-class Education extends React.Component 
+class Education extends CustomComponent
 {
     static buttonText = "Education";
     

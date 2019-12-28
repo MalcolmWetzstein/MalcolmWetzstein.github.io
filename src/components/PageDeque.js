@@ -1,7 +1,8 @@
 import React from 'react';
-import { withTheme } from '@material-ui/core/styles';
+import CustomComponent from './CustomComponent';
+import { withTheme } from '@material-ui/core';
 
-class PageDeque extends React.Component 
+class PageDeque extends CustomComponent
 {
     constructor(props) 
     {
@@ -147,7 +148,7 @@ class PageDeque extends React.Component
 
     withDequeProps(jsx)
     {
-        return React.cloneElement(jsx, {
+        return React.cloneElement(jsx, jsx.type.custom ? {
             pageDeque: {
                 push: this.push,
                 unshift: this.unshift,
@@ -165,7 +166,7 @@ class PageDeque extends React.Component
                 finish: this.finish,
                 withDequeProps: this.withDequeProps
             }
-        });
+        } : undefined);
     }
 
     reKey(componentArray)
