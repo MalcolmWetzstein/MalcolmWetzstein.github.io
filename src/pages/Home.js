@@ -3,6 +3,7 @@ import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
 import { Page, Partition, Suggestions } from '../components/Custom';
 import { Contact } from './Pages';
+import * as CONSTANTS from '../Constants';
 
 class Home extends CustomComponent 
 {
@@ -23,8 +24,9 @@ class Home extends CustomComponent
                             Recent Master Graduate in Computer Science
                         </Typography>
                     </React.Fragment>
-                    <Suggestions labels={['linkedin', 'contact me']}>
-                        <Link href='https://www.linkedin.com/in/malcolmwetzstein' target="_blank"/>
+                    <Suggestions labels={['resume', 'linkedin', 'contact me']}>
+                        <Link href={CONSTANTS.LINKS.RESUME} download/>
+                        <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank"/>
                         <Contact/>
                     </Suggestions>
                 </Partition>

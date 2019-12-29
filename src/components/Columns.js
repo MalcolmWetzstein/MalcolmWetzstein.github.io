@@ -1,8 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
 import { Grid, Divider, Box, withTheme } from '@material-ui/core';
-
-const FACTOR = 4;
+import * as CONSTANTS from '../Constants';
 
 class Columns extends CustomComponent
 {
@@ -18,7 +17,7 @@ class Columns extends CustomComponent
     columnsFromChildren()
     {
         const length = React.Children.count(this.props.children);
-        const marginSize = this.props.size ? this.props.size * FACTOR : FACTOR
+        const marginSize = this.props.size ? this.props.size * CONSTANTS.UNIT_INDENT : CONSTANTS.UNIT_INDENT
 
         if (length === 1)
             return this.props.pageDeque.withDequeProps(this.props.children);

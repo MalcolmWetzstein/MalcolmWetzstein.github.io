@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
 import { Container, Box, Divider, withTheme } from '@material-ui/core';
+import * as CONSTANTS from '../Constants';
 
 /*
  * TODO: 
@@ -25,7 +26,7 @@ class Partition extends CustomComponent
 
         if (length === 1)
             return (
-                <Box margin={this.props.theme.spacing(6, 0, 6, 0)}>
+                <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, CONSTANTS.UNIT_SPACE, 0)}>
                     {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
                 </Box>
             );
@@ -36,7 +37,7 @@ class Partition extends CustomComponent
                 if (index === 0) // Title Partition
                 {
                     return (
-                        <Box margin={this.props.theme.spacing(8, 0, 8, 0)}>
+                        <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE*1.5, 0, CONSTANTS.UNIT_SPACE, 0)}>
                             {this.props.pageDeque.withDequeProps(child)}
                         </Box>
                     );
@@ -46,7 +47,7 @@ class Partition extends CustomComponent
                     return (
                         <React.Fragment>
                             <Divider/>
-                            <Box margin={this.props.theme.spacing(6, 0, 0, 0)}>
+                            <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
                                 {this.props.pageDeque.withDequeProps(child)}
                             </Box>
                         </React.Fragment>
@@ -57,7 +58,7 @@ class Partition extends CustomComponent
                     return (
                         <React.Fragment>
                             <Divider/>
-                            <Box margin={this.props.theme.spacing(6, 0, 6, 0)}>
+                            <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, CONSTANTS.UNIT_SPACE, 0)}>
                                 {this.props.pageDeque.withDequeProps(child)}
                             </Box>
                         </React.Fragment>

@@ -1,12 +1,9 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Indent, Columns, Suggestions } from '../components/Custom';
+import { Page, Partition, Indent, Columns, Suggestions, Group, Space } from '../components/Custom';
 import { Home } from './Pages';
-
-const EMAIL_ADDRESS = 'mxw002@gmail.com';
-const PHONE_NUMBER = '8082182723';
-const LINKEDIN = 'https://www.linkedin.com/in/malcolmwetzstein';
+import * as CONSTANTS from '../Constants';
 
 class Contact extends CustomComponent 
 {
@@ -22,42 +19,46 @@ class Contact extends CustomComponent
                             Contact
                         </Typography>
                     </Indent>
-                    <Indent level={2}>
-                        <Columns>
-                            <React.Fragment>
-                                <Typography variant="h4" gutterBottom>
-                                    Email
-                                </Typography>
-                                <Typography variant="h4" gutterBottom>
-                                    Phone
-                                </Typography>
-                                <Typography variant="h4" gutterBottom>
-                                    LinkedIn
-                                </Typography>
-                            </React.Fragment>
-                            <React.Fragment>
-                                <Link href={"mailto:" + EMAIL_ADDRESS} target="_blank" color="secondary">
+                    <Group>
+                        <Indent level={2}>
+                            <Columns>
+                                <Group>
                                     <Typography variant="h4" gutterBottom>
-                                        {EMAIL_ADDRESS}
+                                        Email
                                     </Typography>
-                                </Link>
-                                <Link href={"tel:" + PHONE_NUMBER} target="_blank" color="secondary">
                                     <Typography variant="h4" gutterBottom>
-                                        {this.readablePhoneNumber(PHONE_NUMBER)}
+                                        Phone
                                     </Typography>
-                                </Link>
-                                <Link href={LINKEDIN} target="_blank" color="secondary">
                                     <Typography variant="h4" gutterBottom>
-                                        {LINKEDIN}
+                                        LinkedIn
                                     </Typography>
-                                </Link>
-                            </React.Fragment>
-                        </Columns>
-                    </Indent>
+                                </Group>
+                                <Group>
+                                    <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
+                                        <Typography variant="h4" gutterBottom>
+                                            {CONSTANTS.EMAIL_ADDRESS}
+                                        </Typography>
+                                    </Link>
+                                    <Link href={"tel:" + CONSTANTS.PHONE_NUMBER} target="_blank" color="secondary">
+                                        <Typography variant="h4" gutterBottom>
+                                            {this.readablePhoneNumber(CONSTANTS.PHONE_NUMBER)}
+                                        </Typography>
+                                    </Link>
+                                    <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank" color="secondary">
+                                        <Typography variant="h4" gutterBottom>
+                                            {CONSTANTS.LINKS.LINKEDIN}
+                                        </Typography>
+                                    </Link>
+                                </Group>
+                            </Columns>
+                        </Indent>
+                    </Group>
+                </Partition>
+                <Space>
                     <Suggestions labels={['Home']}>
                         <Home/>
                     </Suggestions>
-                </Partition>
+                </Space>
             </Page>
         );
     }

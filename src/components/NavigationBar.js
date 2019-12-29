@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { AppBar, Tabs, Tab, withTheme } from '@material-ui/core';
+import { AppBar, Tabs, Tab, withTheme, Box } from '@material-ui/core';
 
 class NavigationBar extends CustomComponent 
 {
@@ -33,6 +33,9 @@ class NavigationBar extends CustomComponent
                 >
                     {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
                 </Tabs>
+                <Box position='absolute' right={0} height={1} display='flex' alignItems='center'>
+                    {this.props.links}
+                </Box>
            </AppBar>
         );
     }
