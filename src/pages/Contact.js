@@ -5,6 +5,10 @@ import { Page, Partition, Indent, Columns, Suggestions, Group, Space } from '../
 import { Home } from './Pages';
 import * as CONSTANTS from '../Constants';
 
+import EmailIcon from '@material-ui/icons/Email';
+import PhoneIcon from '@material-ui/icons/Phone';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+
 class Contact extends CustomComponent 
 {
     static buttonText = "Contact";
@@ -13,9 +17,9 @@ class Contact extends CustomComponent
     {
         return (
             <Page pageDeque={this.props.pageDeque}>
-                <Partition>
+                <Partition center>
                     <Indent>
-                        <Typography variant="h2">
+                        <Typography variant={CONSTANTS.TITLE_VARIANT}>
                             Contact
                         </Typography>
                     </Indent>
@@ -24,13 +28,13 @@ class Contact extends CustomComponent
                             <Columns>
                                 <Group>
                                     <Typography variant="h4" gutterBottom>
-                                        Email
+                                        <EmailIcon fontSize='inherit'/>
                                     </Typography>
                                     <Typography variant="h4" gutterBottom>
-                                        Phone
+                                        <PhoneIcon fontSize='inherit'/>
                                     </Typography>
                                     <Typography variant="h4" gutterBottom>
-                                        LinkedIn
+                                        <LinkedInIcon fontSize='inherit'/>
                                     </Typography>
                                 </Group>
                                 <Group>

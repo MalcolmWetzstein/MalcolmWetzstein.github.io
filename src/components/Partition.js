@@ -13,20 +13,25 @@ class Partition extends CustomComponent
 {
     render()
     {
-        return (
-            <Container maxWidth="lg">
+        return this.props.center ? (
+            <Container maxWidth={this.props.maxWidth ? this.props.maxWidth : 'lg'}>
                 {this.partitionsFromChildren()}
             </Container>
+        ) : (
+            <Box maxWidth={this.interpretMaxWidth(this.props.maxWidth ? this.props.maxWidth : 'lg')}>
+                {this.partitionsFromChildren()}
+            </Box>
         );
     }
 
     partitionsFromChildren()
     {
+        const SPACING = this.props.spacing ? this.props.spacing : CONSTANTS.UNIT_SPACE;
         const length = React.Children.count(this.props.children);
 
         if (length === 1)
             return (
-                <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, CONSTANTS.UNIT_SPACE, 0)}>
+                <Box margin={this.props.theme.spacing(SPACING, 0, SPACING, 0)}>
                     {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
                 </Box>
             );
@@ -37,7 +42,7 @@ class Partition extends CustomComponent
                 if (index === 0) // Title Partition
                 {
                     return (
-                        <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE*1.5, 0, CONSTANTS.UNIT_SPACE, 0)}>
+                        <Box margin={this.props.theme.spacing(SPACING*1.5, 0, SPACING, 0)}>
                             {this.props.pageDeque.withDequeProps(child)}
                         </Box>
                     );
@@ -47,7 +52,7 @@ class Partition extends CustomComponent
                     return (
                         <React.Fragment>
                             <Divider/>
-                            <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
+                            <Box margin={this.props.theme.spacing(SPACING, 0, 0, 0)}>
                                 {this.props.pageDeque.withDequeProps(child)}
                             </Box>
                         </React.Fragment>
@@ -58,7 +63,7 @@ class Partition extends CustomComponent
                     return (
                         <React.Fragment>
                             <Divider/>
-                            <Box margin={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, CONSTANTS.UNIT_SPACE, 0)}>
+                            <Box margin={this.props.theme.spacing(SPACING, 0, SPACING, 0)}>
                                 {this.props.pageDeque.withDequeProps(child)}
                             </Box>
                         </React.Fragment>
@@ -66,6 +71,22 @@ class Partition extends CustomComponent
                 }
             }
         );
+    }
+
+    interpretMaxWidth(maxWidth)
+    {
+        if (maxWidth === 'xl')
+            return 'none';
+        else if (maxWidth === 'lg')
+            return '1280px';
+        else if (maxWidth === 'md')
+            return '960px';
+        else if (maxWidth === 'sm')
+            return '600px';
+        else if (maxWidth === 'xs')
+            return '444px';
+        
+        return maxWidth;
     }
 }
 

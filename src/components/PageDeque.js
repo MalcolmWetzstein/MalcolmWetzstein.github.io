@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
 import { withTheme } from '@material-ui/core';
+import { reKey } from './Custom';
 
 class PageDeque extends CustomComponent
 {
@@ -46,7 +47,7 @@ class PageDeque extends CustomComponent
     render() 
     {
         const childrenWithProps = React.Children.map(this.props.children, child => this.withDequeProps(child));
-        return this.reKey(childrenWithProps.concat(this.state.pageStack));
+        return reKey(childrenWithProps.concat(this.state.pageStack));
     }
 
     clear()
@@ -167,11 +168,6 @@ class PageDeque extends CustomComponent
                 withDequeProps: this.withDequeProps
             }
         } : undefined);
-    }
-
-    reKey(componentArray)
-    {
-        return componentArray.map( (component, index) => React.cloneElement(component, { key: index.toString() }) );
     }
 }
 

@@ -27,16 +27,16 @@ class Suggestions extends CustomComponent
         return React.Children.map(this.props.children,
             (child, index) =>
             {
-                if (child.type.displayName.includes('Link'))
+                if (child.type.custom)
                     return (
-                        <Button>
-                            {React.cloneElement(child, { underline: 'none', color: 'inherit'}, this.props.labels[index])}
+                        <Button onClick={this.clickHandler(index)}>
+                            {this.props.labels[index]}
                         </Button>
                     );
                 else
                     return (
-                        <Button onClick={this.clickHandler(index)}>
-                            {this.props.labels[index]}
+                        <Button>
+                            {React.cloneElement(child, { underline: 'none', color: 'inherit'}, this.props.labels[index])}
                         </Button>
                     );
             }

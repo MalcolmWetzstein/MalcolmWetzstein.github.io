@@ -1,10 +1,12 @@
 import React from 'react';
-import { CssBaseline, ThemeProvider, useMediaQuery, ButtonBase, Box } from '@material-ui/core';
-import { PageDeque, NavigationBar } from './components/Custom';
+import { CssBaseline, ThemeProvider, useMediaQuery } from '@material-ui/core';
+import { PageDeque, NavigationBar, IconLink } from './components/Custom';
 import * as CONSTANTS from './Constants';
 import * as themes from './themes/Themes';
 import * as pages from './pages/Pages';
 
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import DescriptionIcon from '@material-ui/icons/Description';
 
 function App() 
@@ -14,17 +16,15 @@ function App()
       <CssBaseline/>
       <PageDeque>
         <NavigationBar links={[
-          <ButtonBase href={CONSTANTS.LINKS.LINKEDIN} target='_blank'>
-            <img src={CONSTANTS.ICONS.LINKEDIN.WHITE} alt='in' width='32px' height='32px'/>
-          </ButtonBase>,
-          <Box margin={themes.LightTheme.spacing(0, 0.5, 0, 1)}>
-            <ButtonBase href={CONSTANTS.LINKS.GITHUB} target='_blank'>
-              <img src={CONSTANTS.ICONS.GITHUB.WHITE} alt='git'/>
-            </ButtonBase>
-          </Box>,
-          <ButtonBase href={CONSTANTS.LINKS.RESUME} target='_blank'>
-            <DescriptionIcon fontSize='large'/>
-          </ButtonBase>
+          <IconLink href={CONSTANTS.LINKS.LINKEDIN}>
+            <LinkedInIcon/>
+          </IconLink>,
+          <IconLink href={CONSTANTS.LINKS.GITHUB}>
+            <GitHubIcon/>
+          </IconLink>,
+          <IconLink href={CONSTANTS.LINKS.RESUME}>
+            <DescriptionIcon/>
+          </IconLink>
         ]}>
           <pages.Home/>
           <pages.Education/>

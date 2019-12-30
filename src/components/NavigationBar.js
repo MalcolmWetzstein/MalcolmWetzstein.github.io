@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
 import { AppBar, Tabs, Tab, withTheme, Box } from '@material-ui/core';
+import { reKey } from './Custom';
 
 class NavigationBar extends CustomComponent 
 {
@@ -28,13 +29,12 @@ class NavigationBar extends CustomComponent
                 <Tabs 
                     indicatorColor="secondary" 
                     value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
-                    onChange={this.tabChange} 
-                    centered
+                    onChange={this.tabChange}
                 >
                     {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
                 </Tabs>
                 <Box position='absolute' right={0} height={1} display='flex' alignItems='center'>
-                    {this.props.links}
+                    {reKey(this.props.links)}
                 </Box>
            </AppBar>
         );
