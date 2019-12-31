@@ -7,11 +7,15 @@ class Space extends CustomComponent
 {
     render()
     {
-        return (
-            <Box margin={this.props.theme.spacing(this.props.level ? this.props.level * CONSTANTS.UNIT_SPACE : CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
-                {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
-            </Box>
-        );
+        return React.Children.count(this.props.children) > 0 ? (
+                <Box margin={this.props.theme.spacing(this.props.level ? this.props.level * CONSTANTS.UNIT_SPACE : CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
+                    {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
+                </Box>
+            ) : (
+                <Box padding={this.props.theme.spacing(this.props.level ? this.props.level * CONSTANTS.UNIT_SPACE : CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
+                    {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
+                </Box>
+            );
     }
 }
 

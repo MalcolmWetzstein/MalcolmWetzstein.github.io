@@ -1,7 +1,8 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, withTheme, Card, CardContent, Container } from '@material-ui/core';
-import { Page, Partition, Suggestions, Indent, Group } from '../components/Custom';
+import { Typography, withTheme, Card, CardContent, Grid } from '@material-ui/core';
+import { Page, Partition, Suggestions, Indent, Space } from '../components/Custom';
+import { Home, Courses, Projects } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 class Education extends CustomComponent
@@ -18,21 +19,32 @@ class Education extends CustomComponent
                             Education
                         </Typography>
                     </Indent>
-                    <Container>
-                        <Degree 
-                            dates='06-2018 &mdash; 09-2019'
-                            school='Massachusetts Institute of Technology, Cambridge, MA'
-                            degree='MEng in Electrical Engineering and Computer Science'
-                            info={['Thesis: Custom and Interactive Environments in StarLogo Nova for Computational Modeling', '5.0 GPA']}
-                        />
-                        <Degree 
-                            dates='09-2014 &mdash; 06-2018'
-                            school='Massachusetts Institute of Technology, Cambridge, MA'
-                            degree='BS in Computer Science and Engineering'
-                            info={['4.7 GPA']}
-                        />
-                    </Container>
+                    <Grid container direction='row' spacing={CONSTANTS.UNIT_INDENT} justify='center' alignItems='flex-start'>
+                        <Grid item xs={6}>
+                            <Degree 
+                                dates='06-2018 &mdash; 09-2019'
+                                school='Massachusetts Institute of Technology, Cambridge, MA'
+                                degree='MEng in Electrical Engineering and Computer Science'
+                                info={['Thesis: Custom and Interactive Environments in StarLogo Nova for Computational Modeling', '5.0 GPA']}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Degree 
+                                dates='09-2014 &mdash; 06-2018'
+                                school='Massachusetts Institute of Technology, Cambridge, MA'
+                                degree='BS in Computer Science and Engineering'
+                                info={['4.7 GPA']}
+                            />
+                        </Grid>
+                    </Grid>
                 </Partition>
+                <Space level={2}>
+                    <Suggestions labels={['Courses', 'Projects', 'Home']}>
+                        <Courses/>
+                        <Projects/>
+                        <Home/>
+                    </Suggestions>
+                </Space>
             </Page>
         );
     }
@@ -43,7 +55,7 @@ class Degree extends CustomComponent
     render()
     {
         return(
-            <Card>
+            <Card variant='outlined'>
                 <CardContent>
                     <Typography variant='subtitle2' color='textSecondary'>
                         {this.props.dates}

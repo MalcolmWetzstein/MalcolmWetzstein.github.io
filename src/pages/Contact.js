@@ -58,7 +58,7 @@ class Contact extends CustomComponent
                         </Indent>
                     </Group>
                 </Partition>
-                <Space>
+                <Space level={1.5}>
                     <Suggestions labels={['Home']}>
                         <Home/>
                     </Suggestions>
@@ -69,7 +69,7 @@ class Contact extends CustomComponent
 
     readablePhoneNumber(phoneNumber)
     {
-        return phoneNumber.slice(0,3) + '-' + phoneNumber.slice(3,6) + '-' + phoneNumber.slice(6);
+        return '(' + phoneNumber.slice(0,3) + ')' + phoneNumber.slice(3,6) + '-' + phoneNumber.slice(6);
     }
 }
 

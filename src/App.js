@@ -27,7 +27,12 @@ function App()
           </IconLink>
         ]}>
           <pages.Home/>
+          <pages.About/>
+          <pages.Experience/>
           <pages.Education/>
+          <pages.Courses/>
+          <pages.Projects/>
+          <pages.Skills/>
           <pages.Contact/>
         </NavigationBar>
       </PageDeque>

@@ -42,7 +42,7 @@ class Partition extends CustomComponent
                 if (index === 0) // Title Partition
                 {
                     return (
-                        <Box margin={this.props.theme.spacing(SPACING*1.5, 0, SPACING, 0)}>
+                        <Box margin={this.props.theme.spacing(SPACING, 0, SPACING*2/3, 0)}>
                             {this.props.pageDeque.withDequeProps(child)}
                         </Box>
                     );

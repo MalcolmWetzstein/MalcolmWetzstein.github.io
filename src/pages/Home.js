@@ -1,8 +1,8 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Suggestions, Group } from '../components/Custom';
-import { Contact } from './Pages';
+import { Page, Partition, Suggestions, Group, Space } from '../components/Custom';
+import { Contact, About } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -25,10 +25,12 @@ class Home extends CustomComponent
                         <Typography variant="subtitle1" align="center">
                             Recent Master Graduate in Computer Science
                         </Typography>
+                        <Space level={1/3}/>
                     </Group>
-                    <Suggestions labels={[['resume ', <DescriptionIcon fontSize='inherit'/>], 'contact me']}>
-                        <Link href={CONSTANTS.LINKS.RESUME} download/>
+                    <Suggestions labels={['about me', 'contact me', ['resume ', <DescriptionIcon fontSize='inherit'/>]]}>
+                        <About/>
                         <Contact/>
+                        <Link href={CONSTANTS.LINKS.RESUME} download/>
                     </Suggestions>
                 </Partition>
             </Page>
