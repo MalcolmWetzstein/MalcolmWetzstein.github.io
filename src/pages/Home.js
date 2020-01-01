@@ -27,10 +27,12 @@ class Home extends CustomComponent
                         </Typography>
                         <Space level={1/3}/>
                     </Group>
-                    <Suggestions labels={['about me', 'contact me', ['resume ', <DescriptionIcon fontSize='inherit'/>]]}>
+                    {// Replace 'contact me' with 'more' that scrolls down to highlights.
+                    }
+                    <Suggestions labels={['about me', ['resume ', <DescriptionIcon fontSize='inherit'/>], 'more']}>
                         <About/>
-                        <Contact/>
                         <Link href={CONSTANTS.LINKS.RESUME} download/>
+                        <Link/>
                     </Suggestions>
                 </Partition>
             </Page>

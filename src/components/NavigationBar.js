@@ -30,6 +30,7 @@ class NavigationBar extends CustomComponent
                     indicatorColor="secondary" 
                     value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
                     onChange={this.tabChange}
+                    centered
                 >
                     {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
                 </Tabs>

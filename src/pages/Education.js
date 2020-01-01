@@ -39,7 +39,7 @@ class Education extends CustomComponent
                     </Grid>
                 </Partition>
                 <Space level={2}>
-                    <Suggestions labels={['Courses', 'Projects', 'Home']}>
+                    <Suggestions labels={['courses', 'projects', 'home']}>
                         <Courses/>
                         <Projects/>
                         <Home/>

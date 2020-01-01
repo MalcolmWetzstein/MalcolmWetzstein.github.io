@@ -9,7 +9,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import PhoneIcon from '@material-ui/icons/Phone';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-class Contact extends CustomComponent 
+class Contact extends CustomComponent
 {
     static buttonText = "Contact";
     
@@ -59,7 +59,7 @@ class Contact extends CustomComponent
                     </Group>
                 </Partition>
                 <Space level={1.5}>
-                    <Suggestions labels={['Home']}>
+                    <Suggestions labels={['home']}>
                         <Home/>
                     </Suggestions>
                 </Space>
