@@ -30,11 +30,15 @@ class Suggestions extends CustomComponent
         return React.Children.map(this.props.children,
             (child, index) =>
             {
+                let icon = null;
+                if (this.props.icons)
+                    icon = this.props.icons[index];
+
                 if (child.type.custom)
                     return (
                         <Button onClick={this.clickHandler(index)}>
                             <Box minWidth={CONSTANTS.UNIT_INDENT*BUTTON_SIZE}>
-                                {this.props.labels[index]}
+                                {this.fullLabel(this.props.labels[index], icon)}
                             </Box>
                         </Button>
                     );
@@ -42,7 +46,7 @@ class Suggestions extends CustomComponent
                     return (
                         <Button>
                             <Box minWidth={CONSTANTS.UNIT_INDENT*BUTTON_SIZE}>
-                                {React.cloneElement(child, { underline: 'none', color: 'inherit'}, this.props.labels[index])}
+                                {React.cloneElement(child, { underline: 'none', color: 'inherit'}, this.fullLabel(this.props.labels[index], icon))}
                             </Box>
                         </Button>
                     );
@@ -57,6 +61,11 @@ class Suggestions extends CustomComponent
             this.props.pageDeque.push(React.Children.toArray(this.props.children)[index]);
             this.props.pageDeque.finish();
         };
+    }
+
+    fullLabel(text, icon)
+    {
+        return icon ? [text+' ', React.cloneElement(icon, { key: text, fontSize: 'inherit' })] : text;
     }
 }
 

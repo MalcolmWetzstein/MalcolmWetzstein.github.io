@@ -23,40 +23,36 @@ class Contact extends CustomComponent
                             Contact
                         </Typography>
                     </Indent>
-                    <Group>
-                        <Indent level={2}>
-                            <Columns>
-                                <Group>
-                                    <Typography variant="h4" gutterBottom>
-                                        <EmailIcon fontSize='inherit'/>
-                                    </Typography>
-                                    <Typography variant="h4" gutterBottom>
-                                        <PhoneIcon fontSize='inherit'/>
-                                    </Typography>
-                                    <Typography variant="h4" gutterBottom>
-                                        <LinkedInIcon fontSize='inherit'/>
-                                    </Typography>
-                                </Group>
-                                <Group>
-                                    <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
-                                        <Typography variant="h4" gutterBottom>
-                                            {CONSTANTS.EMAIL_ADDRESS}
-                                        </Typography>
-                                    </Link>
-                                    <Link href={"tel:" + CONSTANTS.PHONE_NUMBER} target="_blank" color="secondary">
-                                        <Typography variant="h4" gutterBottom>
-                                            {this.readablePhoneNumber(CONSTANTS.PHONE_NUMBER)}
-                                        </Typography>
-                                    </Link>
-                                    <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank" color="secondary">
-                                        <Typography variant="h4" gutterBottom>
-                                            {CONSTANTS.LINKS.LINKEDIN}
-                                        </Typography>
-                                    </Link>
-                                </Group>
-                            </Columns>
-                        </Indent>
-                    </Group>
+                    <Columns justify='center'>
+                        <Group>
+                            <Typography variant="h4" gutterBottom>
+                                <EmailIcon fontSize='inherit'/>
+                            </Typography>
+                            <Typography variant="h4" gutterBottom>
+                                <PhoneIcon fontSize='inherit'/>
+                            </Typography>
+                            <Typography variant="h4" gutterBottom>
+                                <LinkedInIcon fontSize='inherit'/>
+                            </Typography>
+                        </Group>
+                        <Group>
+                            <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
+                                <Typography variant="h4" gutterBottom>
+                                    {CONSTANTS.EMAIL_ADDRESS}
+                                </Typography>
+                            </Link>
+                            <Link href={"tel:" + CONSTANTS.PHONE_NUMBER} target="_blank" color="secondary">
+                                <Typography variant="h4" gutterBottom>
+                                    {this.readablePhoneNumber(CONSTANTS.PHONE_NUMBER)}
+                                </Typography>
+                            </Link>
+                            <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank" color="secondary">
+                                <Typography variant="h4" gutterBottom>
+                                    {CONSTANTS.LINKS.LINKEDIN}
+                                </Typography>
+                            </Link>
+                        </Group>
+                    </Columns>
                 </Partition>
                 <Space level={1.5}>
                     <Suggestions labels={['home']}>

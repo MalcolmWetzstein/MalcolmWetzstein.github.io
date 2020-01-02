@@ -8,7 +8,7 @@ class Columns extends CustomComponent
     render()
     {
         return (
-            <Grid container>
+            <Grid container justify={this.props.justify ? this.props.justify : 'flex-start'}>
                 {this.columnsFromChildren()}
             </Grid>
         );
@@ -18,9 +18,10 @@ class Columns extends CustomComponent
     {
         const length = React.Children.count(this.props.children);
         const marginSize = this.props.size ? this.props.size * CONSTANTS.UNIT_INDENT : CONSTANTS.UNIT_INDENT
+        const setMargins = this.props.justify ? (this.props.justify === 'flex-start' || this.props.justify === 'flex-end' || this.props.justify === 'center' ? true : false) : true;
 
         if (length === 1)
-            return this.props.pageDeque.withDequeProps(this.props.children);
+            return this.passDequeProps(this.props.children);
 
         return React.Children.map(this.props.children, 
             (child, index) =>
@@ -28,8 +29,8 @@ class Columns extends CustomComponent
                 if (index === 0) // First Column
                 {
                     return (
-                        <Box margin={this.props.theme.spacing(0, marginSize, 0, 0)}>
-                            {this.props.pageDeque.withDequeProps(child)}
+                        <Box margin={this.props.theme.spacing(0, setMargins ? marginSize : 0, 0, 0)}>
+                            {this.passDequeProps(child)}
                         </Box>
                     );
                 }
@@ -37,11 +38,11 @@ class Columns extends CustomComponent
                 {
                     return (
                         <React.Fragment>
-                            <Box marginLeft="1px">
+                            <Box margin="0px, 1px, 0px, 1px">
                                 <Divider orientation="vertical"/>
                             </Box>
-                            <Box margin={this.props.theme.spacing(0, 0, 0, marginSize)}>
-                                {this.props.pageDeque.withDequeProps(child)}
+                            <Box margin={this.props.theme.spacing(0, 0, 0, setMargins ? marginSize : 0)}>
+                                {this.passDequeProps(child)}
                             </Box>
                         </React.Fragment>
                     );
@@ -50,17 +51,22 @@ class Columns extends CustomComponent
                 {
                     return (
                         <React.Fragment>
-                            <Box marginLeft="1px">
+                            <Box margin="0px, 1px, 0px, 1px">
                                 <Divider orientation="vertical"/>
                             </Box>
-                            <Box margin={this.props.theme.spacing(0, marginSize, 0, marginSize)}>
-                                {this.props.pageDeque.withDequeProps(child)}
+                            <Box margin={this.props.theme.spacing(0, setMargins ? marginSize : 0, 0, setMargins ? marginSize : 0)}>
+                                {this.passDequeProps(child)}
                             </Box>
                         </React.Fragment>
                     );
                 }
             }
         );
+    }
+
+    passDequeProps(child)
+    {
+        return this.props.pageDeque ? this.props.pageDeque.withDequeProps(child) : child;
     }
 }
 

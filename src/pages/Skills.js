@@ -2,7 +2,7 @@ import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography } from '@material-ui/core';
 import { Page, Partition, Indent, Space, Suggestions } from '../components/Custom';
-import { Home, Contact, Experience } from './Pages';
+import { Home, Contact } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 class Skills extends CustomComponent 
@@ -21,8 +21,7 @@ class Skills extends CustomComponent
                     </Indent>
                 </Partition>
                 <Space level={2}>
-                    <Suggestions labels={['experience', 'contact me', 'home']}>
-                        <Experience/>
+                    <Suggestions labels={['contact me', 'home']}>
                         <Contact/>
                         <Home/>
                     </Suggestions>

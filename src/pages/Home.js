@@ -2,7 +2,7 @@ import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
 import { Page, Partition, Suggestions, Group, Space } from '../components/Custom';
-import { Contact, About } from './Pages';
+import { About } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -27,12 +27,10 @@ class Home extends CustomComponent
                         </Typography>
                         <Space level={1/3}/>
                     </Group>
-                    {// Replace 'contact me' with 'more' that scrolls down to highlights.
-                    }
-                    <Suggestions labels={['about me', ['resume ', <DescriptionIcon fontSize='inherit'/>], 'more']}>
+                    <Suggestions labels={['about me', 'resume', 'more']} icons={[null, <DescriptionIcon/>, null]}>
                         <About/>
                         <Link href={CONSTANTS.LINKS.RESUME} download/>
-                        <Link/>
+                        <Link href='#'/>
                     </Suggestions>
                 </Partition>
             </Page>
