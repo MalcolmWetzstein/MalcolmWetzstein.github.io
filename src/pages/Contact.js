@@ -11,7 +11,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 class Contact extends CustomComponent
 {
-    static buttonText = "Contact";
+    static buttonText = "Contact Me";
     
     render ()
     {
@@ -20,7 +20,7 @@ class Contact extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            Contact
+                            Contact Me
                         </Typography>
                     </Indent>
                     <Columns justify='center'>

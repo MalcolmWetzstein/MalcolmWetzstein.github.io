@@ -1,8 +1,8 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, withTheme, Card, CardContent, Grid, CardMedia, Box } from '@material-ui/core';
-import { Page, Partition, Suggestions, Indent, Space, reKey, Columns } from '../components/Custom';
-import { Home, Courses, Projects } from './Pages';
+import { Page, Partition, Suggestions, Indent, Space, reKey, Columns, renderDateRange } from '../components/Custom';
+import { Home, Courses, Experience } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 class Education extends CustomComponent
@@ -57,9 +57,9 @@ class Education extends CustomComponent
                     </Grid>
                 </Partition>
                 <Space level={2}>
-                    <Suggestions labels={['courses', 'projects', 'home']}>
+                    <Suggestions labels={['courses', 'experience', 'home']}>
                         <Courses/>
-                        <Projects/>
+                        <Experience/>
                         <Home/>
                     </Suggestions>
                 </Space>
@@ -77,11 +77,7 @@ class Degree extends CustomComponent
                 <CardContent>
                     <Columns justify='space-around'>
                         <React.Fragment>
-                            <Typography variant='subtitle2' color='textSecondary'>
-                                {this.renderDate(this.props.startMonth, this.props.startYear)}
-                                &mdash;
-                                {this.props.present ? 'Present' : this.renderDate(this.props.endMonth, this.props.endYear)}
-                            </Typography>
+                            {renderDateRange(this.props.startMonth, this.props.startYear, this.props.endMonth, this.props.endYear)}
                             <Typography variant='h6'>
                                 {this.props.school}
                             </Typography>
@@ -100,7 +96,7 @@ class Degree extends CustomComponent
                             />
                         </Box>
                     </Columns>
-                    <Typography variant='caption' color='textSecondary'>
+                    <Typography variant='body2' color='textSecondary'>
                         {this.renderInfo()}
                     </Typography>
                 </CardContent>
@@ -108,18 +104,9 @@ class Degree extends CustomComponent
         );
     }
 
-    renderDate(month, year)
-    {
-        return (month < 10 ? '0' + month : month) + '-' + year;
-    }
-
     renderInfo()
     {
-        return this.props.info ? (
-                <ul>
-                    {reKey(this.props.info.map(child => <li>{child}</li>))}
-                </ul>
-            ) : undefined;
+        return this.props.info ? reKey(this.props.info.map(child => <ul><li>{child}</li></ul>)) : undefined;
     }
 }
 
