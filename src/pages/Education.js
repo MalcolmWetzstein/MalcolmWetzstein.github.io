@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, withTheme, Card, CardContent, Grid, CardMedia, Box } from '@material-ui/core';
-import { Page, Partition, Suggestions, Indent, Space, reKey, Columns, renderDateRange } from '../components/Custom';
+import { Typography, withTheme, Card, CardContent, Grid, CardMedia, Box, Divider } from '@material-ui/core';
+import { Page, Partition, Suggestions, Indent, Space, Bullets, DateRange } from '../components/Custom';
 import { Home, Courses, Experience } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -30,7 +30,21 @@ class Education extends CustomComponent
                                 city='Cambridge'
                                 state='MA'
                                 degree='MEng in Electrical Engineering and Computer Science'
-                                info={['Thesis: Custom and Interactive Environments in StarLogo Nova for Computational Modeling', '5.0 GPA']}
+                                info={[
+                                    [
+                                        'Thesis Project',
+                                        'Custom and Interactive Environments in StarLogo Nova for Computational Modeling'
+                                    ],
+                                    [
+                                        'Concentration in Computer Graphics',
+                                        '3D Rendering & Animation',
+                                        'Shape Analysis (Digital Geometry)',
+                                        'Computational Photography (Image Processing)',
+                                        'Computer Vision',
+                                        'Computational Fabrication'
+                                    ],
+                                    '5.0 GPA'
+                                ]}
                                 graphic={CONSTANTS.IMAGES.MIT.LOGO}
                                 graphicInfo='Massachusetts Institute of Technology'
                                 graphicWidth='100px'
@@ -47,7 +61,23 @@ class Education extends CustomComponent
                                 city='Cambridge'
                                 state='MA'
                                 degree='BS in Computer Science and Engineering'
-                                info={['4.7 GPA']}
+                                info={[
+                                    [
+                                        'Topics Covered',
+                                        'Software Engineering',
+                                        'Algorithm Design & Analysis',
+                                        'Computer Architecture',
+                                        'Machine Learning',
+                                        'Systems Engineering'
+                                    ],
+                                    [
+                                        'Other Subjects',
+                                        'Mathematics 5 courses',
+                                        'Architecture & Design 4 courses',
+                                        'Music Theory & Composition 5 courses'
+                                    ], 
+                                    '4.7 GPA'
+                                ]}
                                 graphic={CONSTANTS.IMAGES.MIT.LOGO}
                                 graphicInfo='Massachusetts Institute of Technology'
                                 graphicWidth='100px'
@@ -75,9 +105,14 @@ class Degree extends CustomComponent
         return(
             <Card variant='outlined'>
                 <CardContent>
-                    <Columns justify='space-around'>
-                        <React.Fragment>
-                            {renderDateRange(this.props.startMonth, this.props.startYear, this.props.endMonth, this.props.endYear)}
+                    <Grid container justify='space-around' direction='row'>
+                        <Box>
+                            <DateRange
+                                startMonth={this.props.startMonth}
+                                startYear={this.props.startYear}
+                                endMonth={this.props.endMonth}
+                                endYear={this.props.endYear}
+                            />
                             <Typography variant='h6'>
                                 {this.props.school}
                             </Typography>
@@ -87,26 +122,22 @@ class Degree extends CustomComponent
                             <Typography variant='subtitle1'>
                                 {this.props.degree}
                             </Typography>
-                        </React.Fragment>
-                        <Box height={1} display='flex' alignItems='center'>
+                        </Box>
+                        <Box margin='auto 0'>
                             <CardMedia 
                                 image={this.props.graphic}
                                 title={this.props.graphicInfo}
                                 style={{ width: this.props.graphicWidth, height: this.props.graphicHeight }}
                             />
                         </Box>
-                    </Columns>
-                    <Typography variant='body2' color='textSecondary'>
-                        {this.renderInfo()}
-                    </Typography>
+                    </Grid>
+                </CardContent>
+                <Divider/>
+                <CardContent>
+                    <Bullets focus bullets={this.props.info}/>
                 </CardContent>
             </Card>
         );
-    }
-
-    renderInfo()
-    {
-        return this.props.info ? reKey(this.props.info.map(child => <ul><li>{child}</li></ul>)) : undefined;
     }
 }
 

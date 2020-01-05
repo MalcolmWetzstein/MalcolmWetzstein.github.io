@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { withTheme, Typography, Grid, Card, CardContent, CardMedia, Box, Divider, Container } from '@material-ui/core';
-import { Page, Partition, Indent, Space, Suggestions, reKey, renderDateRange } from '../components/Custom';
+import { withTheme, Typography, Grid, Card, CardContent, CardMedia, Box, Divider } from '@material-ui/core';
+import { Page, Partition, Indent, Space, Suggestions, Bullets, DateRange } from '../components/Custom';
 import { Education, Skills, Home } from '../pages/Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -19,8 +19,7 @@ class Experience extends CustomComponent
                             Experience
                         </Typography>
                     </Indent>
-                    <Grid container direction='column' spacing={CONSTANTS.UNIT_SPACE} justify='center' alignItems='center'>
-                        <Grid item xs={12}>
+                    <React.Fragment>
                             <Employment
                                 startMonth={11}
                                 startYear={2019}
@@ -35,8 +34,6 @@ class Experience extends CustomComponent
                                     
                                 ]}
                             />
-                        </Grid>
-                        <Grid item xs={12}>
                             <Employment
                                 startMonth={1}
                                 startYear={2015}
@@ -52,8 +49,7 @@ class Experience extends CustomComponent
                                 info={[
                                     [
                                         'Rearchitected and optimized WebGL 3D rendering engine',
-                                        'Instanced rendering technique, up to 10,000+ agents at interactive framerates',
-                                        'Batched by shader program',
+                                        'Instanced rendering technique, up to 100,000+ agents at interactive framerates',
                                         'Located and fixed platform-specific bugs'
                                     ],
                                     [
@@ -64,19 +60,17 @@ class Experience extends CustomComponent
                                     ],
                                     [
                                         'Created interactive terrain engine',
-                                        'Designed 9 tools for interactive user editing of custom terrain',
+                                        'Designed 9 different tools for interactive user editing of custom terrain',
                                         'User programmable real-time interactions between game agents and terrain'
                                     ],
                                     [
-                                        'Created asset pipeline for user uploaded 3D models',
-                                        'Transforms vertex data from various sources to engine coordinate system',
-                                        'UI provides user guidance to process'
-                                    ],
-                                    ['Located and fixed bugs throughout codebase from past developers’ work']
+                                        'Created asset pipeline and UI for users to add their own 3D models',
+                                        'Handles OBJ and Collada formats with or without albedo textures and material colors',
+                                        'User guided process resolves issues with coordinate system and winding order conventions'
+                                    ]
                                 ]}
                             />
-                        </Grid>
-                    </Grid>
+                    </React.Fragment>
                 </Partition>
                 <Space level={2}>
                     <Suggestions labels={['education', 'skills', 'home']}>
@@ -95,56 +89,46 @@ class Employment extends CustomComponent
     render()
     {
         return (
-            <Card variant='outlined'>
-                <CardContent>
-                    <Grid container justify='space-between' direction='row'>
-                        <Box>
-                            {renderDateRange(this.props.startMonth, this.props.startYear, this.props.endMonth, this.props.endYear)}
-                            <Typography variant='h6'>
-                                {this.props.title}
-                            </Typography>
-                            <Typography variant='subtitle1'>
-                                {this.props.company}
-                            </Typography>
-                            <Typography variant='subtitle2'>
-                                {(this.props.department ? this.props.department : '')}
-                            </Typography>
-                        </Box>
-                        <Box height={1} display='flex' alignItems='center'>
-                            <CardMedia 
-                                image={this.props.graphic}
-                                title={this.props.graphicInfo}
-                                style={{ width: this.props.graphicWidth, height: this.props.graphicHeight, right: '0px'}}
-                            />
-                        </Box>
-                    </Grid>
-                </CardContent>
-                <Divider/>
-                <CardContent>
-                    <Container maxWidth='md'>
-                        {this.renderInfo()}
-                    </Container>
-                </CardContent>
-            </Card>
+            <Grid container direction='row' spacing={0} justify='center'>
+                <Grid item xs={8}>
+                    <Card variant='outlined'>
+                        <CardContent>
+                            <Grid container justify='space-between' direction='row'>
+                                <Box>
+                                    <DateRange
+                                        startMonth={this.props.startMonth}
+                                        startYear={this.props.startYear}
+                                        endMonth={this.props.endMonth}
+                                        endYear={this.props.endYear}
+                                    />
+                                    <Typography variant='h6'>
+                                        {this.props.title}
+                                    </Typography>
+                                    <Typography variant='subtitle1'>
+                                        {this.props.company}
+                                    </Typography>
+                                    <Typography variant='subtitle2'>
+                                        {(this.props.department ? this.props.department : '')}
+                                    </Typography>
+                                </Box>
+                                <Box height={1} display='flex' alignItems='center'>
+                                    <CardMedia 
+                                        image={this.props.graphic}
+                                        title={this.props.graphicInfo}
+                                        style={{ width: this.props.graphicWidth, height: this.props.graphicHeight, right: '0px'}}
+                                    />
+                                </Box>
+                            </Grid>
+                        </CardContent>
+                        <Divider/>
+                        <CardContent>
+                            <Bullets focus bullets={this.props.info}/>
+                        </CardContent>
+                    </Card>
+                    <Space/>
+                </Grid>
+            </Grid>
         );
-    }
-
-    renderInfo()
-    {
-        return this.props.info ? 
-            reKey(this.props.info.map(
-                            info => { 
-                                return (
-                                    <ul>
-                                        <li>
-                                            {Array.isArray(info) ? info[0] : info}
-                                            {Array.isArray(info) ? info.map((subInfo, index) => index > 0 ? <ul><li>{subInfo}</li></ul> : undefined) : undefined}
-                                        </li>
-                                    </ul>
-                                );
-                            }
-                        )
-                ) : undefined;
     }
 }
 
