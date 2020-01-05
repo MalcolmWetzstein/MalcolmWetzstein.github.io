@@ -31,7 +31,23 @@ class Experience extends CustomComponent
                                 graphicWidth='100px'
                                 graphicHeight='100px'
                                 info={[
-                                    
+                                    'Implemented client credential grant flow for the anonymous Servco Vehicle Valuation app generating about 700+ vehicle trade-in leads annually',
+                                    'Light management experience directing app developer interns',
+                                    [
+                                        'Collaborated with interdisciplinary team using Agile workflow and Jira',
+                                        'Software Developers',
+                                        'Product Designers (Digital)',
+                                        'Product Managers',
+                                        'Marketing Specialists',
+                                        'Data Specialists',
+                                        'Content Designers'
+                                    ],
+                                    [
+                                        'Azure DevOps experience',
+                                        'Continuous Integration/Continuous Deployment (CI/CD)',
+                                        'Git collaboration' //ADD LATER: using pull requests
+                                    ],
+                                    'VR prototyping for test driving simulator'
                                 ]}
                             />
                             <Employment

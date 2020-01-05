@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { AppBar, Tabs, Tab, withTheme, Box, Divider } from '@material-ui/core';
+import { AppBar, Tabs, Tab, withTheme, Box, Divider, Grid } from '@material-ui/core';
 import { reKey } from './Custom';
 
 class NavigationBar extends CustomComponent 
@@ -26,17 +26,25 @@ class NavigationBar extends CustomComponent
     {
         return (
            <AppBar>
-                <Tabs 
-                    indicatorColor="secondary" 
-                    value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
-                    onChange={this.tabChange}
-                    centered
-                >
-                    {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
-                </Tabs>
-                <Box position='absolute' right={0} height={1} display='flex' alignItems='center'>
-                    <Divider orientation='vertical'/>{reKey(this.props.links)}
-                </Box>
+                <Grid container direction='row' justify='space-between' wrap='nowrap'>
+                    <Grid item zeroMinWidth>
+                        <Tabs 
+                            indicatorColor="secondary" 
+                            value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
+                            onChange={this.tabChange}
+                            variant='scrollable'
+                            scrollButtons='auto'
+                        >
+                            {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
+                        </Tabs>
+                    </Grid>
+                    <Grid item>
+                        <Box height={1} display='flex' alignItems='center'>
+                            <Divider orientation='vertical'/>
+                            {reKey(this.props.links)}
+                        </Box>
+                    </Grid>
+                </Grid>
            </AppBar>
         );
     }

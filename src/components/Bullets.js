@@ -17,7 +17,7 @@ class Bullets extends CustomComponent
                                 </Typography>
                                 {
                                     Array.isArray(bullet) ? 
-                                        bullet.map((subBullet, index) => index > 0 ? 
+                                        reKey(bullet.slice(1).map(subBullet => 
                                             <ul>
                                                 <li>
                                                     <Typography variant='body2' color='textSecondary'>
@@ -25,8 +25,7 @@ class Bullets extends CustomComponent
                                                     </Typography>
                                                 </li>
                                             </ul>
-                                            : undefined)
-                                        : undefined
+                                        )) : undefined
                                 }
                             </li>
                         </ul>
