@@ -20,12 +20,11 @@ class Skills extends CustomComponent
                         </Typography>
                     </Indent>
                 </Partition>
-                <Space level={2}>
-                    <Suggestions labels={['contact me', 'home']}>
-                        <Contact/>
-                        <Home/>
-                    </Suggestions>
-                </Space>
+                <Space/>
+                <Suggestions labels={['contact me', 'home']}>
+                    <Contact/>
+                    <Home/>
+                </Suggestions>
             </Page>
         );
     }

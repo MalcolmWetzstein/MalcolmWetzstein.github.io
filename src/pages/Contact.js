@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Indent, Columns, Suggestions, Group, Space } from '../components/Custom';
+import { Page, Partition, Indent, Columns, Suggestions, Space } from '../components/Custom';
 import { Home } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -24,7 +24,7 @@ class Contact extends CustomComponent
                         </Typography>
                     </Indent>
                     <Columns justify='center'>
-                        <Group>
+                        <React.Fragment>
                             <Typography variant="h4" gutterBottom>
                                 <EmailIcon fontSize='inherit'/>
                             </Typography>
@@ -34,8 +34,8 @@ class Contact extends CustomComponent
                             <Typography variant="h4" gutterBottom>
                                 <LinkedInIcon fontSize='inherit'/>
                             </Typography>
-                        </Group>
-                        <Group>
+                        </React.Fragment>
+                        <React.Fragment>
                             <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
                                 <Typography variant="h4" gutterBottom>
                                     {CONSTANTS.EMAIL_ADDRESS}
@@ -51,7 +51,7 @@ class Contact extends CustomComponent
                                     {CONSTANTS.LINKS.LINKEDIN}
                                 </Typography>
                             </Link>
-                        </Group>
+                        </React.Fragment>
                     </Columns>
                 </Partition>
                 <Space level={1.5}>

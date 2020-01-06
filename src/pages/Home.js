@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Suggestions, Group, Space } from '../components/Custom';
+import { Page, Partition, Suggestions, Space } from '../components/Custom';
 import { About } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -16,7 +16,7 @@ class Home extends CustomComponent
         return (
             <Page pageDeque={this.props.pageDeque}>
                 <Partition center>
-                    <Group>
+                    <React.Fragment>
                         <Typography variant="h1" align="center" gutterBottom>
                             Malcolm<br/>
                             Xavier<br/>
@@ -26,7 +26,7 @@ class Home extends CustomComponent
                             Recent Master Graduate in Computer Science
                         </Typography>
                         <Space level={1/3}/>
-                    </Group>
+                    </React.Fragment>
                     <Suggestions labels={['about me', 'resume', 'more']} icons={[null, <DescriptionIcon/>, null]}>
                         <About/>
                         <Link href={CONSTANTS.LINKS.RESUME} download/>

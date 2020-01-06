@@ -20,13 +20,12 @@ class Projects extends CustomComponent
                         </Typography>
                     </Indent>
                 </Partition>
-                <Space level={2}>
-                    <Suggestions labels={['skills', 'courses', 'home']}>
-                        <Skills/>
-                        <Courses/>
-                        <Home/>
-                    </Suggestions>
-                </Space>
+                <Space/>
+                <Suggestions labels={['skills', 'courses', 'home']}>
+                    <Skills/>
+                    <Courses/>
+                    <Home/>
+                </Suggestions>
             </Page>
         );
     }

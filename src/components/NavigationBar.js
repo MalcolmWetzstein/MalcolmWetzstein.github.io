@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
 import { AppBar, Tabs, Tab, withTheme, Box, Divider, Grid } from '@material-ui/core';
-import { reKey } from './Custom';
+import { reKey } from './Util';
 
 class NavigationBar extends CustomComponent 
 {
@@ -59,6 +59,8 @@ class NavigationBar extends CustomComponent
         this.props.pageDeque.clear();
         this.props.pageDeque.push(this.props.pageDeque.withDequeProps(React.Children.toArray(this.props.children)[tabIndex]));
         this.props.pageDeque.finish();
+
+        window.scrollTo(0, 0);
     }
 }
 

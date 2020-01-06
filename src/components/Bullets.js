@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
 import { Typography, withTheme } from '@material-ui/core';
-import { reKey } from './Custom';
+import { reKey } from './Util';
 
 class Bullets extends CustomComponent
 {

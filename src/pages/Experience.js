@@ -20,81 +20,80 @@ class Experience extends CustomComponent
                         </Typography>
                     </Indent>
                     <React.Fragment>
-                            <Employment
-                                startMonth={11}
-                                startYear={2019}
-                                title='Full-Stack Developer'
-                                company='Servco Pacific'
-                                department='Digital Strategy Team'
-                                graphic={CONSTANTS.IMAGES.SERVCO.LOGO}
-                                graphicInfo='Servco Pacific'
-                                graphicWidth='100px'
-                                graphicHeight='100px'
-                                info={[
-                                    'Implemented client credential grant flow for the anonymous Servco Vehicle Valuation app generating about 700+ vehicle trade-in leads annually',
-                                    'Light management experience directing app developer interns',
-                                    [
-                                        'Collaborated with interdisciplinary team using Agile workflow and Jira',
-                                        'Software Developers',
-                                        'Product Designers (Digital)',
-                                        'Product Managers',
-                                        'Marketing Specialists',
-                                        'Data Specialists',
-                                        'Content Designers'
-                                    ],
-                                    [
-                                        'Azure DevOps experience',
-                                        'Continuous Integration/Continuous Deployment (CI/CD)',
-                                        'Git collaboration' //ADD LATER: using pull requests
-                                    ],
-                                    'VR prototyping for test driving simulator'
-                                ]}
-                            />
-                            <Employment
-                                startMonth={1}
-                                startYear={2015}
-                                endMonth={8}
-                                endYear={2019}
-                                title='Student Software Developer'
-                                company='MIT Scheller Teacher Education Program'
-                                department='StarLogo Nova Project'
-                                graphic={CONSTANTS.IMAGES.STEP.LOGO}
-                                graphicInfo='Scheller Teacher Education Program'
-                                graphicWidth='150px'
-                                graphicHeight='100px'
-                                info={[
-                                    [
-                                        'Rearchitected and optimized WebGL 3D rendering engine',
-                                        'Instanced rendering technique, up to 100,000+ agents at interactive framerates',
-                                        'Located and fixed platform-specific bugs'
-                                    ],
-                                    [
-                                        'Created fallback rendering engine for users with low-end hardware',
-                                        'Key feature needed to reach target audience in India and US schools with older hardware',
-                                        'Created software rasterization pipeline from scratch',
-                                        'Optimized by pre-rendering perspective correct sprites'
-                                    ],
-                                    [
-                                        'Created interactive terrain engine',
-                                        'Designed 9 different tools for interactive user editing of custom terrain',
-                                        'User programmable real-time interactions between game agents and terrain'
-                                    ],
-                                    [
-                                        'Created asset pipeline and UI for users to add their own 3D models',
-                                        'Handles OBJ and Collada formats with or without albedo textures and material colors',
-                                        'User guided process resolves issues with coordinate system and winding order conventions'
-                                    ]
-                                ]}
-                            />
+                        <Employment
+                            startMonth={11}
+                            startYear={2019}
+                            title='Full-Stack Developer'
+                            company='Servco Pacific'
+                            department='Digital Strategy Team'
+                            graphic={CONSTANTS.IMAGES.SERVCO.LOGO}
+                            graphicInfo='Servco Pacific'
+                            graphicWidth='100px'
+                            graphicHeight='100px'
+                            info={[
+                                'Implemented client credential grant flow for the anonymous Servco Vehicle Valuation app generating about 700+ vehicle trade-in leads annually',
+                                'Light management experience directing app developer interns',
+                                [
+                                    'Collaborated with interdisciplinary team using Agile workflow and Jira',
+                                    'Software Developers',
+                                    'Product Designers (Digital)',
+                                    'Product Managers',
+                                    'Marketing Specialists',
+                                    'Data Specialists',
+                                    'Content Designers'
+                                ],
+                                [
+                                    'Azure DevOps experience',
+                                    'Continuous Integration/Continuous Deployment (CI/CD)',
+                                    'Git collaboration' //ADD LATER: using pull requests
+                                ],
+                                'VR prototyping for test driving simulator'
+                            ]}
+                        />
+                        <Employment
+                            startMonth={1}
+                            startYear={2015}
+                            endMonth={8}
+                            endYear={2019}
+                            title='Student Software Developer'
+                            company='MIT Scheller Teacher Education Program'
+                            department='StarLogo Nova Project'
+                            graphic={CONSTANTS.IMAGES.STEP.LOGO}
+                            graphicInfo='Scheller Teacher Education Program'
+                            graphicWidth='150px'
+                            graphicHeight='100px'
+                            info={[
+                                [
+                                    'Rearchitected and optimized WebGL 3D rendering engine',
+                                    'Instanced rendering technique, up to 100,000+ agents at interactive framerates',
+                                    'Located and fixed platform-specific bugs'
+                                ],
+                                [
+                                    'Created fallback rendering engine for users with low-end hardware',
+                                    'Key feature needed to reach target audience in India and US schools with older hardware',
+                                    'Created software rasterization pipeline from scratch',
+                                    'Optimized by pre-rendering perspective correct sprites'
+                                ],
+                                [
+                                    'Created interactive terrain engine',
+                                    'Designed 9 different tools for interactive user editing of custom terrain',
+                                    'User programmable real-time interactions between game agents and terrain'
+                                ],
+                                [
+                                    'Created asset pipeline and UI for users to add their own 3D models',
+                                    'Handles OBJ and Collada formats with or without albedo textures and material colors',
+                                    'User guided process resolves issues with coordinate system and winding order conventions'
+                                ]
+                            ]}
+                        />
                     </React.Fragment>
                 </Partition>
-                <Space level={2}>
-                    <Suggestions labels={['education', 'skills', 'home']}>
-                        <Education/>
-                        <Skills/>
-                        <Home/>
-                    </Suggestions>
-                </Space>
+                <Space/>
+                <Suggestions labels={['education', 'skills', 'home']}>
+                    <Education/>
+                    <Skills/>
+                    <Home/>
+                </Suggestions>
             </Page>
         );
     }

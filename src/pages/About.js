@@ -20,13 +20,12 @@ class About extends CustomComponent
                         </Typography>
                     </Indent>
                 </Partition>
-                <Space level={2}>
-                    <Suggestions labels={['experience', 'projects', 'home']}>
-                        <Experience/>
-                        <Projects/>
-                        <Home/>
-                    </Suggestions>
-                </Space>
+                <Space/>
+                <Suggestions labels={['experience', 'projects', 'home']}>
+                    <Experience/>
+                    <Projects/>
+                    <Home/>
+                </Suggestions>
             </Page>
         );
     }
