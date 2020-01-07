@@ -2,7 +2,7 @@ import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, withTheme } from '@material-ui/core';
 import { Page, Partition, Indent, Space, Suggestions } from '../components/Custom';
-import { Home, Experience, Projects } from './Pages';
+import { Home, Experience, Portfolio } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 class About extends CustomComponent 
@@ -16,14 +16,14 @@ class About extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            About Me
+                            {About.buttonText}
                         </Typography>
                     </Indent>
                 </Partition>
                 <Space/>
-                <Suggestions labels={['experience', 'projects', 'home']}>
+                <Suggestions labels={['experience', 'portfolio', 'home']}>
                     <Experience/>
-                    <Projects/>
+                    <Portfolio/>
                     <Home/>
                 </Suggestions>
             </Page>

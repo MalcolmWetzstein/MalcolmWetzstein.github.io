@@ -16,7 +16,7 @@ class Education extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            Education
+                            {Education.buttonText}
                         </Typography>
                     </Indent>
                     <Grid container direction='row' spacing={CONSTANTS.UNIT_INDENT} justify='center' alignItems='flex-start'>

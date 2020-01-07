@@ -16,7 +16,7 @@ class Skills extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            Skills
+                            {Skills.buttonText}
                         </Typography>
                     </Indent>
                 </Partition>

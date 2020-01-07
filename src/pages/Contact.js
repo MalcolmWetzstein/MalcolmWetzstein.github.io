@@ -20,7 +20,7 @@ class Contact extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            Contact Me
+                            {Contact.buttonText}
                         </Typography>
                     </Indent>
                     <Columns justify='center'>

@@ -16,7 +16,7 @@ class Experience extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            Experience
+                            {Experience.buttonText}
                         </Typography>
                     </Indent>
                     <React.Fragment>

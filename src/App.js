@@ -31,7 +31,7 @@ function App()
           <pages.Experience/>
           <pages.Education/>
           <pages.Courses/>
-          <pages.Projects/>
+          <pages.Portfolio/>
           <pages.Skills/>
           <pages.Contact/>
         </NavigationBar>

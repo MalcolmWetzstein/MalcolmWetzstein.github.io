@@ -5,9 +5,9 @@ import { Page, Partition, Indent, Space, Suggestions } from '../components/Custo
 import { Home, Skills, Courses } from './Pages';
 import * as CONSTANTS from '../Constants';
 
-class Projects extends CustomComponent 
+class Portfolio extends CustomComponent 
 {
-    static buttonText = "Projects";
+    static buttonText = "Portfolio";
     
     render ()
     {
@@ -16,7 +16,7 @@ class Projects extends CustomComponent
                 <Partition center>
                     <Indent>
                         <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            Projects
+                            {Portfolio.buttonText}
                         </Typography>
                     </Indent>
                 </Partition>
@@ -31,4 +31,4 @@ class Projects extends CustomComponent
     }
 }
 
-export default withTheme(Projects);
+export default withTheme(Portfolio);
