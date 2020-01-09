@@ -45,9 +45,10 @@ class Experience extends CustomComponent
                                 [
                                     'Azure DevOps experience',
                                     'Continuous Integration/Continuous Deployment (CI/CD)',
-                                    'Git collaboration' //ADD LATER: using pull requests
+                                    'Git collaboration and pull requests'
                                 ],
-                                'VR prototyping for test driving simulator'
+                                'VR prototyping for test driving simulator',
+                                'Google Optimize, Google Analytics, and Salesforce Marketing Cloud experience'
                             ]}
                         />
                         <Employment

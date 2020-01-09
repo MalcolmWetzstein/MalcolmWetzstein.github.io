@@ -1,7 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { AppBar, Tabs, Tab, withTheme, Box, Divider, Grid } from '@material-ui/core';
-import { reKey } from './Util';
+import { Tabs, Tab, withTheme } from '@material-ui/core';
 
 class Categories extends CustomComponent
 {
@@ -19,21 +18,24 @@ class Categories extends CustomComponent
     render()
     {
         return (
-            <Tabs
-                indicatorColor='secondary'
-                value={this.state.currentTab} 
-                onChange={this.tabChange}
-                variant='scrollable'
-                scrollButtons='auto'
-            >
-                {React.Children.map(this.props.children, (child, index) => <Tab label={this.props.labels[index]}/>)}
-            </Tabs>
+            <React.Fragment>
+                <Tabs
+                    indicatorColor='secondary'
+                    value={this.state.currentTab} 
+                    onChange={this.tabChange}
+                    variant='scrollable'
+                    scrollButtons='auto'
+                >
+                    {React.Children.map(this.props.children, (child, index) => <Tab label={this.props.labels[index]}/>)}
+                </Tabs>
+                {React.Children.toArray(this.props.children)[this.state.currentTab]}
+            </React.Fragment>
         );
     }
 
     tabChange(event, tabIndex)
     {
-        this.setState({ currentTab: 0 });
+        this.setState({ currentTab: tabIndex });
     }
 }
 
