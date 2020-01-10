@@ -7,6 +7,9 @@ class Bullets extends CustomComponent
 {
     render()
     {
+        if (!this.props.bullets)
+            return null;
+
         return reKey(this.props.bullets.map(
                 bullet => {
                     return (

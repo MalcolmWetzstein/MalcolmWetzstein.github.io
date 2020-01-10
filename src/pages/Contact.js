@@ -54,11 +54,10 @@ class Contact extends CustomComponent
                         </React.Fragment>
                     </Columns>
                 </Partition>
-                <Space level={1.5}>
-                    <Suggestions labels={['home']}>
-                        <Home/>
-                    </Suggestions>
-                </Space>
+                <Space level={2}/>
+                <Suggestions labels={['home']}>
+                    <Home/>
+                </Suggestions>
             </Page>
         );
     }

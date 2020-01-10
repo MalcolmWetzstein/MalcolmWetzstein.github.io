@@ -10,5 +10,6 @@ import IconLink from './IconLink';
 import Bullets from './Bullets';
 import DateRange from './DateRange';
 import Categories from './Categories';
+import CustomTab from './CustomTab';
 
-export { Indent, NavigationBar, Page, PageDeque, Partition, Suggestions, Columns, Space, IconLink, Bullets, DateRange, Categories };
+export { Indent, NavigationBar, Page, PageDeque, Partition, Suggestions, Columns, Space, IconLink, Bullets, DateRange, Categories, CustomTab };

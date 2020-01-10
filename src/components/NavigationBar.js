@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { AppBar, Tabs, Tab, withTheme, Box, Divider, Grid } from '@material-ui/core';
+import { AppBar, Tabs, withTheme, Box, Divider, Grid } from '@material-ui/core';
+import { CustomTab } from './Custom';
 import { reKey } from './Util';
 
 class NavigationBar extends CustomComponent 
@@ -35,7 +36,7 @@ class NavigationBar extends CustomComponent
                             variant='scrollable'
                             scrollButtons='auto'
                         >
-                            {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
+                            {React.Children.map(this.props.children, (child, index) => <CustomTab label={this.state.tabNames[index]}/>)}
                         </Tabs>
                     </Grid>
                     <Grid item>
