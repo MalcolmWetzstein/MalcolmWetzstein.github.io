@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { withTheme, Typography, Container, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { withTheme, Typography, Container, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid } from '@material-ui/core';
 import { Page, Partition, Indent, Space, Suggestions, Categories } from '../components/Custom';
 import { Home, Portfolio, Education } from './Pages';
 import * as CONSTANTS from '../Constants';
@@ -24,21 +24,21 @@ class Courses extends CustomComponent
                     <Container maxWidth='md'>
                         <Categories labels={['Computer Science', 'Mathematics', 'Design', 'Natural Sciences', 'Music']}>
                             <React.Fragment>{/* Computer Science */}
-                                <Course label='Design and Analysis of Algorithms'/>
-                                <Course label='Software Engineering'/>
-                                <Course label='Computer Architecture'/>
-                                <Course label='Computer Graphics'/>
-                                <Course label='Shape Analysis'/>
-                                <Course label='Computational Photography'/>
-                                <Course label='Compuational Fabrication'/>
-                                <Course label='Computer Vision'/>
-                                <Course label='Oral Communication'/>
-                                <Course label='Intro to Machine Learning'/>
-                                <Course label='Computer Systems Engineering'/>
-                                <Course label='Network Theory'/>
-                                <Course label='Intro to Algorithms'/>
-                                <Course label='Fundamentals of Programming'/>
-                                <Course label='Intro to EECS: Robotics'/>
+                                <Course label='Design & Analysis of Algorithms' upper/>
+                                <Course label='Software Engineering' upper/>
+                                <Course label='Computer Architecture' lab/>
+                                <Course label='Computer Graphics' upper/>
+                                <Course label='Shape Analysis' graduate seminar/>
+                                <Course label='Computational Photography' graduate/>
+                                <Course label='Compuational Fabrication' graduate/>
+                                <Course label='Computer Vision' upper/>
+                                <Course label='Oral Communication' upper/>
+                                <Course label='Introduction to Machine Learning' lab/>
+                                <Course label='Computer Systems Engineering' upper/>
+                                <Course label='Network Theory' upper/>
+                                <Course label='Introduction to Algorithms'/>
+                                <Course label='Fundamentals of Programming' lab/>
+                                <Course label='Introduction to EECS: Robotics' lab/>
                             </React.Fragment>
                             <React.Fragment>{/* Mathematics */}
                                 <Course label='Linear Algebra'/>
@@ -46,22 +46,22 @@ class Courses extends CustomComponent
                                 <Course label='Multivariable Calculus'/>
                                 <Course label='Probability & Random Variables'/>
                                 <Course label='Discrete Math for Computer Science'/>
-                                <Course label='Calculus'/>
+                                <Course label='Calculus' ap/>
                             </React.Fragment>
                             <React.Fragment>{/* Design */}
+                                <Course label='Architecture in Motion Graphics' graduate/>
                                 <Course label='Design Computation: 3D Modeling'/>
-                                <Course label='Information & Interaction Design'/>
-                                <Course label='Intro to Architecture Design'/>
-                                <Course label='Architecture in Motion Graphics'/>
+                                <Course label='Information & Interaction Design' studio/>
+                                <Course label='Introduction to Architecture Design' studio/>
                             </React.Fragment>
                             <React.Fragment>{/* Natural Sciences */}
-                                <Course label='Physics: Mechanics'/>
+                                <Course label='Physics: Mechanics' ap/>
                                 <Course label='Physics: Electricity & Magnetism'/>
                                 <Course label='Chemistry'/>
                                 <Course label='Biology'/>
                             </React.Fragment>
                             <React.Fragment>{/* Music */}
-                                <Course label='Tonal Music Composition'/>
+                                <Course label='Tonal Music Composition' upper/>
                                 <Course label='Harmony & Counterpoint II'/>
                                 <Course label='Harmony & Counterpoint I'/>
                                 <Course label='Intro to Musical Composition'/>
@@ -70,7 +70,7 @@ class Courses extends CustomComponent
                         </Categories>
                     </Container>
                 </Partition>
-                <Space/>
+                <Space level={2}/>
                 <Suggestions labels={['portfolio', 'education', 'home']}>
                     <Portfolio/>
                     <Education/>
@@ -88,9 +88,27 @@ class Course extends CustomComponent
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                    <Typography>
-                        {this.props.label}
-                    </Typography>
+                    <Grid container direction='row'>
+                        <Grid item xs={6}>
+                            <Typography variant='h6'>
+                                {this.props.label}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Typography variant='subtitle1' color='textSecondary'>
+                                {this.props.graduate ? 'Graduate' : undefined}
+                                {this.props.ap ? 'AP Credit' : undefined}
+                                {this.props.upper ? 'Upper Class' : undefined}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Typography variant='subtitle1' color='textSecondary'>
+                                {this.props.seminar ? 'Seminar' : undefined}
+                                {this.props.studio ? 'Studio' : undefined}
+                                {this.props.lab ? 'Lab' : undefined}
+                            </Typography>
+                        </Grid>
+                    </Grid>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     {this.props.children}

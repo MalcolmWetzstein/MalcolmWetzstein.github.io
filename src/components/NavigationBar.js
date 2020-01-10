@@ -39,9 +39,11 @@ class NavigationBar extends CustomComponent
                         </Tabs>
                     </Grid>
                     <Grid item>
-                        <Box height={1} display='flex' alignItems='center'>
+                        <Box display='flex' height={1}>
                             <Divider orientation='vertical'/>
-                            {reKey(this.props.links)}
+                            <Box display='flex' height={1} margin={this.props.theme.spacing(0, 1, 0, 1)}>
+                                {reKey(this.props.links)}
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
