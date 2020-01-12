@@ -105,7 +105,7 @@ class Degree extends CustomComponent
         return(
             <Card variant='outlined'>
                 <CardContent>
-                    <Grid container justify='space-around' direction='row'>
+                    <Grid container justify='space-between' direction='row'>
                         <Box>
                             <DateRange
                                 startMonth={this.props.startMonth}
