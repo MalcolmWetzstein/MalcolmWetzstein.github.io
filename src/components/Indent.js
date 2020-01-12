@@ -9,9 +9,14 @@ class Indent extends CustomComponent
     {
         return (
             <Box margin={this.props.theme.spacing(0, 0, 0, this.props.level ? this.props.level * CONSTANTS.UNIT_INDENT : CONSTANTS.UNIT_INDENT)}>
-                {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
+                {React.Children.map(this.props.children, child => this.passDequeProps(child))}
             </Box>
         );
+    }
+
+    passDequeProps(child)
+    {
+        return this.props.pageDeque ? this.props.pageDeque.withDequeProps(child) : child;
     }
 }
 

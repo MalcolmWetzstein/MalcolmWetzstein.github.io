@@ -37,8 +37,8 @@ class Education extends CustomComponent
                                     ],
                                     [
                                         'Concentration in Computer Graphics',
-                                        '3D Rendering & Animation',
-                                        'Simulation',
+                                        '3D Rendering & Animation Algorithms',
+                                        'Physically-Based Simulation',
                                         'Shape Analysis (Digital Geometry)',
                                         'Computational Photography (Image Processing)',
                                         'Computer Vision',
