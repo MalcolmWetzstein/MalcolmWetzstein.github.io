@@ -31,11 +31,11 @@ class Experience extends CustomComponent
                             graphicWidth='100px'
                             graphicHeight='100px'
                             info={[
-                                'Implemented client credential grant flow for the anonymous Servco Vehicle Valuation app generating about 700+ vehicle trade-in leads annually',
+                                'VR and AR prototyping',
                                 'Light management experience directing app developer interns',
                                 [
                                     'Collaborated with interdisciplinary team using Agile workflow and Jira',
-                                    'Software Developers',
+                                    'Software Engineers',
                                     'Product Designers (Digital)',
                                     'Product Managers',
                                     'Marketing Specialists',
@@ -47,7 +47,6 @@ class Experience extends CustomComponent
                                     'Continuous Integration/Continuous Deployment (CI/CD)',
                                     'Git collaboration and pull requests'
                                 ],
-                                'VR prototyping for test driving simulator',
                                 'Google Optimize, Google Analytics, and Salesforce Marketing Cloud experience'
                             ]}
                         />

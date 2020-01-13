@@ -26,30 +26,6 @@ class Courses extends CustomComponent
                     <Container maxWidth='md'>
                         <Categories labels={['Computer Science', 'Mathematics', 'Design', 'Natural Sciences', 'Music']}>
                             <React.Fragment>{/* Computer Science */}
-                                <Course label='Design & Analysis of Algorithms' upper exam
-                                    school={MIT}
-                                    number='6.046'
-                                    description='Techniques for the design and analysis of efficient algorithms, emphasizing methods useful in practice.'
-                                    topics={[
-                                        'Sorting',
-                                        'Search Trees',
-                                        'Heaps'
-                                    ]}
-                                />
-                                <Course label='Software Engineering' upper project
-                                    school={MIT}
-                                    number='6.031 (Previously 6.005)'
-                                    topics={[
-                                        
-                                    ]}
-                                />
-                                <Course label='Computer Architecture' lower lab
-                                    school={MIT}
-                                    number='6.004'
-                                    topics={[
-                                        
-                                    ]}
-                                />
                                 <Course label='Computer Graphics' upper project
                                     school={MIT}
                                     number='6.837'
@@ -81,6 +57,65 @@ class Courses extends CustomComponent
                                 <Course label='Computer Vision' upper project
                                     school={MIT}
                                     number='6.819'
+                                    topics={[
+                                        
+                                    ]}
+                                />
+                                <Course label='Design & Analysis of Algorithms' upper exam
+                                    school={MIT}
+                                    number='6.046'
+                                    instructors={['Ronald Rivest', 'Shafi Goldwasser']}
+                                    description='Analysis and applications of advanced algorithms in a variety of fields. Design and analysis techniques for creating and using algorithms.'
+                                    topics={[
+                                        [
+                                            'Graph Algorithms',
+                                            'Bellman-Ford Shortest Path',
+                                            'Floyd-Warshall & Johnson All Pairs Shortest Path',
+                                            'Maximum Flow & Minimum Cut',
+                                            'Minimum Spanning Trees',
+                                            'Counting Networks'
+                                        ],
+                                        [
+                                            'Data Structures',
+                                            'B-Trees',
+                                            'Fibonacci Heaps'
+                                        ],
+                                        [
+                                            'Randomized Algorithms',
+                                            'Skip Lists',
+                                            'Sublinear Algorithms'
+                                        ],
+                                        'Dynamic Programming',
+                                        'Linear Programming',
+                                        'Greedy Algorithms',
+                                        'Amortized Analysis',
+                                        'Divide & Conquer',
+                                        'Concurrency',
+                                        'Fast Fourier Transform',
+                                        [
+                                            'Approximation Algorithms',
+                                            'Vertex-Cover',
+                                            'Traveling Salesman'
+                                        ],
+                                        'NP-Completeness',
+                                        [
+                                            'Sorting',
+                                            'Medians & Order Statistics',
+                                            'Quicksort'
+                                        ],
+                                        'Number-Theoretic Algorithms'
+                                    ]}
+                                />
+                                <Course label='Software Engineering' upper project
+                                    school={MIT}
+                                    number='6.031 (Previously 6.005)'
+                                    topics={[
+                                        
+                                    ]}
+                                />
+                                <Course label='Computer Architecture' lower lab
+                                    school={MIT}
+                                    number='6.004'
                                     topics={[
                                         
                                     ]}
@@ -351,6 +386,10 @@ class Course extends CustomComponent
                                     </Typography>
                                 </Grid>
                             </Grid>
+                            <Typography variant='subtitle2' color='textSecondary'>
+                                {Array.isArray(this.props.instructors) && this.props.instructors.length > 1 ? ('Instructors: ' + this.props.instructors.join(', ')) : 
+                                    ('Instructor: ' + this.props.instructors)}
+                            </Typography>
                             <Space level={0.5}/>
                             <Typography variant='body1'>
                                 {this.props.description}
