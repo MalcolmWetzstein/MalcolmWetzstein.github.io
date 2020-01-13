@@ -29,13 +29,70 @@ class Courses extends CustomComponent
                                 <Course label='Computer Graphics' upper project
                                     school={MIT}
                                     number='6.837'
+                                    instructors={['Wojciech Matusik', 'Justin Solomon']}
+                                    description='Image synthesis with both ray tracing and rasterization pipeline, real-time animation and simulation methods, geometry representations, image perception, and graphics hardware.'
                                     topics={[
-                                        
+                                        [
+                                            'Ray Tracing',
+                                            'Kd-Trees',
+                                            'Bounding Volume Hierarchies',
+                                            'Area Lights & Shadows',
+                                            'Glossy & Specular Reflections',
+                                            'Global Illumination Methods'
+                                        ],
+                                        [
+                                            'Rasterization Pipeline',
+                                            'Scanline Conversion Optimizations',
+                                            'Clipping with Homogeneous Rasterization',
+                                            'Screen-Space Interpolation',
+                                            'Pixel Shaders',
+                                            'Z-Buffer Visibility Test',
+                                            'Multisampling & Supersampling',
+                                            'Anisotropic & Trilinear Texture Sampling',
+                                        ],
+                                        [
+                                            'Shading',
+                                            'Bidirectional Reflectance Distribution Function',
+                                            'Cook-Torrance Illumination Model',
+                                            'Directional, Spot, & Point Lights',
+                                            'Normal Interpolation'
+                                        ],
+                                        [
+                                            'Numerical Integration',
+                                            'Particle Systems',
+                                            'Cloth Simulation',
+                                            'Runge-Kutta',
+                                            'Implicit Euler'
+                                        ],
+                                        'Anti-Aliasing & Sampling Theory',
+                                        'Real-Time Shadow Mapping',
+                                        'Skeletal Subspace Deformation',
+                                        'Texture Mapping',
+                                        'GPU Architecture',
+                                        'Color Spaces & Perception',
+                                        [
+                                            'Coordinate Spaces & Transformations',
+                                            'Homogeneous Coordinates & Projection',
+                                            'Scene Graphs',
+                                            'Tangent Space'
+                                        ],
+                                        [
+                                            'Curves & Surfaces',
+                                            'B\xE9izer Curves, Patches',
+                                            'B-Spline Curves, Patches',
+                                            'Triangle Meshes',
+                                            'Sub-Division Surfaces',
+                                            'Swept Surfaces',
+                                            'Implicit Surfaces'
+                                        ],
+                                        'Image-Based Rendering',
+                                        'Display Devices'
                                     ]}
                                 />
                                 <Course label='Shape Analysis' graduate project
                                     school={MIT}
                                     number='6.838'
+                                    instructors='Justin Solomon'
                                     topics={[
                                         
                                     ]}
@@ -43,6 +100,7 @@ class Courses extends CustomComponent
                                 <Course label='Computational Photography' graduate project
                                     school={MIT}
                                     number='6.865'
+                                    instructors='Fredo Durand'
                                     topics={[
                                         
                                     ]}
@@ -50,6 +108,7 @@ class Courses extends CustomComponent
                                 <Course label='Compuational Fabrication' graduate project
                                     school={MIT}
                                     number='6.839'
+                                    instructors='Wojciech Matusik'
                                     topics={[
                                         
                                     ]}
@@ -57,6 +116,7 @@ class Courses extends CustomComponent
                                 <Course label='Computer Vision' upper project
                                     school={MIT}
                                     number='6.819'
+                                    instructors={['William Freeman', 'Antonio Torralba']}
                                     topics={[
                                         
                                     ]}
@@ -65,12 +125,12 @@ class Courses extends CustomComponent
                                     school={MIT}
                                     number='6.046'
                                     instructors={['Ronald Rivest', 'Shafi Goldwasser']}
-                                    description='Analysis and applications of advanced algorithms in a variety of fields. Design and analysis techniques for creating and using algorithms.'
+                                    description='Analysis of popular algorithms and various techniques for design and analysis of new algorithms. Application of design and analysis techniques and popular algorithms in problem solving.'
                                     topics={[
                                         [
                                             'Graph Algorithms',
-                                            'Bellman-Ford Shortest Path',
-                                            'Floyd-Warshall & Johnson All Pairs Shortest Path',
+                                            'Shortest Path (Bellman-Ford)',
+                                            'All Pairs Shortest Path (Floyd-Warshall & Johnson)',
                                             'Maximum Flow & Minimum Cut',
                                             'Minimum Spanning Trees',
                                             'Counting Networks'
@@ -90,25 +150,18 @@ class Courses extends CustomComponent
                                         'Greedy Algorithms',
                                         'Amortized Analysis',
                                         'Divide & Conquer',
+                                        'Approximation Algorithms',
                                         'Concurrency',
                                         'Fast Fourier Transform',
-                                        [
-                                            'Approximation Algorithms',
-                                            'Vertex-Cover',
-                                            'Traveling Salesman'
-                                        ],
                                         'NP-Completeness',
-                                        [
-                                            'Sorting',
-                                            'Medians & Order Statistics',
-                                            'Quicksort'
-                                        ],
+                                        'Medians & Order Statistics',
                                         'Number-Theoretic Algorithms'
                                     ]}
                                 />
                                 <Course label='Software Engineering' upper project
                                     school={MIT}
                                     number='6.031 (Previously 6.005)'
+                                    instructors='Max Goldman'
                                     topics={[
                                         
                                     ]}
@@ -116,6 +169,7 @@ class Courses extends CustomComponent
                                 <Course label='Computer Architecture' lower lab
                                     school={MIT}
                                     number='6.004'
+                                    instructors='Christopher Terman'
                                     topics={[
                                         
                                     ]}
@@ -123,6 +177,7 @@ class Courses extends CustomComponent
                                 <Course label='Oral Communication' lower communication
                                     school={MIT}
                                     number='6.UAT'
+                                    instructors='Tony Eng'
                                     topics={[
                                         
                                     ]}
@@ -130,6 +185,7 @@ class Courses extends CustomComponent
                                 <Course label='Machine Learning' lower lab
                                     school={MIT}
                                     number='6.036'
+                                    instructors={['Leslie Kaelbling', 'Tom\xE1s Lozano-P\xE9rez']}
                                     topics={[
                                         
                                     ]}
@@ -137,6 +193,7 @@ class Courses extends CustomComponent
                                 <Course label='Computer Systems Engineering' upper communication
                                     school={MIT}
                                     number='6.033'
+                                    instructors='Katrina LaCurts'
                                     topics={[
                                         
                                     ]}
@@ -144,6 +201,7 @@ class Courses extends CustomComponent
                                 <Course label='Network Theory' upper exam
                                     school={MIT}
                                     number='6.207/14.15'
+                                    instructors={['Devavrat Shah', 'Alexander Teytelboym']}
                                     topics={[
                                         
                                     ]}
@@ -151,6 +209,7 @@ class Courses extends CustomComponent
                                 <Course label='Algorithms' lower exam
                                     school={MIT}
                                     number='6.006'
+                                    instructors={['Ronald Rivest', 'Piotr Indyk']}
                                     topics={[
                                         
                                     ]}
@@ -158,6 +217,7 @@ class Courses extends CustomComponent
                                 <Course label='Fundamentals of Programming' lower lab
                                     school={MIT}
                                     number='6.009'
+                                    instructors={['Adam Chlipala', 'Christopher Terman']}
                                     topics={[
                                         
                                     ]}
@@ -165,6 +225,7 @@ class Courses extends CustomComponent
                                 <Course label='EECS: Robotics' intro lab
                                     school={MIT}
                                     number='6.01'
+                                    instructors='Adam Hartz'
                                     topics={[
                                         
                                     ]}
@@ -181,6 +242,7 @@ class Courses extends CustomComponent
                                 <Course label='Linear Algebra' lower exam
                                     school={MIT}
                                     number='18.06'
+                                    instructors='Alex Townsend'
                                     topics={[
                                         
                                     ]}
@@ -188,6 +250,7 @@ class Courses extends CustomComponent
                                 <Course label='Differential Equations' lower exam
                                     school={MIT}
                                     number='18.03'
+                                    instructors='Bjorn Poonen'
                                     topics={[
                                         
                                     ]}
@@ -195,6 +258,7 @@ class Courses extends CustomComponent
                                 <Course label='Multivariable Calculus' general exam
                                     school={MIT}
                                     number='18.02'
+                                    instructors='William Minicozzi'
                                     topics={[
                                         
                                     ]}
@@ -202,6 +266,7 @@ class Courses extends CustomComponent
                                 <Course label='Probability & Random Variables' lower exam
                                     school={MIT}
                                     number='18.600'
+                                    instructors='Scott Sheffield'
                                     topics={[
                                         
                                     ]}
@@ -209,6 +274,7 @@ class Courses extends CustomComponent
                                 <Course label='Discrete Math for Computer Science' intro exam
                                     school={MIT}
                                     number='18.062/6.042'
+                                    instructors={['Albert Meyer', 'Adam Chlipala']}
                                     topics={[
                                         
                                     ]}
@@ -225,6 +291,7 @@ class Courses extends CustomComponent
                                 <Course label='Advanced Visualization & Motion Graphics' graduate project
                                     school={MIT}
                                     number='4.562'
+                                    instructors='Andrzej Zarzycki'
                                     topics={[
                                         
                                     ]}
@@ -232,6 +299,7 @@ class Courses extends CustomComponent
                                 <Course label='Information & Interaction Design' lower studio
                                     school={MIT}
                                     number='4.032'
+                                    instructors='Benjamin Fry'
                                     topics={[
                                         
                                     ]}
@@ -239,6 +307,7 @@ class Courses extends CustomComponent
                                 <Course label='Design Computation: 3D Modeling' intro project
                                     school={MIT}
                                     number='4.500'
+                                    instructors='Lawrence Sass'
                                     topics={[
                                         
                                     ]}
@@ -246,6 +315,7 @@ class Courses extends CustomComponent
                                 <Course label='Architecture Design' intro studio
                                     school={MIT}
                                     number='4.021'
+                                    instructors='Lorena Bello Gomez'
                                     topics={[
                                         
                                     ]}
@@ -262,6 +332,7 @@ class Courses extends CustomComponent
                                 <Course label='Physics: Electricity & Magnetism' general exam
                                     school={MIT}
                                     number='8.02'
+                                    instructors='Robert Redwine'
                                     topics={[
                                         
                                     ]}
@@ -269,6 +340,7 @@ class Courses extends CustomComponent
                                 <Course label='Chemistry' general exam
                                     school={MIT}
                                     number='5.111'
+                                    instructors='Catherine Drennan'
                                     topics={[
                                         
                                     ]}
@@ -276,6 +348,7 @@ class Courses extends CustomComponent
                                 <Course label='Biology' general exam
                                     school={MIT}
                                     number='7.013'
+                                    instructors='Hazel Sive'
                                     topics={[
                                         
                                     ]}
@@ -285,6 +358,7 @@ class Courses extends CustomComponent
                                 <Course label='Tonal Music Composition' upper project
                                     school={MIT}
                                     number='21M.303'
+                                    instructors='Charles Shadle'
                                     topics={[
                                         
                                     ]}
@@ -292,6 +366,7 @@ class Courses extends CustomComponent
                                 <Course label='Harmony & Counterpoint II' lower project
                                     school={MIT}
                                     number='21M.302'
+                                    instructors='Kathryn Salfelder'
                                     topics={[
                                         
                                     ]}
@@ -299,6 +374,7 @@ class Courses extends CustomComponent
                                 <Course label='Harmony & Counterpoint I' lower project
                                     school={MIT}
                                     number='21M.301'
+                                    instructors='Justin Casinghino'
                                     topics={[
                                         
                                     ]}
@@ -306,6 +382,7 @@ class Courses extends CustomComponent
                                 <Course label='Musical Composition' intro project
                                     school={MIT}
                                     number='21M.065'
+                                    instructors='Florian Hollerweger'
                                     topics={[
                                         
                                     ]}
@@ -313,6 +390,7 @@ class Courses extends CustomComponent
                                 <Course label='Western Music' intro writing
                                     school={MIT}
                                     number='21M.011'
+                                    instructors={['Emily Richmond Pollock', 'Teresa Neff']}
                                     topics={[
                                         
                                     ]}
@@ -374,36 +452,43 @@ class Course extends CustomComponent
                     <Box paddingRight='24px'>
                         <Space level={0.5}/>
                         <Indent>
-                            <Grid container justify='flex-start' alignItems='flex-end'>
-                                <Grid item>
-                                    <Typography variant='h6'>
-                                        {'Course ' + this.props.number}
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant='subtitle1' color='textSecondary'>
-                                        &nbsp;{'@'+this.props.school}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
+                            <Typography variant='h6'>
+                                {'Course ' + this.props.number}
+                            </Typography>
+                            <Typography variant='subtitle1' color='textSecondary'>
+                                {this.props.school}
+                            </Typography>
                             <Typography variant='subtitle2' color='textSecondary'>
-                                {Array.isArray(this.props.instructors) && this.props.instructors.length > 1 ? ('Instructors: ' + this.props.instructors.join(', ')) : 
-                                    ('Instructor: ' + this.props.instructors)}
+                                {this.instructors()}
                             </Typography>
                             <Space level={0.5}/>
-                            <Typography variant='body1'>
+                            <Typography variant='subtitle1' gutterBottom>
+                                Description:
+                            </Typography>
+                            <Typography variant='body1' color='textSecondary'>
                                 {this.props.description}
                             </Typography>
                             <Space level={0.5}/>
                             <Typography variant='subtitle1'>
                                 Topics:
                             </Typography>
-                            <Bullets bullets={this.props.topics}/>
+                            <Bullets focus bullets={this.props.topics}/>
                         </Indent>
                     </Box>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
+    }
+
+    instructors()
+    {
+        if (this.props.instructors)
+        {
+            if (Array.isArray(this.props.instructors))
+                return (this.props.instructors.length > 1 ? 'Instructors: ' : 'Instructor: ') + this.props.instructors.join(', ');
+            else
+                return 'Instructor: ' + this.props.instructors;
+        }
     }
 }
 
