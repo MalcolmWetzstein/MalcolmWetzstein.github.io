@@ -40,7 +40,6 @@ class Experience extends CustomComponent
                                     'Product Managers',
                                     'Marketing Specialists',
                                     'Data Specialists',
-                                    'Content Designers'
                                 ],
                                 [
                                     'Azure DevOps experience',

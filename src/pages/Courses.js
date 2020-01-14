@@ -93,16 +93,73 @@ class Courses extends CustomComponent
                                     school={MIT}
                                     number='6.838'
                                     instructors='Justin Solomon'
+                                    description='Survey of topics in digital geometry with an emphasis on applications. Introduction to the mathematical concepts needed to apply them.'
                                     topics={[
-                                        
+                                        'Finite Element Method',
+                                        'Mesh Parameterization',
+                                        'Shape Descriptors',
+                                        'Surface Correspondence',
+                                        'Metric Embedding',
+                                        'Clustering & Segmentation',
+                                        'Optimal Transport',
+                                        'Vector Field Design',
+                                        'Spectral Geometry',
+                                        [
+                                            'Discrete Differential Geometry',
+                                            'Surface Laplacian',
+                                            'Exterior Calculus',
+                                            'Geodesics',
+                                            'Curvature',
+                                        ]
                                     ]}
                                 />
                                 <Course label='Computational Photography' graduate project
                                     school={MIT}
                                     number='6.865'
                                     instructors='Fredo Durand'
+                                    description='Digital image formation in modern cameras, image processing techniques for transforming and enhancing images, and image representation and compression in relation to visual perception.'
                                     topics={[
-                                        
+                                        'High Dynamic Range & Tone Mapping',
+                                        'Image Denoising',
+                                        [
+                                            'Automatic Panorama Stitching',
+                                            'Harris Corner Detection',
+                                            'RANSAC',
+                                            'Homographies',
+                                            'Two-Scale Blending'
+                                        ],
+                                        'Image Transforms & Morphing',
+                                        'Halide (Image Processing Language)',
+                                        [
+                                            'Digital Cameras & Image Formation',
+                                            'Demosaicking',
+                                            'Chromatic Abberation',
+                                            'Lens Distortion',
+                                            'Aperture & Exposure',
+                                            'Focus & Depth of Field',
+                                            'ISO Analog & Digital Gain',
+                                            'Camera Sensors'
+                                        ],
+                                        'Image Compression',
+                                        [
+                                            'Basic Image Processing',
+                                            'Bilateral Filter',
+                                            'High & Low Pass Filters',
+                                            'Gamma Correction',
+                                            'White Balance',
+                                            'Saturation',
+                                            'Contrast',
+                                            'Brightness'
+                                        ],
+                                        'Human Image & Color Perception',
+                                        'Color Spaces',
+                                        'Image-Based Rendering',
+                                        [
+                                            'Image Resampling Techniques',
+                                            'Lanczos', 
+                                            'Bi-Cubic', 
+                                            'Bi-Linear'
+                                        ]
                                     ]}
                                 />
                                 <Course label='Compuational Fabrication' graduate project
