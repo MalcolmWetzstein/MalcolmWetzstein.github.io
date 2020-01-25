@@ -1,9 +1,8 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography, Container, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box } from '@material-ui/core';
-import { Page, Partition, Indent, Space, Suggestions, Categories, Bullets } from '../components/Custom';
+import { Page, Partition, Indent, Space, Suggestions, Categories, Bullets, Title } from '../components/Custom';
 import { Home, Portfolio, Education } from './Pages';
-import * as CONSTANTS from '../Constants';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -17,12 +16,10 @@ class Courses extends CustomComponent
     {
         return (
             <Page pageDeque={this.props.pageDeque}>
-                <Partition center>
-                    <Indent>
-                        <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            {Courses.buttonText}
-                        </Typography>
-                    </Indent>
+                <Partition center maxWidth='md'>
+                    <Title>
+                        {Courses.buttonText}
+                    </Title>
                     <Container maxWidth='md'>
                         <Categories labels={['Computer Science', 'Mathematics', 'Design', 'Natural Sciences', 'Music']}>
                             <React.Fragment>{/* Computer Science */}
@@ -30,7 +27,7 @@ class Courses extends CustomComponent
                                     school={MIT}
                                     number='6.837'
                                     instructors={['Wojciech Matusik', 'Justin Solomon']}
-                                    description='Image synthesis with both ray tracing and rasterization pipeline, real-time animation and simulation methods, geometry representations, image perception, and graphics hardware.'
+                                    description='Image synthesis via ray tracing and rasterization pipeline, real-time animation and simulation methods, geometry representations, image perception, and graphics hardware.'
                                     topics={[
                                         [
                                             'Ray Tracing',
@@ -345,7 +342,7 @@ class Courses extends CustomComponent
                                 />
                             </React.Fragment>
                             <React.Fragment>{/* Design */}
-                                <Course label='Advanced Visualization & Motion Graphics' graduate project
+                                <Course label='Visualization & Motion Graphics' graduate project
                                     school={MIT}
                                     number='4.562'
                                     instructors='Andrzej Zarzycki'
@@ -457,9 +454,9 @@ class Courses extends CustomComponent
                     </Container>
                 </Partition>
                 <Space level={2}/>
-                <Suggestions labels={['portfolio', 'education', 'home']}>
-                    <Portfolio/>
+                <Suggestions labels={['education', 'portfolio', 'home']}>
                     <Education/>
+                    <Portfolio/>
                     <Home/>
                 </Suggestions>
             </Page>

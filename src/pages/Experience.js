@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography, Grid, Card, CardContent, CardMedia, Box, Divider } from '@material-ui/core';
-import { Page, Partition, Indent, Space, Suggestions, Bullets, DateRange } from '../components/Custom';
+import { Page, Partition, Title, Space, Suggestions, Bullets, DateRange } from '../components/Custom';
 import { Education, Skills, Home } from '../pages/Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -13,12 +13,10 @@ class Experience extends CustomComponent
     {
         return (
             <Page pageDeque={this.props.pageDeque}>
-                <Partition center>
-                    <Indent>
-                        <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            {Experience.buttonText}
-                        </Typography>
-                    </Indent>
+                <Partition center maxWidth='md'>
+                    <Title>
+                        {Experience.buttonText}
+                    </Title>
                     <React.Fragment>
                         <Employment
                             startMonth={11}
@@ -88,9 +86,9 @@ class Experience extends CustomComponent
                     </React.Fragment>
                 </Partition>
                 <Space/>
-                <Suggestions labels={['education', 'skills', 'home']}>
-                    <Education/>
+                <Suggestions labels={['skills', 'education', 'home']}>
                     <Skills/>
+                    <Education/>
                     <Home/>
                 </Suggestions>
             </Page>
@@ -104,7 +102,7 @@ class Employment extends CustomComponent
     {
         return (
             <Grid container direction='row' spacing={0} justify='center'>
-                <Grid item xs={8}>
+                <Grid item xs={9}>
                     <Card variant='outlined'>
                         <CardContent>
                             <Grid container justify='space-between' direction='row'>

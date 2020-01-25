@@ -28,10 +28,10 @@ function App()
         ]}>
           <pages.Home/>
           <pages.About/>
-          <pages.Experience/>
-          <pages.Education/>
-          <pages.Courses/>
           <pages.Portfolio/>
+          <pages.Courses/>
+          <pages.Education/>
+          <pages.Experience/>
           <pages.Skills/>
           <pages.Contact/>
         </NavigationBar>

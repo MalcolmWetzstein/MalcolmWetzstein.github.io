@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, withTheme, Card, CardContent, Grid, CardMedia, Box, Divider } from '@material-ui/core';
-import { Page, Partition, Suggestions, Indent, Space, Bullets, DateRange } from '../components/Custom';
+import { Page, Partition, Suggestions, Title, Space, Bullets, DateRange } from '../components/Custom';
 import { Home, Courses, Experience } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -14,11 +14,9 @@ class Education extends CustomComponent
         return (
             <Page pageDeque={this.props.pageDeque}>
                 <Partition center>
-                    <Indent>
-                        <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            {Education.buttonText}
-                        </Typography>
-                    </Indent>
+                    <Title>
+                        {Education.buttonText}
+                    </Title>
                     <Grid container direction='row' spacing={CONSTANTS.UNIT_INDENT} justify='center' alignItems='flex-start'>
                         <Grid item xs={6}>
                             <Degree 
@@ -88,9 +86,9 @@ class Education extends CustomComponent
                     </Grid>
                 </Partition>
                 <Space level={2}/>
-                <Suggestions labels={['courses', 'experience', 'home']}>
-                    <Courses/>
+                <Suggestions labels={['experience', 'courses', 'home']}>
                     <Experience/>
+                    <Courses/>
                     <Home/>
                 </Suggestions>
             </Page>

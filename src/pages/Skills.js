@@ -1,9 +1,8 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { withTheme, Typography } from '@material-ui/core';
-import { Page, Partition, Indent, Space, Suggestions } from '../components/Custom';
+import { withTheme } from '@material-ui/core';
+import { Page, Partition, Title, Space, Suggestions } from '../components/Custom';
 import { Home, Contact } from './Pages';
-import * as CONSTANTS from '../Constants';
 
 class Skills extends CustomComponent 
 {
@@ -14,11 +13,9 @@ class Skills extends CustomComponent
         return (
             <Page pageDeque={this.props.pageDeque}>
                 <Partition center>
-                    <Indent>
-                        <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            {Skills.buttonText}
-                        </Typography>
-                    </Indent>
+                    <Title>
+                        {Skills.buttonText}
+                    </Title>
                 </Partition>
                 <Space/>
                 <Suggestions labels={['contact me', 'home']}>

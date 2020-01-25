@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Indent, Columns, Suggestions, Space } from '../components/Custom';
+import { Page, Partition, Columns, Suggestions, Space, Title } from '../components/Custom';
 import { Home } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -17,12 +17,10 @@ class Contact extends CustomComponent
     {
         return (
             <Page pageDeque={this.props.pageDeque}>
-                <Partition center>
-                    <Indent>
-                        <Typography variant={CONSTANTS.TITLE_VARIANT}>
-                            {Contact.buttonText}
-                        </Typography>
-                    </Indent>
+                <Partition center maxWidth='md'>
+                    <Title>
+                        {Contact.buttonText}
+                    </Title>
                     <Columns justify='center'>
                         <React.Fragment>
                             <Typography variant="h4" gutterBottom>

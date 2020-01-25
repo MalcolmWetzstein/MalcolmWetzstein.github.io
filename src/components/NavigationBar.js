@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { AppBar, Tabs, withTheme, Box, Divider, Grid } from '@material-ui/core';
+import { AppBar, Tabs, withTheme, Box, Grid } from '@material-ui/core';
 import { CustomTab } from './Custom';
 import { reKey } from './Util';
 
@@ -41,7 +41,6 @@ class NavigationBar extends CustomComponent
                     </Grid>
                     <Grid item>
                         <Box display='flex' height={1}>
-                            <Divider orientation='vertical'/>
                             <Box display='flex' height={1} margin={this.props.theme.spacing(0, 1, 0, 1)}>
                                 {reKey(this.props.links)}
                             </Box>
