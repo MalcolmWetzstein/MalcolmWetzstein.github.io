@@ -15,13 +15,35 @@ export const LINKS = {
 }
 
 export const IMAGES = {
-    MIT: {
-        LOGO: 'mit_logo.svg'
+    LOGO: {
+        MIT: 'logos/mit_logo.svg',
+        SERVCO: 'logos/servco_logo.png',
+        STEP: 'logos/step_logo.gif'
     },
-    SERVCO: {
-        LOGO: 'servco_logo.png'
-    },
-    STEP: {
-        LOGO: 'step_logo.gif'
+    PORTFOLIO: {
+        INTRO_ARCH: {
+            THUMB: 'portfolio/architecture.jpg'
+        },
+        MANIFOLDS_FILTER: {
+            THUMB: 'portfolio/adaptive_manifolds.png'
+        },
+        SURFACE_FLUID: {
+            THUMB: 'portfolio/surface_fluid.png'
+        },
+        MUSIC: {
+            THUMB: 'portfolio/music.png'
+        },
+        PAVILLION: {
+            THUMB: 'portfolio/chair.png'
+        },
+        STARLOGO: {
+            THUMB: 'portfolio/mounds.png'
+        },
+        AR_GAME: {
+            THUMB: 'portfolio/ar_game.png'
+        },
+        WEBSITE: {
+            THUMB: 'portfolio/website_code.png'
+        }
     }
 }

@@ -24,7 +24,7 @@ class Experience extends CustomComponent
                             title='Full-Stack Software Engineer'
                             company='Servco Pacific'
                             department='Digital Strategy Team'
-                            graphic={CONSTANTS.IMAGES.SERVCO.LOGO}
+                            graphic={CONSTANTS.IMAGES.LOGO.SERVCO}
                             graphicInfo='Servco Pacific'
                             graphicWidth='100px'
                             graphicHeight='100px'
@@ -55,7 +55,7 @@ class Experience extends CustomComponent
                             title='Student Software Developer'
                             company='MIT Scheller Teacher Education Program'
                             department='StarLogo Nova Project'
-                            graphic={CONSTANTS.IMAGES.STEP.LOGO}
+                            graphic={CONSTANTS.IMAGES.LOGO.STEP}
                             graphicInfo='Scheller Teacher Education Program'
                             graphicWidth='150px'
                             graphicHeight='100px'

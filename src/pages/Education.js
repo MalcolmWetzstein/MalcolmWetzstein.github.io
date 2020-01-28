@@ -44,7 +44,7 @@ class Education extends CustomComponent
                                     ],
                                     '5.0 GPA'
                                 ]}
-                                graphic={CONSTANTS.IMAGES.MIT.LOGO}
+                                graphic={CONSTANTS.IMAGES.LOGO.MIT}
                                 graphicInfo='Massachusetts Institute of Technology'
                                 graphicWidth='100px'
                                 graphicHeight='50px'
@@ -77,7 +77,7 @@ class Education extends CustomComponent
                                     ], 
                                     '4.7 GPA'
                                 ]}
-                                graphic={CONSTANTS.IMAGES.MIT.LOGO}
+                                graphic={CONSTANTS.IMAGES.LOGO.MIT}
                                 graphicInfo='Massachusetts Institute of Technology'
                                 graphicWidth='100px'
                                 graphicHeight='50px'
