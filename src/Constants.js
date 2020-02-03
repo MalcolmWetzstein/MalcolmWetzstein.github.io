@@ -34,7 +34,7 @@ export const IMAGES = {
             THUMB: 'portfolio/music.png'
         },
         PAVILLION: {
-            THUMB: 'portfolio/chair.png'
+            THUMB: 'portfolio/chair.jpg'
         },
         STARLOGO: {
             THUMB: 'portfolio/mounds.png'

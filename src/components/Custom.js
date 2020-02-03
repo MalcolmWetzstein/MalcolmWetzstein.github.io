@@ -12,6 +12,7 @@ import DateRange from './DateRange';
 import Categories from './Categories';
 import CustomTab from './CustomTab';
 import Title from './Title';
+import ImageGrid from './ImageGrid';
 
 export { 
     Indent, 
@@ -27,5 +28,6 @@ export {
     DateRange, 
     Categories, 
     CustomTab, 
-    Title 
+    Title,
+    ImageGrid
 };

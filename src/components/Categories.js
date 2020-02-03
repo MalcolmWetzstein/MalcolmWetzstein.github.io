@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { Tabs, withTheme, AppBar, Box, IconButton } from '@material-ui/core';
+import { Tabs, Tab, withTheme, AppBar, Box, IconButton } from '@material-ui/core';
 import { CustomTab } from './Custom';
 
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -31,10 +31,16 @@ class Categories extends CustomComponent
                             indicatorColor='secondary'
                             value={this.state.currentTab} 
                             onChange={this.tabChange}
-                            variant='scrollable'
+                            variant={this.props.fullWidth ? 'fullWidth' : 'scrollable'}
                             scrollButtons='auto'
                         >
-                            {React.Children.map(this.props.children, (child, index) => <CustomTab label={this.props.labels[index]}/>)}
+                            {
+                                React.Children.map(this.props.children, (child, index) => {
+                                        return this.props.fullWidth ? 
+                                            <Tab label={this.props.labels[index]}/> : 
+                                                <CustomTab label={this.props.labels[index]}/>;
+                                    })
+                            }
                         </Tabs>
                     </Box>
                 </AppBar>

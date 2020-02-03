@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography, List, ListItem, ListItemText, Paper, Card, Grid, CardContent, Container } from '@material-ui/core';
-import { Page, Partition, Space, Suggestions, Categories, Title } from '../components/Custom';
+import { Page, Partition, Space, Suggestions, Categories, Title, ImageGrid } from '../components/Custom';
 import { Home, Skills, Courses } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -30,17 +30,6 @@ function images(portfolio) {
 class Portfolio extends CustomComponent 
 {
     static buttonText = "Portfolio";
-
-    constructor(props)
-    {
-        super(props);
-
-        this.defaultProject = (<ProjectInfo text='Choose a Project'/>);
-
-        this.state = {
-            currentProject: this.defaultProject
-        };
-    }
     
     render ()
     {
@@ -51,30 +40,25 @@ class Portfolio extends CustomComponent
                         {Portfolio.buttonText}
                     </Title>
                     <Container maxWidth='xl'>
-                        <Grid container justify='space-between'>
-                            <Grid item xs={3}>
-                                <Categories labels={['technical', 'creative']}>
-                                    {/* Technical */}
-                                    <ProjectList labels={labels(TECHNICAL)} images={images(TECHNICAL)}>
-                                        <ProjectInfo/>
-                                        <ProjectInfo/>
-                                        <ProjectInfo/>
-                                    </ProjectList>
+                        <Categories fullWidth labels={['technical', 'creative']}>
+                            {/* Technical */}
+                            <ImageGrid 
+                                images={images(TECHNICAL)}
+                                labels={labels(TECHNICAL)}
+                                imageWidth='200px'
+                                imageHeight='200px'
+                                onClick={() => () => null}
+                            />
 
-                                    {/* Creative */}
-                                    <ProjectList labels={labels(CREATIVE)} images={images(CREATIVE)}>
-                                        <ProjectInfo/>
-                                        <ProjectInfo/>
-                                        <ProjectInfo/>
-                                        <ProjectInfo/>
-                                        <ProjectInfo/>
-                                    </ProjectList>
-                                </Categories>
-                            </Grid>
-                            <Grid item xs={8}>
-                                {this.state.currentProject}
-                            </Grid>
-                        </Grid>
+                            {/* Creative */}
+                            <ImageGrid
+                                images={images(CREATIVE)}
+                                labels={labels(CREATIVE)}
+                                imageWidth='200px'
+                                imageHeight='200px'
+                                onClick={() => () => null}
+                            />
+                        </Categories>
                     </Container>
                 </Partition>
                 <Space/>
