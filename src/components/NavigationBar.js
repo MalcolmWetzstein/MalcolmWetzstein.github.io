@@ -59,7 +59,7 @@ class NavigationBar extends CustomComponent
     navigate(tabIndex)
     {
         this.props.pageDeque.clear();
-        this.props.pageDeque.push(this.props.pageDeque.withDequeProps(React.Children.toArray(this.props.children)[tabIndex]));
+        this.props.pageDeque.push(React.Children.toArray(this.props.children)[tabIndex]);
         this.props.pageDeque.finish();
 
         window.scrollTo(0, 0);

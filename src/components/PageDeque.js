@@ -46,8 +46,9 @@ class PageDeque extends CustomComponent
 
     render() 
     {
+        const displayPage = this.state.pageStack.length > 0 ? [this.state.pageStack[this.state.pageStack.length-1]] : []
         const childrenWithProps = React.Children.map(this.props.children, child => this.withDequeProps(child));
-        return reKey(childrenWithProps.concat(this.state.pageStack));
+        return reKey(childrenWithProps.concat(displayPage));
     }
 
     clear()
@@ -149,6 +150,9 @@ class PageDeque extends CustomComponent
 
     withDequeProps(jsx)
     {
+        if (jsx == null)
+            return jsx;
+        
         return React.cloneElement(jsx, jsx.type.custom ? {
             pageDeque: {
                 push: this.push,

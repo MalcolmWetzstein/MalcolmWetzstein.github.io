@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { Tabs, Tab, withTheme, AppBar, Box, IconButton } from '@material-ui/core';
-import { CustomTab } from './Custom';
+import { Tabs, withTheme, Box, IconButton } from '@material-ui/core';
+import { CustomTab, OptionalWrapper } from './Custom';
 
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
@@ -25,25 +25,17 @@ class Categories extends CustomComponent
     {
         return (
             <React.Fragment>
-                <AppBar position='static'>
-                    <Box display='flex' justifyContent='center'>
-                        <Tabs
-                            indicatorColor='secondary'
-                            value={this.state.currentTab} 
-                            onChange={this.tabChange}
-                            variant={this.props.fullWidth ? 'fullWidth' : 'scrollable'}
-                            scrollButtons='auto'
-                        >
-                            {
-                                React.Children.map(this.props.children, (child, index) => {
-                                        return this.props.fullWidth ? 
-                                            <Tab label={this.props.labels[index]}/> : 
-                                                <CustomTab label={this.props.labels[index]}/>;
-                                    })
-                            }
-                        </Tabs>
-                    </Box>
-                </AppBar>
+                <OptionalWrapper wrapper={<Box display='flex' justifyContent='center'/>} condition={!this.props.sparse}>
+                    <Tabs
+                        indicatorColor='secondary'
+                        value={this.state.currentTab} 
+                        onChange={this.tabChange}
+                        variant={this.props.sparse ? 'fullWidth' : 'scrollable'}
+                        scrollButtons='auto'
+                    >
+                        {React.Children.map(this.props.children, (child, index) => <CustomTab sparse={this.props.sparse} label={this.props.labels[index]}/>)}
+                    </Tabs>
+                </OptionalWrapper>
                 {React.Children.toArray(this.props.children)[this.state.currentTab]}
                 <Box display='flex' width={1} margin={this.props.theme.spacing(1, 0, 0, 0)} justifyContent='center'>
                     <IconButton onClick={this.back} disabled={this.state.currentTab === 0}>

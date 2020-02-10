@@ -12,7 +12,11 @@ import DateRange from './DateRange';
 import Categories from './Categories';
 import CustomTab from './CustomTab';
 import Title from './Title';
-import ImageGrid from './ImageGrid';
+import Showcase from './Showcase';
+import ShowcaseTile from './ShowcaseTile';
+import OptionalWrapper from './OptionalWrapper';
+import Gallery from './Gallery';
+import GalleryTile from './GalleryTile';
 
 export { 
     Indent, 
@@ -29,5 +33,9 @@ export {
     Categories, 
     CustomTab, 
     Title,
-    ImageGrid
+    Showcase,
+    ShowcaseTile,
+    OptionalWrapper,
+    Gallery,
+    GalleryTile
 };

@@ -11,7 +11,7 @@ export const EMAIL_ADDRESS = 'mxw002@gmail.com';
 export const LINKS = {
     LINKEDIN: 'https://www.linkedin.com/in/malcolmwetzstein',
     GITHUB: 'https://github.com/MalcolmWetzstein',
-    RESUME: 'resume.pdf'
+    RESUME: 'documents/resume.pdf'
 }
 
 export const IMAGES = {

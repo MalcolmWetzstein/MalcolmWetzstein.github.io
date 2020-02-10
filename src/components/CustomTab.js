@@ -13,7 +13,7 @@ class CustomTab extends CustomComponent
                 style: 
                 { 
                     'min-width': '0px',
-                    padding: this.props.theme.spacing(0, CONSTANTS.UNIT_INDENT, 0, CONSTANTS.UNIT_INDENT)
+                    padding: this.props.sparse ? undefined : this.props.theme.spacing(0, CONSTANTS.UNIT_INDENT, 0, CONSTANTS.UNIT_INDENT)
                 } 
             }, 
             this.props.children);

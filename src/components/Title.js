@@ -8,7 +8,7 @@ class Title extends CustomComponent
     render()
     {
         return (
-            <Typography variant={CONSTANTS.TITLE_VARIANT} align='center'>
+            <Typography component='h1' variant={CONSTANTS.TITLE_VARIANT} align='center'>
                 {this.props.children}
             </Typography>
         );
