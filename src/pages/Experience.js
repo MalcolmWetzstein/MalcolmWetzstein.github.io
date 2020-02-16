@@ -21,7 +21,7 @@ class Experience extends CustomComponent
                         <Employment
                             startMonth={11}
                             startYear={2019}
-                            title='Full-Stack Software Engineer'
+                            title='Full-Stack Software Engineer (Temp)'
                             company='Servco Pacific'
                             department='Digital Strategy Team'
                             graphic={CONSTANTS.IMAGES.LOGO.SERVCO}
