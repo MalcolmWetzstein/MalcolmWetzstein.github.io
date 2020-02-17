@@ -1,11 +1,9 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Suggestions, Space } from '../components/Custom';
-import { About } from './Pages';
+import { Typography, Link, withTheme, Grid, Container } from '@material-ui/core';
+import { Page, Partition, Suggestions, Space, NavigationButton, Center } from '../components/Custom';
+import { About, Portfolio, Courses, Education, Experience, Skills, Contact } from './Pages';
 import * as CONSTANTS from '../Constants';
-
-import DescriptionIcon from '@material-ui/icons/Description';
 
 class Home extends CustomComponent 
 {
@@ -27,11 +25,74 @@ class Home extends CustomComponent
                         </Typography>
                         <Space level={1/3}/>
                     </React.Fragment>
-                    <Suggestions labels={['about me', 'resume', 'more']} icons={[null, <DescriptionIcon/>, null]}>
-                        <About/>
-                        <Link href={CONSTANTS.LINKS.RESUME} download/>
-                        <Link href='#'/>
-                    </Suggestions>
+                    <React.Fragment>
+                        <Suggestions pageDeque={this.props.pageDeque} labels={['about me', 'resume', 'more']}>
+                            <About/>
+                            <Link href={CONSTANTS.LINKS.RESUME} download/>
+                            <Link href='#more'/>
+                        </Suggestions>
+                        <Space level={3}/>
+                        <Container maxWidth='sm' id='more'>
+                            <Grid container justify='space-evenly'>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='About Me' pageDeque={this.props.pageDeque}>
+                                            <About/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='Portfolio' pageDeque={this.props.pageDeque}>
+                                            <Portfolio/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='Courses' pageDeque={this.props.pageDeque}>
+                                            <Courses/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='Education' pageDeque={this.props.pageDeque}>
+                                            <Education/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='Experience' pageDeque={this.props.pageDeque}>
+                                            <Experience/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='Skills' pageDeque={this.props.pageDeque}>
+                                            <Skills/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='Contact Me' pageDeque={this.props.pageDeque}>
+                                            <Contact/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                                <Grid item>
+                                    <Center>
+                                        <NavigationButton label='GitHub' pageDeque={this.props.pageDeque}>
+                                            <Link href={CONSTANTS.LINKS.GITHUB}/>
+                                        </NavigationButton>
+                                    </Center>
+                                </Grid>
+                            </Grid>
+                        </Container>
+                    </React.Fragment>
                 </Partition>
             </Page>
         );

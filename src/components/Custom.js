@@ -17,6 +17,8 @@ import ShowcaseTile from './ShowcaseTile';
 import OptionalWrapper from './OptionalWrapper';
 import Gallery from './Gallery';
 import GalleryTile from './GalleryTile';
+import NavigationButton from './NavigationButton';
+import Center from './Center';
 
 export { 
     Indent, 
@@ -37,5 +39,7 @@ export {
     ShowcaseTile,
     OptionalWrapper,
     Gallery,
-    GalleryTile
+    GalleryTile,
+    NavigationButton,
+    Center
 };

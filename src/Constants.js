@@ -4,6 +4,7 @@ export const TITLE_VARIANT = 'h3';
 export const SECTION_VARIANT = 'h4';
 export const BULLET_MARGIN = 10;
 export const BULLET_SUBMARGIN = 5;
+export const BUTTON_SIZE = 24;
 
 export const PHONE_NUMBER = '8082182723';
 export const EMAIL_ADDRESS = 'mxw002@gmail.com';
