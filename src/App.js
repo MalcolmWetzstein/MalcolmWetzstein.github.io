@@ -16,11 +16,11 @@ function App()
       <CssBaseline/>
       <PageDeque>
         <NavigationBar links={[
-          <IconLink href={CONSTANTS.LINKS.LINKEDIN}>
-            <LinkedInIcon/>
-          </IconLink>,
           <IconLink href={CONSTANTS.LINKS.GITHUB}>
             <GitHubIcon/>
+          </IconLink>,
+          <IconLink href={CONSTANTS.LINKS.LINKEDIN}>
+            <LinkedInIcon/>
           </IconLink>,
           <IconLink href={CONSTANTS.LINKS.RESUME}>
             <DescriptionIcon/>

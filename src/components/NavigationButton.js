@@ -1,7 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { withTheme, Button, Box } from '@material-ui/core';
-import * as CONSTANTS from '../Constants';
+import { withTheme, Button } from '@material-ui/core';
 
 class NavigationButton extends CustomComponent {
     constructor(props) {
@@ -14,18 +13,10 @@ class NavigationButton extends CustomComponent {
         const child = React.Children.only(this.props.children);
 
         return child.type.custom ? (
-            <Button onClick={this.clickHandler}>
-                <Box minWidth={CONSTANTS.UNIT_INDENT*CONSTANTS.BUTTON_SIZE}>
-                    {this.props.label}
-                </Box>
+            <Button onClick={this.clickHandler} fullWidth>
+                {this.props.label}
             </Button>
-        ) : (
-            <Button>
-                <Box minWidth={CONSTANTS.UNIT_INDENT*CONSTANTS.BUTTON_SIZE}>
-                    {React.cloneElement(child, { underline: 'none', color: 'inherit', target: '_blank' }, this.props.label)}
-                </Box>
-            </Button>
-        );
+        ) : React.cloneElement(child, { fullWidth: true }, this.props.label);
     }
 
     clickHandler()

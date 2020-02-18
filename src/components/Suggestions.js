@@ -2,6 +2,7 @@ import React from 'react';
 import CustomComponent from './CustomComponent';
 import { ButtonGroup, Button, Box, withTheme } from '@material-ui/core';
 import * as CONSTANTS from '../Constants';
+import { Center } from './Custom';
 
 class Suggestions extends CustomComponent
 {
@@ -31,18 +32,18 @@ class Suggestions extends CustomComponent
                 if (child.type.custom)
                     return (
                         <Button onClick={this.clickHandler(index)}>
-                            <Box minWidth={CONSTANTS.UNIT_INDENT*CONSTANTS.BUTTON_SIZE}>
+                            <Box minWidth={CONSTANTS.BUTTON_SIZE}>
                                 {this.props.labels[index]}
                             </Box>
                         </Button>
                     );
                 else
-                    return (
-                        <Button>
-                            <Box minWidth={CONSTANTS.UNIT_INDENT*CONSTANTS.BUTTON_SIZE}>
-                                {React.cloneElement(child, { underline: 'none', color: 'inherit'}, this.props.labels[index])}
-                            </Box>
-                        </Button>
+                    return React.cloneElement(child, { variant: 'outlined', color: 'secondary' }, 
+                        <Box minWidth={CONSTANTS.BUTTON_SIZE}>
+                            <Center>
+                                {this.props.labels[index]}
+                            </Center>
+                        </Box>
                     );
             }
         );

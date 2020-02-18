@@ -19,6 +19,7 @@ import Gallery from './Gallery';
 import GalleryTile from './GalleryTile';
 import NavigationButton from './NavigationButton';
 import Center from './Center';
+import ScrollToButton from './ScrollToButton';
 
 export { 
     Indent, 
@@ -41,5 +42,6 @@ export {
     Gallery,
     GalleryTile,
     NavigationButton,
-    Center
+    Center,
+    ScrollToButton
 };
