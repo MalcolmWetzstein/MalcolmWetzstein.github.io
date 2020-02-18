@@ -24,6 +24,8 @@ class NavigationButton extends CustomComponent {
         this.props.pageDeque.clear();
         this.props.pageDeque.push(React.Children.only(this.props.children));
         this.props.pageDeque.finish();
+
+        window.scrollTo(0, 0);
     }
 }
 
