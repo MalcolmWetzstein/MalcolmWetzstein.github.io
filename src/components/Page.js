@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { Box, withTheme } from '@material-ui/core';
+import { Box, Container, withTheme } from '@material-ui/core';
+import { Space } from '../components/Custom';
 import * as CONSTANTS from '../Constants';
 
 class Page extends CustomComponent
@@ -14,7 +15,10 @@ class Page extends CustomComponent
                 minHeight={1} 
                 padding={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, CONSTANTS.UNIT_SPACE, 0)}
             >
-                {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
+                <Container maxWidth={this.props.maxWidth}>
+                    <Space/>
+                    {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
+                </Container>
             </Box>
         );
     }

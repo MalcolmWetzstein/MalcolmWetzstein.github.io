@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, Link, withTheme } from '@material-ui/core';
-import { Page, Partition, Columns, Suggestions, Space, Title } from '../components/Custom';
+import { Typography, Link, Grid, withTheme } from '@material-ui/core';
+import { Page, Suggestions, Space, Title } from '../components/Custom';
 import { Home } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -16,43 +16,45 @@ class Contact extends CustomComponent
     render ()
     {
         return (
-            <Page pageDeque={this.props.pageDeque}>
-                <Partition center maxWidth='md'>
-                    <Title>
-                        {Contact.buttonText}
-                    </Title>
-                    <Columns justify='center'>
-                        <React.Fragment>
+            <Page
+                pageDeque={this.props.pageDeque}
+                maxWidth='md'
+            >
+                <Title>
+                    {Contact.buttonText}
+                </Title>
+                <Space/>
+                <Grid container justify='center' spacing={4}>
+                    <Grid item>
+                        <Typography variant="h4" gutterBottom>
+                            <EmailIcon fontSize='inherit'/>
+                        </Typography>
+                        <Typography variant="h4" gutterBottom>
+                            <PhoneIcon fontSize='inherit'/>
+                        </Typography>
+                        <Typography variant="h4" gutterBottom>
+                            <LinkedInIcon fontSize='inherit'/>
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
                             <Typography variant="h4" gutterBottom>
-                                <EmailIcon fontSize='inherit'/>
+                                {CONSTANTS.EMAIL_ADDRESS}
                             </Typography>
+                        </Link>
+                        <Link href={"tel:" + CONSTANTS.PHONE_NUMBER} target="_blank" color="secondary">
                             <Typography variant="h4" gutterBottom>
-                                <PhoneIcon fontSize='inherit'/>
+                                {this.readablePhoneNumber(CONSTANTS.PHONE_NUMBER)}
                             </Typography>
+                        </Link>
+                        <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank" color="secondary">
                             <Typography variant="h4" gutterBottom>
-                                <LinkedInIcon fontSize='inherit'/>
+                                {CONSTANTS.LINKS.LINKEDIN}
                             </Typography>
-                        </React.Fragment>
-                        <React.Fragment>
-                            <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
-                                <Typography variant="h4" gutterBottom>
-                                    {CONSTANTS.EMAIL_ADDRESS}
-                                </Typography>
-                            </Link>
-                            <Link href={"tel:" + CONSTANTS.PHONE_NUMBER} target="_blank" color="secondary">
-                                <Typography variant="h4" gutterBottom>
-                                    {this.readablePhoneNumber(CONSTANTS.PHONE_NUMBER)}
-                                </Typography>
-                            </Link>
-                            <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank" color="secondary">
-                                <Typography variant="h4" gutterBottom>
-                                    {CONSTANTS.LINKS.LINKEDIN}
-                                </Typography>
-                            </Link>
-                        </React.Fragment>
-                    </Columns>
-                </Partition>
-                <Space level={2}/>
+                        </Link>
+                    </Grid>
+                </Grid>
+                <Space/>
                 <Suggestions labels={['home']}>
                     <Home/>
                 </Suggestions>

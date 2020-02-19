@@ -2,9 +2,7 @@ import Indent from './Indent';
 import NavigationBar from './NavigationBar';
 import Page from './Page';
 import PageDeque from './PageDeque';
-import Partition from './Partition';
 import Suggestions from './Suggestions';
-import Columns from './Columns';
 import Space from './Space';
 import IconLink from './IconLink';
 import Bullets from './Bullets';
@@ -25,10 +23,8 @@ export {
     Indent, 
     NavigationBar, 
     Page, 
-    PageDeque, 
-    Partition, 
-    Suggestions, 
-    Columns, 
+    PageDeque,
+    Suggestions,
     Space, 
     IconLink, 
     Bullets, 

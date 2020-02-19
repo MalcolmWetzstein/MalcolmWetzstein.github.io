@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, withTheme, Card, CardContent, Grid, CardMedia, Box, Divider } from '@material-ui/core';
-import { Page, Partition, Suggestions, Title, Space, Bullets, DateRange } from '../components/Custom';
+import { Page, Suggestions, Title, Space, Bullets, DateRange } from '../components/Custom';
 import { Home, Courses, Experience } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -13,79 +13,78 @@ class Education extends CustomComponent
     {
         return (
             <Page pageDeque={this.props.pageDeque}>
-                <Partition center>
-                    <Title>
-                        {Education.buttonText}
-                    </Title>
-                    <Grid container direction='row' spacing={CONSTANTS.UNIT_INDENT} justify='center' alignItems='flex-start'>
-                        <Grid item xs={6}>
-                            <Degree 
-                                startMonth={6}
-                                startYear={2018}
-                                endMonth={9}
-                                endYear={2019}
-                                school='Massachusetts Institute of Technology'
-                                city='Cambridge'
-                                state='MA'
-                                degree='MEng in Electrical Engineering and Computer Science'
-                                info={[
-                                    [
-                                        'Thesis Project',
-                                        'Custom and Interactive Environments in StarLogo Nova for Computational Modeling'
-                                    ],
-                                    [
-                                        'Concentration in Computer Graphics',
-                                        '3D Rendering & Animation Algorithms',
-                                        'Physically-Based Simulation',
-                                        'Shape Analysis (Digital Geometry)',
-                                        'Computational Photography (Image Processing)',
-                                        'Computer Vision',
-                                        'Computational Fabrication'
-                                    ],
-                                    '5.0 GPA'
-                                ]}
-                                graphic={CONSTANTS.IMAGES.LOGO.MIT}
-                                graphicInfo='Massachusetts Institute of Technology'
-                                graphicWidth='100px'
-                                graphicHeight='50px'
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Degree
-                                startMonth={9}
-                                startYear={2014}
-                                endMonth={6}
-                                endYear={2018}
-                                school='Massachusetts Institute of Technology'
-                                city='Cambridge'
-                                state='MA'
-                                degree='BS in Computer Science and Engineering'
-                                info={[
-                                    [
-                                        'Topics Covered',
-                                        'Software Engineering',
-                                        'Algorithm Design & Analysis',
-                                        'Computer Architecture',
-                                        'Machine Learning',
-                                        'Systems Engineering'
-                                    ],
-                                    [
-                                        'Other Subjects',
-                                        'Mathematics 5 courses',
-                                        'Architecture & Design 4 courses',
-                                        'Music Theory & Composition 5 courses'
-                                    ], 
-                                    '4.7 GPA'
-                                ]}
-                                graphic={CONSTANTS.IMAGES.LOGO.MIT}
-                                graphicInfo='Massachusetts Institute of Technology'
-                                graphicWidth='100px'
-                                graphicHeight='50px'
-                            />
-                        </Grid>
+                <Title>
+                    {Education.buttonText}
+                </Title>
+                <Space/>
+                <Grid container direction='row' spacing={CONSTANTS.UNIT_INDENT} justify='center' alignItems='flex-start'>
+                    <Grid item xs={6}>
+                        <Degree 
+                            startMonth={6}
+                            startYear={2018}
+                            endMonth={9}
+                            endYear={2019}
+                            school='Massachusetts Institute of Technology'
+                            city='Cambridge'
+                            state='MA'
+                            degree='MEng in Electrical Engineering and Computer Science'
+                            info={[
+                                [
+                                    'Thesis Project',
+                                    'Custom and Interactive Environments in StarLogo Nova for Computational Modeling'
+                                ],
+                                [
+                                    'Concentration in Computer Graphics',
+                                    '3D Rendering & Animation Algorithms',
+                                    'Physically-Based Simulation',
+                                    'Shape Analysis (Digital Geometry)',
+                                    'Computational Photography (Image Processing)',
+                                    'Computer Vision',
+                                    'Computational Fabrication'
+                                ],
+                                '5.0 GPA'
+                            ]}
+                            graphic={CONSTANTS.IMAGES.LOGO.MIT}
+                            graphicInfo='Massachusetts Institute of Technology'
+                            graphicWidth='100px'
+                            graphicHeight='50px'
+                        />
                     </Grid>
-                </Partition>
-                <Space level={2}/>
+                    <Grid item xs={6}>
+                        <Degree
+                            startMonth={9}
+                            startYear={2014}
+                            endMonth={6}
+                            endYear={2018}
+                            school='Massachusetts Institute of Technology'
+                            city='Cambridge'
+                            state='MA'
+                            degree='BS in Computer Science and Engineering'
+                            info={[
+                                [
+                                    'Topics Covered',
+                                    'Software Engineering',
+                                    'Algorithm Design & Analysis',
+                                    'Computer Architecture',
+                                    'Machine Learning',
+                                    'Systems Engineering'
+                                ],
+                                [
+                                    'Other Subjects',
+                                    'Mathematics 5 courses',
+                                    'Architecture & Design 4 courses',
+                                    'Music Theory & Composition 5 courses'
+                                ], 
+                                '4.7 GPA'
+                            ]}
+                            graphic={CONSTANTS.IMAGES.LOGO.MIT}
+                            graphicInfo='Massachusetts Institute of Technology'
+                            graphicWidth='100px'
+                            graphicHeight='50px'
+                        />
+                    </Grid>
+                </Grid>
+                <Space/>
                 <Suggestions labels={['experience', 'courses', 'home']}>
                     <Experience/>
                     <Courses/>
