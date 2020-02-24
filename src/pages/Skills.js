@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { withTheme } from '@material-ui/core';
+import { withTheme, Typography } from '@material-ui/core';
 import { Page, Title, Space, Suggestions } from '../components/Custom';
 import { Home, Contact } from './Pages';
 
@@ -15,6 +15,10 @@ class Skills extends CustomComponent
                 <Title>
                     {Skills.buttonText}
                 </Title>
+                <Space/>
+                <Typography>
+                    Under Construction...
+                </Typography>
                 <Space/>
                 <Suggestions labels={['contact me', 'home']}>
                     <Contact/>

@@ -1,8 +1,9 @@
 import React from 'react';
 import CustomComponent from '../../components/CustomComponent';
-import { withTheme } from '@material-ui/core';
-import { Page, Title, Suggestions, Space } from '../../components/Custom';
+import { withTheme, Container, Button } from '@material-ui/core';
+import { Page, Title, Suggestions, Space, NavigationButton } from '../../components/Custom';
 import { Portfolio } from '../Pages';
+import * as CONSTANTS from '../../Constants';
 
 class DesignModeling extends CustomComponent {
     render() {
@@ -11,6 +12,12 @@ class DesignModeling extends CustomComponent {
                 <Title>
                     3D Modeling & Rendering Design Project
                 </Title>
+                <Space/>
+                <Container maxWidth='xs'>
+                    <NavigationButton label='See Project on Flickr'>
+                        <Button href={CONSTANTS.LINKS.PORTFOLIO.PAVILLION} target='_blank'/>
+                    </NavigationButton>
+                </Container>
                 <Space/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>

@@ -12,7 +12,16 @@ export const EMAIL_ADDRESS = 'mxw002@gmail.com';
 export const LINKS = {
     LINKEDIN: 'https://www.linkedin.com/in/malcolmwetzstein',
     GITHUB: 'https://github.com/MalcolmWetzstein',
-    RESUME: 'documents/resume.pdf'
+    RESUME: 'documents/resume.pdf',
+    PORTFOLIO: {
+        INTRO_ARCH: 'https://flic.kr/s/aHsmLAdjiw',
+        MANIFOLDS_FILTER: 'https://github.com/MalcolmWetzstein/Implementation-of-Adaptive-Manifolds-for-Real-Time-High-Dimensional-Filtering',
+        SURFACE_FLUID: 'https://github.com/MalcolmWetzstein/Surface-Fluid-Simulation-via-Mesh-Parameterization',
+        PAVILLION: 'https://flic.kr/s/aHsmLAdQ48',
+        STARLOGO: '',
+        AR_GAME: 'https://www.youtube.com/embed/CPJAs7iY2Qo',
+        WEBSITE: 'https://github.com/MalcolmWetzstein/MalcolmWetzstein.github.io'
+    }
 }
 
 export const IMAGES = {
