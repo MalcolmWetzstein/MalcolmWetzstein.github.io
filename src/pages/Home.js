@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, withTheme, Button, Box } from '@material-ui/core';
+import { Typography, withTheme, Button, Box, Divider } from '@material-ui/core';
 import { Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components/Custom';
 import { About, Portfolio, Courses, Education, Experience, Skills, Contact } from './Pages';
 import * as CONSTANTS from '../Constants';
@@ -28,11 +28,13 @@ class Home extends CustomComponent
                     Recent Master Graduate in Computer Science
                 </Typography>
                 <Space/>
+                <Divider/>
+                <Space/>
                 <Suggestions pageDeque={this.props.pageDeque} labels={['about me', 'more']}>
                     <About/>
                     {ScrollToButton(this.moreRef)}
                 </Suggestions>
-                <Space/>
+                <Space size='xl'/>
                 <Center>
                     <Box
                         maxWidth={this.props.theme.spacing(CONSTANTS.UNIT_INDENT*6)}

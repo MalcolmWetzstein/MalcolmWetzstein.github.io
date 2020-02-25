@@ -12,13 +12,13 @@ class Architecture extends CustomComponent {
                 <Title>
                     Architecture Design Models
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='xs'>
                     <NavigationButton label='See Project on Flickr'>
                         <Button href={CONSTANTS.LINKS.PORTFOLIO.INTRO_ARCH} target='_blank'/>
                     </NavigationButton>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

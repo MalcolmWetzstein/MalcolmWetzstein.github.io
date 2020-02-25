@@ -11,11 +11,11 @@ class Music extends CustomComponent {
                 <Title>
                     Music Compositions
                 </Title>
-                <Space/>
-                    <Typography>
-                        Coming Soon...
-                    </Typography>
-                <Space/>
+                <Space size='lg'/>
+                <Typography align='center'>
+                    Coming Soon...
+                </Typography>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

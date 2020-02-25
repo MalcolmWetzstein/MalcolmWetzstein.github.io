@@ -12,13 +12,13 @@ class DesignModeling extends CustomComponent {
                 <Title>
                     3D Modeling & Rendering Design Project
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='xs'>
                     <NavigationButton label='See Project on Flickr'>
                         <Button href={CONSTANTS.LINKS.PORTFOLIO.PAVILLION} target='_blank'/>
                     </NavigationButton>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

@@ -3,19 +3,18 @@ import CustomComponent from './CustomComponent';
 import { Box, withTheme } from '@material-ui/core';
 import * as CONSTANTS from '../Constants';
 
-class Space extends CustomComponent
-{
-    render()
-    {
-        return React.Children.count(this.props.children) > 0 ? (
-                <Box margin={this.props.theme.spacing(this.props.level ? this.props.level * CONSTANTS.UNIT_SPACE : CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
-                    {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
-                </Box>
-            ) : (
-                <Box padding={this.props.theme.spacing(this.props.level ? this.props.level * CONSTANTS.UNIT_SPACE : CONSTANTS.UNIT_SPACE, 0, 0, 0)}>
-                    {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
-                </Box>
-            );
+const DEFAULT_SIZE = 'md';
+
+class Space extends CustomComponent {
+    render() {
+        return (
+            <Box padding={this.padding()}/>
+        );
+    }
+
+    padding() {
+        const size = CONSTANTS.SPACE_SIZES[this.props.size ? this.props.size : DEFAULT_SIZE];
+        return this.props.theme.spacing(size, 0, size, 0);
     }
 }
 

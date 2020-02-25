@@ -16,12 +16,12 @@ class Portfolio extends CustomComponent
                 <Title>
                     {Portfolio.buttonText}
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='xl'>
                     <Categories sparse labels={['technical', 'creative']}>
                         {/* Technical */}
                         <React.Fragment>
-                            <Space level={2/3}/>
+                            <Space size='xs'/>
                             <Showcase pageDeque={this.props.pageDeque}>
                                 <ShowcaseTile label='Custom Terrain in StarLogo Nova' image={CONSTANTS.IMAGES.PORTFOLIO.STARLOGO.THUMB}>
                                     <StarLogo/>
@@ -37,7 +37,7 @@ class Portfolio extends CustomComponent
 
                         {/* Creative */}
                         <React.Fragment>
-                            <Space level={2/3}/>
+                            <Space size='xs'/>
                             <Showcase pageDeque={this.props.pageDeque}>
                                 <ShowcaseTile label='Augmented Reality Game' image={CONSTANTS.IMAGES.PORTFOLIO.AR_GAME.THUMB}>
                                     <ARVoxel/>
@@ -58,7 +58,7 @@ class Portfolio extends CustomComponent
                         </React.Fragment>
                     </Categories>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['courses', 'skills', 'home']}>
                     <Courses/>
                     <Skills/>

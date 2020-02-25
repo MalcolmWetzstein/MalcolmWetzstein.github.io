@@ -19,7 +19,7 @@ class Courses extends CustomComponent
                 <Title>
                     {Courses.buttonText}
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='md'>
                     <Categories labels={['Computer Science', 'Mathematics', 'Design', 'Natural Sciences', 'Music']}>
                         <React.Fragment>{/* Computer Science */}
@@ -452,7 +452,7 @@ class Courses extends CustomComponent
                         </React.Fragment>
                     </Categories>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['education', 'portfolio', 'home']}>
                     <Education/>
                     <Portfolio/>
@@ -503,7 +503,7 @@ class Course extends CustomComponent
                 <Divider/>
                 <ExpansionPanelDetails>
                     <Box paddingRight='24px'>
-                        <Space level={0.5}/>
+                        <Space size='xs'/>
                         <Indent>
                             <Typography variant='h6'>
                                 {'Course ' + this.props.number}
@@ -514,14 +514,11 @@ class Course extends CustomComponent
                             <Typography variant='subtitle2' color='textSecondary'>
                                 {this.instructors()}
                             </Typography>
-                            <Space level={0.5}/>
-                            <Typography variant='subtitle1' gutterBottom>
-                                Description:
-                            </Typography>
-                            <Typography variant='body1' color='textSecondary'>
+                            <Space size='sm'/>
+                            <Typography variant='body1'>
                                 {this.props.description}
                             </Typography>
-                            <Space level={0.5}/>
+                            <Space size='sm'/>
                             <Typography variant='subtitle1'>
                                 Topics:
                             </Typography>

@@ -13,7 +13,7 @@ class Page extends CustomComponent
                 position='absolute'
                 width={1} 
                 minHeight={1} 
-                padding={this.props.theme.spacing(CONSTANTS.UNIT_SPACE, 0, CONSTANTS.UNIT_SPACE, 0)}
+                padding={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['xl'], 0, CONSTANTS.SPACE_SIZES['xl'], 0)}
             >
                 <Container maxWidth={this.props.maxWidth}>
                     <Space/>

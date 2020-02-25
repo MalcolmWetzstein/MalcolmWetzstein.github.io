@@ -16,7 +16,7 @@ class Education extends CustomComponent
                 <Title>
                     {Education.buttonText}
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Grid container direction='row' spacing={CONSTANTS.UNIT_INDENT} justify='center' alignItems='flex-start'>
                     <Grid item xs={6}>
                         <Degree 
@@ -84,7 +84,7 @@ class Education extends CustomComponent
                         />
                     </Grid>
                 </Grid>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['experience', 'courses', 'home']}>
                     <Experience/>
                     <Courses/>

@@ -15,11 +15,11 @@ class Skills extends CustomComponent
                 <Title>
                     {Skills.buttonText}
                 </Title>
-                <Space/>
-                <Typography>
+                <Space size='lg'/>
+                <Typography align='center'>
                     Under Construction...
                 </Typography>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['contact me', 'home']}>
                     <Contact/>
                     <Home/>

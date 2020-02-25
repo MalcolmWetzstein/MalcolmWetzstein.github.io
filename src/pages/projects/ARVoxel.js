@@ -12,7 +12,7 @@ class ARVoxel extends CustomComponent {
                 <Title>
                     Augmented Reality Voxel Building Game
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='md'>
                     <div
                         className="video"
@@ -39,7 +39,7 @@ class ARVoxel extends CustomComponent {
                         />
                     </div>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

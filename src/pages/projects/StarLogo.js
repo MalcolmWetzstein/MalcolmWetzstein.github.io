@@ -11,11 +11,11 @@ class StarLogo extends CustomComponent {
                 <Title>
                     Master Thesis: <i>Custom and Interactive Environments in StarLogo Nova for Computational Modeling</i>
                 </Title>
-                <Space/>
-                <Typography>
+                <Space size='lg'/>
+                <Typography align='center'>
                     Coming Soon...
                 </Typography>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

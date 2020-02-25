@@ -12,13 +12,13 @@ class Website extends CustomComponent {
                 <Title>
                     Personal Website
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='xs'>
                     <NavigationButton label='See Project on Github'>
                         <Button href={CONSTANTS.LINKS.PORTFOLIO.WEBSITE} target='_blank'/>
                     </NavigationButton>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

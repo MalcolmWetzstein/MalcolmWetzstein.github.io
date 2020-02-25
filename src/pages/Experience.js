@@ -16,7 +16,7 @@ class Experience extends CustomComponent
                 <Title>
                     {Experience.buttonText}
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Employment
                     startMonth={11}
                     startYear={2019}
@@ -46,6 +46,7 @@ class Experience extends CustomComponent
                         'Google Optimize, Google Analytics, and Salesforce Marketing Cloud experience'
                     ]}
                 />
+                <Space size='lg'/>
                 <Employment
                     startMonth={1}
                     startYear={2015}
@@ -82,7 +83,7 @@ class Experience extends CustomComponent
                         ]
                     ]}
                 />
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['skills', 'education', 'home']}>
                     <Skills/>
                     <Education/>
@@ -134,7 +135,6 @@ class Employment extends CustomComponent
                             <Bullets focus bullets={this.props.info}/>
                         </CardContent>
                     </Card>
-                    <Space/>
                 </Grid>
             </Grid>
         );

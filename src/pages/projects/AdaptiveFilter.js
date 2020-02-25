@@ -12,13 +12,13 @@ class AdaptiveFilter extends CustomComponent {
                 <Title>
                     Implementation of <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='xs'>
                     <NavigationButton label='See Project on Github'>
                         <Button href={CONSTANTS.LINKS.PORTFOLIO.MANIFOLDS_FILTER} target='_blank'/>
                     </NavigationButton>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>

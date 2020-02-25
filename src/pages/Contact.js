@@ -23,7 +23,7 @@ class Contact extends CustomComponent
                 <Title>
                     {Contact.buttonText}
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Grid container justify='center' spacing={4}>
                     <Grid item>
                         <Typography variant="h4" gutterBottom>
@@ -54,7 +54,7 @@ class Contact extends CustomComponent
                         </Link>
                     </Grid>
                 </Grid>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['home']}>
                     <Home/>
                 </Suggestions>

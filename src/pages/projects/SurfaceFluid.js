@@ -12,13 +12,13 @@ class SurfaceFluid extends CustomComponent {
                 <Title>
                     Surface Fluid Flow via Mesh Parameterization
                 </Title>
-                <Space/>
+                <Space size='lg'/>
                 <Container maxWidth='xs'>
                     <NavigationButton label='See Project on Github'>
                         <Button href={CONSTANTS.LINKS.PORTFOLIO.SURFACE_FLUID} target='_blank'/>
                     </NavigationButton>
                 </Container>
-                <Space/>
+                <Space size='lg'/>
                 <Suggestions labels={['back']}>
                     <Portfolio/>
                 </Suggestions>
