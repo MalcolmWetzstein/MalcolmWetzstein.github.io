@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, withTheme, Card, CardContent, CardActionArea, Grid, CardMedia, Box, Divider, Collapse } from '@material-ui/core';
+import { Typography, withTheme, Card, CardContent, CardActionArea, CardMedia, Box, Divider, Collapse } from '@material-ui/core';
 import { Page, Suggestions, Title, Space, Bullets, DateRange } from '../components/Custom';
 import { Home, Courses, Experience } from './Pages';
 import * as CONSTANTS from '../Constants';
