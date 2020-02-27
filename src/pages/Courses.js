@@ -90,7 +90,7 @@ class Courses extends CustomComponent
                                 school={MIT}
                                 number='6.838'
                                 instructors='Justin Solomon'
-                                description='Survey of topics in digital geometry with an emphasis on applications. Introduction to the mathematical concepts needed to apply them.'
+                                description='Survey of topics in geometry processing with an emphasis on applications. Introduction to the mathematical concepts needed to apply them.'
                                 topics={[
                                     'Finite Element Method',
                                     'Mesh Parameterization',

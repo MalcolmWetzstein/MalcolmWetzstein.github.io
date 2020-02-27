@@ -1,16 +1,23 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { withTheme, Typography } from '@material-ui/core';
+import { withTheme, Typography, Divider, Box } from '@material-ui/core';
 import * as CONSTANTS from '../Constants';
+import { Space } from './Custom';
 
 class Title extends CustomComponent
 {
     render()
     {
         return (
-            <Typography component='h1' variant={CONSTANTS.TITLE_VARIANT} align='center'>
-                {this.props.children}
-            </Typography>
+            <React.Fragment>
+                <Box>
+                    <Typography component='h1' variant={CONSTANTS.TITLE_VARIANT} align='center'>
+                        {this.props.children}
+                    </Typography>
+                    <Space size='sm'/>
+                    <Divider/>
+                </Box>
+            </React.Fragment>
         );
     }
 }

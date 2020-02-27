@@ -16,7 +16,7 @@ class Page extends CustomComponent
                 padding={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['xl'], 0, CONSTANTS.SPACE_SIZES['xl'], 0)}
             >
                 <Container maxWidth={this.props.maxWidth}>
-                    <Space/>
+                    <Space size='sm'/>
                     {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
                 </Container>
             </Box>

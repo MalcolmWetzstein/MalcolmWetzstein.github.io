@@ -1,9 +1,12 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { withTheme, Typography, Grid, Card, CardContent, CardMedia, Box, Divider } from '@material-ui/core';
+import { withTheme, Typography, Card, CardContent, CardActionArea, CardMedia, Box, Divider, Collapse } from '@material-ui/core';
 import { Page, Title, Space, Suggestions, Bullets, DateRange } from '../components/Custom';
 import { Education, Skills, Home } from '../pages/Pages';
 import * as CONSTANTS from '../Constants';
+
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Experience extends CustomComponent 
 {
@@ -12,7 +15,10 @@ class Experience extends CustomComponent
     render ()
     {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                pageDeque={this.props.pageDeque}
+                maxWidth='md'
+            >
                 <Title>
                     {Experience.buttonText}
                 </Title>
@@ -20,7 +26,7 @@ class Experience extends CustomComponent
                 <Employment
                     startMonth={11}
                     startYear={2019}
-                    title='Full-Stack Software Engineer (Temp)'
+                    title='Full-Stack Software Engineer (Temporary)'
                     company='Servco Pacific'
                     department='Digital Strategy Team'
                     graphic={CONSTANTS.IMAGES.LOGO.SERVCO}
@@ -28,12 +34,13 @@ class Experience extends CustomComponent
                     graphicWidth='100px'
                     graphicHeight='100px'
                     info={[
-                        'VR and AR prototyping',
+                        'Virtual Reality and Augmented Reality prototyping',
+                        'Frontend UI/UX development experience with React',
                         'Light management experience directing app developer interns',
                         [
                             'Collaborated with interdisciplinary team using Agile workflow and Jira',
                             'Software Engineers',
-                            'Product Designers (Digital)',
+                            'UX/UI Designers',
                             'Product Managers',
                             'Marketing Specialists',
                             'Data Specialists',
@@ -46,13 +53,13 @@ class Experience extends CustomComponent
                         'Google Optimize, Google Analytics, and Salesforce Marketing Cloud experience'
                     ]}
                 />
-                <Space size='lg'/>
+                <Space size='md'/>
                 <Employment
                     startMonth={1}
                     startYear={2015}
                     endMonth={8}
                     endYear={2019}
-                    title='Student Software Developer'
+                    title='Student Software Developer (Graphics Programmer)'
                     company='MIT Scheller Teacher Education Program'
                     department='StarLogo Nova Project'
                     graphic={CONSTANTS.IMAGES.LOGO.STEP}
@@ -96,48 +103,68 @@ class Experience extends CustomComponent
 
 class Employment extends CustomComponent
 {
+    constructor(props) {
+        super(props);
+
+        this.state = { open: false }
+
+        this.onClick = this.onClick.bind(this);
+    }
+
     render()
     {
         return (
-            <Grid container direction='row' spacing={0} justify='center'>
-                <Grid item xs={9}>
-                    <Card variant='outlined'>
-                        <CardContent>
-                            <Grid container justify='space-between' direction='row'>
-                                <Box>
-                                    <DateRange
-                                        startMonth={this.props.startMonth}
-                                        startYear={this.props.startYear}
-                                        endMonth={this.props.endMonth}
-                                        endYear={this.props.endYear}
-                                    />
-                                    <Typography variant='h6'>
-                                        {this.props.title}
-                                    </Typography>
-                                    <Typography variant='subtitle1'>
-                                        {this.props.company}
-                                    </Typography>
-                                    <Typography variant='subtitle2'>
-                                        {(this.props.department ? this.props.department : '')}
-                                    </Typography>
-                                </Box>
-                                <Box height={1} display='flex' alignItems='center'>
-                                    <CardMedia 
-                                        image={this.props.graphic}
-                                        title={this.props.graphicInfo}
-                                        style={{ width: this.props.graphicWidth, height: this.props.graphicHeight, right: '0px'}}
-                                    />
-                                </Box>
-                            </Grid>
-                        </CardContent>
-                        <Divider/>
-                        <CardContent>
-                            <Bullets focus bullets={this.props.info}/>
-                        </CardContent>
-                    </Card>
-                </Grid>
-            </Grid>
+            <Card variant='outlined'>
+                <CardActionArea
+                    onClick={this.onClick}
+                    disableRipple
+                >
+                    <CardContent>
+                        <Box
+                            display='flex'
+                            justifyContent='space-between'
+                        >
+                            <Box>
+                                <DateRange
+                                    startMonth={this.props.startMonth}
+                                    startYear={this.props.startYear}
+                                    endMonth={this.props.endMonth}
+                                    endYear={this.props.endYear}
+                                />
+                                <Typography variant='h6'>
+                                    {this.props.title}
+                                </Typography>
+                                <Typography variant='subtitle1'>
+                                    {this.props.company}
+                                </Typography>
+                                <Typography variant='subtitle2'>
+                                    {(this.props.department ? this.props.department : '')}
+                                </Typography>
+                            </Box>
+                            <Box margin='auto 0'>
+                                <CardMedia 
+                                    image={this.props.graphic}
+                                    title={this.props.graphicInfo}
+                                    style={{ width: this.props.graphicWidth, height: this.props.graphicHeight, right: '0px'}}
+                                />
+                            </Box>
+                        </Box>
+                        <Space size='xs'/>
+                        {this.state.open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
+                    </CardContent>
+                </CardActionArea>
+                <Collapse in={this.state.open}>
+                    <Divider/>
+                    <CardContent>
+                        <Bullets focus bullets={this.props.info}/>
+                    </CardContent>
+                </Collapse>
+            </Card>
         );
+    }
+
+    onClick() {
+        this.setState({ open: !this.state.open })
     }
 }
 

@@ -7,9 +7,12 @@ class CustomTab extends CustomComponent
 {
     render()
     {
+        const propsCopy = Object.assign({}, this.props);
+        delete propsCopy.sparse;
+
         return React.createElement(Tab, 
             { 
-                ...this.props, 
+                ...propsCopy, 
                 style: 
                 { 
                     'minWidth': '0px',
