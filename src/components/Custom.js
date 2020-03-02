@@ -18,6 +18,7 @@ import GalleryTile from './GalleryTile';
 import NavigationButton from './NavigationButton';
 import Center from './Center';
 import ScrollToButton from './ScrollToButton';
+import YoutubeEmbed from './YoutubeEmbed';
 
 export { 
     Indent, 
@@ -39,5 +40,6 @@ export {
     GalleryTile,
     NavigationButton,
     Center,
-    ScrollToButton
+    ScrollToButton,
+    YoutubeEmbed
 };

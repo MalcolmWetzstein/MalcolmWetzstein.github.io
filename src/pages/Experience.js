@@ -35,7 +35,11 @@ class Experience extends CustomComponent
                     graphicHeight='100px'
                     info={[
                         'Virtual Reality and Augmented Reality prototyping',
-                        'Frontend UI/UX development experience with React',
+                        [
+                            'Implemented Servco Vehicle Valuation web app',
+                            'Frontend UI/UX development with React; architected reusable framework for managing state in single page apps',
+                            'Backend development with Express; created secure server for accessing Kelley Blue Book API and customer data'
+                        ],
                         'Light management experience directing app developer interns',
                         [
                             'Collaborated with interdisciplinary team using Agile workflow and Jira',
@@ -47,8 +51,8 @@ class Experience extends CustomComponent
                         ],
                         [
                             'Azure DevOps experience',
-                            'Continuous Integration/Continuous Deployment (CI/CD)',
-                            'Git collaboration and pull requests'
+                            'Continuous Integration/Continuous Deployment (CI/CD) Setup',
+                            'Git collaboration using pull requests'
                         ],
                         'Google Optimize, Google Analytics, and Salesforce Marketing Cloud experience'
                     ]}

@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../../components/CustomComponent';
 import { withTheme, Container } from '@material-ui/core';
-import { Page, Title, Suggestions, Space } from '../../components/Custom';
+import { Page, Title, Suggestions, Space, YoutubeEmbed } from '../../components/Custom';
 import { Portfolio } from '../Pages';
 import * as CONSTANTS from '../../Constants';
 
@@ -14,30 +14,10 @@ class ARVoxel extends CustomComponent {
                 </Title>
                 <Space size='lg'/>
                 <Container maxWidth='md'>
-                    <div
-                        className="video"
-                        style={{
-                            position: "relative",
-                            paddingBottom: "56.25%" /* 16:9 */,
-                            paddingTop: 25,
-                            height: 0
-                        }}
-                        >
-                        <iframe
-                            title='Augmented Reality Voxel Building Game'
-                            style={{
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            width: "100%",
-                            height: "100%"
-                            }}
-                            src={CONSTANTS.LINKS.PORTFOLIO.AR_GAME}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen="true"
-                        />
-                    </div>
+                    <YoutubeEmbed
+                        title='Augmented Reality Voxel Building Game'
+                        src={CONSTANTS.LINKS.PORTFOLIO.AR_GAME}
+                    />
                 </Container>
                 <Space size='lg'/>
                 <Suggestions labels={['back']}>
