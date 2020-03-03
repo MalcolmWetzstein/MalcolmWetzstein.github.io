@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { withTheme, Card, CardActionArea, CardContent, CardMedia, Box, Collapse, Divider, Grid } from '@material-ui/core';
+import { withTheme, Card, CardActionArea, CardContent, CardMedia, Collapse, Divider, Grid } from '@material-ui/core';
 import { Bullets } from './Custom';
 
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
