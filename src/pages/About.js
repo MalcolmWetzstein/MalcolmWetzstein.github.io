@@ -21,7 +21,7 @@ class About extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 <Typography>
-                    Taking up graphics programming at 15 drew my attention away from video games and introduced me to a field of study that I found both fascinating and challenging, cementing my interest in computer science before I had even begun thinking about college. At MIT I took full advantage of available opportunities to explore the field of computer graphics beyond the 3D graphics rasterization pipeline. Technology in storytelling has remained a primary motivation in my study of computer graphics. I also took courses in architecture, design, and music to develop my sense of aesthetics and hopefully connect it to my chosen field of study in the future.
+                    Taking up graphics programming at 15 broadened my interests beyond video games and introduced me to a field of study that I find both fascinating and challenging, cementing my interest in computer science before I had even begun thinking about college. At MIT I took full advantage of available opportunities to explore the field of computer graphics beyond the 3D graphics rasterization pipeline. Technology in storytelling has remained a primary motivation in my study of computer graphics. I also took courses in architecture, design, and music to develop my sense of aesthetics and hopefully connect it to my chosen field of study in the future.
                 </Typography>
                 <Space size='lg'/>
                 <Suggestions labels={['portfolio', 'experience', 'home']}>
