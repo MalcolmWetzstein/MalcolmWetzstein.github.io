@@ -19,6 +19,8 @@ import NavigationButton from './NavigationButton';
 import Center from './Center';
 import ScrollToButton from './ScrollToButton';
 import YoutubeEmbed from './YoutubeEmbed';
+import Timeline from './Timeline';
+import TimelineTile from './TimelineTile';
 
 export { 
     Indent, 
@@ -41,5 +43,7 @@ export {
     NavigationButton,
     Center,
     ScrollToButton,
-    YoutubeEmbed
+    YoutubeEmbed,
+    Timeline,
+    TimelineTile
 };
