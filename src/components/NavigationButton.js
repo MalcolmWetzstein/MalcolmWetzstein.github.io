@@ -13,7 +13,10 @@ class NavigationButton extends CustomComponent {
         const child = React.Children.only(this.props.children);
 
         return child.type.custom ? (
-            <Button onClick={this.clickHandler} fullWidth>
+            <Button
+                onClick={this.clickHandler}
+                fullWidth
+            >
                 {this.props.label}
             </Button>
         ) : React.cloneElement(child, { fullWidth: true }, this.props.label);

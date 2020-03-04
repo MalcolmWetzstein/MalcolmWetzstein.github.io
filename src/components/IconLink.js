@@ -7,7 +7,10 @@ class IconLink extends CustomComponent
     render()
     {
         return (
-            <IconButton href={this.props.href} target='_blank'>
+            <IconButton
+                href={this.props.href}
+                target='_blank'
+            >
                 {React.Children.only(this.props.children)}
             </IconButton>
         );

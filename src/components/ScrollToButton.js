@@ -3,7 +3,11 @@ import { Button } from '@material-ui/core';
 
 export default function(targetRef, child) {
     function onClick() {
-        targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        targetRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'nearest'
+        });
     }
 
     return (

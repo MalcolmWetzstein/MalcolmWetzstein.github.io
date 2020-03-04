@@ -5,13 +5,14 @@ import { Space } from './Custom';
 
 class Timeline extends CustomComponent {
     render() {
-        return React.Children.map(this.props.children, (child, index) => 
-            index < React.Children.count(this.props.children) - 1 ?
-                <React.Fragment>
-                    {child}
-                    <Space size='md'/>
-                </React.Fragment>
-                : child
+        return React.Children.map(this.props.children,
+            (child, index) => 
+                index < React.Children.count(this.props.children) - 1 ?
+                    <React.Fragment>
+                        {child}
+                        <Space size='md'/>
+                    </React.Fragment>
+                    : child
         );
     }
 }

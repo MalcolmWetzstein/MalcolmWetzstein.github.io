@@ -7,7 +7,10 @@ class DateRange extends CustomComponent
     render()
     {
         return (
-            <Typography variant='subtitle2' color='textSecondary'>
+            <Typography
+                variant='subtitle2'
+                color='textSecondary'
+            >
                 {this.renderDate(this.props.startMonth, this.props.startYear)}
                 &mdash;
                 {(this.props.endMonth && this.props.endYear) ? this.renderDate(this.props.endMonth, this.props.endYear) : 'Present'}

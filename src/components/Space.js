@@ -3,8 +3,6 @@ import CustomComponent from './CustomComponent';
 import { Box, withTheme } from '@material-ui/core';
 import * as CONSTANTS from '../Constants';
 
-const DEFAULT_SIZE = 'md';
-
 class Space extends CustomComponent {
     render() {
         return (
@@ -13,7 +11,7 @@ class Space extends CustomComponent {
     }
 
     padding() {
-        const size = CONSTANTS.SPACE_SIZES[this.props.size ? this.props.size : DEFAULT_SIZE];
+        const size = CONSTANTS.SPACE_SIZES[this.props.size ? this.props.size : CONSTANTS.DEFAULT_SPACE];
         return this.props.theme.spacing(size, 0, size, 0);
     }
 }

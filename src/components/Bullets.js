@@ -15,7 +15,10 @@ class Bullets extends CustomComponent
                     return (
                         <ul>
                             <li>
-                                <Typography variant='body2' color={this.props.focus ? 'textPrimary' : 'textSecondary'}>
+                                <Typography
+                                    variant='body2'
+                                    color={this.props.focus ? 'textPrimary' : 'textSecondary'}
+                                >
                                     {Array.isArray(bullet) ? bullet[0] : bullet}
                                 </Typography>
                                 {
@@ -23,7 +26,10 @@ class Bullets extends CustomComponent
                                         reKey(bullet.slice(1).map(subBullet => 
                                             <ul>
                                                 <li>
-                                                    <Typography variant='body2' color='textSecondary'>
+                                                    <Typography
+                                                        variant='body2'
+                                                        color='textSecondary'
+                                                    >
                                                         {subBullet}
                                                     </Typography>
                                                 </li>

@@ -2,7 +2,7 @@ import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, withTheme, Button, Box, Divider } from '@material-ui/core';
 import { Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components/Custom';
-import { About, Portfolio, Courses, Education, Experience, Skills, Contact } from './Pages';
+import { About, Portfolio, Education, Experience, Skills, Contact } from './Pages';
 import * as CONSTANTS from '../Constants';
 
 class Home extends CustomComponent 
@@ -45,9 +45,6 @@ class Home extends CustomComponent
                         </NavigationButton>
                         <NavigationButton label='Portfolio' pageDeque={this.props.pageDeque}>
                             <Portfolio/>
-                        </NavigationButton>
-                        <NavigationButton label='Courses' pageDeque={this.props.pageDeque}>
-                            <Courses/>
                         </NavigationButton>
                         <NavigationButton label='Education' pageDeque={this.props.pageDeque}>
                             <Education/>

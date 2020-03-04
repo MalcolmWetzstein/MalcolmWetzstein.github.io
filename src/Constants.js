@@ -1,9 +1,13 @@
 export const UNIT_INDENT = 4;
-export const TITLE_VARIANT = 'h3';
-export const SECTION_VARIANT = 'h4';
+export const PAGE_HEADER_VARIANT = 'h3';
+export const SECTION_HEADER_VARIANT = 'h4';
 export const BULLET_MARGIN = 10;
 export const BULLET_SUBMARGIN = 5;
-export const BUTTON_SIZE = 24 * UNIT_INDENT;
+export const BUTTON_SIZE = 96;
+export const TAB_MARGIN = 3;
+export const ICON_BUTTON_SPACING = 1;
+export const DEFAULT_SPACE = 'md';
+export const MAX_GRID_LIST_COLUMNS = 3;
 
 export const SPACE_SIZES = Object.freeze({
     'xs': 1.0,
@@ -15,6 +19,10 @@ export const SPACE_SIZES = Object.freeze({
 
 export const PHONE_NUMBER = '8082182723';
 export const EMAIL_ADDRESS = 'mxw002@gmail.com';
+
+export const NAMES = Object.freeze({
+    MIT: 'Massachusetts Institute of Technology'
+});
 
 export const LINKS = Object.freeze({
     LINKEDIN: 'https://www.linkedin.com/in/malcolmwetzstein',

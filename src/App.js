@@ -29,7 +29,6 @@ function App()
           <pages.Home/>
           <pages.About/>
           <pages.Portfolio/>
-          <pages.Courses/>
           <pages.Education/>
           <pages.Experience/>
           <pages.Skills/>

@@ -12,8 +12,19 @@ class ShowcaseTile extends CustomComponent {
     render() {
         return (
             <React.Fragment>
-                <ButtonBase style={{ width: '100%', height: '100%'}} onClick={this.onOpen}>
-                    <img src={this.props.image} alt={this.props.label} width='100%' height='100%'/>
+                <ButtonBase
+                    style={{
+                        width: '100%',
+                        height: '100%'
+                    }}
+                    onClick={this.onOpen}
+                >
+                    <img
+                        src={this.props.image}
+                        alt={this.props.label}
+                        width='100%'
+                        height='100%'
+                    />
                 </ButtonBase>
                 <GridListTileBar title={this.props.label}/>
             </React.Fragment>

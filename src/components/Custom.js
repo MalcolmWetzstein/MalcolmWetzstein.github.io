@@ -9,7 +9,7 @@ import Bullets from './Bullets';
 import DateRange from './DateRange';
 import Categories from './Categories';
 import CustomTab from './CustomTab';
-import Title from './Title';
+import PageHeader from './PageHeader';
 import Showcase from './Showcase';
 import ShowcaseTile from './ShowcaseTile';
 import OptionalWrapper from './OptionalWrapper';
@@ -21,6 +21,7 @@ import ScrollToButton from './ScrollToButton';
 import YoutubeEmbed from './YoutubeEmbed';
 import Timeline from './Timeline';
 import TimelineTile from './TimelineTile';
+import SectionHeader from './SectionHeader';
 
 export { 
     Indent, 
@@ -34,7 +35,7 @@ export {
     DateRange, 
     Categories, 
     CustomTab, 
-    Title,
+    PageHeader,
     Showcase,
     ShowcaseTile,
     OptionalWrapper,
@@ -45,5 +46,6 @@ export {
     ScrollToButton,
     YoutubeEmbed,
     Timeline,
-    TimelineTile
+    TimelineTile,
+    SectionHeader
 };

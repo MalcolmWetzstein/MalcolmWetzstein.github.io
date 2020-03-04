@@ -16,8 +16,15 @@ class Suggestions extends CustomComponent
     render()
     {
         return (
-            <Box display='flex' justifyContent='center'>
-                <ButtonGroup variant='outlined' size='large' color='secondary'>
+            <Box
+                display='flex'
+                justifyContent='center'
+            >
+                <ButtonGroup
+                    variant='outlined'
+                    size='large'
+                    color='secondary'
+                >
                     {this.buttonsFromChildren()}
                 </ButtonGroup>
             </Box>
@@ -29,22 +36,25 @@ class Suggestions extends CustomComponent
         return React.Children.map(this.props.children,
             (child, index) =>
             {
-                if (child.type.custom)
-                    return (
-                        <Button onClick={this.clickHandler(index)}>
-                            <Box minWidth={CONSTANTS.BUTTON_SIZE}>
-                                {this.props.labels[index]}
-                            </Box>
-                        </Button>
-                    );
-                else
-                    return React.cloneElement(child, { variant: 'outlined', color: 'secondary' }, 
+                return child.type.custom ? (
+                    <Button onClick={this.clickHandler(index)}>
+                        <Box minWidth={CONSTANTS.BUTTON_SIZE}>
+                            {this.props.labels[index]}
+                        </Box>
+                    </Button>
+                ) : (
+                    React.cloneElement(child,
+                        {
+                            variant: 'outlined',
+                            color: 'secondary'
+                        }, 
                         <Box minWidth={CONSTANTS.BUTTON_SIZE}>
                             <Center>
                                 {this.props.labels[index]}
                             </Center>
                         </Box>
-                    );
+                    )
+                );
             }
         );
     }

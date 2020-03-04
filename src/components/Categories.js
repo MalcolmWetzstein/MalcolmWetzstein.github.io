@@ -28,8 +28,14 @@ class Categories extends CustomComponent
     {
         return (
             <React.Fragment>
-                <Paper square>
-                    <OptionalWrapper wrapper={<Box display='flex' justifyContent='center'/>} condition={!this.props.sparse}>
+                <OptionalWrapper 
+                    wrapper={<Paper square/>}
+                    condition={this.props.backdrop}
+                >
+                    <OptionalWrapper
+                        wrapper={<Box display='flex' justifyContent='center'/>}
+                        condition={!this.props.sparse}
+                    >
                         <Tabs
                             indicatorColor='secondary'
                             value={this.state.currentTab} 
@@ -38,16 +44,34 @@ class Categories extends CustomComponent
                             scrollButtons='auto'
                             ref={this.ref}
                         >
-                            {React.Children.map(this.props.children, (child, index) => <CustomTab sparse={this.props.sparse} label={this.props.labels[index]}/>)}
+                            {
+                                React.Children.map(this.props.children, (child, index) => 
+                                    <CustomTab
+                                        sparse={this.props.sparse}
+                                        label={this.props.labels[index]}
+                                    />
+                                )
+                            }
                         </Tabs>
                     </OptionalWrapper>
-                </Paper>
+                </OptionalWrapper>
                 {React.Children.toArray(this.props.children)[this.state.currentTab]}
-                <Box display='flex' width={1} margin={this.props.theme.spacing(1, 0, 0, 0)} justifyContent='center'>
-                    <IconButton onClick={this.back} disabled={this.state.currentTab === 0}>
+                <Box
+                    display='flex'
+                    width={1}
+                    margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, 0, 0, 0)}
+                    justifyContent='center'
+                >
+                    <IconButton
+                        onClick={this.back}
+                        disabled={this.state.currentTab === 0}
+                    >
                         <NavigateBeforeIcon/>
                     </IconButton>
-                    <IconButton onClick={this.next} disabled={this.state.currentTab === React.Children.count(this.props.children)-1}>
+                    <IconButton
+                        onClick={this.next}
+                        disabled={this.state.currentTab === React.Children.count(this.props.children) - 1}
+                    >
                         <NavigateNextIcon/>
                     </IconButton>
                 </Box>
@@ -62,13 +86,13 @@ class Categories extends CustomComponent
 
     next()
     {
-        this.setState({ currentTab: Math.min(this.state.currentTab+1, React.Children.count(this.props.children)-1) });
+        this.setState({ currentTab: Math.min(this.state.currentTab + 1, React.Children.count(this.props.children) - 1) });
         this.scrollToTabs();
     }
 
     back()
     {
-        this.setState({ currentTab: Math.max(this.state.currentTab-1, 0) });
+        this.setState({ currentTab: Math.max(this.state.currentTab - 1, 0) });
         this.scrollToTabs();
     }
 

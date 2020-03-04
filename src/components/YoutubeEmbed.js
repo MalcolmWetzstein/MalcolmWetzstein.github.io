@@ -15,11 +15,11 @@ class YoutubeEmbed extends CustomComponent {
                 <iframe
                     title={this.props.title}
                     style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%"
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%"
                     }}
                     src={this.props.src}
                     frameBorder="0"

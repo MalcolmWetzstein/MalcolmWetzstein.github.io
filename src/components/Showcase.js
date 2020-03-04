@@ -6,8 +6,19 @@ import * as CONSTANTS from '../Constants';
 class Showcase extends CustomComponent {
     render() {
         return (
-            <GridList cols={3} cellHeight='auto' spacing={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['sm'])}>
-                {React.Children.map(this.props.children, child => <GridListTile>{this.props.pageDeque.withDequeProps(child)}</GridListTile>)}
+            <GridList
+                cols={CONSTANTS.MAX_GRID_LIST_COLUMNS}
+                cellHeight='auto'
+                spacing={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['sm'])}
+            >
+                {
+                    React.Children.map(this.props.children,
+                        child =>
+                            <GridListTile>
+                                {this.props.pageDeque.withDequeProps(child)}
+                            </GridListTile>
+                    )
+                }
             </GridList>
         );
     }

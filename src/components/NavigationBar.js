@@ -3,6 +3,7 @@ import CustomComponent from './CustomComponent';
 import { AppBar, Tabs, withTheme, Box, Grid } from '@material-ui/core';
 import { CustomTab } from './Custom';
 import { reKey } from './Util';
+import * as CONSTANTS from '../Constants';
 
 class NavigationBar extends CustomComponent 
 {
@@ -27,8 +28,16 @@ class NavigationBar extends CustomComponent
     {
         return (
            <AppBar>
-                <Grid container direction='row' justify='space-between' wrap='nowrap'>
-                    <Grid item zeroMinWidth>
+                <Grid
+                    container
+                    direction='row'
+                    justify='space-between'
+                    wrap='nowrap'
+                >
+                    <Grid
+                        item
+                        zeroMinWidth
+                    >
                         <Tabs 
                             indicatorColor="secondary" 
                             value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
@@ -40,8 +49,15 @@ class NavigationBar extends CustomComponent
                         </Tabs>
                     </Grid>
                     <Grid item>
-                        <Box display='flex' height={1}>
-                            <Box display='flex' height={1} margin={this.props.theme.spacing(0, 1, 0, 1)}>
+                        <Box
+                            display='flex'
+                            height={1}
+                        >
+                            <Box
+                                display='flex'
+                                height={1}
+                                margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                            >
                                 {reKey(this.props.links)}
                             </Box>
                         </Box>

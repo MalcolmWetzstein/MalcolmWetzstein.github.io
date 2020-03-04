@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../../components/CustomComponent';
 import { withTheme, Container } from '@material-ui/core';
-import { Page, Title, Suggestions, Space, YoutubeEmbed } from '../../components/Custom';
+import { Page, PageHeader, Suggestions, Space, YoutubeEmbed } from '../../components/Custom';
 import { Portfolio } from '../Pages';
 import * as CONSTANTS from '../../Constants';
 
@@ -9,10 +9,9 @@ class ARVoxel extends CustomComponent {
     render() {
         return (
             <Page pageDeque={this.props.pageDeque}>
-                <Title>
+                <PageHeader>
                     Augmented Reality Voxel Building Game
-                </Title>
-                <Space size='lg'/>
+                </PageHeader>
                 <Container maxWidth='md'>
                     <YoutubeEmbed
                         title='Augmented Reality Voxel Building Game'

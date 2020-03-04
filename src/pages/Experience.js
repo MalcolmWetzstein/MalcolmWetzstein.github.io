@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography } from '@material-ui/core';
-import { Page, Title, Space, Suggestions, Timeline, TimelineTile, DateRange } from '../components/Custom';
+import { Page, PageHeader, Space, Suggestions, Timeline, TimelineTile, DateRange } from '../components/Custom';
 import { Education, Skills, Home } from '../pages/Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -16,10 +16,9 @@ class Experience extends CustomComponent
                 pageDeque={this.props.pageDeque}
                 maxWidth='md'
             >
-                <Title>
+                <PageHeader>
                     {Experience.buttonText}
-                </Title>
-                <Space size='lg'/>
+                </PageHeader>
                 <Timeline>
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.SERVCO}

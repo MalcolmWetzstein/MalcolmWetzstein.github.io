@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, Grid, withTheme } from '@material-ui/core';
-import { Page, Suggestions, Space, Title } from '../components/Custom';
+import { Page, Suggestions, Space, PageHeader } from '../components/Custom';
 import { Home } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -18,13 +18,16 @@ class Contact extends CustomComponent
         return (
             <Page
                 pageDeque={this.props.pageDeque}
-                maxWidth='md'
+                maxWidth='fit'
             >
-                <Title>
+                <PageHeader>
                     {Contact.buttonText}
-                </Title>
-                <Space size='lg'/>
-                <Grid container justify='center' spacing={4}>
+                </PageHeader>
+                <Grid
+                    container
+                    justify='center'
+                    spacing={4}
+                >
                     <Grid item>
                         <Typography variant="h4" gutterBottom>
                             <EmailIcon fontSize='inherit'/>

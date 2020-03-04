@@ -47,8 +47,7 @@ class TimelineTile extends CustomComponent {
                                         title={this.props.imageTitle}
                                         style={{
                                             width: this.props.imageWidth,
-                                            height: this.props.imageHeight,
-                                            right: '0px'
+                                            height: this.props.imageHeight
                                         }}
                                     />
                                 </Grid>
