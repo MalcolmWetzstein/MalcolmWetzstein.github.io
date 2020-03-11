@@ -574,38 +574,85 @@ class Degree extends CustomComponent
 
 class Course extends CustomComponent
 {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            hover: false,
+            open: false
+        };
+
+        this.onMouseOver = this.onMouseOver.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.onClick = this.onClick.bind(this);
+    }
+
     render()
     {
         return (
             <ExpansionPanel>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                    <Grid container direction='row' alignItems='center'>
-                        <Grid item xs={6}>
-                            <Typography variant='h6'>
-                                {this.props.label}
-                            </Typography>
+                <ExpansionPanelSummary
+                    expandIcon={<ExpandMoreIcon/>}
+                    onClick={this.onClick}
+                    onMouseOver={this.onMouseOver}
+                    onMouseLeave={this.onMouseLeave}
+                >
+                    <Grid
+                        container
+                        direction='row'
+                        alignItems='center'
+                    >
+                        <Grid
+                            item
+                            xs={6}
+                        >
+                            <Indent>
+                                <Typography variant='h6'>
+                                    {this.props.label}
+                                </Typography>
+                            </Indent>
                         </Grid>
-                        <Grid item xs={3}>
-                            <Typography variant='subtitle1' color='textSecondary'>
-                                {this.props.graduate ? 'Graduate' : undefined}
-                                {this.props.upper ? 'Advanced' : undefined}
-                                {this.props.lower ? 'Intermediate' : undefined}
-                                {this.props.intro ? 'Introductory' : undefined}
-                                {this.props.general ? 'General Education' : undefined}
-                            </Typography>
+                        <Grid
+                            item
+                            xs={3}
+                        >
+                            {
+                                this.state.hover || this.state.open ? (
+                                    <Typography
+                                        variant='subtitle1'
+                                        color='textSecondary'
+                                    >
+                                        {this.props.graduate ? 'Graduate' : undefined}
+                                        {this.props.upper ? 'Advanced' : undefined}
+                                        {this.props.lower ? 'Intermediate' : undefined}
+                                        {this.props.intro ? 'Introductory' : undefined}
+                                        {this.props.general ? 'General Education' : undefined}
+                                    </Typography>
+                                ) : undefined
+                            }
                         </Grid>
-                        <Grid item xs={3}>
-                            <Typography variant='subtitle1' color='textSecondary'>
-                                {this.props.seminar ? 'Seminar' : undefined}
-                                {this.props.studio ? 'Studio' : undefined}
-                                {this.props.lab ? 'Lab' : undefined}
-                                {this.props.project ? 'Project' : undefined}
-                                {this.props.exam ? 'Exam' : undefined}
-                                {this.props.writing ? 'Writing' : undefined}
-                                {this.props.communication ? 'Presentation' : undefined}
-                                {this.props.ap ? 'AP Credit' : undefined}
-                                {this.props.standing ? 'ASE Credit' : undefined}
-                            </Typography>
+                        <Grid
+                            item
+                            xs={3}
+                        >
+                            {
+                                this.state.hover || this.state.open ? (
+                                    <Typography
+                                        variant='subtitle1'
+                                        color='textSecondary'
+                                    >
+                                        {this.props.seminar ? 'Seminar' : undefined}
+                                        {this.props.studio ? 'Studio' : undefined}
+                                        {this.props.lab ? 'Lab' : undefined}
+                                        {this.props.project ? 'Project' : undefined}
+                                        {this.props.exam ? 'Exam' : undefined}
+                                        {this.props.writing ? 'Writing' : undefined}
+                                        {this.props.communication ? 'Presentation' : undefined}
+                                        {this.props.ap ? 'AP Credit' : undefined}
+                                        {this.props.standing ? 'ASE Credit' : undefined}
+                                    </Typography>
+                                ) : undefined
+                            }
                         </Grid>
                     </Grid>
                 </ExpansionPanelSummary>
@@ -617,21 +664,32 @@ class Course extends CustomComponent
                             <Typography variant='h6'>
                                 {'Course ' + this.props.number}
                             </Typography>
-                            <Typography variant='subtitle1' color='textSecondary'>
+                            <Typography
+                                variant='subtitle2'
+                                color='textSecondary'
+                            >
                                 {this.props.school}
                             </Typography>
-                            <Typography variant='subtitle2' color='textSecondary'>
+                            <Typography
+                                variant='subtitle2'
+                                color='textSecondary'
+                            >
                                 {this.instructors()}
                             </Typography>
                             <Space size='sm'/>
-                            <Typography variant='body1'>
-                                {this.props.description}
-                            </Typography>
+                            <Indent>
+                                <Typography variant='body1'>
+                                    {this.props.description}
+                                </Typography>
+                            </Indent>
                             <Space size='sm'/>
                             <Typography variant='subtitle1'>
                                 Topics:
                             </Typography>
-                            <Bullets focus bullets={this.props.topics}/>
+                            <Bullets
+                                focus
+                                bullets={this.props.topics}
+                            />
                         </Indent>
                     </Box>
                 </ExpansionPanelDetails>
@@ -648,6 +706,18 @@ class Course extends CustomComponent
             else
                 return 'Instructor: ' + this.props.instructors;
         }
+    }
+
+    onMouseOver() {
+        this.setState({ hover: true });
+    }
+
+    onMouseLeave() {
+        this.setState({ hover: false });
+    }
+
+    onClick() {
+        this.setState({ open: !this.state.open });
     }
 }
 
