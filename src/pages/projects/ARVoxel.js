@@ -8,7 +8,10 @@ import * as CONSTANTS from '../../Constants';
 class ARVoxel extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='arVoxel'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     Augmented Reality Voxel Building Game
                 </PageHeader>

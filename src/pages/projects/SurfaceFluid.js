@@ -8,7 +8,10 @@ import * as CONSTANTS from '../../Constants';
 class SurfaceFluid extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='surfaceFluid'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     Surface Fluid Flow via Mesh Parameterization
                 </PageHeader>

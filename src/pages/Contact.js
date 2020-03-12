@@ -17,6 +17,7 @@ class Contact extends CustomComponent
     {
         return (
             <Page
+                id='contact'
                 pageDeque={this.props.pageDeque}
                 maxWidth='fit'
             >

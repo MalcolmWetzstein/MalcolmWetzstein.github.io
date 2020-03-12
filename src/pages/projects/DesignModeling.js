@@ -8,7 +8,10 @@ import * as CONSTANTS from '../../Constants';
 class DesignModeling extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='designModeling'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     3D Modeling & Rendering Design Project
                 </PageHeader>

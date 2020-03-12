@@ -11,7 +11,10 @@ class Skills extends CustomComponent
     render ()
     {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='skills'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     {Skills.buttonText}
                 </PageHeader>

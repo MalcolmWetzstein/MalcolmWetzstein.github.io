@@ -8,7 +8,10 @@ import * as CONSTANTS from '../../Constants';
 class StarLogo extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='starLogo'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     Master Thesis: <i>Custom and Interactive Environments in StarLogo Nova for Computational Modeling</i>
                 </PageHeader>

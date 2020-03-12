@@ -8,7 +8,10 @@ import * as CONSTANTS from '../../Constants';
 class Architecture extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='architecture'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     Architecture Design Models
                 </PageHeader>

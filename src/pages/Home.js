@@ -18,7 +18,10 @@ class Home extends CustomComponent
     render ()
     {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='home'
+                pageDeque={this.props.pageDeque}
+            >
                 <Typography variant="h1" align="center" gutterBottom>
                     Malcolm<br/>
                     Xavier<br/>

@@ -1,11 +1,33 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { Box, Container, withTheme } from '@material-ui/core';
+import { Box, Container, Fab, withTheme } from '@material-ui/core';
 import { Space, OptionalWrapper, Center } from '../components/Custom';
 import * as CONSTANTS from '../Constants';
 
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+
 class Page extends CustomComponent
 {
+    static lastPage;
+
+    constructor(props)
+    {
+        super(props);
+
+        this.scrollToTop = this.scrollToTop.bind(this);
+    }
+
+    componentDidMount()
+    {
+        if (Page.lastPage !== this.props.id)
+        {
+            this.scrollToTop();
+            console.log('amazing');
+        }
+
+        Page.lastPage = this.props.id;
+    }
+
     render()
     {
         return (
@@ -26,9 +48,17 @@ class Page extends CustomComponent
                         <Space size='sm'/>
                         {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
                     </OptionalWrapper>
+                    <Fab onClick={this.scrollToTop}>
+                        <KeyboardArrowUpIcon/>
+                    </Fab>
                 </Box>
             </OptionalWrapper>
         );
+    }
+
+    scrollToTop()
+    {
+        window.scrollTo(0, 0);
     }
 }
 

@@ -8,7 +8,10 @@ import * as CONSTANTS from '../../Constants';
 class AdaptiveFilter extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='adaptiveFilter'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     Implementation of <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>
                 </PageHeader>

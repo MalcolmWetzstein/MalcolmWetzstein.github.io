@@ -7,7 +7,10 @@ import { Portfolio } from '../Pages';
 class Music extends CustomComponent {
     render() {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='music'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     Music Compositions
                 </PageHeader>

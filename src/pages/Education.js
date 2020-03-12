@@ -15,6 +15,7 @@ class Education extends CustomComponent
     {
         return (
             <Page
+                id='education'
                 pageDeque={this.props.pageDeque}
                 maxWidth='md'
             >

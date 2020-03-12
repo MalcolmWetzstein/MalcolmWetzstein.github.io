@@ -12,7 +12,10 @@ class Portfolio extends CustomComponent
     render()
     {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='portfolio'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     {Portfolio.buttonText}
                 </PageHeader>

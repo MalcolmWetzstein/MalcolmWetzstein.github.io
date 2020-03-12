@@ -11,7 +11,10 @@ class About extends CustomComponent
     render ()
     {
         return (
-            <Page pageDeque={this.props.pageDeque}>
+            <Page
+                id='about'
+                pageDeque={this.props.pageDeque}
+            >
                 <PageHeader>
                     {About.buttonText}
                 </PageHeader>
