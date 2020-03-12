@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box, withTheme } from '@material-ui/core';
+import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box, Tooltip, withTheme } from '@material-ui/core';
 import { Page, Suggestions, PageHeader, Space, DateRange, Timeline, TimelineTile, Indent, Bullets, Categories, SectionHeader } from '../components/Custom';
 import { Home, Experience, Portfolio } from './Pages';
 import * as CONSTANTS from '../Constants';
@@ -614,45 +614,77 @@ class Course extends CustomComponent
                         </Grid>
                         <Grid
                             item
-                            xs={3}
+                            xs={2}
                         >
-                            {
-                                this.state.hover || this.state.open ? (
-                                    <Typography
-                                        variant='subtitle1'
-                                        color='textSecondary'
-                                    >
-                                        {this.props.graduate ? 'Graduate' : undefined}
-                                        {this.props.upper ? 'Advanced' : undefined}
-                                        {this.props.lower ? 'Intermediate' : undefined}
-                                        {this.props.intro ? 'Introductory' : undefined}
-                                        {this.props.general ? 'General Education' : undefined}
-                                    </Typography>
-                                ) : undefined
-                            }
+                            <Tooltip
+                                title={this.levelTooltip()}
+                                placement='top'
+                            >
+                                {
+                                    this.state.hover || this.state.open ? (
+                                        <Typography
+                                            variant='subtitle1'
+                                            color='textSecondary'
+                                            align='center'
+                                        >
+                                            {this.props.graduate ? 'Graduate' : undefined}
+                                            {this.props.upper ? 'Advanced' : undefined}
+                                            {this.props.lower ? 'Intermediate' : undefined}
+                                            {this.props.intro ? 'Introductory' : undefined}
+                                            {this.props.general ? 'General Education' : undefined}
+                                        </Typography>
+                                    ) : (
+                                        <Typography
+                                            variant='subtitle1'
+                                            color='textSecondary'
+                                            align='center'
+                                        >
+                                            &bull;
+                                        </Typography>
+                                    )
+                                }
+                            </Tooltip>
                         </Grid>
                         <Grid
                             item
-                            xs={3}
+                            xs={1}
+                        />
+                        <Grid
+                            item
+                            xs={2}
                         >
-                            {
-                                this.state.hover || this.state.open ? (
-                                    <Typography
-                                        variant='subtitle1'
-                                        color='textSecondary'
-                                    >
-                                        {this.props.seminar ? 'Seminar' : undefined}
-                                        {this.props.studio ? 'Studio' : undefined}
-                                        {this.props.lab ? 'Lab' : undefined}
-                                        {this.props.project ? 'Project' : undefined}
-                                        {this.props.exam ? 'Exam' : undefined}
-                                        {this.props.writing ? 'Writing' : undefined}
-                                        {this.props.communication ? 'Presentation' : undefined}
-                                        {this.props.ap ? 'AP Credit' : undefined}
-                                        {this.props.standing ? 'ASE Credit' : undefined}
-                                    </Typography>
-                                ) : undefined
-                            }
+                            <Tooltip
+                                title={this.assessmentTooltip()}
+                                placement='top'
+                            >
+                                {
+                                    this.state.hover || this.state.open ? (
+                                        <Typography
+                                            variant='subtitle1'
+                                            color='textSecondary'
+                                            align='center'
+                                        >
+                                            {this.props.seminar ? 'Seminar' : undefined}
+                                            {this.props.studio ? 'Studio' : undefined}
+                                            {this.props.lab ? 'Lab' : undefined}
+                                            {this.props.project ? 'Project' : undefined}
+                                            {this.props.exam ? 'Exam' : undefined}
+                                            {this.props.writing ? 'Writing' : undefined}
+                                            {this.props.communication ? 'Communication' : undefined}
+                                            {this.props.ap ? 'AP Credit' : undefined}
+                                            {this.props.standing ? 'ASE Credit' : undefined}
+                                        </Typography>
+                                    ) : (
+                                        <Typography
+                                            variant='subtitle1'
+                                            color='textSecondary'
+                                            align='center'
+                                        >
+                                            &bull;
+                                        </Typography>
+                                    )
+                                }
+                            </Tooltip>
                         </Grid>
                     </Grid>
                 </ExpansionPanelSummary>
@@ -708,15 +740,58 @@ class Course extends CustomComponent
         }
     }
 
-    onMouseOver() {
+    levelTooltip()
+    {
+        if (this.props.graduate)
+            return 'graduate level course';
+        else if (this.props.upper)
+            return 'undergraduate level, typically taken junior or senior year';
+        else if (this.props.lower)
+            return 'undergraduate level, typically taken sophmore year after prerequesites';
+        else if (this.props.intro)
+            return 'undergraduate level, typically taken freshman year with no prerequesites';
+        else if (this.props.general)
+            return 'undergraduate general education requirement, typically taken freshman year';
+
+        return '';
+    }
+
+    assessmentTooltip()
+    {
+        if (this.props.seminar)
+            return 'seminar style instruction';
+        else if (this.props.studio)
+            return 'studio style critiques were primary form of assessment';
+        else if (this.props.lab)
+            return 'in class labs were primary form of assessment';
+        else if (this.props.project)
+            return 'projects were primary form of assessment';
+        else if (this.props.exam)
+            return 'exams were primary form of assessment';
+        else if (this.props.writing)
+            return 'written papers were primary form of assessment';
+        else if (this.props.communication)
+            return 'oral presentations and/or written reports were primary form of assessment';
+        else if (this.props.ap)
+            return 'credit obtained from AP exam';
+        else if (this.props.standing)
+            return 'credit obtained from an Advanced Standing Exam';
+
+        return '';
+    }
+
+    onMouseOver()
+    {
         this.setState({ hover: true });
     }
 
-    onMouseLeave() {
+    onMouseLeave()
+    {
         this.setState({ hover: false });
     }
 
-    onClick() {
+    onClick()
+    {
         this.setState({ open: !this.state.open });
     }
 }
