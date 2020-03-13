@@ -8,6 +8,8 @@ export const TAB_MARGIN = 3;
 export const ICON_BUTTON_SPACING = 1;
 export const DEFAULT_SPACE = 'md';
 export const MAX_GRID_LIST_COLUMNS = 3;
+export const BACK_TO_TOP_MARGIN = 2;
+export const BACK_TO_TOP_FADE_IN_POINT = 12;
 
 export const SPACE_SIZES = Object.freeze({
     'xs': 1.0,

@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box, Tooltip, withTheme } from '@material-ui/core';
+import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box, Tooltip, withTheme, Button } from '@material-ui/core';
 import { Page, Suggestions, PageHeader, Space, DateRange, Timeline, TimelineTile, Indent, Bullets, Categories, SectionHeader } from '../components/Custom';
 import { Home, Experience, Portfolio } from './Pages';
 import * as CONSTANTS from '../Constants';
@@ -575,13 +575,16 @@ class Degree extends CustomComponent
 
 class Course extends CustomComponent
 {
-    constructor(props) {
+    constructor(props)
+    {
         super(props);
 
         this.state = {
             hover: false,
             open: false
         };
+
+        this.ref = React.createRef();
 
         this.onMouseOver = this.onMouseOver.bind(this);
         this.onMouseLeave = this.onMouseLeave.bind(this);
@@ -591,7 +594,11 @@ class Course extends CustomComponent
     render()
     {
         return (
-            <ExpansionPanel>
+            <ExpansionPanel
+                expanded={this.state.open}
+                TransitionProps={{ timeout: 'auto' }}
+                ref={this.ref}
+            >
                 <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon/>}
                     onClick={this.onClick}
@@ -617,10 +624,7 @@ class Course extends CustomComponent
                             item
                             xs={2}
                         >
-                            <Tooltip
-                                title={this.levelTooltip()}
-                                placement='top'
-                            >
+                            <Tooltip title={this.levelTooltip()}>
                                 {
                                     this.state.hover || this.state.open ? (
                                         <Typography
@@ -654,10 +658,7 @@ class Course extends CustomComponent
                             item
                             xs={2}
                         >
-                            <Tooltip
-                                title={this.assessmentTooltip()}
-                                placement='top'
-                            >
+                            <Tooltip title={this.assessmentTooltip()}>
                                 {
                                     this.state.hover || this.state.open ? (
                                         <Typography
@@ -724,6 +725,19 @@ class Course extends CustomComponent
                                 bullets={this.props.topics}
                             />
                         </Indent>
+                    </Box>
+                    <Box
+                        position='absolute'
+                        right={0}
+                        bottom={0}
+                        margin='0 24px 24px 0'
+                    >
+                        <Button
+                            onClick={this.onClick}
+                            size='small'
+                        >
+                            Close
+                        </Button>
                     </Box>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
@@ -794,6 +808,13 @@ class Course extends CustomComponent
     onClick()
     {
         this.setState({ open: !this.state.open });
+
+        if (this.ref.current && this.ref.current.getBoundingClientRect().top < 0)
+            this.ref.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
     }
 }
 

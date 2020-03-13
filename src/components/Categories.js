@@ -96,9 +96,9 @@ class Categories extends CustomComponent
         this.scrollToTabs();
     }
 
-    scrollToTabs() {
+    scrollToTabs()
+    {
         this.ref.current.scrollIntoView(true);
-        window.scrollBy(0, -this.props.theme.spacing(CONSTANTS.SPACE_SIZES['lg']));
     }
 }
 

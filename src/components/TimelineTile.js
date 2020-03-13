@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomComponent from './CustomComponent';
-import { withTheme, Card, CardActionArea, CardContent, CardMedia, Collapse, Divider, Grid } from '@material-ui/core';
+import { withTheme, Card, CardActionArea, CardContent, CardMedia, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
 import { Bullets } from './Custom';
 
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -12,12 +12,17 @@ class TimelineTile extends CustomComponent {
 
         this.state = { open: false }
 
+        this.ref = React.createRef();
+
         this.onClick = this.onClick.bind(this);
     }
 
     render() {
         return (
-            <Card variant='outlined'>
+            <Card
+                variant='outlined'
+                ref={this.ref}
+            >
                 <CardActionArea
                     onClick={this.onClick}
                     disableRipple
@@ -60,19 +65,42 @@ class TimelineTile extends CustomComponent {
                 </CardActionArea>
                 <Collapse in={this.state.open}>
                     <Divider/>
-                    <CardContent>
-                        <Bullets
-                            focus
-                            bullets={this.props.details}
-                        />
-                    </CardContent>
+                    <Box position='relative'>
+                        <CardContent>
+                            <Bullets
+                                focus
+                                bullets={this.props.details}
+                            />
+                            <Box
+                                position='absolute'
+                                right={0}
+                                bottom={0}
+                                margin={this.props.theme.spacing(0, 3, 3, 0)}
+                            >
+                                <Button
+                                    onClick={this.onClick}
+                                    size='small'
+                                >
+                                    Close
+                                </Button>
+                            </Box>
+                        </CardContent>
+                    </Box>
                 </Collapse>
             </Card>
         );
     }
     
-    onClick() {
-        this.setState({ open: !this.state.open })
+    onClick()
+    {
+        this.setState({ open: !this.state.open });
+
+        if (this.ref.current && this.ref.current.getBoundingClientRect().top < 0)
+            this.ref.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
     }
 }
 

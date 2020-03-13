@@ -27,7 +27,7 @@ class NavigationBar extends CustomComponent
     render()
     {
         return (
-           <AppBar>
+           <AppBar position='static'>
                 <Grid
                     container
                     direction='row'
