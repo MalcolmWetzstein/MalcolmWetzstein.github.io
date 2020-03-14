@@ -11,9 +11,7 @@ class NavigationBar extends CustomComponent
     {
         super(props);
 
-        this.state = {
-            tabNames: []
-        }
+        this.state = { tabNames: [] }
 
         this.tabChange = this.tabChange.bind(this);
     }

@@ -22,8 +22,10 @@ class Page extends CustomComponent
 
     componentDidMount()
     {
-        if (Page.lastPage !== this.props.id)
+        if (Page.lastPage !== this.props.id) {
             this.scrollToTop();
+            setTimeout(this.scrollToTop, 100); // A bit of a hack, sometimes scrollToTop doesn't work if called immeadiately on page refresh.
+        }
 
         Page.lastPage = this.props.id;
 
