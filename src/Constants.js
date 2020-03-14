@@ -1,3 +1,7 @@
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import blue from '@material-ui/core/colors/blue';
+import lightGreen from '@material-ui/core/colors/lightGreen';
+
 export const UNIT_INDENT = 4;
 export const PAGE_HEADER_VARIANT = 'h3';
 export const SECTION_HEADER_VARIANT = 'h4';
@@ -10,6 +14,9 @@ export const DEFAULT_SPACE = 'md';
 export const MAX_GRID_LIST_COLUMNS = 3;
 export const BACK_TO_TOP_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
+export const SKILL_COLOR_EXPERT = deepPurple[700];
+export const SKILL_COLOR_INTERMEDIATE = blue[700];
+export const SKILL_COLOR_BEGINNER = lightGreen[800];
 
 export const SPACE_SIZES = Object.freeze({
     'xs': 1.0,
