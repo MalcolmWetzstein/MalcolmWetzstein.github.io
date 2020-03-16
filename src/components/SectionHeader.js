@@ -12,7 +12,7 @@ class SectionHeader extends CustomComponent
             <Indent level={Math.min(Math.max(4 - (this.props.subLevel ? this.props.subLevel : 1), 0), 3)}>
                 <Typography
                     component='h2'
-                    variant={CONSTANTS.SECTION_HEADER_VARIANT}
+                    variant={this.props.variant ? this.props.variant : CONSTANTS.SECTION_HEADER_VARIANT}
                 >
                     {this.props.children}
                 </Typography>

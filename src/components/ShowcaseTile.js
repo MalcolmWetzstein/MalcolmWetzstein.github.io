@@ -2,14 +2,17 @@ import React from 'react';
 import CustomComponent from './CustomComponent';
 import { withTheme, GridListTileBar, ButtonBase } from '@material-ui/core';
 
-class ShowcaseTile extends CustomComponent {
-    constructor(props) {
+class ShowcaseTile extends CustomComponent
+{
+    constructor(props)
+    {
         super(props);
 
         this.onOpen = this.onOpen.bind(this);
     }
 
-    render() {
+    render()
+    {
         return (
             <React.Fragment>
                 <ButtonBase
@@ -31,7 +34,8 @@ class ShowcaseTile extends CustomComponent {
         );
     }
 
-    onOpen() {
+    onOpen()
+    {
         this.props.pageDeque.push(this.props.children);
         this.props.pageDeque.finish();
     }

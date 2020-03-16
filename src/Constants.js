@@ -1,5 +1,6 @@
+import pink from '@material-ui/core/colors/pink';
 import deepPurple from '@material-ui/core/colors/deepPurple';
-import blue from '@material-ui/core/colors/blue';
+import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 
 export const UNIT_INDENT = 4;
@@ -14,9 +15,31 @@ export const DEFAULT_SPACE = 'md';
 export const MAX_GRID_LIST_COLUMNS = 3;
 export const BACK_TO_TOP_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
-export const SKILL_COLOR_EXPERT = deepPurple[700];
-export const SKILL_COLOR_INTERMEDIATE = blue[700];
-export const SKILL_COLOR_BEGINNER = lightGreen[800];
+
+export const SKILL_COLORS = Object.freeze({
+    EXPERT: pink[700],
+    ADVANCED: deepPurple[600],
+    INTERMEDIATE: lightBlue[700],
+    BEGINNER: lightGreen[800]
+});
+
+export const SKILL_TOOLTIPS = Object.freeze({
+    EXPERT: 'Expert Knowledge',
+    ADVANCED: 'Advanced Knowledge',
+    INTERMEDIATE: 'Intermediate Knowledge',
+    BEGINNER: 'Beginner Knowledge'
+});
+
+export const SKILL_FILTERS = Object.freeze({
+    LANGUAGES: 'Programming Languages',
+    LIBRARIES: 'Libraries, Frameworks & APIs',
+    TOOLS: 'Tools & Editors',
+    GRAPHICS: 'Computer Graphics',
+    WEB_DEV: 'Web Development',
+    GAME_DEV: 'Game Development',
+    DESIGN: 'Design Software',
+    COMP_MATH: 'Computational Mathematics'
+});
 
 export const SPACE_SIZES = Object.freeze({
     'xs': 1.0,

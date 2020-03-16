@@ -6,8 +6,10 @@ import { Bullets } from './Custom';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-class TimelineTile extends CustomComponent {
-    constructor(props) {
+class TimelineTile extends CustomComponent
+{
+    constructor(props)
+    {
         super(props);
 
         this.state = { open: false }
@@ -17,7 +19,8 @@ class TimelineTile extends CustomComponent {
         this.onClick = this.onClick.bind(this);
     }
 
-    render() {
+    render()
+    {
         return (
             <Card
                 variant='outlined'
