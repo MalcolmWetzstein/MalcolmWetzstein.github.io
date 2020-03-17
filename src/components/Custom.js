@@ -22,6 +22,8 @@ import YoutubeEmbed from './YoutubeEmbed';
 import Timeline from './Timeline';
 import TimelineTile from './TimelineTile';
 import SectionHeader from './SectionHeader';
+import FilterList from './FilterList';
+import FilterItem from './FilterItem';
 
 export { 
     Indent, 
@@ -47,5 +49,7 @@ export {
     YoutubeEmbed,
     Timeline,
     TimelineTile,
-    SectionHeader
+    SectionHeader,
+    FilterList,
+    FilterItem
 };

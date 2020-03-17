@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
 import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Tooltip, IconButton, Zoom } from '@material-ui/core';
-import { Page, PageHeader, Space, Suggestions } from '../components/Custom';
+import { Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../components/Custom';
 import { Home, Contact } from './Pages';
 import * as CONSTANTS from '../Constants';
 
@@ -15,7 +15,7 @@ class Skills extends CustomComponent
     {
         super(props);
 
-        this.state = { filter: [] }
+        this.state = { filters: [] }
 
         this.onFilterChange = this.onFilterChange.bind(this);
         this.onClearFilters = this.onClearFilters.bind(this);
@@ -24,9 +24,7 @@ class Skills extends CustomComponent
     render ()
     {
         const filterFlags = {};
-        Object.values(CONSTANTS.SKILL_FILTERS).forEach(value => filterFlags[value] = this.state.filter.includes(value));
-
-        const unfiltered = this.state.filter.length === 0;
+        Object.values(CONSTANTS.SKILL_FILTERS).forEach(value => filterFlags[value] = this.state.filters.includes(value));
 
         return (
             <Page
@@ -56,7 +54,7 @@ class Skills extends CustomComponent
                             </InputLabel>
                             <Select
                                 multiple
-                                value={this.state.filter}
+                                value={this.state.filters}
                                 onChange={this.onFilterChange}
                                 renderValue={
                                     selected => (
@@ -92,7 +90,7 @@ class Skills extends CustomComponent
                         item
                         xs={1}
                     >
-                        <Zoom in={this.state.filter.length !== 0}>
+                        <Zoom in={this.state.filters.length !== 0}>
                             <IconButton onClick={this.onClearFilters}>
                                 <ClearIcon/>
                             </IconButton>
@@ -104,114 +102,132 @@ class Skills extends CustomComponent
                     container
                     spacing={2}
                 >
-                    <Skill
-                        label='WebGL'
-                        advanced
-                    />
-                    <Skill
-                        label='JavaScript'
-                        advanced
-                    />
-                    <Skill
-                        label='Git'
-                        advanced
-                    />
-                    <Skill
-                        label='Visual Studio Code'
-                        advanced
-                    />
-                    <Skill
-                        label='Unity'
-                        intermediate
-                    />
-                    <Skill
-                        label='OpenGL'
-                        intermediate
-                    />
-                    <Skill
-                        label='React'
-                        intermediate
-                    />
-                    <Skill
-                        label='Express'
-                        intermediate
-                    />
-                    <Skill
-                        label='NumPy'
-                        intermediate
-                    />
-                    <Skill
-                        label='SciPy'
-                        intermediate
-                    />
-                    <Skill
-                        label='C++'
-                        intermediate
-                    />
-                    <Skill
-                        label='Python'
-                        intermediate
-                    />
-                    <Skill
-                        label='GLSL'
-                        intermediate
-                    />
-                    <Skill
-                        label='MATLAB'
-                        intermediate
-                    />
-                    <Skill
-                        label='Java'
-                        intermediate
-                    />
-                    <Skill 
-                        label='HTML'
-                        intermediate
-                    />
-                    <Skill
-                        label='CSS'
-                        intermediate
-                    />
-                    <Skill
-                        label='C#'
-                        beginner
-                    />
-                    <Skill
-                        label='HLSL'
-                        beginner
-                    />
-                    <Skill
-                        label='Halide'
-                        beginner
-                    />
-                    <Skill
-                        label='DirectX'
-                        beginner
-                    />
-                    <Skill
-                        label='libigl'
-                        beginner
-                    />
-                    <Skill
-                        label='Vuforia'
-                        beginner
-                    />
-                    <Skill
-                        label='Rhino 3D'
-                        beginner
-                    />
-                    <Skill
-                        label='3DS Max'
-                        beginner
-                    />
-                    <Skill
-                        label='Photoshop'
-                        beginner
-                    />
-                     <Skill
-                        label='Visual Studio Community'
-                        beginner
-                    />
+                    <FilterList filters={this.state.filters}>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='WebGL'
+                                advanced
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='JavaScript'
+                                advanced
+                            />
+                        </FilterItem>
+                        
+                        <Skill
+                            label='Git'
+                            advanced
+                        />
+                        <Skill
+                            label='Visual Studio Code'
+                            advanced
+                        />
+                        <Skill
+                            label='Unity'
+                            intermediate
+                        />
+                        <Skill
+                            label='OpenGL'
+                            intermediate
+                        />
+                        <Skill
+                            label='React'
+                            intermediate
+                        />
+                        <Skill
+                            label='Express'
+                            intermediate
+                        />
+                        <Skill
+                            label='NumPy'
+                            intermediate
+                        />
+                        <Skill
+                            label='SciPy'
+                            intermediate
+                        />
+                        <Skill
+                            label='C++'
+                            intermediate
+                        />
+                        <Skill
+                            label='Python'
+                            intermediate
+                        />
+                        <Skill
+                            label='GLSL'
+                            intermediate
+                        />
+                        <Skill
+                            label='MATLAB'
+                            intermediate
+                        />
+                        <Skill
+                            label='Java'
+                            intermediate
+                        />
+                        <Skill 
+                            label='HTML'
+                            intermediate
+                        />
+                        <Skill
+                            label='CSS'
+                            intermediate
+                        />
+                        <Skill
+                            label='C#'
+                            beginner
+                        />
+                        <Skill
+                            label='HLSL'
+                            beginner
+                        />
+                        <Skill
+                            label='Halide'
+                            beginner
+                        />
+                        <Skill
+                            label='DirectX'
+                            beginner
+                        />
+                        <Skill
+                            label='libigl'
+                            beginner
+                        />
+                        <Skill
+                            label='Vuforia'
+                            beginner
+                        />
+                        <Skill
+                            label='Rhino 3D'
+                            beginner
+                        />
+                        <Skill
+                            label='3DS Max'
+                            beginner
+                        />
+                        <Skill
+                            label='Photoshop'
+                            beginner
+                        />
+                        <Skill
+                            label='Visual Studio Community'
+                            beginner
+                        />
+                    </FilterList>
                 </Grid>
                 <Space size='lg'/>
                 <Suggestions labels={['contact me', 'home']}>
@@ -224,12 +240,12 @@ class Skills extends CustomComponent
 
     onFilterChange(event)
     {
-        this.setState({ filter: event.target.value });
+        this.setState({ filters: event.target.value });
     }
 
     onClearFilters()
     {
-        this.setState({ filter: [] });
+        this.setState({ filters: [] });
     }
 }
 
