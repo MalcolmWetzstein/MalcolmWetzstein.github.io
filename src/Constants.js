@@ -37,7 +37,7 @@ export const SKILL_FILTERS = Object.freeze({
     GRAPHICS: 'Computer Graphics',
     WEB_DEV: 'Web Development',
     GAME_DEV: 'Game Development',
-    DESIGN: 'Design Software',
+    DESIGN: 'Digital Design',
     COMP_MATH: 'Computational Mathematics'
 });
 

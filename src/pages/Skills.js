@@ -1,11 +1,9 @@
 import React from 'react';
 import CustomComponent from '../components/CustomComponent';
-import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Tooltip, IconButton, Zoom } from '@material-ui/core';
+import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Tooltip, Button } from '@material-ui/core';
 import { Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../components/Custom';
 import { Home, Contact } from './Pages';
 import * as CONSTANTS from '../Constants';
-
-import ClearIcon from '@material-ui/icons/Clear';
 
 class Skills extends CustomComponent 
 {
@@ -35,69 +33,57 @@ class Skills extends CustomComponent
                 <PageHeader>
                     {Skills.buttonText}
                 </PageHeader>
-                <Grid
-                    container
-                    justify='space-between'
-                    alignItems='flex-end'
-                    spacing={1}
+                <FormControl
+                    fullWidth
+                    color='secondary'
                 >
-                    <Grid
-                        item
-                        xs={11}
+                    <InputLabel>
+                        Filters
+                    </InputLabel>
+                    <Select
+                        multiple
+                        value={this.state.filters}
+                        onChange={this.onFilterChange}
+                        renderValue={
+                            selected => (
+                                <Box
+                                    display='flex'
+                                    flexWrap='wrap'
+                                >
+                                    {
+                                        selected.map(value => (
+                                            <Chip
+                                                label={value}
+                                                key={value}
+                                                style={{ margin: 2 }}
+                                            />
+                                        ))
+                                    }
+                                </Box>
+                            )
+                        }
                     >
-                        <FormControl
-                            fullWidth
-                            color='secondary'
-                        >
-                            <InputLabel>
-                                Filters
-                            </InputLabel>
-                            <Select
-                                multiple
-                                value={this.state.filters}
-                                onChange={this.onFilterChange}
-                                renderValue={
-                                    selected => (
-                                        <Box
-                                            display='flex'
-                                            flexWrap='wrap'
-                                        >
-                                            {
-                                                selected.map(value => (
-                                                    <Chip
-                                                        label={value}
-                                                        key={value}
-                                                        style={{ margin: 2 }}
-                                                    />
-                                                ))
-                                            }
-                                        </Box>
-                                    )
-                                }
-                            >
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.LANGUAGES, filterFlags[CONSTANTS.SKILL_FILTERS.LANGUAGES])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.LIBRARIES, filterFlags[CONSTANTS.SKILL_FILTERS.LIBRARIES])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.TOOLS, filterFlags[CONSTANTS.SKILL_FILTERS.TOOLS])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.GRAPHICS, filterFlags[CONSTANTS.SKILL_FILTERS.GRAPHICS])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.GAME_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.GAME_DEV])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.WEB_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.WEB_DEV])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.DESIGN, filterFlags[CONSTANTS.SKILL_FILTERS.DESIGN])}
-                                {renderFilter(CONSTANTS.SKILL_FILTERS.COMP_MATH, filterFlags[CONSTANTS.SKILL_FILTERS.COMP_MATH])}
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={1}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.LANGUAGES, filterFlags[CONSTANTS.SKILL_FILTERS.LANGUAGES])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.LIBRARIES, filterFlags[CONSTANTS.SKILL_FILTERS.LIBRARIES])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.TOOLS, filterFlags[CONSTANTS.SKILL_FILTERS.TOOLS])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.GRAPHICS, filterFlags[CONSTANTS.SKILL_FILTERS.GRAPHICS])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.GAME_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.GAME_DEV])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.WEB_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.WEB_DEV])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.DESIGN, filterFlags[CONSTANTS.SKILL_FILTERS.DESIGN])}
+                        {renderFilter(CONSTANTS.SKILL_FILTERS.COMP_MATH, filterFlags[CONSTANTS.SKILL_FILTERS.COMP_MATH])}
+                    </Select>
+                </FormControl>
+                <Box display='flex' justifyContent='flex-end'>
+                    <Button
+                        onClick={this.onClearFilters}
+                        size='small'
+                        style={{ textTransform: 'none' }}
+                        disabled={this.state.filters.length === 0}
                     >
-                        <Zoom in={this.state.filters.length !== 0}>
-                            <IconButton onClick={this.onClearFilters}>
-                                <ClearIcon/>
-                            </IconButton>
-                        </Zoom>
-                    </Grid>
-                </Grid>
-                <Space size='md'/>
+                        clear
+                    </Button>
+                </Box>
+                <Space size='xs'/>
                 <Grid
                     container
                     spacing={2}
@@ -107,7 +93,8 @@ class Skills extends CustomComponent
                             tags={[
                                 CONSTANTS.SKILL_FILTERS.LIBRARIES,
                                 CONSTANTS.SKILL_FILTERS.GRAPHICS,
-                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
                             ]}
                         >
                             <Skill
@@ -126,107 +113,295 @@ class Skills extends CustomComponent
                                 advanced
                             />
                         </FilterItem>
-                        
-                        <Skill
-                            label='Git'
-                            advanced
-                        />
-                        <Skill
-                            label='Visual Studio Code'
-                            advanced
-                        />
-                        <Skill
-                            label='Unity'
-                            intermediate
-                        />
-                        <Skill
-                            label='OpenGL'
-                            intermediate
-                        />
-                        <Skill
-                            label='React'
-                            intermediate
-                        />
-                        <Skill
-                            label='Express'
-                            intermediate
-                        />
-                        <Skill
-                            label='NumPy'
-                            intermediate
-                        />
-                        <Skill
-                            label='SciPy'
-                            intermediate
-                        />
-                        <Skill
-                            label='C++'
-                            intermediate
-                        />
-                        <Skill
-                            label='Python'
-                            intermediate
-                        />
-                        <Skill
-                            label='GLSL'
-                            intermediate
-                        />
-                        <Skill
-                            label='MATLAB'
-                            intermediate
-                        />
-                        <Skill
-                            label='Java'
-                            intermediate
-                        />
-                        <Skill 
-                            label='HTML'
-                            intermediate
-                        />
-                        <Skill
-                            label='CSS'
-                            intermediate
-                        />
-                        <Skill
-                            label='C#'
-                            beginner
-                        />
-                        <Skill
-                            label='HLSL'
-                            beginner
-                        />
-                        <Skill
-                            label='Halide'
-                            beginner
-                        />
-                        <Skill
-                            label='DirectX'
-                            beginner
-                        />
-                        <Skill
-                            label='libigl'
-                            beginner
-                        />
-                        <Skill
-                            label='Vuforia'
-                            beginner
-                        />
-                        <Skill
-                            label='Rhino 3D'
-                            beginner
-                        />
-                        <Skill
-                            label='3DS Max'
-                            beginner
-                        />
-                        <Skill
-                            label='Photoshop'
-                            beginner
-                        />
-                        <Skill
-                            label='Visual Studio Community'
-                            beginner
-                        />
+                        <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.TOOLS ]}>
+                            <Skill
+                                label='Git'
+                                advanced
+                            />
+                        </FilterItem>
+                        <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.TOOLS ]}>
+                            <Skill
+                                label='Visual Studio Code'
+                                advanced
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS
+                            ]}
+                        >
+                            <Skill
+                                label='C++'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='OpenGL'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='GLSL'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.COMP_MATH
+                            ]}
+                        >
+                            <Skill
+                                label='Python'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.COMP_MATH
+                            ]}
+                        >
+                            <Skill
+                                label='NumPy'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.COMP_MATH
+                            ]}
+                        >
+                            <Skill
+                                label='SciPy'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.TOOLS,
+                                CONSTANTS.SKILL_FILTERS.COMP_MATH,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS
+                            ]}
+                        >
+                            <Skill
+                                label='MATLAB'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
+                            ]}
+                        >
+                            <Skill 
+                                label='HTML'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='CSS'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='React'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Material-UI'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Express'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.LANGUAGES ]}>
+                            <Skill
+                                label='Java'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.TOOLS ]}>
+                            <Skill
+                                label='Visual Studio Community'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.TOOLS,
+                                CONSTANTS.SKILL_FILTERS.DESIGN
+                            ]}
+                        >
+                            <Skill
+                                label='Rhino 3D'
+                                intermediate
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.TOOLS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Unity'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='C#'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Vuforia'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='DirectX 12'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='DirectX 11'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='HLSL'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS
+                            ]}
+                        >
+                            <Skill
+                                label='Halide'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.LIBRARIES,
+                                CONSTANTS.SKILL_FILTERS.GRAPHICS
+                            ]}
+                        >
+                            <Skill
+                                label='libigl'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.TOOLS,
+                                CONSTANTS.SKILL_FILTERS.DESIGN,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='3DS Max'
+                                beginner
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.TOOLS,
+                                CONSTANTS.SKILL_FILTERS.DESIGN,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Photoshop'
+                                beginner
+                            />
+                        </FilterItem>
                     </FilterList>
                 </Grid>
                 <Space size='lg'/>
