@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
+import { CustomComponent } from '.';
 
 class YoutubeEmbed extends CustomComponent {
     render() {

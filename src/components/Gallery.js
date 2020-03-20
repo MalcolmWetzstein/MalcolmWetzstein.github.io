@@ -1,6 +1,6 @@
-import React from 'react'
-import CustomComponent from './CustomComponent';
+import React from 'react';
 import { withTheme, GridList, GridListTile } from '@material-ui/core';
+import { CustomComponent } from '.';
 import * as CONSTANTS from '../Constants';
 
 class Gallery extends CustomComponent {

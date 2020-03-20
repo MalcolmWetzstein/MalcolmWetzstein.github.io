@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../../components/CustomComponent';
 import { withTheme, Typography } from '@material-ui/core';
-import { Page, PageHeader, Suggestions, Space } from '../../components/Custom';
-import { Portfolio } from '../Pages';
+import { CustomComponent, Page, PageHeader, Suggestions, Space } from '../../components';
+import { Portfolio } from '..';
 
 class Music extends CustomComponent {
     render() {

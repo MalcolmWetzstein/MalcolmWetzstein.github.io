@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box, Tooltip, withTheme, Button } from '@material-ui/core';
-import { Page, Suggestions, PageHeader, Space, DateRange, Timeline, TimelineTile, Indent, Bullets, Categories, SectionHeader } from '../components/Custom';
-import { Home, Experience, Portfolio } from './Pages';
+import { CustomComponent, Page, Suggestions, PageHeader, Space, DateRange, Timeline, TimelineTile, Indent, Bullets, Categories, SectionHeader } from '../components';
+import { Home, Experience, Portfolio } from '.';
 import * as CONSTANTS from '../Constants';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';

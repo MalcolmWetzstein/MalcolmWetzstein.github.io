@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { Typography, withTheme } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class DateRange extends CustomComponent
 {

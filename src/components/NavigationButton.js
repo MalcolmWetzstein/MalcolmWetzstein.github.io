@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme, Button } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class NavigationButton extends CustomComponent {
     constructor(props) {

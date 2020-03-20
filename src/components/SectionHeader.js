@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme, Typography } from '@material-ui/core';
+import { CustomComponent, Space, Indent } from '.';
 import * as CONSTANTS from '../Constants';
-import { Space, Indent } from './Custom';
 
 class SectionHeader extends CustomComponent
 {

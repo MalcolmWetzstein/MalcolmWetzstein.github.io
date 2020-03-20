@@ -1,9 +1,9 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider, useMediaQuery } from '@material-ui/core';
-import { PageDeque, NavigationBar, IconLink } from './components/Custom';
+import { PageDeque, NavigationBar, IconLink } from './components';
 import * as CONSTANTS from './Constants';
-import * as themes from './themes/Themes';
-import * as pages from './pages/Pages';
+import * as themes from './themes';
+import * as pages from './pages';
 
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';

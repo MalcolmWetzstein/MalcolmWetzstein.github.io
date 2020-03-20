@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme, Tab } from '@material-ui/core';
+import { CustomComponent } from '.';
 import * as CONSTANTS from '../Constants';
 
 class CustomTab extends CustomComponent

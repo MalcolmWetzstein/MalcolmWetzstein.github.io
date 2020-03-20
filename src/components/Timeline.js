@@ -1,7 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme } from '@material-ui/core';
-import { Space } from './Custom';
+import { CustomComponent, Space } from '.';
 
 class Timeline extends CustomComponent
 {

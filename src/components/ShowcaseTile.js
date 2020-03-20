@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme, GridListTileBar, ButtonBase } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class ShowcaseTile extends CustomComponent
 {

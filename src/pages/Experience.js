@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography } from '@material-ui/core';
-import { Page, PageHeader, Space, Suggestions, Timeline, TimelineTile, DateRange } from '../components/Custom';
-import { Education, Skills, Home } from '../pages/Pages';
+import { CustomComponent, Page, PageHeader, Space, Suggestions, Timeline, TimelineTile, DateRange } from '../components';
+import { Education, Skills, Home } from '.';
 import * as CONSTANTS from '../Constants';
 
 class Experience extends CustomComponent 

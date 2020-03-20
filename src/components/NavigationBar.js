@@ -1,7 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { AppBar, Tabs, withTheme, Box, Grid } from '@material-ui/core';
-import { CustomTab } from './Custom';
+import { CustomComponent, CustomTab } from '.';
 import { reKey } from './Util';
 import * as CONSTANTS from '../Constants';
 

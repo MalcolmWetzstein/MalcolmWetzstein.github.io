@@ -1,5 +1,5 @@
-import CustomComponent from './CustomComponent';
 import { withTheme } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class FilterItem extends CustomComponent
 {

@@ -1,9 +1,10 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Tooltip, Button } from '@material-ui/core';
-import { Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../components/Custom';
-import { Home, Contact } from './Pages';
+import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../components';
+import { Home, Contact } from '.';
 import * as CONSTANTS from '../Constants';
+
+const CLOSE = 'close';
 
 class Skills extends CustomComponent 
 {
@@ -13,8 +14,12 @@ class Skills extends CustomComponent
     {
         super(props);
 
-        this.state = { filters: [] }
+        this.state = {
+            filters: [],
+            filterSelectOpen: false
+        }
 
+        this.onOpenFilters = this.onOpenFilters.bind(this);
         this.onFilterChange = this.onFilterChange.bind(this);
         this.onClearFilters = this.onClearFilters.bind(this);
     }
@@ -43,6 +48,8 @@ class Skills extends CustomComponent
                     <Select
                         multiple
                         value={this.state.filters}
+                        open={this.state.filterSelectOpen}
+                        onOpen={this.onOpenFilters}
                         onChange={this.onFilterChange}
                         renderValue={
                             selected => (
@@ -71,9 +78,17 @@ class Skills extends CustomComponent
                         {renderFilter(CONSTANTS.SKILL_FILTERS.WEB_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.WEB_DEV])}
                         {renderFilter(CONSTANTS.SKILL_FILTERS.DESIGN, filterFlags[CONSTANTS.SKILL_FILTERS.DESIGN])}
                         {renderFilter(CONSTANTS.SKILL_FILTERS.COMP_MATH, filterFlags[CONSTANTS.SKILL_FILTERS.COMP_MATH])}
+                        <MenuItem value={CLOSE}>
+                            <Box margin='0 auto'>
+                                CLOSE
+                            </Box>
+                        </MenuItem>
                     </Select>
                 </FormControl>
-                <Box display='flex' justifyContent='flex-end'>
+                <Box
+                    display='flex'
+                    justifyContent='flex-end'
+                >
                     <Button
                         onClick={this.onClearFilters}
                         size='small'
@@ -413,9 +428,17 @@ class Skills extends CustomComponent
         );
     }
 
+    onOpenFilters()
+    {
+        this.setState({ filterSelectOpen: true });
+    }
+
     onFilterChange(event)
     {
-        this.setState({ filters: event.target.value });
+        if (event.target.value.includes(CLOSE))
+            this.setState({ filterSelectOpen: false });
+        else
+            this.setState({ filters: event.target.value });
     }
 
     onClearFilters()

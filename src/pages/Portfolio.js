@@ -1,8 +1,8 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { withTheme } from '@material-ui/core';
-import { Page, Space, Suggestions, Categories, PageHeader, Showcase, ShowcaseTile } from '../components/Custom';
-import { Home, Skills, Education, AdaptiveFilter, ARVoxel, Architecture, DesignModeling, Music, StarLogo, SurfaceFluid, Website } from './Pages';
+import { CustomComponent, Page, Space, Suggestions, Categories, PageHeader, Showcase, ShowcaseTile } from '../components';
+import { Home, Skills, Education } from '.';
+import { AdaptiveFilter, ARVoxel, Architecture, DesignModeling, Music, StarLogo, SurfaceFluid, Website } from './projects';
 import * as CONSTANTS from '../Constants';
 
 class Portfolio extends CustomComponent 

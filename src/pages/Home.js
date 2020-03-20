@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { Typography, withTheme, Button, Box, Divider } from '@material-ui/core';
-import { Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components/Custom';
-import { About, Portfolio, Education, Experience, Skills, Contact } from './Pages';
+import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components';
+import { About, Portfolio, Education, Experience, Skills, Contact } from '.';
 import * as CONSTANTS from '../Constants';
 
 class Home extends CustomComponent 

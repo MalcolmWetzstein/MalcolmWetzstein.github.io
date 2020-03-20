@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { Box, withTheme } from '@material-ui/core';
+import { CustomComponent } from '.';
 import * as CONSTANTS from '../Constants';
 
 class Space extends CustomComponent

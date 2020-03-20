@@ -1,3 +1,4 @@
+import CustomComponent from './CustomComponent';
 import Indent from './Indent';
 import NavigationBar from './NavigationBar';
 import Page from './Page';
@@ -25,7 +26,8 @@ import SectionHeader from './SectionHeader';
 import FilterList from './FilterList';
 import FilterItem from './FilterItem';
 
-export { 
+export {
+    CustomComponent,
     Indent, 
     NavigationBar, 
     Page, 

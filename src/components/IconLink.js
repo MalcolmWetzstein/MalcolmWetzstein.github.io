@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { IconButton, withTheme } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class IconLink extends CustomComponent
 {

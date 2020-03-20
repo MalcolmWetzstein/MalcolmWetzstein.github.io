@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { ButtonGroup, Button, Box, withTheme } from '@material-ui/core';
+import { CustomComponent, Center } from '.';
 import * as CONSTANTS from '../Constants';
-import { Center } from './Custom';
 
 class Suggestions extends CustomComponent
 {

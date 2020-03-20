@@ -1,7 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { Tabs, withTheme, Box, IconButton, Paper } from '@material-ui/core';
-import { CustomTab, OptionalWrapper } from './Custom';
+import { CustomComponent, CustomTab, OptionalWrapper } from '.';
 import * as CONSTANTS from '../Constants';
 
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';

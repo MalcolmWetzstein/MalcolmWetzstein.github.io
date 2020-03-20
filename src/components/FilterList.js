@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class FilterList extends CustomComponent
 {

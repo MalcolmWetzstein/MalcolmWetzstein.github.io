@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { Typography, Link, Grid, withTheme } from '@material-ui/core';
-import { Page, Suggestions, Space, PageHeader } from '../components/Custom';
-import { Home } from './Pages';
+import { CustomComponent, Page, Suggestions, Space, PageHeader } from '../components';
+import { Home } from '.';
 import * as CONSTANTS from '../Constants';
 
 import EmailIcon from '@material-ui/icons/Email';

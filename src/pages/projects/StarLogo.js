@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../../components/CustomComponent';
 import { withTheme, Container } from '@material-ui/core';
-import { Page, PageHeader, Suggestions, Space, YoutubeEmbed } from '../../components/Custom';
-import { Portfolio } from '../Pages';
+import { CustomComponent, Page, PageHeader, Suggestions, Space, YoutubeEmbed } from '../../components';
+import { Portfolio } from '..';
 import * as CONSTANTS from '../../Constants';
 
 class StarLogo extends CustomComponent {

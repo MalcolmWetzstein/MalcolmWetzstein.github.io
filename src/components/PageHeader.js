@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { withTheme, Typography, Divider } from '@material-ui/core';
+import { CustomComponent, Space } from '.';
 import * as CONSTANTS from '../Constants';
-import { Space } from './Custom';
 
 class PageHeader extends CustomComponent
 {

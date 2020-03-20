@@ -1,7 +1,6 @@
 import React from 'react';
-import CustomComponent from './CustomComponent';
 import { Box, Container, Fab, Fade, withTheme } from '@material-ui/core';
-import { Space, OptionalWrapper, Center } from '../components/Custom';
+import { CustomComponent, Space, OptionalWrapper, Center } from '.';
 import * as CONSTANTS from '../Constants';
 
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';

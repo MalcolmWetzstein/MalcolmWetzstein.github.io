@@ -1,8 +1,7 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { withTheme, Typography } from '@material-ui/core';
-import { Page, Space, Suggestions, PageHeader } from '../components/Custom';
-import { Home, Experience, Portfolio } from './Pages';
+import { CustomComponent, Page, Space, Suggestions, PageHeader } from '../components';
+import { Home, Experience, Portfolio } from '.';
 
 class About extends CustomComponent 
 {

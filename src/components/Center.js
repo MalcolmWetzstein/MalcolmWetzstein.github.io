@@ -1,6 +1,6 @@
 import React from 'react';
-import CustomComponent from '../components/CustomComponent';
 import { withTheme, Box } from '@material-ui/core';
+import { CustomComponent } from '.';
 
 class Center extends CustomComponent {
     render() {
