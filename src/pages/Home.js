@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, withTheme, Button, Box, Divider } from '@material-ui/core';
+import { Typography, withTheme, Button, Box, Divider, Grid } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components';
 import { About, Portfolio, Education, Experience, Skills, Contact } from '.';
 import * as CONSTANTS from '../Constants';
@@ -26,9 +26,14 @@ class Home extends CustomComponent
                     Xavier<br/>
                     Wetzstein
                 </Typography>
-                <Typography variant="subtitle1" align="center">
-                    Recent Master Graduate in Computer Science
-                </Typography>
+                {
+                    this.renderCareerTitles([
+                        'Recent Graduate',
+                        'Software Engineer',
+                        'Graphics Programmer',
+                        'Aspiring Game Developer'
+                    ])
+                }
                 <Space/>
                 <Divider/>
                 <Space/>
@@ -73,6 +78,40 @@ class Home extends CustomComponent
                     </Box>
                 </Center>
             </Page>
+        );
+    }
+
+    renderCareerTitles(careerTitles)
+    {
+        let renderItems = [];
+
+        for (let i = 0; i < careerTitles.length; i++)
+        {
+            renderItems.push(
+                <Typography>
+                    {careerTitles[i]}
+                </Typography>
+            );
+
+            if (i < careerTitles.length - 1)
+                renderItems.push(<Divider orientation='vertical'/>);
+        }
+
+        return (
+            <Grid
+                container
+                justify='center'
+                spacing={2}
+            >
+                {
+                    renderItems.map(
+                        item =>
+                            <Grid item>
+                                {item}
+                            </Grid>
+                    )
+                }
+            </Grid>
         );
     }
 }
