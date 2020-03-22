@@ -1,6 +1,6 @@
 import React from 'react';
-import { withTheme, Card, CardActionArea, CardContent, CardMedia, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
-import { CustomComponent, Bullets } from '.';
+import { withTheme, Card, CardActionArea, CardContent, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
+import { CustomComponent, Bullets, Image } from '.';
 
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -49,13 +49,10 @@ class TimelineTile extends CustomComponent
                                 spacing={2}
                             >
                                 <Grid item>
-                                    <CardMedia 
-                                        image={this.props.image}
-                                        title={this.props.imageTitle}
-                                        style={{
-                                            width: this.props.imageWidth,
-                                            height: this.props.imageHeight
-                                        }}
+                                    <Image
+                                        src={this.props.image}
+                                        alt={this.props.imageInfo}
+                                        height={this.props.theme.spacing(9)}
                                     />
                                 </Grid>
                                 <Grid item>

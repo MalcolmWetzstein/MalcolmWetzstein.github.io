@@ -1,16 +1,15 @@
 import React from 'react';
 import { withTheme } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, Image } from '.';
 
 class GalleryTile extends CustomComponent {
     render() {
         return (
             <React.Fragment>
-                <img
+                <Image
                     src={this.props.image}
                     alt={this.props.label ? this.props.label : ''}
-                    width='100%'
-                    height='100%'
+                    height={1}
                 />
             </React.Fragment>
         );

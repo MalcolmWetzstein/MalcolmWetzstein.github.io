@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTheme, GridListTileBar, ButtonBase } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, Image } from '.';
 
 class ShowcaseTile extends CustomComponent
 {
@@ -22,11 +22,10 @@ class ShowcaseTile extends CustomComponent
                     }}
                     onClick={this.onOpen}
                 >
-                    <img
+                    <Image
                         src={this.props.image}
                         alt={this.props.label}
-                        width='100%'
-                        height='100%'
+                        width={1}
                     />
                 </ButtonBase>
                 <GridListTileBar title={this.props.label}/>

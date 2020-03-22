@@ -23,8 +23,6 @@ class Experience extends CustomComponent
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.SERVCO}
                         imageInfo='Servco Pacific'
-                        imageWidth='100px'
-                        imageHeight='100px'
                         details={[
                             'Virtual Reality and Augmented Reality prototyping',
                             [
@@ -60,8 +58,6 @@ class Experience extends CustomComponent
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.STEP}
                         imageInfo='Scheller Teacher Education Program'
-                        imageWidth='150px'
-                        imageHeight='100px'
                         details={[
                             [
                                 'Rearchitected and optimized WebGL 3D rendering engine',

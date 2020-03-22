@@ -25,6 +25,7 @@ import TimelineTile from './TimelineTile';
 import SectionHeader from './SectionHeader';
 import FilterList from './FilterList';
 import FilterItem from './FilterItem';
+import Image from './Image';
 
 export {
     CustomComponent,
@@ -53,5 +54,6 @@ export {
     TimelineTile,
     SectionHeader,
     FilterList,
-    FilterItem
+    FilterItem,
+    Image
 };
