@@ -71,7 +71,7 @@ class Experience extends CustomComponent
                                 'Optimized by pre-rendering perspective correct sprites'
                             ],
                             [
-                                'Created terrain engine with interactive editor',
+                                'Created terrain system with interactive editor',
                                 'Designed 9 different tools for user interactive terrain editing',
                                 'User programmable real-time interactions between game agents and terrain'
                             ],

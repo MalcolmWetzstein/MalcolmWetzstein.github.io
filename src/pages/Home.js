@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, withTheme, Button, Box, Divider, Grid } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components';
 import { About, Portfolio, Education, Experience, Skills, Contact } from '.';
+import { reKey } from '../components/Util';
 import * as CONSTANTS from '../Constants';
 
 class Home extends CustomComponent 
@@ -104,12 +105,12 @@ class Home extends CustomComponent
                 spacing={2}
             >
                 {
-                    renderItems.map(
+                    reKey(renderItems.map(
                         item =>
                             <Grid item>
                                 {item}
                             </Grid>
-                    )
+                    ))
                 }
             </Grid>
         );

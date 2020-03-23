@@ -1,6 +1,6 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider, useMediaQuery } from '@material-ui/core';
-import { PageDeque, NavigationBar, IconLink } from './components';
+import { PageDeque, NavigationBar, IconLink, Preloader } from './components';
 import * as CONSTANTS from './Constants';
 import * as themes from './themes';
 import * as pages from './pages';
@@ -14,6 +14,7 @@ function App()
   return (
     <ThemeProvider theme={useMediaQuery('(prefers-color-scheme: dark)') ? themes.DarkTheme : themes.LightTheme}>
       <CssBaseline/>
+      <Preloader imageTree={CONSTANTS.IMAGES}/>
       <PageDeque>
         <NavigationBar links={[
           <IconLink href={CONSTANTS.LINKS.GITHUB}>

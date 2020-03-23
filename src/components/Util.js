@@ -7,15 +7,16 @@ function reKey(children)
 
 function preloadImages(imageTree)
 {
-    for (let child of imageTree)
+    for (let child of Object.values(imageTree))
     {
         if (typeof child === 'string')
         {
-
+            const preloader = new Image();
+            preloader.src = child;
         }
         else if (typeof child === 'object')
             preloadImages(child);
     }
 }
 
-export { reKey };
+export { reKey, preloadImages };

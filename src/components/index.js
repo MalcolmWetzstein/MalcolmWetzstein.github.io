@@ -26,6 +26,7 @@ import SectionHeader from './SectionHeader';
 import FilterList from './FilterList';
 import FilterItem from './FilterItem';
 import Image from './Image';
+import Preloader from './Preloader';
 
 export {
     CustomComponent,
@@ -55,5 +56,6 @@ export {
     SectionHeader,
     FilterList,
     FilterItem,
-    Image
+    Image,
+    Preloader
 };

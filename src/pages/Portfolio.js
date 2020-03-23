@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTheme } from '@material-ui/core';
-import { CustomComponent, Page, Space, Suggestions, Categories, PageHeader, Showcase, ShowcaseTile } from '../components';
+import { CustomComponent, Page, Space, Suggestions, Categories, PageHeader, Showcase, ShowcaseTile, Preloader } from '../components';
 import { Home, Skills, Education } from '.';
 import { AdaptiveFilter, ARVoxel, Architecture, DesignModeling, Music, StarLogo, SurfaceFluid, Website } from './projects';
 import * as CONSTANTS from '../Constants';
@@ -16,6 +16,7 @@ class Portfolio extends CustomComponent
                 id='portfolio'
                 pageDeque={this.props.pageDeque}
             >
+                <Preloader imageTree={CONSTANTS.IMAGES.PORTFOLIO}/>
                 <PageHeader>
                     {Portfolio.buttonText}
                 </PageHeader>
@@ -28,7 +29,7 @@ class Portfolio extends CustomComponent
                     <React.Fragment>
                         <Space size='xs'/>
                         <Showcase pageDeque={this.props.pageDeque}>
-                            <ShowcaseTile label='Custom Terrain in StarLogo Nova' image={CONSTANTS.IMAGES.PORTFOLIO.STARLOGO.THUMB}>
+                            <ShowcaseTile label='StarLogo Nova Terrain System' image={CONSTANTS.IMAGES.PORTFOLIO.STARLOGO.THUMB}>
                                 <StarLogo/>
                             </ShowcaseTile>
                             <ShowcaseTile label='Mesh Surface Fluid Flow' image={CONSTANTS.IMAGES.PORTFOLIO.SURFACE_FLUID.THUMB}>

@@ -4,7 +4,8 @@ import { CustomComponent } from '.';
 
 class Image extends CustomComponent
 {
-    render() {
+    render()
+    {
         let width = this.props.width;
         let height = this.props.height;
 
@@ -20,6 +21,7 @@ class Image extends CustomComponent
                 width={width}
                 height={height}
                 style={{ objectFit: this.props.objectFit ? this.props.objectFit : 'contain' }}
+                onLoad={this.props.onLoad}
             />
         );
     }
