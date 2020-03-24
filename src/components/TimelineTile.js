@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Card, CardActionArea, CardContent, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
 import { CustomComponent, Bullets, Image } from '.';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ButtonGroup, Button, Box, withTheme } from '@material-ui/core';
 import { CustomComponent, Center } from '.';
 import * as CONSTANTS from '../Constants';

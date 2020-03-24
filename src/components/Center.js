@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Box } from '@material-ui/core';
 import { CustomComponent } from '.';
 
-class Center extends CustomComponent {
-    render() {
+class Center extends CustomComponent
+{
+    render()
+    {
         return (
             <Box
                 width={1}
@@ -15,5 +18,7 @@ class Center extends CustomComponent {
         );
     }
 }
+
+Center.propTypes = { children: PropTypes.node };
 
 export default withTheme(Center);

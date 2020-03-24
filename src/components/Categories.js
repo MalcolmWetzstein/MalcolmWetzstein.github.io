@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tabs, withTheme, Box, IconButton, Paper } from '@material-ui/core';
 import { CustomComponent, CustomTab, OptionalWrapper } from '.';
 import * as CONSTANTS from '../Constants';
@@ -12,9 +13,7 @@ class Categories extends CustomComponent
     {
         super(props);
 
-        this.state = {
-            currentTab: 0
-        }
+        this.state = { currentTab: 0 }
 
         this.ref = React.createRef();
 
@@ -100,5 +99,13 @@ class Categories extends CustomComponent
         this.ref.current.scrollIntoView(true);
     }
 }
+
+Categories.propTypes = {
+    backdrop: PropTypes.bool,
+    sparse: PropTypes.bool,
+    labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+    children: PropTypes.node.isRequired,
+    theme: PropTypes.object.isRequired
+};
 
 export default withTheme(Categories);

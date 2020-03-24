@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { preloadImages } from './Util';
 
 class Preloader extends React.Component

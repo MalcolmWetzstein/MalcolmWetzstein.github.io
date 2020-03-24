@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, GridListTileBar, ButtonBase, Fade, Box, Typography, CircularProgress } from '@material-ui/core';
 import { CustomComponent, Image } from '.';
 

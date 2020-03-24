@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AppBar, Tabs, withTheme, Box, Grid } from '@material-ui/core';
 import { CustomComponent, CustomTab } from '.';
 import { reKey } from './Util';

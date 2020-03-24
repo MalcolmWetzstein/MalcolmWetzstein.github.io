@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Typography, Divider } from '@material-ui/core';
 import { CustomComponent, Space } from '.';
 import * as CONSTANTS from '../Constants';

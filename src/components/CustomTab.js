@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Tab } from '@material-ui/core';
 import { CustomComponent } from '.';
 import * as CONSTANTS from '../Constants';
@@ -22,5 +23,11 @@ class CustomTab extends CustomComponent
             this.props.children);
     }
 }
+
+// CustomTab.propTypes = {
+//     sparse: PropTypes.bool,
+//     theme: PropTypes.object.isRequired,
+//     children: PropTypes.node
+// };
 
 export default withTheme(CustomTab);

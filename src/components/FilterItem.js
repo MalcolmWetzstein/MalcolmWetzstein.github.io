@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
 

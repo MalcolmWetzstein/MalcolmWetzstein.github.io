@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Typography, withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
 import { reKey } from './Util';
@@ -44,5 +45,11 @@ class Bullets extends CustomComponent
         );
     }
 }
+
+Bullets.propTypes = {
+    bullets: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])),
+    focus: PropTypes.bool,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(Bullets);

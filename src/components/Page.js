@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Container, Fab, Fade, withTheme } from '@material-ui/core';
 import { CustomComponent, Space, OptionalWrapper, Center } from '.';
 import * as CONSTANTS from '../Constants';

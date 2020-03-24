@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, GridList, GridListTile } from '@material-ui/core';
 import { CustomComponent } from '.';
 import * as CONSTANTS from '../Constants';

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
 import { reKey } from './Util';
