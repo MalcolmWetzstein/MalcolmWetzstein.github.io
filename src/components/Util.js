@@ -5,17 +5,21 @@ function reKey(children)
     return children.map( (component, index) => cloneElement(component, { key: index.toString() }) );
 }
 
+const imageCache = {};
 function preloadImages(imageTree)
 {
-    for (let child of Object.values(imageTree))
+    for (let node of Object.values(imageTree))
     {
-        if (typeof child === 'string')
+        if (typeof node === 'string')
         {
-            const preloader = new Image();
-            preloader.src = child;
+            if (imageCache[node] == null)
+            {
+                imageCache[node] = new Image();
+                imageCache[node].src = node;
+            }
         }
-        else if (typeof child === 'object')
-            preloadImages(child);
+        else if (typeof node === 'object')
+            preloadImages(node);
     }
 }
 

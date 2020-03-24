@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTheme, GridListTileBar, ButtonBase, Fade, Box, Typography } from '@material-ui/core';
+import { withTheme, GridListTileBar, ButtonBase, Fade, Box, Typography, CircularProgress } from '@material-ui/core';
 import { CustomComponent, Image } from '.';
 
 class ShowcaseTile extends CustomComponent
@@ -36,6 +36,7 @@ class ShowcaseTile extends CustomComponent
                         src={this.props.image}
                         alt={this.props.label}
                         width={1}
+                        onLoad={this.onLoad}
                     />
                     <Fade in={this.state.hovering}>
                         <Box
@@ -54,6 +55,23 @@ class ShowcaseTile extends CustomComponent
                     </Fade>
                 </ButtonBase>
                 <GridListTileBar title={this.props.label}/>
+                {
+                    this.state.loading ? (
+                        <Box
+                            position='relative'
+                            display='flex'
+                            justifyContent='center'
+                            alignItems='center'
+                            paddingBottom='100%'
+                            width={1}
+                            height={0}
+                        >
+                            <Box marginTop='-100%'>
+                                <CircularProgress color='secondary'/>
+                            </Box>
+                        </Box>
+                    ) : undefined
+                }
             </React.Fragment>
         );
     }
@@ -76,7 +94,7 @@ class ShowcaseTile extends CustomComponent
 
     onLoad()
     {
-        this.setState({ loading: true });
+        this.setState({ loading: false });
     }
 }
 
