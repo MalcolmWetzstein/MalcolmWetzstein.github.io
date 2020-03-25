@@ -22,4 +22,12 @@ class FilterItem extends CustomComponent
     }
 }
 
+FilterItem.defaultProps = { tags: [] };
+
+FilterItem.propTypes = {
+    filters: PropTypes.array.isRequired,
+    tags: PropTypes.array,
+    children: PropTypes.node.isRequired
+};
+
 export default withTheme(FilterItem);

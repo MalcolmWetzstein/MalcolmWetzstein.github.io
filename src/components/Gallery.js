@@ -24,4 +24,6 @@ class Gallery extends CustomComponent {
     }
 }
 
+Gallery.propTypes = { children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]) };
+
 export default withTheme(Gallery);

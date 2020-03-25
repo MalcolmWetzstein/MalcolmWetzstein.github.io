@@ -10,24 +10,41 @@ class CustomTab extends CustomComponent
     {
         const propsCopy = Object.assign({}, this.props);
         delete propsCopy.sparse;
-
-        return React.createElement(Tab, 
+        
+        return React.createElement(Tab, { 
+            ...propsCopy, 
+            style: 
             { 
-                ...propsCopy, 
-                style: 
-                { 
-                    'minWidth': '0px',
-                    padding: this.props.sparse ? undefined : this.props.theme.spacing(0, CONSTANTS.TAB_MARGIN, 0, CONSTANTS.TAB_MARGIN)
-                } 
-            }, 
-            this.props.children);
+                'minWidth': '0px',
+                padding: this.props.sparse ? undefined : this.props.theme.spacing(0, CONSTANTS.TAB_MARGIN, 0, CONSTANTS.TAB_MARGIN)
+            }
+        });
     }
 }
 
-// CustomTab.propTypes = {
-//     sparse: PropTypes.bool,
-//     theme: PropTypes.object.isRequired,
-//     children: PropTypes.node
-// };
+CustomTab.propTypes = {
+    sparse: PropTypes.bool,
+    theme: PropTypes.object.isRequired,
+    children: PropTypes.oneOf([undefined, null]),
+    // Material UI Tab props
+    classes: PropTypes.object,
+    disabled: PropTypes.any,
+    disableFocusRipple: PropTypes.bool,
+    disableRipple: PropTypes.bool,
+    icon: PropTypes.node,
+    label: PropTypes.node,
+    value: PropTypes.any,
+    wrapped: PropTypes.bool,
+    // Material UI ButtonBase props
+    action: PropTypes.any,
+    centerRipple: PropTypes.bool,
+    disableTouchRipple: PropTypes.bool,
+    focusRipple: PropTypes.bool,
+    focusVisibleClassName: PropTypes.string,
+    onFocusVisible: PropTypes.func,
+    TouchRippleProps: PropTypes.object,
+    type: PropTypes.oneOf(['submit', 'reset', 'button']),
+    component: PropTypes.string
+};
 
 export default withTheme(CustomTab);

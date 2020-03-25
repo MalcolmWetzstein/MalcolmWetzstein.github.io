@@ -80,4 +80,27 @@ class NavigationBar extends CustomComponent
     }
 }
 
+NavigationBar.propTypes = {
+    links: PropTypes.arrayOf(PropTypes.element),
+    theme: PropTypes.object.isRequired,
+    pageDeque: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+        unshift: PropTypes.func.isRequired,
+        insert: PropTypes.func.isRequired,
+        pop: PropTypes.func.isRequired,
+        shift: PropTypes.func.isRequired,
+        remove: PropTypes.func.isRequired,
+        clear: PropTypes.func.isRequired,
+        top: PropTypes.func.isRequired,
+        bottom: PropTypes.func.isRequired,
+        pageAt: PropTypes.func.isRequired,
+        swapTop: PropTypes.func.isRequired,
+        swapBottom: PropTypes.func.isRequired,
+        swapAt: PropTypes.func.isRequired,
+        finish: PropTypes.func.isRequired,
+        withDequeProps: PropTypes.func.isRequired
+    }).isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired
+};
+
 export default withTheme(NavigationBar);

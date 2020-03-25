@@ -25,4 +25,12 @@ class DateRange extends CustomComponent
     }
 }
 
+DateRange.propTypes = {
+    startMonth: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).isRequired,
+    startYear: PropTypes.number.isRequired,
+    endMonth: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    endYear: PropTypes.number,
+    children: PropTypes.oneOf([undefined, null])
+};
+
 export default withTheme(DateRange);

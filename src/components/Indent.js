@@ -9,16 +9,19 @@ class Indent extends CustomComponent
     render()
     {
         return (
-            <Box margin={this.props.theme.spacing(0, 0, 0, this.props.level ? this.props.level * CONSTANTS.UNIT_INDENT : CONSTANTS.UNIT_INDENT)}>
-                {React.Children.map(this.props.children, child => this.passDequeProps(child))}
+            <Box margin={this.props.theme.spacing(0, 0, 0, this.props.level * CONSTANTS.UNIT_INDENT)}>
+                {this.props.children}
             </Box>
         );
     }
-
-    passDequeProps(child)
-    {
-        return this.props.pageDeque ? this.props.pageDeque.withDequeProps(child) : child;
-    }
 }
+
+Indent.defaultProps = { level: 1 };
+
+Indent.propTypes = {
+    theme: PropTypes.object.isRequired,
+    level: PropTypes.number,
+    children: PropTypes.node
+};
 
 export default withTheme(Indent);

@@ -21,11 +21,26 @@ class Image extends CustomComponent
                 alt={this.props.alt}
                 width={width}
                 height={height}
-                style={{ objectFit: this.props.objectFit ? this.props.objectFit : 'contain' }}
+                style={{ objectFit: this.props.objectFit }}
                 onLoad={this.props.onLoad}
             />
         );
     }
 }
+
+Image.defaultProps = {
+    alt: '',
+    objectFit: 'contain'
+};
+
+Image.propTypes = {
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string,
+    objectFit: PropTypes.oneOf(['fill', 'contain', 'cover', 'scale-down', 'none']),
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    onLoad: PropTypes.func,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(Image);

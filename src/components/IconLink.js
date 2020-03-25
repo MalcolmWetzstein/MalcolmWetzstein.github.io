@@ -12,10 +12,15 @@ class IconLink extends CustomComponent
                 href={this.props.href}
                 target='_blank'
             >
-                {React.Children.only(this.props.children)}
+                {this.props.children}
             </IconButton>
         );
     }
 }
+
+IconLink.propTypes = {
+    href: PropTypes.string.isRequired,
+    children: PropTypes.element.isRequired
+};
 
 export default withTheme(IconLink);

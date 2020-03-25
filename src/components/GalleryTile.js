@@ -9,12 +9,20 @@ class GalleryTile extends CustomComponent {
             <React.Fragment>
                 <Image
                     src={this.props.image}
-                    alt={this.props.label ? this.props.label : ''}
+                    alt={this.props.label}
                     height={1}
                 />
             </React.Fragment>
         );
     }
 }
+
+GalleryTile.defaultProps = { label: '' };
+
+GalleryTile.propTypes = {
+    image: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(GalleryTile);
