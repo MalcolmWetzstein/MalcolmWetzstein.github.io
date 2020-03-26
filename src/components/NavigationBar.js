@@ -37,7 +37,7 @@ class NavigationBar extends CustomComponent
                         zeroMinWidth
                     >
                         <Tabs 
-                            indicatorColor="secondary" 
+                            indicatorColor='secondary' 
                             value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
                             onChange={this.tabChange}
                             variant='scrollable'

@@ -9,9 +9,9 @@ import * as CONSTANTS from '../../Constants';
 
 class Experience extends CustomComponent 
 {
-    static buttonText = "Experience";
+    static buttonText = 'Experience';
     
-    render ()
+    render()
     {
         return (
             <Page

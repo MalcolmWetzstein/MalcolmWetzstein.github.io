@@ -12,9 +12,9 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 class Contact extends CustomComponent
 {
-    static buttonText = "Contact Me";
+    static buttonText = 'Contact Me';
     
-    render ()
+    render()
     {
         return (
             <Page
@@ -31,29 +31,59 @@ class Contact extends CustomComponent
                     spacing={4}
                 >
                     <Grid item>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography
+                            variant='h4'
+                            gutterBottom
+                        >
                             <EmailIcon fontSize='inherit'/>
                         </Typography>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography
+                            variant='h4'
+                            gutterBottom
+                        >
                             <PhoneIcon fontSize='inherit'/>
                         </Typography>
-                        <Typography variant="h4" gutterBottom>
+                        <Typography
+                            variant='h4'
+                            gutterBottom
+                        >
                             <LinkedInIcon fontSize='inherit'/>
                         </Typography>
                     </Grid>
                     <Grid item>
-                        <Link href={"mailto:" + CONSTANTS.EMAIL_ADDRESS} target="_blank" color="secondary">
-                            <Typography variant="h4" gutterBottom>
+                        <Link
+                            href={'mailto:' + CONSTANTS.EMAIL_ADDRESS}
+                            target='_blank'
+                            color='secondary'
+                        >
+                            <Typography
+                                variant='h4'
+                                gutterBottom
+                            >
                                 {CONSTANTS.EMAIL_ADDRESS}
                             </Typography>
                         </Link>
-                        <Link href={"tel:" + CONSTANTS.PHONE_NUMBER} target="_blank" color="secondary">
-                            <Typography variant="h4" gutterBottom>
-                                {this.readablePhoneNumber(CONSTANTS.PHONE_NUMBER)}
+                        <Link
+                            href={'tel:' + CONSTANTS.PHONE_NUMBER}
+                            target='_blank'
+                            color='secondary'
+                        >
+                            <Typography
+                                variant='h4'
+                                gutterBottom
+                            >
+                                {this.renderPhoneNumber(CONSTANTS.PHONE_NUMBER)}
                             </Typography>
                         </Link>
-                        <Link href={CONSTANTS.LINKS.LINKEDIN} target="_blank" color="secondary">
-                            <Typography variant="h4" gutterBottom>
+                        <Link
+                            href={CONSTANTS.LINKS.LINKEDIN}
+                            target='_blank'
+                            color='secondary'
+                        >
+                            <Typography
+                                variant='h4'
+                                gutterBottom
+                            >
                                 {CONSTANTS.LINKS.LINKEDIN}
                             </Typography>
                         </Link>
@@ -67,7 +97,7 @@ class Contact extends CustomComponent
         );
     }
 
-    readablePhoneNumber(phoneNumber)
+    renderPhoneNumber(phoneNumber)
     {
         return '(' + phoneNumber.slice(0,3) + ')' + phoneNumber.slice(3,6) + '-' + phoneNumber.slice(6);
     }

@@ -18,7 +18,10 @@ class Degree extends CustomComponent
                 <Typography variant='h6'>
                     {this.props.school}
                 </Typography>
-                <Typography variant='subtitle2' color='textSecondary'>
+                <Typography
+                    variant='subtitle2'
+                    color='textSecondary'
+                >
                     {this.props.city + ', ' + this.props.state}
                 </Typography>
                 <Typography variant='subtitle1'>

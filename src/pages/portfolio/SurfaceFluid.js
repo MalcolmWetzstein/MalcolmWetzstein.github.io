@@ -6,8 +6,10 @@ import { Portfolio } from '..';
 import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
-class SurfaceFluid extends CustomComponent {
-    render() {
+class SurfaceFluid extends CustomComponent
+{
+    render()
+    {
         return (
             <Page
                 id='surfaceFluid'

@@ -8,22 +8,27 @@ import * as CONSTANTS from '../../Constants';
 
 class Home extends CustomComponent 
 {
-    static buttonText = "Home";
+    static buttonText = 'Home';
 
-    constructor(props) {
+    constructor(props)
+    {
         super(props);
 
         this.moreRef = React.createRef();
     }
     
-    render ()
+    render()
     {
         return (
             <Page
                 id='home'
                 pageDeque={this.props.pageDeque}
             >
-                <Typography variant="h1" align="center" gutterBottom>
+                <Typography
+                    variant='h1'
+                    align='center'
+                    gutterBottom
+                >
                     Malcolm<br/>
                     Xavier<br/>
                     Wetzstein
@@ -39,7 +44,10 @@ class Home extends CustomComponent
                 <Space/>
                 <Divider/>
                 <Space/>
-                <Suggestions pageDeque={this.props.pageDeque} labels={['about me', 'more']}>
+                <Suggestions
+                    pageDeque={this.props.pageDeque}
+                    labels={['about me', 'more']}
+                >
                     <About/>
                     {ScrollToButton(this.moreRef)}
                 </Suggestions>
@@ -49,31 +57,64 @@ class Home extends CustomComponent
                         maxWidth={this.props.theme.spacing(CONSTANTS.UNIT_INDENT*6)}
                         ref={this.moreRef}
                     >
-                        <NavigationButton label='About Me' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='About Me'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <About/>
                         </NavigationButton>
-                        <NavigationButton label='Portfolio' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='Portfolio'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <Portfolio/>
                         </NavigationButton>
-                        <NavigationButton label='Education' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='Education'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <Education/>
                         </NavigationButton>
-                        <NavigationButton label='Experience' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='Experience'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <Experience/>
                         </NavigationButton>
-                        <NavigationButton label='Skills' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='Skills'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <Skills/>
                         </NavigationButton>
-                        <NavigationButton label='Contact Me' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='Contact Me'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <Contact/>
                         </NavigationButton>
-                        <NavigationButton label='GitHub' pageDeque={this.props.pageDeque}>
-                            <Button href={CONSTANTS.LINKS.GITHUB} target='_blank'/>
+                        <NavigationButton
+                            label='GitHub'
+                            pageDeque={this.props.pageDeque}
+                        >
+                            <Button
+                                href={CONSTANTS.LINKS.GITHUB}
+                                target='_blank'
+                            />
                         </NavigationButton>
-                        <NavigationButton label='LinkedIn' pageDeque={this.props.pageDeque}>
-                            <Button href={CONSTANTS.LINKS.LINKEDIN} target='_blank'/>
+                        <NavigationButton
+                            label='LinkedIn'
+                            pageDeque={this.props.pageDeque}
+                        >
+                            <Button
+                                href={CONSTANTS.LINKS.LINKEDIN}
+                                target='_blank'
+                            />
                         </NavigationButton>
-                        <NavigationButton label='Resume' pageDeque={this.props.pageDeque}>
+                        <NavigationButton
+                            label='Resume'
+                            pageDeque={this.props.pageDeque}
+                        >
                             <Button href={CONSTANTS.LINKS.RESUME} target='_blank'/>
                         </NavigationButton>
                         <Space/>

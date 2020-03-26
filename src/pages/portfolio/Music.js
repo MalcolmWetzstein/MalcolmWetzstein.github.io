@@ -5,8 +5,10 @@ import { CustomComponent, Page, PageHeader, Suggestions, Space } from '../../com
 import { Portfolio } from '..';
 import { PageDequePropType } from '../../components/Util';
 
-class Music extends CustomComponent {
-    render() {
+class Music extends CustomComponent
+{
+    render()
+    {
         return (
             <Page
                 id='music'

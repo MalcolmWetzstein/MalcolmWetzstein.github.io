@@ -4,14 +4,14 @@ import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, 
 import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../../components';
 import { Home, Contact } from '..';
 import { Skill } from '.';
-import { PageDequePropType } from '../../components/Util';
+import { reKey, PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 const CLOSE = 'close';
 
 class Skills extends CustomComponent 
 {
-    static buttonText = "Skills";
+    static buttonText = 'Skills';
 
     constructor(props)
     {
@@ -73,14 +73,7 @@ class Skills extends CustomComponent
                             )
                         }
                     >
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.LANGUAGES, filterFlags[CONSTANTS.SKILL_FILTERS.LANGUAGES])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.LIBRARIES, filterFlags[CONSTANTS.SKILL_FILTERS.LIBRARIES])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.TOOLS, filterFlags[CONSTANTS.SKILL_FILTERS.TOOLS])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.GRAPHICS, filterFlags[CONSTANTS.SKILL_FILTERS.GRAPHICS])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.GAME_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.GAME_DEV])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.WEB_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.WEB_DEV])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.DESIGN, filterFlags[CONSTANTS.SKILL_FILTERS.DESIGN])}
-                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.COMP_MATH, filterFlags[CONSTANTS.SKILL_FILTERS.COMP_MATH])}
+                        {this.renderFilters(CONSTANTS.SKILL_FILTERS, filterFlags)}
                         <MenuItem value={CLOSE}>
                             <Box margin='0 auto'>
                                 CLOSE
@@ -431,14 +424,15 @@ class Skills extends CustomComponent
         );
     }
 
-    renderFilter(value, checked)
+    renderFilters(filters, checked)
     {
-        return (
-            <MenuItem value={value}>
-                <Checkbox checked={checked}/>
-                <ListItemText primary={value}/>
-            </MenuItem>
-        );
+        return reKey(Object.values(filters).map(
+            filter =>
+                <MenuItem value={filter}>
+                    <Checkbox checked={checked[filter]}/>
+                    <ListItemText primary={filter}/>
+                </MenuItem>
+        ));
     }
 
     onOpenFilters()

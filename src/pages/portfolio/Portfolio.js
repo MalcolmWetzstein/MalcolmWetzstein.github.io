@@ -9,7 +9,7 @@ import * as CONSTANTS from '../../Constants';
 
 class Portfolio extends CustomComponent 
 {
-    static buttonText = "Portfolio";
+    static buttonText = 'Portfolio';
     
     render()
     {

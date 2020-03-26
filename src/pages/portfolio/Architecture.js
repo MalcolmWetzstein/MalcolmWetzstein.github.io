@@ -6,8 +6,10 @@ import { Portfolio } from '..';
 import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
-class Architecture extends CustomComponent {
-    render() {
+class Architecture extends CustomComponent
+{
+    render()
+    {
         return (
             <Page
                 id='architecture'

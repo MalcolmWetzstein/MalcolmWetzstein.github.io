@@ -6,8 +6,10 @@ import { Portfolio } from '..';
 import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
-class StarLogo extends CustomComponent {
-    render() {
+class StarLogo extends CustomComponent
+{
+    render()
+    {
         return (
             <Page
                 id='starLogo'

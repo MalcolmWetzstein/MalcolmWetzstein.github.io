@@ -9,11 +9,11 @@ import * as CONSTANTS from '../../Constants';
 
 class Education extends CustomComponent
 {
-    static buttonText = "Education";
+    static buttonText = 'Education';
 
-    componentDidMount() { console.log('Please excuse the errors on the Education page until the course content is complete. Thank you.')}
+    componentDidMount() { console.log('Please excuse the errors on the Education page until the course content is complete. Thank you.'); }
     
-    render ()
+    render()
     {
         return (
             <Page
@@ -102,7 +102,10 @@ class Education extends CustomComponent
                 >
                     <React.Fragment>{/* Computer Science */}
                         <Space size='xs'/>
-                        <Course label='Computer Graphics' level='upper' assessment='project'
+                        <Course
+                            label='Computer Graphics'
+                            level='upper'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.837'
                             instructors={['Wojciech Matusik', 'Justin Solomon']}
@@ -165,7 +168,10 @@ class Education extends CustomComponent
                                 'Display Devices'
                             ]}
                         />
-                        <Course label='Shape Analysis' level='graduate' assessment='project'
+                        <Course
+                            label='Shape Analysis'
+                            level='graduate'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.838'
                             instructors='Justin Solomon'
@@ -189,7 +195,10 @@ class Education extends CustomComponent
                                 ]
                             ]}
                         />
-                        <Course label='Computational Photography' level='graduate' assessment='project'
+                        <Course
+                            label='Computational Photography'
+                            level='graduate'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.865'
                             instructors='Fredo Durand'
@@ -238,7 +247,10 @@ class Education extends CustomComponent
                                 ]
                             ]}
                         />
-                        <Course label='Compuational Fabrication' level='graduate' assessment='project'
+                        <Course
+                            label='Compuational Fabrication'
+                            level='graduate'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.839'
                             instructors='Wojciech Matusik'
@@ -246,7 +258,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Computer Vision' level='upper' assessment='project'
+                        <Course
+                            label='Computer Vision'
+                            level='upper'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.819'
                             instructors={['William Freeman', 'Antonio Torralba']}
@@ -254,7 +269,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Design & Analysis of Algorithms' level='upper' assessment='exam'
+                        <Course
+                            label='Design & Analysis of Algorithms'
+                            level='upper'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.046'
                             instructors={['Ronald Rivest', 'Shafi Goldwasser']}
@@ -291,7 +309,10 @@ class Education extends CustomComponent
                                 'Number-Theoretic Algorithms'
                             ]}
                         />
-                        <Course label='Software Engineering' level='upper' assessment='project'
+                        <Course
+                            label='Software Engineering'
+                            level='upper'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.031 (Previously 6.005)'
                             instructors='Max Goldman'
@@ -299,7 +320,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Computer Architecture' level='lower' assessment='lab'
+                        <Course
+                            label='Computer Architecture'
+                            level='lower'
+                            assessment='lab'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.004'
                             instructors='Christopher Terman'
@@ -307,7 +331,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Oral Communication' level='lower' assessment='communication'
+                        <Course
+                            label='Oral Communication'
+                            level='lower'
+                            assessment='communication'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.UAT'
                             instructors='Tony Eng'
@@ -315,7 +342,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Machine Learning' level='lower' assessment='lab'
+                        <Course
+                            label='Machine Learning'
+                            level='lower'
+                            assessment='lab'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.036'
                             instructors={['Leslie Kaelbling', 'Tom\xE1s Lozano-P\xE9rez']}
@@ -323,7 +353,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Computer Systems Engineering' level='upper' assessment='communication'
+                        <Course
+                            label='Computer Systems Engineering'
+                            level='upper'
+                            assessment='communication'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.033'
                             instructors='Katrina LaCurts'
@@ -331,7 +364,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Network Theory' level='upper' assessment='exam'
+                        <Course
+                            label='Network Theory'
+                            level='upper'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.207/14.15'
                             instructors={['Devavrat Shah', 'Alexander Teytelboym']}
@@ -339,7 +375,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Algorithms' level='lower' assessment='exam'
+                        <Course
+                            label='Algorithms'
+                            level='lower'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.006'
                             instructors={['Ronald Rivest', 'Piotr Indyk']}
@@ -347,7 +386,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Fundamentals of Programming' level='lower' assessment='lab'
+                        <Course
+                            label='Fundamentals of Programming'
+                            level='lower'
+                            assessment='lab'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.009'
                             instructors={['Adam Chlipala', 'Christopher Terman']}
@@ -355,7 +397,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='EECS: Robotics' level='intro' assessment='lab'
+                        <Course
+                            label='EECS: Robotics'
+                            level='intro'
+                            assessment='lab'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.01'
                             instructors='Adam Hartz'
@@ -363,7 +408,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='CS: Programming in Python' level='intro' assessment='standing'
+                        <Course
+                            label='CS: Programming in Python'
+                            level='intro'
+                            assessment='standing'
                             school={CONSTANTS.NAMES.MIT}
                             number='6.0001'
                             topics={[
@@ -373,7 +421,10 @@ class Education extends CustomComponent
                     </React.Fragment>
                     <React.Fragment>{/* Mathematics */}
                         <Space size='xs'/>
-                        <Course label='Linear Algebra' level='lower' assessment='exam'
+                        <Course
+                            label='Linear Algebra'
+                            level='lower'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='18.06'
                             instructors='Alex Townsend'
@@ -381,7 +432,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Differential Equations' level='lower' assessment='exam'
+                        <Course
+                            label='Differential Equations'
+                            level='lower'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='18.03'
                             instructors='Bjorn Poonen'
@@ -389,7 +443,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Multivariable Calculus' level='general' assessment='exam'
+                        <Course
+                            label='Multivariable Calculus'
+                            level='general'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='18.02'
                             instructors='William Minicozzi'
@@ -397,7 +454,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Probability & Random Variables' level='lower' assessment='exam'
+                        <Course
+                            label='Probability & Random Variables'
+                            level='lower'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='18.600'
                             instructors='Scott Sheffield'
@@ -405,7 +465,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Discrete Math for Computer Science' level='intro' assessment='exam'
+                        <Course
+                            label='Discrete Math for Computer Science'
+                            level='intro'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='18.062/6.042'
                             instructors={['Albert Meyer', 'Adam Chlipala']}
@@ -413,7 +476,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Calculus' level='general' assessment='ap'
+                        <Course
+                            label='Calculus'
+                            level='general'
+                            assessment='ap'
                             school={CONSTANTS.NAMES.MIT}
                             number='18.01'
                             topics={[
@@ -423,7 +489,10 @@ class Education extends CustomComponent
                     </React.Fragment>
                     <React.Fragment>{/* Design */}
                         <Space size='xs'/>
-                        <Course label='Visualization & Motion Graphics' level='graduate' assessment='project'
+                        <Course
+                            label='Visualization & Motion Graphics'
+                            level='graduate'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='4.562'
                             instructors='Andrzej Zarzycki'
@@ -431,7 +500,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Information & Interaction Design' level='lower' assessment='studio'
+                        <Course
+                            label='Information & Interaction Design'
+                            level='lower'
+                            assessment='studio'
                             school={CONSTANTS.NAMES.MIT}
                             number='4.032'
                             instructors='Benjamin Fry'
@@ -439,7 +511,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Design Computation: 3D Modeling' level='intro' assessment='project'
+                        <Course
+                            label='Design Computation: 3D Modeling'
+                            level='intro'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='4.500'
                             instructors='Lawrence Sass'
@@ -447,7 +522,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Architecture Design' level='intro' assessment='studio'
+                        <Course
+                            label='Architecture Design'
+                            level='intro'
+                            assessment='studio'
                             school={CONSTANTS.NAMES.MIT}
                             number='4.021'
                             instructors='Lorena Bello Gomez'
@@ -458,14 +536,20 @@ class Education extends CustomComponent
                     </React.Fragment>
                     <React.Fragment>{/* Natural Sciences */}
                         <Space size='xs'/>
-                        <Course label='Physics: Mechanics' level='general' assessment='ap'
+                        <Course
+                            label='Physics: Mechanics'
+                            level='general'
+                            assessment='ap'
                             school={CONSTANTS.NAMES.MIT}
                             number='8.01'
                             topics={[
                                 
                             ]}
                         />
-                        <Course label='Physics: Electricity & Magnetism' level='general' assessment='exam'
+                        <Course
+                            label='Physics: Electricity & Magnetism'
+                            level='general'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='8.02'
                             instructors='Robert Redwine'
@@ -473,7 +557,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Chemistry' level='general' assessment='exam'
+                        <Course
+                            label='Chemistry'
+                            level='general'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='5.111'
                             instructors='Catherine Drennan'
@@ -481,7 +568,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Biology' level='general' assessment='exam'
+                        <Course
+                            label='Biology'
+                            level='general'
+                            assessment='exam'
                             school={CONSTANTS.NAMES.MIT}
                             number='7.013'
                             instructors='Hazel Sive'
@@ -492,7 +582,10 @@ class Education extends CustomComponent
                     </React.Fragment>
                     <React.Fragment>{/* Music */}
                         <Space size='xs'/>
-                        <Course label='Tonal Music Composition' level='upper' assessment='project'
+                        <Course
+                            label='Tonal Music Composition'
+                            level='upper'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='21M.303'
                             instructors='Charles Shadle'
@@ -500,7 +593,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Harmony & Counterpoint II' level='lower' assessment='project'
+                        <Course
+                            label='Harmony & Counterpoint II'
+                            level='lower'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='21M.302'
                             instructors='Kathryn Salfelder'
@@ -508,7 +604,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Harmony & Counterpoint I' level='lower' assessment='project'
+                        <Course
+                            label='Harmony & Counterpoint I'
+                            level='lower'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='21M.301'
                             instructors='Justin Casinghino'
@@ -516,7 +615,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Musical Composition' level='intro' assessment='project'
+                        <Course
+                            label='Musical Composition'
+                            level='intro'
+                            assessment='project'
                             school={CONSTANTS.NAMES.MIT}
                             number='21M.065'
                             instructors='Florian Hollerweger'
@@ -524,7 +626,10 @@ class Education extends CustomComponent
                                 
                             ]}
                         />
-                        <Course label='Western Music' level='intro' assessment='writing'
+                        <Course
+                            label='Western Music'
+                            level='intro'
+                            assessment='writing'
                             school={CONSTANTS.NAMES.MIT}
                             number='21M.011'
                             instructors={['Emily Richmond Pollock', 'Teresa Neff']}

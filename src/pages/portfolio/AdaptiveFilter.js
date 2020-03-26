@@ -6,8 +6,10 @@ import { Portfolio } from '..';
 import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
-class AdaptiveFilter extends CustomComponent {
-    render() {
+class AdaptiveFilter extends CustomComponent
+{
+    render()
+    {
         return (
             <Page
                 id='adaptiveFilter'

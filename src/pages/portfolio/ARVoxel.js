@@ -6,8 +6,10 @@ import { Portfolio } from '..';
 import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
-class ARVoxel extends CustomComponent {
-    render() {
+class ARVoxel extends CustomComponent
+{
+    render()
+    {
         return (
             <Page
                 id='arVoxel'

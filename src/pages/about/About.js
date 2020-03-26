@@ -7,9 +7,9 @@ import { PageDequePropType } from '../../components/Util';
 
 class About extends CustomComponent 
 {
-    static buttonText = "About Me";
+    static buttonText = 'About Me';
     
-    render ()
+    render()
     {
         return (
             <Page
