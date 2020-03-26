@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Typography } from '@material-ui/core';
-import { CustomComponent, Page, PageHeader, Space, Suggestions, Timeline, TimelineTile, DateRange } from '../components';
-import { Education, Skills, Home } from '.';
-import { PageDequePropType } from '../components/Util';
-import * as CONSTANTS from '../Constants';
+import { withTheme } from '@material-ui/core';
+import { CustomComponent, Page, PageHeader, Space, Suggestions, Timeline, TimelineTile } from '../../components';
+import { Education, Skills, Home } from '..';
+import { Employment } from '.';
+import { PageDequePropType } from '../../components/Util';
+import * as CONSTANTS from '../../Constants';
 
 class Experience extends CustomComponent 
 {
@@ -110,31 +111,5 @@ Experience.propTypes = {
     pageDeque: PageDequePropType.isRequired,
     children: PropTypes.oneOf([undefined, null])
 };
-
-class Employment extends CustomComponent
-{
-    render()
-    {
-        return (
-            <React.Fragment>
-                <DateRange
-                    startMonth={this.props.startMonth}
-                    startYear={this.props.startYear}
-                    endMonth={this.props.endMonth}
-                    endYear={this.props.endYear}
-                />
-                <Typography variant='h6'>
-                    {this.props.title}
-                </Typography>
-                <Typography variant='subtitle1'>
-                    {this.props.company}
-                </Typography>
-                <Typography variant='subtitle2'>
-                    {(this.props.department ? this.props.department : '')}
-                </Typography>
-            </React.Fragment>
-        );
-    }
-}
 
 export default withTheme(Experience);

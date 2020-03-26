@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Image } from '.';
 
-class GalleryTile extends CustomComponent {
-    render() {
+class GalleryTile extends CustomComponent
+{
+    render()
+    {
         return (
             <React.Fragment>
                 <Image

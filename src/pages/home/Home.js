@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, withTheme, Button, Box, Divider, Grid } from '@material-ui/core';
-import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components';
-import { About, Portfolio, Education, Experience, Skills, Contact } from '.';
-import { reKey, PageDequePropType } from '../components/Util';
-import * as CONSTANTS from '../Constants';
+import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../../components';
+import { About, Portfolio, Education, Experience, Skills, Contact } from '..';
+import { reKey, PageDequePropType } from '../../components/Util';
+import * as CONSTANTS from '../../Constants';
 
 class Home extends CustomComponent 
 {

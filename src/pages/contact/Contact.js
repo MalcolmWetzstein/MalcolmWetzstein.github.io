@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, Link, Grid, withTheme } from '@material-ui/core';
-import { CustomComponent, Page, Suggestions, Space, PageHeader } from '../components';
-import { Home } from '.';
-import { PageDequePropType } from '../components/Util';
-import * as CONSTANTS from '../Constants';
+import { CustomComponent, Page, Suggestions, Space, PageHeader } from '../../components';
+import { Home } from '..';
+import { PageDequePropType } from '../../components/Util';
+import * as CONSTANTS from '../../Constants';
 
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneIcon from '@material-ui/icons/Phone';

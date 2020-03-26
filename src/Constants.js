@@ -3,6 +3,26 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 
+function readOnly(obj)
+{
+    if (typeof obj === 'object')
+    {
+        for (let key of Object.keys(obj))
+        {
+            const child = readOnly(obj[key]);
+
+            if (typeof child === 'object')
+                obj[key] = Object.freeze(child);
+            else
+                obj[key] = child;
+        }
+
+        return obj;
+    }
+    else
+        return obj;
+}
+
 export const UNIT_INDENT = 4;
 export const PAGE_HEADER_VARIANT = 'h3';
 export const SECTION_HEADER_VARIANT = 'h4';
@@ -16,21 +36,61 @@ export const MAX_GRID_LIST_COLUMNS = 3;
 export const BACK_TO_TOP_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
 
-export const SKILL_COLORS = Object.freeze({
-    EXPERT: pink[700],
-    ADVANCED: deepPurple[600],
-    INTERMEDIATE: lightBlue[700],
-    BEGINNER: lightGreen[800]
+export const COURSE_LEVELS = readOnly({
+    'graduate': 'Graduate',
+    'upper': 'Advanced',
+    'lower': 'Intermediate',
+    'intro': 'Introductory',
+    'general': 'General Education'
 });
 
-export const SKILL_TOOLTIPS = Object.freeze({
-    EXPERT: 'Expert Knowledge',
-    ADVANCED: 'Advanced Knowledge',
-    INTERMEDIATE: 'Intermediate Knowledge',
-    BEGINNER: 'Beginner Knowledge'
+export const COURSE_LEVEL_TOOLTIPS = readOnly({
+    'graduate': 'graduate level course',
+    'upper': 'undergraduate level, typically taken junior or senior year',
+    'lower': 'undergraduate level, typically taken sophmore year after prerequesites',
+    'intro': 'undergraduate level, typically taken freshman year with no prerequesites',
+    'general': 'undergraduate general education requirement, typically taken freshman year'
 });
 
-export const SKILL_FILTERS = Object.freeze({
+export const COURSE_ASSESMENT_STYLES = readOnly({
+    'seminar': 'Seminar',
+    'studio': 'Studio',
+    'lab': 'Lab',
+    'project': 'Project',
+    'exam': 'Exam',
+    'writing': 'Writing',
+    'communication': 'Communication',
+    'ap': 'AP Credit',
+    'standing': 'ASE Credit'
+});
+
+export const COURSE_ASSESSMENT_TOOLTIPS = readOnly({
+    'seminar': 'seminar style instruction',
+    'studio': 'studio style critiques were primary form of assessment',
+    'lab': 'in class labs were primary form of assessment',
+    'project': 'projects were primary form of assessment',
+    'exam': 'exams were primary form of assessment',
+    'writing': 'written papers were primary form of assessment',
+    'communication': 'oral presentations and/or written reports were primary form of assessment',
+    'ap': 'credit obtained from a College Board AP exam',
+    'standing': 'credit obtained from an Advanced Standing Exam'
+});
+
+export const SKILL_COLORS = readOnly({
+    'expert': pink[700],
+    'advanced': deepPurple[600],
+    'intermediate': lightBlue[700],
+    'beginner': lightGreen[800]
+});
+
+export const SKILL_TOOLTIPS = readOnly({
+    'expert': 'Expert Knowledge',
+    'advanced': 'Advanced Knowledge',
+    'intermediate': 'Intermediate Knowledge',
+    'beginner': 'Beginner Knowledge'
+});
+
+export const SKILL_FILTERS = readOnly({
     LANGUAGES: 'Programming Languages',
     LIBRARIES: 'Libraries, Frameworks & APIs',
     TOOLS: 'Tools & Editors',
@@ -41,7 +101,7 @@ export const SKILL_FILTERS = Object.freeze({
     COMP_MATH: 'Computational Mathematics'
 });
 
-export const SPACE_SIZES = Object.freeze({
+export const SPACE_SIZES = readOnly({
     'xs': 1.0,
     'sm': 2.0,
     'md': 3.0,
@@ -52,11 +112,11 @@ export const SPACE_SIZES = Object.freeze({
 export const PHONE_NUMBER = '8082182723';
 export const EMAIL_ADDRESS = 'mxw002@gmail.com';
 
-export const NAMES = Object.freeze({
+export const NAMES = readOnly({
     MIT: 'Massachusetts Institute of Technology'
 });
 
-export const LINKS = Object.freeze({
+export const LINKS = readOnly({
     LINKEDIN: 'https://www.linkedin.com/in/malcolmwetzstein',
     GITHUB: 'https://github.com/MalcolmWetzstein',
     RESUME: 'documents/resume.pdf',
@@ -69,7 +129,7 @@ export const LINKS = Object.freeze({
     }
 });
 
-export const IMAGES = Object.freeze({
+export const IMAGES = readOnly({
     LOGO: {
         MIT: 'logos/mit_logo.svg',
         SERVCO: 'logos/servco_logo.png',
@@ -103,7 +163,7 @@ export const IMAGES = Object.freeze({
     }
 });
 
-export const VIDEO = Object.freeze({
+export const VIDEO = readOnly({
     PORTFOLIO: {
         STARLOGO: {
             EDITOR: 'https://www.youtube.com/embed/hpU1F6V7zWc',

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Tooltip, Button } from '@material-ui/core';
-import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../components';
-import { Home, Contact } from '.';
-import { PageDequePropType } from '../components/Util';
-import * as CONSTANTS from '../Constants';
+import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Button } from '@material-ui/core';
+import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../../components';
+import { Home, Contact } from '..';
+import { Skill } from '.';
+import { PageDequePropType } from '../../components/Util';
+import * as CONSTANTS from '../../Constants';
 
 const CLOSE = 'close';
 
@@ -72,14 +73,14 @@ class Skills extends CustomComponent
                             )
                         }
                     >
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.LANGUAGES, filterFlags[CONSTANTS.SKILL_FILTERS.LANGUAGES])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.LIBRARIES, filterFlags[CONSTANTS.SKILL_FILTERS.LIBRARIES])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.TOOLS, filterFlags[CONSTANTS.SKILL_FILTERS.TOOLS])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.GRAPHICS, filterFlags[CONSTANTS.SKILL_FILTERS.GRAPHICS])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.GAME_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.GAME_DEV])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.WEB_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.WEB_DEV])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.DESIGN, filterFlags[CONSTANTS.SKILL_FILTERS.DESIGN])}
-                        {renderFilter(CONSTANTS.SKILL_FILTERS.COMP_MATH, filterFlags[CONSTANTS.SKILL_FILTERS.COMP_MATH])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.LANGUAGES, filterFlags[CONSTANTS.SKILL_FILTERS.LANGUAGES])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.LIBRARIES, filterFlags[CONSTANTS.SKILL_FILTERS.LIBRARIES])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.TOOLS, filterFlags[CONSTANTS.SKILL_FILTERS.TOOLS])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.GRAPHICS, filterFlags[CONSTANTS.SKILL_FILTERS.GRAPHICS])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.GAME_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.GAME_DEV])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.WEB_DEV, filterFlags[CONSTANTS.SKILL_FILTERS.WEB_DEV])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.DESIGN, filterFlags[CONSTANTS.SKILL_FILTERS.DESIGN])}
+                        {this.renderFilter(CONSTANTS.SKILL_FILTERS.COMP_MATH, filterFlags[CONSTANTS.SKILL_FILTERS.COMP_MATH])}
                         <MenuItem value={CLOSE}>
                             <Box margin='0 auto'>
                                 CLOSE
@@ -103,7 +104,7 @@ class Skills extends CustomComponent
                 <Space size='xs'/>
                 <Grid
                     container
-                    spacing={2}
+                    spacing={1}
                 >
                     <FilterList filters={this.state.filters}>
                         <FilterItem
@@ -116,7 +117,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='WebGL'
-                                advanced
+                                level='advanced'
                             />
                         </FilterItem>
                         <FilterItem
@@ -127,19 +128,19 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='JavaScript'
-                                advanced
+                                level='advanced'
                             />
                         </FilterItem>
                         <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.TOOLS ]}>
                             <Skill
                                 label='Git'
-                                advanced
+                                level='advanced'
                             />
                         </FilterItem>
                         <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.TOOLS ]}>
                             <Skill
                                 label='Visual Studio Code'
-                                advanced
+                                level='advanced'
                             />
                         </FilterItem>
                         <FilterItem
@@ -151,7 +152,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='C++'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -163,7 +164,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='OpenGL'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -175,7 +176,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='GLSL'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -186,7 +187,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Python'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -197,7 +198,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='NumPy'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -208,7 +209,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='SciPy'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -221,7 +222,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='MATLAB'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -232,7 +233,7 @@ class Skills extends CustomComponent
                         >
                             <Skill 
                                 label='HTML'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -243,7 +244,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='CSS'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -254,7 +255,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='React'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -265,7 +266,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Material-UI'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -276,19 +277,19 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Express'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.LANGUAGES ]}>
                             <Skill
                                 label='Java'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem tags={[ CONSTANTS.SKILL_FILTERS.TOOLS ]}>
                             <Skill
                                 label='Visual Studio Community'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -299,7 +300,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Rhino 3D'
-                                intermediate
+                                level='intermediate'
                             />
                         </FilterItem>
                         <FilterItem
@@ -310,7 +311,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Unity'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -321,7 +322,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='C#'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -333,7 +334,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Vuforia'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -345,7 +346,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='DirectX 12'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -357,7 +358,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='DirectX 11'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -369,7 +370,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='HLSL'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -381,7 +382,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Halide'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -392,7 +393,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='libigl'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -404,7 +405,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='3DS Max'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
@@ -416,7 +417,7 @@ class Skills extends CustomComponent
                         >
                             <Skill
                                 label='Photoshop'
-                                beginner
+                                level='beginner'
                             />
                         </FilterItem>
                     </FilterList>
@@ -427,6 +428,16 @@ class Skills extends CustomComponent
                     <Home/>
                 </Suggestions>
             </Page>
+        );
+    }
+
+    renderFilter(value, checked)
+    {
+        return (
+            <MenuItem value={value}>
+                <Checkbox checked={checked}/>
+                <ListItemText primary={value}/>
+            </MenuItem>
         );
     }
 
@@ -453,42 +464,5 @@ Skills.propTypes = {
     pageDeque: PageDequePropType.isRequired,
     children: PropTypes.oneOf([undefined, null])
 };
-
-class Skill extends CustomComponent
-{
-    render()
-    {
-        const bgColor = (this.props.beginner && CONSTANTS.SKILL_COLORS.BEGINNER) ||
-            (this.props.intermediate && CONSTANTS.SKILL_COLORS.INTERMEDIATE) ||
-            (this.props.advanced && CONSTANTS.SKILL_COLORS.ADVANCED) ||
-            (this.props.expert && CONSTANTS.SKILL_COLORS.EXPERT);
-
-        const tooltip = (this.props.beginner && CONSTANTS.SKILL_TOOLTIPS.BEGINNER) ||
-            (this.props.intermediate && CONSTANTS.SKILL_TOOLTIPS.INTERMEDIATE) ||
-            (this.props.advanced && CONSTANTS.SKILL_TOOLTIPS.ADVANCED) ||
-            (this.props.expert && CONSTANTS.SKILL_TOOLTIPS.EXPERT);
-
-        return (
-            <Grid item>
-                <Tooltip title={tooltip}>
-                    <Chip
-                        label={this.props.label}
-                        style={{ backgroundColor: bgColor }}
-                    />
-                </Tooltip>
-            </Grid>
-        );
-    }
-}
-
-function renderFilter(value, checked)
-{
-    return (
-        <MenuItem value={value}>
-            <Checkbox checked={checked}/>
-            <ListItemText primary={value}/>
-        </MenuItem>
-    );
-}
 
 export default withTheme(Skills);

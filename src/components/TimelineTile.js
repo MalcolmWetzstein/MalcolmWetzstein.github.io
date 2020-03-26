@@ -55,7 +55,7 @@ class TimelineTile extends CustomComponent
                                             <Image
                                                 src={this.props.image}
                                                 alt={this.props.imageInfo}
-                                                height={this.props.theme.spacing(9)}
+                                                height={this.props.theme.spacing(11)}
                                             />
                                         </Grid>
                                     ) : undefined

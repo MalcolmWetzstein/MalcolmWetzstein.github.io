@@ -4,14 +4,17 @@ import { withTheme, Button } from '@material-ui/core';
 import { CustomComponent } from '.';
 import { PageDequePropType } from './Util';
 
-class NavigationButton extends CustomComponent {
-    constructor(props) {
+class NavigationButton extends CustomComponent
+{
+    constructor(props)
+    {
         super(props);
 
         this.clickHandler = this.clickHandler.bind(this);
     }
 
-    render() {
+    render()
+    {
         return this.props.children.type.custom ? (
             <Button
                 onClick={this.clickHandler}

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Typography } from '@material-ui/core';
-import { CustomComponent, Page, Space, Suggestions, PageHeader } from '../components';
-import { Home, Experience, Portfolio } from '.';
-import { PageDequePropType } from '../components/Util';
+import { CustomComponent, Page, Space, Suggestions, PageHeader } from '../../components';
+import { Home, Experience, Portfolio } from '..';
+import { PageDequePropType } from '../../components/Util';
 
 class About extends CustomComponent 
 {

@@ -10,9 +10,7 @@ class PageDeque extends CustomComponent
     {
         super(props);
 
-        this.state = {
-            pageStack: []
-        };
+        this.state = { pageStack: [] };
 
         this.push = this.push.bind(this);
         this.unshift = this.unshift.bind(this);

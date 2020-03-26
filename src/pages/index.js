@@ -1,10 +1,10 @@
-import Home from './Home';
-import Education from './Education';
-import Contact from './Contact';
-import Experience from './Experience';
-import Skills from './Skills';
-import Portfolio from './Portfolio';
-import About from './About';
+import Home from './home/Home';
+import Education from './education/Education';
+import Contact from './contact/Contact';
+import Experience from './experience/Experience';
+import Skills from './skills/Skills';
+import Portfolio from './portfolio/Portfolio';
+import About from './about/About';
 
 export { 
     Home, 
