@@ -33,18 +33,6 @@ class PageDeque extends CustomComponent
         this.stackUpdate = null;
     }
 
-    componentDidMount()
-    {
-        if (this.props.initialPages)
-        {
-            if (Array.isArray(this.props.initialPages))
-                for (let page of this.props.initialPages)
-                    this.push(page);
-            else
-                this.push(this.props.initialPages);
-        }
-    }
-
     render() 
     {
         const displayPage = this.state.pageStack.length > 0 ? [this.state.pageStack[this.state.pageStack.length-1]] : []
@@ -151,10 +139,10 @@ class PageDeque extends CustomComponent
 
     withDequeProps(jsx)
     {
-        if (jsx == null)
+        if (jsx == null || jsx.type.custom == null)
             return jsx;
         
-        return React.cloneElement(jsx, jsx.type.custom ? {
+        return React.cloneElement(jsx, {
             pageDeque: {
                 push: this.push,
                 unshift: this.unshift,
@@ -172,8 +160,10 @@ class PageDeque extends CustomComponent
                 finish: this.finish,
                 withDequeProps: this.withDequeProps
             }
-        } : undefined);
+        });
     }
 }
+
+PageDeque.propTypes = { children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element.isRequired), PropTypes.element]).isRequired };
 
 export default withTheme(PageDeque);

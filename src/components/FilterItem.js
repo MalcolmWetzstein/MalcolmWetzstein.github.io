@@ -25,9 +25,9 @@ class FilterItem extends CustomComponent
 FilterItem.defaultProps = { tags: [] };
 
 FilterItem.propTypes = {
-    filters: PropTypes.array.isRequired,
-    tags: PropTypes.array,
-    children: PropTypes.node.isRequired
+    filters: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])).isRequired,
+    tags: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
+    children: PropTypes.node
 };
 
 export default withTheme(FilterItem);

@@ -65,4 +65,10 @@ class YoutubeEmbed extends CustomComponent
     }
 }
 
+YoutubeEmbed.propTypes = {
+    title: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
+
 export default YoutubeEmbed;

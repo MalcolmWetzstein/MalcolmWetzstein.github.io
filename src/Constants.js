@@ -65,12 +65,6 @@ export const LINKS = Object.freeze({
         MANIFOLDS_FILTER: 'https://github.com/MalcolmWetzstein/Implementation-of-Adaptive-Manifolds-for-Real-Time-High-Dimensional-Filtering',
         SURFACE_FLUID: 'https://github.com/MalcolmWetzstein/Surface-Fluid-Simulation-via-Mesh-Parameterization',
         PAVILLION: 'https://flic.kr/s/aHsmLAdQ48',
-        STARLOGO: {
-            EDITOR: 'https://www.youtube.com/embed/hpU1F6V7zWc',
-            YANK_GRID: 'https://www.youtube.com/embed/oemSm6cUtDI',
-            YANK_CONTINUOUS: 'https://www.youtube.com/embed/4kaQjtPlEAQ',
-        },
-        AR_GAME: 'https://www.youtube.com/embed/CPJAs7iY2Qo',
         WEBSITE: 'https://github.com/MalcolmWetzstein/MalcolmWetzstein.github.io'
     }
 });
@@ -108,3 +102,14 @@ export const IMAGES = Object.freeze({
         }
     }
 });
+
+export const VIDEO = Object.freeze({
+    PORTFOLIO: {
+        STARLOGO: {
+            EDITOR: 'https://www.youtube.com/embed/hpU1F6V7zWc',
+            YANK_GRID: 'https://www.youtube.com/embed/oemSm6cUtDI',
+            YANK_CONTINUOUS: 'https://www.youtube.com/embed/4kaQjtPlEAQ',
+        },
+        AR_GAME: 'https://www.youtube.com/embed/CPJAs7iY2Qo'
+    }
+})

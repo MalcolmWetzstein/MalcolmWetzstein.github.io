@@ -16,4 +16,9 @@ class Preloader extends React.Component
     }
 }
 
+Preloader.propTypes = {
+    imageTree: PropTypes.object,
+    children: PropTypes.oneOf([undefined, null])
+};
+
 export default Preloader;

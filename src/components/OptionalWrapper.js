@@ -9,4 +9,10 @@ class OptionalWrapper extends CustomComponent {
     }
 }
 
+OptionalWrapper.propTypes = {
+    condition: PropTypes.any,
+    wrapper: PropTypes.element.isRequired,
+    children: PropTypes.node
+};
+
 export default withTheme(OptionalWrapper);

@@ -49,44 +49,56 @@ class TimelineTile extends CustomComponent
                                 alignItems='center'
                                 spacing={2}
                             >
-                                <Grid item>
-                                    <Image
-                                        src={this.props.image}
-                                        alt={this.props.imageInfo}
-                                        height={this.props.theme.spacing(9)}
-                                    />
-                                </Grid>
-                                <Grid item>
-                                    {this.state.open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
-                                </Grid>
+                                {
+                                    this.props.image ? (
+                                        <Grid item>
+                                            <Image
+                                                src={this.props.image}
+                                                alt={this.props.imageInfo}
+                                                height={this.props.theme.spacing(9)}
+                                            />
+                                        </Grid>
+                                    ) : undefined
+                                }
+                                {
+                                    this.props.details ? (
+                                        <Grid item>
+                                            {this.state.open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
+                                        </Grid>
+                                    ) : undefined
+                                }
                             </Grid>
                         </Grid>
                     </CardContent>
                 </CardActionArea>
-                <Collapse in={this.state.open}>
-                    <Divider/>
-                    <Box position='relative'>
-                        <CardContent>
-                            <Bullets
-                                focus
-                                bullets={this.props.details}
-                            />
-                            <Box
-                                position='absolute'
-                                right={0}
-                                bottom={0}
-                                margin={this.props.theme.spacing(0, 3, 3, 0)}
-                            >
-                                <Button
-                                    onClick={this.onClick}
-                                    size='small'
+                {
+                    this.props.details ? (
+                        <Collapse in={this.state.open}>
+                        <Divider/>
+                        <Box position='relative'>
+                            <CardContent>
+                                <Bullets
+                                    focus
+                                    bullets={this.props.details}
+                                />
+                                <Box
+                                    position='absolute'
+                                    right={0}
+                                    bottom={0}
+                                    margin={this.props.theme.spacing(0, 3, 3, 0)}
                                 >
-                                    Close
-                                </Button>
-                            </Box>
-                        </CardContent>
-                    </Box>
-                </Collapse>
+                                    <Button
+                                        onClick={this.onClick}
+                                        size='small'
+                                    >
+                                        Close
+                                    </Button>
+                                </Box>
+                            </CardContent>
+                        </Box>
+                    </Collapse>
+                    ) : undefined
+                }
             </Card>
         );
     }
@@ -103,5 +115,13 @@ class TimelineTile extends CustomComponent
             });
     }
 }
+
+TimelineTile.propTypes = {
+    theme: PropTypes.object.isRequired,
+    image: PropTypes.string,
+    imageInfo: PropTypes.string,
+    details: PropTypes.node,
+    children: PropTypes.node.isRequired
+};
 
 export default withTheme(TimelineTile);

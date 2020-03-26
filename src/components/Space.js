@@ -15,9 +15,17 @@ class Space extends CustomComponent
 
     padding()
     {
-        const size = CONSTANTS.SPACE_SIZES[this.props.size ? this.props.size : CONSTANTS.DEFAULT_SPACE];
+        const size = CONSTANTS.SPACE_SIZES[this.props.size];
         return this.props.theme.spacing(size, 0, size, 0);
     }
 }
+
+Space.defaultProps = { size: CONSTANTS.DEFAULT_SPACE };
+
+Space.propTypes = {
+    theme: PropTypes.object.isRequired,
+    size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(Space);

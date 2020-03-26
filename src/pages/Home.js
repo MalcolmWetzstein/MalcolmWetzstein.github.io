@@ -73,7 +73,7 @@ class Home extends CustomComponent
                             <Button href={CONSTANTS.LINKS.LINKEDIN} target='_blank'/>
                         </NavigationButton>
                         <NavigationButton label='Resume' pageDeque={this.props.pageDeque}>
-                            <Button href={CONSTANTS.LINKS.RESUME} download/>
+                            <Button href={CONSTANTS.LINKS.RESUME} target='_blank'/>
                         </NavigationButton>
                         <Space/>
                     </Box>

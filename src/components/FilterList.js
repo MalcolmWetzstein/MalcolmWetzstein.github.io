@@ -14,7 +14,7 @@ class FilterList extends CustomComponent
 FilterList.defaultProps = { filters: [] };
 
 FilterList.propTypes = {
-    filters: PropTypes.array,
+    filters: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string])),
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
 };
 

@@ -98,4 +98,28 @@ class Page extends CustomComponent
     }
 }
 
+Page.propTypes = {
+    theme: PropTypes.object.isRequired,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
+    pageDeque: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+        unshift: PropTypes.func.isRequired,
+        insert: PropTypes.func.isRequired,
+        pop: PropTypes.func.isRequired,
+        shift: PropTypes.func.isRequired,
+        remove: PropTypes.func.isRequired,
+        clear: PropTypes.func.isRequired,
+        top: PropTypes.func.isRequired,
+        bottom: PropTypes.func.isRequired,
+        pageAt: PropTypes.func.isRequired,
+        swapTop: PropTypes.func.isRequired,
+        swapBottom: PropTypes.func.isRequired,
+        swapAt: PropTypes.func.isRequired,
+        finish: PropTypes.func.isRequired,
+        withDequeProps: PropTypes.func.isRequired
+    }).isRequired,
+    children: PropTypes.node
+};
+
 export default withTheme(Page);

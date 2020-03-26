@@ -47,7 +47,7 @@ class Bullets extends CustomComponent
 }
 
 Bullets.propTypes = {
-    bullets: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])),
+    bullets: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])),
     focus: PropTypes.bool,
     children: PropTypes.oneOf([undefined, null])
 };

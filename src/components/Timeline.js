@@ -19,4 +19,6 @@ class Timeline extends CustomComponent
     }
 }
 
+Timeline.propTypes = { children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]) };
+
 export default withTheme(Timeline);

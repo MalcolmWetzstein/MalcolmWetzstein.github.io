@@ -25,4 +25,6 @@ class PageHeader extends CustomComponent
     }
 }
 
+PageHeader.propTypes = { children: PropTypes.node.isRequired };
+
 export default withTheme(PageHeader);

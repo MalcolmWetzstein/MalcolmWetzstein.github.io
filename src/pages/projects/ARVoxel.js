@@ -17,7 +17,7 @@ class ARVoxel extends CustomComponent {
                 <Container maxWidth='md'>
                     <YoutubeEmbed
                         title='Augmented Reality Voxel Building Game'
-                        src={CONSTANTS.LINKS.PORTFOLIO.AR_GAME}
+                        src={CONSTANTS.VIDEO.PORTFOLIO.AR_GAME}
                     />
                 </Container>
                 <Space size='lg'/>

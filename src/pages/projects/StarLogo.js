@@ -17,17 +17,17 @@ class StarLogo extends CustomComponent {
                 <Container maxWidth='md'>
                     <YoutubeEmbed
                         title='Terrain Editor'
-                        src={CONSTANTS.LINKS.PORTFOLIO.STARLOGO.EDITOR}
+                        src={CONSTANTS.VIDEO.PORTFOLIO.STARLOGO.EDITOR}
                     />
                     <Space size='lg'/>
                     <YoutubeEmbed
                         title='Grid-Aligned Interaction'
-                        src={CONSTANTS.LINKS.PORTFOLIO.STARLOGO.YANK_GRID}
+                        src={CONSTANTS.VIDEO.PORTFOLIO.STARLOGO.YANK_GRID}
                     />
                     <Space size='lg'/>
                     <YoutubeEmbed
                         title='Unaligned Interaction'
-                        src={CONSTANTS.LINKS.PORTFOLIO.STARLOGO.YANK_CONTINUOUS}
+                        src={CONSTANTS.VIDEO.PORTFOLIO.STARLOGO.YANK_CONTINUOUS}
                     />
                 </Container>
                 <Space size='lg'/>
