@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Tooltip, Button } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../components';
 import { Home, Contact } from '.';
+import { PageDequePropType } from '../components/Util';
 import * as CONSTANTS from '../Constants';
 
 const CLOSE = 'close';
@@ -446,6 +448,11 @@ class Skills extends CustomComponent
         this.setState({ filters: [] });
     }
 }
+
+Skills.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 class Skill extends CustomComponent
 {

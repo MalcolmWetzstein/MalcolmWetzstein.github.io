@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Container, Fab, Fade, withTheme } from '@material-ui/core';
 import { CustomComponent, Space, OptionalWrapper, Center } from '.';
+import { PageDequePropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -102,23 +103,7 @@ Page.propTypes = {
     theme: PropTypes.object.isRequired,
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
-    pageDeque: PropTypes.shape({
-        push: PropTypes.func.isRequired,
-        unshift: PropTypes.func.isRequired,
-        insert: PropTypes.func.isRequired,
-        pop: PropTypes.func.isRequired,
-        shift: PropTypes.func.isRequired,
-        remove: PropTypes.func.isRequired,
-        clear: PropTypes.func.isRequired,
-        top: PropTypes.func.isRequired,
-        bottom: PropTypes.func.isRequired,
-        pageAt: PropTypes.func.isRequired,
-        swapTop: PropTypes.func.isRequired,
-        swapBottom: PropTypes.func.isRequired,
-        swapAt: PropTypes.func.isRequired,
-        finish: PropTypes.func.isRequired,
-        withDequeProps: PropTypes.func.isRequired
-    }).isRequired,
+    pageDeque: PageDequePropType.isRequired,
     children: PropTypes.node
 };
 

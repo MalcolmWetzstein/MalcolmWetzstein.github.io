@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Typography, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Divider, Box, Tooltip, withTheme, Button } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, PageHeader, Space, DateRange, Timeline, TimelineTile, Indent, Bullets, Categories, SectionHeader } from '../components';
 import { Home, Experience, Portfolio } from '.';
+import { PageDequePropType } from '../components/Util';
 import * as CONSTANTS from '../Constants';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -541,6 +543,11 @@ class Education extends CustomComponent
         );
     }
 }
+
+Education.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 class Degree extends CustomComponent
 {

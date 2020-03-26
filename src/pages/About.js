@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Typography } from '@material-ui/core';
 import { CustomComponent, Page, Space, Suggestions, PageHeader } from '../components';
 import { Home, Experience, Portfolio } from '.';
+import { PageDequePropType } from '../components/Util';
 
 class About extends CustomComponent 
 {
@@ -34,5 +36,10 @@ class About extends CustomComponent
         );
     }
 }
+
+About.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(About);

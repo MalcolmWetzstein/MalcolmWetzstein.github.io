@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Typography, withTheme, Button, Box, Divider, Grid } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../components';
 import { About, Portfolio, Education, Experience, Skills, Contact } from '.';
-import { reKey } from '../components/Util';
+import { reKey, PageDequePropType } from '../components/Util';
 import * as CONSTANTS from '../Constants';
 
 class Home extends CustomComponent 
@@ -116,5 +117,11 @@ class Home extends CustomComponent
         );
     }
 }
+
+Home.propTypes = {
+    theme: PropTypes.object.isRequired,
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(Home);

@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Button, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
 import { Portfolio } from '..';
+import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class AdaptiveFilter extends CustomComponent {
@@ -30,5 +32,10 @@ class AdaptiveFilter extends CustomComponent {
         );
     }
 }
+
+AdaptiveFilter.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(AdaptiveFilter);

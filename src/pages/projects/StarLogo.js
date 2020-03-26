@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, YoutubeEmbed } from '../../components';
 import { Portfolio } from '..';
+import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class StarLogo extends CustomComponent {
@@ -38,5 +40,10 @@ class StarLogo extends CustomComponent {
         );
     }
 }
+
+StarLogo.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(StarLogo);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AppBar, Tabs, withTheme, Box, Grid } from '@material-ui/core';
 import { CustomComponent, CustomTab } from '.';
-import { reKey } from './Util';
+import { reKey, PageDequePropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class NavigationBar extends CustomComponent 
@@ -83,23 +83,7 @@ class NavigationBar extends CustomComponent
 NavigationBar.propTypes = {
     links: PropTypes.arrayOf(PropTypes.element),
     theme: PropTypes.object.isRequired,
-    pageDeque: PropTypes.shape({
-        push: PropTypes.func.isRequired,
-        unshift: PropTypes.func.isRequired,
-        insert: PropTypes.func.isRequired,
-        pop: PropTypes.func.isRequired,
-        shift: PropTypes.func.isRequired,
-        remove: PropTypes.func.isRequired,
-        clear: PropTypes.func.isRequired,
-        top: PropTypes.func.isRequired,
-        bottom: PropTypes.func.isRequired,
-        pageAt: PropTypes.func.isRequired,
-        swapTop: PropTypes.func.isRequired,
-        swapBottom: PropTypes.func.isRequired,
-        swapAt: PropTypes.func.isRequired,
-        finish: PropTypes.func.isRequired,
-        withDequeProps: PropTypes.func.isRequired
-    }).isRequired,
+    pageDeque: PageDequePropType.isRequired,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired
 };
 

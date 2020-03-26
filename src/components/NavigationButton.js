@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Button } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { PageDequePropType } from './Util';
 
 class NavigationButton extends CustomComponent {
     constructor(props) {
@@ -33,23 +34,7 @@ class NavigationButton extends CustomComponent {
 
 NavigationButton.propTypes = {
     label: PropTypes.string.isRequired,
-    pageDeque: PropTypes.shape({
-        push: PropTypes.func.isRequired,
-        unshift: PropTypes.func.isRequired,
-        insert: PropTypes.func.isRequired,
-        pop: PropTypes.func.isRequired,
-        shift: PropTypes.func.isRequired,
-        remove: PropTypes.func.isRequired,
-        clear: PropTypes.func.isRequired,
-        top: PropTypes.func.isRequired,
-        bottom: PropTypes.func.isRequired,
-        pageAt: PropTypes.func.isRequired,
-        swapTop: PropTypes.func.isRequired,
-        swapBottom: PropTypes.func.isRequired,
-        swapAt: PropTypes.func.isRequired,
-        finish: PropTypes.func.isRequired,
-        withDequeProps: PropTypes.func.isRequired
-    }),
+    pageDeque: PageDequePropType,
     children: PropTypes.element.isRequired
 };
 

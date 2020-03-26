@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Container, Button } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
 import { Portfolio } from '..';
+import { PageDequePropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class DesignModeling extends CustomComponent {
@@ -30,5 +32,10 @@ class DesignModeling extends CustomComponent {
         );
     }
 }
+
+DesignModeling.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(DesignModeling);

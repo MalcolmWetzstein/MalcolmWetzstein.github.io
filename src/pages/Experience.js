@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Typography } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Space, Suggestions, Timeline, TimelineTile, DateRange } from '../components';
 import { Education, Skills, Home } from '.';
+import { PageDequePropType } from '../components/Util';
 import * as CONSTANTS from '../Constants';
 
 class Experience extends CustomComponent 
@@ -103,6 +105,11 @@ class Experience extends CustomComponent
         );
     }
 }
+
+Experience.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 class Employment extends CustomComponent
 {

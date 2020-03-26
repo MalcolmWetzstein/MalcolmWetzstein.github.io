@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme, Typography } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space } from '../../components';
 import { Portfolio } from '..';
+import { PageDequePropType } from '../../components/Util';
 
 class Music extends CustomComponent {
     render() {
@@ -24,5 +26,10 @@ class Music extends CustomComponent {
         );
     }
 }
+
+Music.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(Music);

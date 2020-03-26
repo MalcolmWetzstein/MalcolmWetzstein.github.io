@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Page, Space, Suggestions, Categories, PageHeader, Showcase, ShowcaseTile, Preloader } from '../components';
 import { Home, Skills, Education } from '.';
 import { AdaptiveFilter, ARVoxel, Architecture, DesignModeling, Music, StarLogo, SurfaceFluid, Website } from './projects';
+import { PageDequePropType } from '../components/Util';
 import * as CONSTANTS from '../Constants';
 
 class Portfolio extends CustomComponent 
@@ -73,5 +75,10 @@ class Portfolio extends CustomComponent
         );
     }
 }
+
+Portfolio.propTypes = {
+    pageDeque: PageDequePropType.isRequired,
+    children: PropTypes.oneOf([undefined, null])
+};
 
 export default withTheme(Portfolio);

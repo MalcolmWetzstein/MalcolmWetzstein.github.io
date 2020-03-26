@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, GridListTileBar, ButtonBase, Fade, Box, Typography, CircularProgress } from '@material-ui/core';
 import { CustomComponent, Image } from '.';
+import { PageDequePropType } from './Util';
 
 class ShowcaseTile extends CustomComponent
 {
@@ -101,23 +102,7 @@ class ShowcaseTile extends CustomComponent
 ShowcaseTile.propTypes = {
     image: PropTypes.string.isRequired,
     label: PropTypes.node.isRequired,
-    pageDeque: PropTypes.shape({
-        push: PropTypes.func.isRequired,
-        unshift: PropTypes.func.isRequired,
-        insert: PropTypes.func.isRequired,
-        pop: PropTypes.func.isRequired,
-        shift: PropTypes.func.isRequired,
-        remove: PropTypes.func.isRequired,
-        clear: PropTypes.func.isRequired,
-        top: PropTypes.func.isRequired,
-        bottom: PropTypes.func.isRequired,
-        pageAt: PropTypes.func.isRequired,
-        swapTop: PropTypes.func.isRequired,
-        swapBottom: PropTypes.func.isRequired,
-        swapAt: PropTypes.func.isRequired,
-        finish: PropTypes.func.isRequired,
-        withDequeProps: PropTypes.func.isRequired
-    }).isRequired,
+    pageDeque: PageDequePropType.isRequired,
     children: PropTypes.element.isRequired
 };
 
