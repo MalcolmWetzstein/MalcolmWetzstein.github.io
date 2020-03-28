@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgress, Box } from '@material-ui/core';
 import { CustomComponent } from '.';
+import * as CONSTANTS from '../Constants';
 
 class YoutubeEmbed extends CustomComponent
 {
@@ -49,7 +50,7 @@ class YoutubeEmbed extends CustomComponent
                             paddingBottom='56.25%'
                             paddingTop={25}
                             height={0}
-                            bgcolor='rgba(0, 0, 0, 0.1)'
+                            bgcolor={CONSTANTS.YOUTUBE_LOADING_PANEL_TINT}
                         >
                             <CircularProgress color='secondary'/>
                         </Box>

@@ -24,7 +24,7 @@ Space.defaultProps = { size: CONSTANTS.DEFAULT_SPACE };
 
 Space.propTypes = {
     theme: PropTypes.object.isRequired,
-    size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+    size: PropTypes.oneOf(Object.keys(CONSTANTS.SPACE_SIZES)),
     children: PropTypes.oneOf([undefined, null])
 };
 

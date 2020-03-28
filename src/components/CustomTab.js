@@ -13,9 +13,8 @@ class CustomTab extends CustomComponent
         
         return React.createElement(Tab, { 
             ...propsCopy, 
-            style: 
-            { 
-                'minWidth': '0px',
+            style: { 
+                minWidth: 0,
                 padding: this.props.sparse ? undefined : this.props.theme.spacing(0, CONSTANTS.TAB_MARGIN, 0, CONSTANTS.TAB_MARGIN)
             }
         });

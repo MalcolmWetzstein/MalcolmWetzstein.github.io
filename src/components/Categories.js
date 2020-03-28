@@ -31,7 +31,12 @@ class Categories extends CustomComponent
                     condition={this.props.backdrop}
                 >
                     <OptionalWrapper
-                        wrapper={<Box display='flex' justifyContent='center'/>}
+                        wrapper={
+                            <Box
+                                display='flex'
+                                justifyContent='center'
+                            />
+                        }
                         condition={!this.props.sparse}
                     >
                         <Tabs

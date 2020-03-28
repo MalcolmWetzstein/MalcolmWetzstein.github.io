@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withTheme, GridListTileBar, ButtonBase, Fade, Box, Typography, CircularProgress } from '@material-ui/core';
 import { CustomComponent, Image } from '.';
 import { PageDequePropType } from './Util';
+import * as CONSTANTS from '../Constants';
 
 class ShowcaseTile extends CustomComponent
 {
@@ -45,7 +46,7 @@ class ShowcaseTile extends CustomComponent
                             display='flex'
                             justifyContent='center'
                             alignItems='center'
-                            bgcolor='rgba(0, 0, 0, 0.25)'
+                            bgcolor={CONSTANTS.SHOWCASE_TILE_HOVER_TINT}
                             width={1}
                             height={1}
                         >

@@ -29,9 +29,6 @@ class Skills extends CustomComponent
     
     render ()
     {
-        const filterFlags = {};
-        Object.values(CONSTANTS.SKILL_FILTERS).forEach(value => filterFlags[value] = this.state.filters.includes(value));
-
         return (
             <Page
                 id='skills'
@@ -73,7 +70,7 @@ class Skills extends CustomComponent
                             )
                         }
                     >
-                        {this.renderFilters(CONSTANTS.SKILL_FILTERS, filterFlags)}
+                        {this.renderFilters()}
                         <MenuItem value={CLOSE}>
                             <Box margin='0 auto'>
                                 CLOSE
@@ -424,12 +421,15 @@ class Skills extends CustomComponent
         );
     }
 
-    renderFilters(filters, checked)
+    renderFilters()
     {
-        return reKey(Object.values(filters).map(
+        const filterFlags = {};
+        Object.values(CONSTANTS.SKILL_FILTERS).forEach(value => filterFlags[value] = this.state.filters.includes(value));
+
+        return reKey(Object.values(CONSTANTS.SKILL_FILTERS).map(
             filter =>
                 <MenuItem value={filter}>
-                    <Checkbox checked={checked[filter]}/>
+                    <Checkbox checked={filterFlags[filter]}/>
                     <ListItemText primary={filter}/>
                 </MenuItem>
         ));

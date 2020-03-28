@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Card, CardActionArea, CardContent, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
 import { CustomComponent, Bullets, Image } from '.';
+import * as CONSTANTS from '../Constants';
 
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -37,13 +38,13 @@ class TimelineTile extends CustomComponent
                         >
                             <Grid
                                 item
-                                xs={8}
+                                xs={CONSTANTS.TIMELINE_TILE_DISPLAY_AREA}
                             >
                                 {this.props.children}
                             </Grid>
                             <Grid
                                 item
-                                xs={4}
+                                xs={12 - CONSTANTS.TIMELINE_TILE_DISPLAY_AREA}
                                 container
                                 justify='flex-end'
                                 alignItems='center'
@@ -55,7 +56,7 @@ class TimelineTile extends CustomComponent
                                             <Image
                                                 src={this.props.image}
                                                 alt={this.props.imageInfo}
-                                                height={this.props.theme.spacing(11)}
+                                                height={this.props.theme.spacing(CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT)}
                                             />
                                         </Grid>
                                     ) : undefined

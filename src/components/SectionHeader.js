@@ -9,7 +9,7 @@ class SectionHeader extends CustomComponent
     render()
     {
         return (
-            <Indent level={Math.min(Math.max(4 - this.props.subLevel, 0), 3)}>
+            <Indent level={Math.min(Math.max(CONSTANTS.MAX_SECTION_HEADER_LEVEL - this.props.subLevel, 0), CONSTANTS.MAX_SECTION_HEADER_LEVEL - 1)}>
                 <Typography
                     component='h2'
                     variant={this.props.variant}
@@ -27,8 +27,12 @@ SectionHeader.defaultProps = {
     variant: CONSTANTS.SECTION_HEADER_VARIANT
 };
 
+const validSubLevels = [];
+for (let i = 1; i <= CONSTANTS.MAX_SECTION_HEADER_LEVEL; i++)
+    validSubLevels.push(i);
+    
 SectionHeader.propTypes = {
-    subLevel: PropTypes.oneOf([1, 2, 3, 4]),
+    subLevel: PropTypes.oneOf(validSubLevels),
     variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2']),
     children: PropTypes.node.isRequired
 };

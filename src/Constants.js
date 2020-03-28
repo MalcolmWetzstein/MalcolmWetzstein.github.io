@@ -35,6 +35,11 @@ export const DEFAULT_SPACE = 'md';
 export const MAX_GRID_LIST_COLUMNS = 3;
 export const BACK_TO_TOP_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
+export const MAX_SECTION_HEADER_LEVEL = 4;
+export const TIMELINE_TILE_DISPLAY_AREA = 8;
+export const TIMELINE_TILE_IMAGE_HEIGHT = 11;
+export const SHOWCASE_TILE_HOVER_TINT = 'rgba(0, 0, 0, 0.25)';
+export const YOUTUBE_LOADING_PANEL_TINT = 'rgba(0, 0, 0, 0.1)';
 
 export const COURSE_LEVELS = readOnly({
     'graduate': 'Graduate',

@@ -33,7 +33,7 @@ class PageDeque extends CustomComponent
 
     render() 
     {
-        const displayPage = this.state.pageStack.length > 0 ? [this.state.pageStack[this.state.pageStack.length-1]] : []
+        const displayPage = this.state.pageStack.length > 0 ? [this.state.pageStack[this.state.pageStack.length - 1]] : []
         const childrenWithProps = React.Children.map(this.props.children, child => this.withDequeProps(child));
         return reKey(childrenWithProps.concat(displayPage));
     }
