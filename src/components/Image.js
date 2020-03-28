@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
+import * as CONSTANTS from '../Constants';
 
 class Image extends CustomComponent
 {
@@ -30,7 +31,7 @@ class Image extends CustomComponent
 
 Image.defaultProps = {
     alt: '',
-    objectFit: 'contain'
+    objectFit: CONSTANTS.IMAGE_DEFAULT_OBJECT_FIT
 };
 
 Image.propTypes = {

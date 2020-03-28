@@ -25,10 +25,14 @@ class DateRange extends CustomComponent
     }
 }
 
+const validMonths = [];
+for (let i = 1; i <= 12; i++)
+    validMonths.push(i);
+
 DateRange.propTypes = {
-    startMonth: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).isRequired,
+    startMonth: PropTypes.oneOf(validMonths).isRequired,
     startYear: PropTypes.number.isRequired,
-    endMonth: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    endMonth: PropTypes.oneOf(validMonths),
     endYear: PropTypes.number,
     children: PropTypes.oneOf([undefined, null])
 };

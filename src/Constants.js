@@ -38,8 +38,19 @@ export const BACK_TO_TOP_FADE_IN_POINT = 12;
 export const MAX_SECTION_HEADER_LEVEL = 4;
 export const TIMELINE_TILE_DISPLAY_AREA = 8;
 export const TIMELINE_TILE_IMAGE_HEIGHT = 11;
+export const TIMELINE_TILE_CLOSE_BUTTON_MARGIN = 3;
+export const TIMELINE_TILE_ARROW_ICON_MARGIN = 2;
 export const SHOWCASE_TILE_HOVER_TINT = 'rgba(0, 0, 0, 0.25)';
 export const YOUTUBE_LOADING_PANEL_TINT = 'rgba(0, 0, 0, 0.1)';
+export const IMAGE_DEFAULT_OBJECT_FIT = 'contain';
+
+export const SPACE_SIZES = readOnly({
+    'xs': 1.0,
+    'sm': 2.0,
+    'md': 3.0,
+    'lg': 4.0,
+    'xl': 8.0
+});
 
 export const COURSE_LEVELS = readOnly({
     'graduate': 'Graduate',
@@ -104,14 +115,6 @@ export const SKILL_FILTERS = readOnly({
     GAME_DEV: 'Game Development',
     DESIGN: 'Digital Design',
     COMP_MATH: 'Computational Mathematics'
-});
-
-export const SPACE_SIZES = readOnly({
-    'xs': 1.0,
-    'sm': 2.0,
-    'md': 3.0,
-    'lg': 4.0,
-    'xl': 8.0
 });
 
 export const PHONE_NUMBER = '8082182723';
