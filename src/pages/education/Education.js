@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, PageHeader, Space, Timeline, TimelineTile, Categories, SectionHeader } from '../../components';
 import { Home, Experience, Portfolio } from '..';
 import { Degree, Course } from '.';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class Education extends CustomComponent
 {
-    static buttonText = 'Education';
+    static displayText = CONSTANTS.EDUCATION_DISPLAY_TEXT;
 
     componentDidMount() { console.log('Please excuse the errors on the Education page until the course content is complete. Thank you.'); }
     
@@ -22,7 +21,7 @@ class Education extends CustomComponent
                 maxWidth='md'
             >
                 <PageHeader>
-                    {Education.buttonText}
+                    {Education.displayText}
                 </PageHeader>
                 <SectionHeader>
                     Degrees
@@ -54,8 +53,8 @@ class Education extends CustomComponent
                             endMonth={9}
                             endYear={2019}
                             school={CONSTANTS.NAMES.MIT}
-                            city='Cambridge'
-                            state='MA'
+                            city={CONSTANTS.NAMES.CAMBRIDGE}
+                            state={CONSTANTS.NAMES.MASSACHUSETTS}
                             degree='MEng in Electrical Engineering and Computer Science'
                         />
                     </TimelineTile>
@@ -86,8 +85,8 @@ class Education extends CustomComponent
                             endMonth={6}
                             endYear={2018}
                             school={CONSTANTS.NAMES.MIT}
-                            city='Cambridge'
-                            state='MA'
+                            city={CONSTANTS.NAMES.CAMBRIDGE}
+                            state={CONSTANTS.NAMES.MASSACHUSETTS}
                             degree='BS in Computer Science and Engineering'
                         />
                     </TimelineTile>
@@ -640,7 +639,7 @@ class Education extends CustomComponent
                     </React.Fragment>
                 </Categories>
                 <Space size='lg'/>
-                <Suggestions labels={['experience', 'portfolio', 'home']}>
+                <Suggestions labels={[Experience.displayText, Portfolio.displayText, Home.displayText]}>
                     <Experience/>
                     <Portfolio/>
                     <Home/>
@@ -652,7 +651,7 @@ class Education extends CustomComponent
 
 Education.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Education);

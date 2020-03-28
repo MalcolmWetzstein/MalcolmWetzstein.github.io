@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, GridList, GridListTile } from '@material-ui/core';
 import { CustomComponent } from '.';
-import { PageDequePropType } from './Util';
+import { PageDequePropType, ZeroOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class Showcase extends CustomComponent
@@ -31,7 +31,7 @@ class Showcase extends CustomComponent
 Showcase.propTypes = {
     theme: PropTypes.object.isRequired,
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+    children: ZeroOrMoreElementsPropType
 };
 
 export default withTheme(Showcase);

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { preloadImages } from './Util';
+import { preloadImages, NoChildrenPropType } from './Util';
 
 class Preloader extends React.Component
 {
@@ -18,7 +18,7 @@ class Preloader extends React.Component
 
 Preloader.propTypes = {
     imageTree: PropTypes.object,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default Preloader;

@@ -1,17 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Button } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../../components';
 import { Home, Contact } from '..';
 import { Skill } from '.';
-import { reKey, PageDequePropType } from '../../components/Util';
+import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 const CLOSE = 'close';
 
 class Skills extends CustomComponent 
 {
-    static buttonText = 'Skills';
+    static displayText = CONSTANTS.SKILLS_DISPLAY_TEXT;
 
     constructor(props)
     {
@@ -36,7 +35,7 @@ class Skills extends CustomComponent
                 maxWidth='sm'
             >
                 <PageHeader>
-                    {Skills.buttonText}
+                    {Skills.displayText}
                 </PageHeader>
                 <FormControl
                     fullWidth
@@ -413,7 +412,7 @@ class Skills extends CustomComponent
                     </FilterList>
                 </Grid>
                 <Space size='lg'/>
-                <Suggestions labels={['contact me', 'home']}>
+                <Suggestions labels={[Contact.displayText, Home.displayText]}>
                     <Contact/>
                     <Home/>
                 </Suggestions>
@@ -456,7 +455,7 @@ class Skills extends CustomComponent
 
 Skills.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Skills);

@@ -42,8 +42,17 @@ const PageDequePropType = PropTypes.shape({
     withDequeProps: PropTypes.func.isRequired
 });
 
+const NoChildrenPropType = PropTypes.oneOf([undefined, null]);
+
+const ZeroOrMoreElementsPropType = PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]);
+
+const OneOrMoreElementsPropType = PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element.isRequired), PropTypes.element]).isRequired;
+
 export {
     reKey,
     preloadImages,
-    PageDequePropType
+    PageDequePropType,
+    NoChildrenPropType,
+    ZeroOrMoreElementsPropType,
+    OneOrMoreElementsPropType
 };

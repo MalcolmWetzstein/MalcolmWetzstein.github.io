@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme, Button, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
 import { Portfolio } from '..';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class AdaptiveFilter extends CustomComponent
@@ -19,7 +18,7 @@ class AdaptiveFilter extends CustomComponent
                     Implementation of <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>
                 </PageHeader>
                 <Container maxWidth='xs'>
-                    <NavigationButton label='See Project on Github'>
+                    <NavigationButton label={CONSTANTS.SEE_ON_GITHUB_TEXT}>
                         <Button
                             href={CONSTANTS.LINKS.PORTFOLIO.MANIFOLDS_FILTER}
                             target='_blank'
@@ -27,7 +26,7 @@ class AdaptiveFilter extends CustomComponent
                     </NavigationButton>
                 </Container>
                 <Space size='lg'/>
-                <Suggestions labels={['back']}>
+                <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>
                     <Portfolio/>
                 </Suggestions>
             </Page>
@@ -37,7 +36,7 @@ class AdaptiveFilter extends CustomComponent
 
 AdaptiveFilter.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(AdaptiveFilter);

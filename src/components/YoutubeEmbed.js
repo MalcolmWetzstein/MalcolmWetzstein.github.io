@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgress, Box } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class YoutubeEmbed extends CustomComponent
@@ -69,7 +70,7 @@ class YoutubeEmbed extends CustomComponent
 YoutubeEmbed.propTypes = {
     title: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default YoutubeEmbed;

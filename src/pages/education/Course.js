@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Tooltip, Divider, Box, Button, Typography } from '@material-ui/core';
 import { CustomComponent, Indent, Space, Bullets } from '../../components';
+import { NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -113,7 +114,7 @@ class Course extends CustomComponent
                 </ExpansionPanelSummary>
                 <Divider/>
                 <ExpansionPanelDetails>
-                    <Box paddingRight='24px'>
+                    <Box paddingRight={this.props.theme.spacing(CONSTANTS.COURSE_DETAIL_ARROW_MARGIN)+'px'}>
                         <Space size='xs'/>
                         <Indent>
                             <Typography variant='h6'>
@@ -151,7 +152,7 @@ class Course extends CustomComponent
                         position='absolute'
                         right={0}
                         bottom={0}
-                        margin='0 24px 24px 0'
+                        margin={this.props.theme.spacing(0, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, 0)}
                     >
                         <Button
                             onClick={this.onClick}
@@ -200,6 +201,7 @@ class Course extends CustomComponent
 }
 
 Course.propTypes = {
+    theme: PropTypes.object.isRequired,
     label: PropTypes.string.isRequired,
     level: PropTypes.oneOf(['graduate', 'upper', 'lower', 'intro', 'general']).isRequired,
     assessment: PropTypes.oneOf(['seminar','studio', 'lab', 'project', 'exam', 'writing', 'communication', 'ap', 'standing']).isRequired,
@@ -208,7 +210,7 @@ Course.propTypes = {
     description: PropTypes.string.isRequired,
     topics: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])).isRequired,
     instructors: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string.isRequired), PropTypes.string]).isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Course);

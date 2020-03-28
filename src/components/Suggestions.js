@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonGroup, Button, Box, withTheme } from '@material-ui/core';
 import { CustomComponent, Center } from '.';
-import { PageDequePropType } from './Util';
+import { PageDequePropType, OneOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class Suggestions extends CustomComponent
@@ -73,7 +73,7 @@ class Suggestions extends CustomComponent
 Suggestions.propTypes = {
     labels: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element.isRequired), PropTypes.element]).isRequired
+    children: OneOrMoreElementsPropType
 };
 
 export default withTheme(Suggestions);

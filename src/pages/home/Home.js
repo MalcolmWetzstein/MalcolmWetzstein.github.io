@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Typography, withTheme, Button, Box, Divider, Grid } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../../components';
 import { About, Portfolio, Education, Experience, Skills, Contact } from '..';
-import { reKey, PageDequePropType } from '../../components/Util';
+import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class Home extends CustomComponent 
 {
-    static buttonText = 'Home';
+    static displayText = CONSTANTS.HOME_DISPLAY_TEXT;
 
     constructor(props)
     {
@@ -46,7 +46,7 @@ class Home extends CustomComponent
                 <Space/>
                 <Suggestions
                     pageDeque={this.props.pageDeque}
-                    labels={['about me', 'more']}
+                    labels={[About.displayText, 'more']}
                 >
                     <About/>
                     {ScrollToButton(this.moreRef)}
@@ -54,47 +54,47 @@ class Home extends CustomComponent
                 <Space size='xl'/>
                 <Center>
                     <Box
-                        maxWidth={this.props.theme.spacing(CONSTANTS.UNIT_INDENT*6)}
+                        maxWidth={this.props.theme.spacing(CONSTANTS.HOME_LINK_BUTTONS_WIDTH)}
                         ref={this.moreRef}
                     >
                         <NavigationButton
-                            label='About Me'
+                            label={About.displayText}
                             pageDeque={this.props.pageDeque}
                         >
                             <About/>
                         </NavigationButton>
                         <NavigationButton
-                            label='Portfolio'
+                            label={Portfolio.displayText}
                             pageDeque={this.props.pageDeque}
                         >
                             <Portfolio/>
                         </NavigationButton>
                         <NavigationButton
-                            label='Education'
+                            label={Education.displayText}
                             pageDeque={this.props.pageDeque}
                         >
                             <Education/>
                         </NavigationButton>
                         <NavigationButton
-                            label='Experience'
+                            label={Experience.displayText}
                             pageDeque={this.props.pageDeque}
                         >
                             <Experience/>
                         </NavigationButton>
                         <NavigationButton
-                            label='Skills'
+                            label={Skills.displayText}
                             pageDeque={this.props.pageDeque}
                         >
                             <Skills/>
                         </NavigationButton>
                         <NavigationButton
-                            label='Contact Me'
+                            label={Contact.displayText}
                             pageDeque={this.props.pageDeque}
                         >
                             <Contact/>
                         </NavigationButton>
                         <NavigationButton
-                            label='GitHub'
+                            label={CONSTANTS.NAMES.GITHUB}
                             pageDeque={this.props.pageDeque}
                         >
                             <Button
@@ -103,7 +103,7 @@ class Home extends CustomComponent
                             />
                         </NavigationButton>
                         <NavigationButton
-                            label='LinkedIn'
+                            label={CONSTANTS.NAMES.LINKEDIN}
                             pageDeque={this.props.pageDeque}
                         >
                             <Button
@@ -144,7 +144,7 @@ class Home extends CustomComponent
             <Grid
                 container
                 justify='center'
-                spacing={2}
+                spacing={CONSTANTS.HOME_CAREER_TITLES_SPACING}
             >
                 {
                     reKey(renderItems.map(
@@ -162,7 +162,7 @@ class Home extends CustomComponent
 Home.propTypes = {
     theme: PropTypes.object.isRequired,
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Home);

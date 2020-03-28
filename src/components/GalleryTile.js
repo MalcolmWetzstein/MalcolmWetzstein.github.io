@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Image } from '.';
+import { NoChildrenPropType } from './Util';
 
 class GalleryTile extends CustomComponent
 {
@@ -24,7 +25,7 @@ GalleryTile.defaultProps = { label: '' };
 GalleryTile.propTypes = {
     image: PropTypes.string.isRequired,
     label: PropTypes.string,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(GalleryTile);

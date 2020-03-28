@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Space, Suggestions, Timeline, TimelineTile } from '../../components';
 import { Education, Skills, Home } from '..';
 import { Employment } from '.';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class Experience extends CustomComponent 
 {
-    static buttonText = 'Experience';
+    static displayText = CONSTANTS.EXPERIENCE_DISPLAY_TEXT;
     
     render()
     {
@@ -20,7 +19,7 @@ class Experience extends CustomComponent
                 maxWidth='md'
             >
                 <PageHeader>
-                    {Experience.buttonText}
+                    {Experience.displayText}
                 </PageHeader>
                 <Timeline>
                     <TimelineTile
@@ -97,7 +96,7 @@ class Experience extends CustomComponent
                     </TimelineTile>
                 </Timeline>
                 <Space size='lg'/>
-                <Suggestions labels={['skills', 'education', 'home']}>
+                <Suggestions labels={[Skills.displayText, Education.displayText, Home.displayText]}>
                     <Skills/>
                     <Education/>
                     <Home/>
@@ -109,7 +108,7 @@ class Experience extends CustomComponent
 
 Experience.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Experience);

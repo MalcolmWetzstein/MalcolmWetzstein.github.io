@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class Space extends CustomComponent
@@ -25,7 +26,7 @@ Space.defaultProps = { size: CONSTANTS.DEFAULT_SPACE };
 Space.propTypes = {
     theme: PropTypes.object.isRequired,
     size: PropTypes.oneOf(Object.keys(CONSTANTS.SPACE_SIZES)),
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Space);

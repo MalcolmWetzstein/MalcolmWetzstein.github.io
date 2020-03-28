@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme, Typography } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space } from '../../components';
 import { Portfolio } from '..';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
+import * as CONSTANTS from '../../Constants';
 
 class Music extends CustomComponent
 {
@@ -21,7 +21,7 @@ class Music extends CustomComponent
                     Coming Soon...
                 </Typography>
                 <Space size='lg'/>
-                <Suggestions labels={['back']}>
+                <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>
                     <Portfolio/>
                 </Suggestions>
             </Page>
@@ -31,7 +31,7 @@ class Music extends CustomComponent
 
 Music.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Music);

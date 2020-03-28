@@ -1,15 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Page, Space, Suggestions, Categories, PageHeader, Showcase, ShowcaseTile, Preloader } from '../../components';
 import { Home, Skills, Education } from '..';
 import { AdaptiveFilter, ARVoxel, Architecture, DesignModeling, Music, StarLogo, SurfaceFluid, Website } from '.';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class Portfolio extends CustomComponent 
 {
-    static buttonText = 'Portfolio';
+    static displayText = CONSTANTS.PORTFOLIO_DISPLAY_TEXT;
     
     render()
     {
@@ -20,7 +19,7 @@ class Portfolio extends CustomComponent
             >
                 <Preloader imageTree={CONSTANTS.IMAGES.PORTFOLIO}/>
                 <PageHeader>
-                    {Portfolio.buttonText}
+                    {Portfolio.displayText}
                 </PageHeader>
                 <Categories
                     sparse
@@ -78,7 +77,7 @@ class Portfolio extends CustomComponent
 
 Portfolio.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Portfolio);

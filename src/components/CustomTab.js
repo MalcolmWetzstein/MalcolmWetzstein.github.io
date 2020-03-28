@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Tab } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class CustomTab extends CustomComponent
@@ -24,7 +25,7 @@ class CustomTab extends CustomComponent
 CustomTab.propTypes = {
     sparse: PropTypes.bool,
     theme: PropTypes.object.isRequired,
-    children: PropTypes.oneOf([undefined, null]),
+    children: NoChildrenPropType,
     // Material UI Tab props
     classes: PropTypes.object,
     disabled: PropTypes.any,

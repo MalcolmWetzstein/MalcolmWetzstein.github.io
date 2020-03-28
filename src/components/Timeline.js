@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent, Space } from '.';
+import { ZeroOrMoreElementsPropType } from './Util';
 
 class Timeline extends CustomComponent
 {
@@ -19,6 +19,6 @@ class Timeline extends CustomComponent
     }
 }
 
-Timeline.propTypes = { children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]) };
+Timeline.propTypes = { children: ZeroOrMoreElementsPropType };
 
 export default withTheme(Timeline);

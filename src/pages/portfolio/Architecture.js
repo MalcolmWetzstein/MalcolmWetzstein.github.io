@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme, Button, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
 import { Portfolio } from '..';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class Architecture extends CustomComponent
@@ -19,7 +18,7 @@ class Architecture extends CustomComponent
                     Architecture Design Models
                 </PageHeader>
                 <Container maxWidth='xs'>
-                    <NavigationButton label='See Project on Flickr'>
+                    <NavigationButton label={CONSTANTS.SEE_ON_FLICKR_TEXT}>
                         <Button
                             href={CONSTANTS.LINKS.PORTFOLIO.INTRO_ARCH}
                             target='_blank'
@@ -27,7 +26,7 @@ class Architecture extends CustomComponent
                     </NavigationButton>
                 </Container>
                 <Space size='lg'/>
-                <Suggestions labels={['back']}>
+                <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>
                     <Portfolio/>
                 </Suggestions>
             </Page>
@@ -37,7 +36,7 @@ class Architecture extends CustomComponent
 
 Architecture.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Architecture);

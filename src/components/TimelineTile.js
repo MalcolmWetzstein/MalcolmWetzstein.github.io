@@ -86,7 +86,7 @@ class TimelineTile extends CustomComponent
                                     position='absolute'
                                     right={0}
                                     bottom={0}
-                                    margin={this.props.theme.spacing(0, CONSTANTS.TIMELINE_TILE_CLOSE_BUTTON_MARGIN, CONSTANTS.TIMELINE_TILE_CLOSE_BUTTON_MARGIN, 0)}
+                                    margin={this.props.theme.spacing(0, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, 0)}
                                 >
                                     <Button
                                         onClick={this.onClick}

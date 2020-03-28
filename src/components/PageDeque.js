@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
-import { reKey } from './Util';
+import { reKey, OneOrMoreElementsPropType } from './Util';
 
 class PageDeque extends CustomComponent
 {
@@ -162,6 +161,6 @@ class PageDeque extends CustomComponent
     }
 }
 
-PageDeque.propTypes = { children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element.isRequired), PropTypes.element]).isRequired };
+PageDeque.propTypes = { children: OneOrMoreElementsPropType };
 
 export default withTheme(PageDeque);

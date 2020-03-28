@@ -58,8 +58,8 @@ class Page extends CustomComponent
                 </OptionalWrapper>
                 <Box
                     position='fixed'
-                    bottom={this.props.theme.spacing(CONSTANTS.BACK_TO_TOP_MARGIN)}
-                    right={this.props.theme.spacing(CONSTANTS.BACK_TO_TOP_MARGIN)}
+                    bottom={this.props.theme.spacing(CONSTANTS.BACK_TO_TOP_BUTTON_MARGIN)}
+                    right={this.props.theme.spacing(CONSTANTS.BACK_TO_TOP_BUTTON_MARGIN)}
                 >
                     <Fade in={this.state.showScrollToTop}>
                         <Fab

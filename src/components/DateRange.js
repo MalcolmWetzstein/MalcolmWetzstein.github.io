@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { NoChildrenPropType } from './Util';
+import * as CONSTANTS from '../Constants';
 
 class DateRange extends CustomComponent
 {
@@ -25,16 +27,12 @@ class DateRange extends CustomComponent
     }
 }
 
-const validMonths = [];
-for (let i = 1; i <= 12; i++)
-    validMonths.push(i);
-
 DateRange.propTypes = {
-    startMonth: PropTypes.oneOf(validMonths).isRequired,
+    startMonth: PropTypes.oneOf(CONSTANTS.VALID_MONTHS).isRequired,
     startYear: PropTypes.number.isRequired,
-    endMonth: PropTypes.oneOf(validMonths),
+    endMonth: PropTypes.oneOf(CONSTANTS.VALID_MONTHS),
     endYear: PropTypes.number,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(DateRange);

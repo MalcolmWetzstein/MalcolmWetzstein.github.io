@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Typography } from '@material-ui/core';
 import { CustomComponent, DateRange } from '../../components';
+import { NoChildrenPropType } from '../../components/Util';
+import * as CONSTANTS from '../../Constants';
 
 class Employment extends CustomComponent
 {
@@ -32,14 +34,14 @@ class Employment extends CustomComponent
 Employment.defaultProps = { department: '' };
 
 Employment.propTypes = {
-    startMonth: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]).isRequired,
+    startMonth: PropTypes.oneOf(CONSTANTS.VALID_MONTHS).isRequired,
     startYear: PropTypes.number.isRequired,
-    endMonth: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    endMonth: PropTypes.oneOf(CONSTANTS.VALID_MONTHS),
     endYear: PropTypes.number,
     title: PropTypes.string.isRequired,
     company: PropTypes.string.isRequired,
     department: PropTypes.string,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Employment);

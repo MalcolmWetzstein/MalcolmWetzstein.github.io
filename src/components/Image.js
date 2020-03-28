@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class Image extends CustomComponent
@@ -41,7 +42,7 @@ Image.propTypes = {
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onLoad: PropTypes.func,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Image);

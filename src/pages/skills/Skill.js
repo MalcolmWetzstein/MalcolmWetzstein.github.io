@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Grid, Tooltip, Chip } from '@material-ui/core';
 import { CustomComponent } from '../../components';
+import { NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class Skill extends CustomComponent
@@ -24,7 +25,7 @@ class Skill extends CustomComponent
 Skill.propTypes = {
     label: PropTypes.string.isRequired,
     level: PropTypes.oneOf(['beginner', 'intermediate', 'advanced', 'expert']).isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Skill);

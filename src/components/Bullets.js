@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, withTheme } from '@material-ui/core';
 import { CustomComponent } from '.';
-import { reKey } from './Util';
+import { reKey, NoChildrenPropType } from './Util';
 
 class Bullets extends CustomComponent
 {
@@ -49,7 +49,7 @@ class Bullets extends CustomComponent
 Bullets.propTypes = {
     bullets: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])),
     focus: PropTypes.bool,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Bullets);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AppBar, Tabs, withTheme, Box, Grid } from '@material-ui/core';
 import { CustomComponent, CustomTab } from '.';
-import { reKey, PageDequePropType } from './Util';
+import { reKey, PageDequePropType, OneOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class NavigationBar extends CustomComponent 
@@ -18,7 +18,7 @@ class NavigationBar extends CustomComponent
 
     componentDidMount()
     {
-        this.setState( { tabNames: React.Children.map(this.props.children, child => child.type.buttonText) } );
+        this.setState( { tabNames: React.Children.map(this.props.children, child => child.type.displayText) } );
         this.navigate(0);
     }
 
@@ -38,7 +38,7 @@ class NavigationBar extends CustomComponent
                     >
                         <Tabs 
                             indicatorColor='secondary' 
-                            value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.buttonText) : 0} 
+                            value={this.state.tabNames.length > 0 ? this.state.tabNames.indexOf(this.props.pageDeque.bottom().type.displayText) : 0} 
                             onChange={this.tabChange}
                             variant='scrollable'
                             scrollButtons='auto'
@@ -84,7 +84,7 @@ NavigationBar.propTypes = {
     links: PropTypes.arrayOf(PropTypes.element),
     theme: PropTypes.object.isRequired,
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired
+    children: OneOrMoreElementsPropType
 };
 
 export default withTheme(NavigationBar);

@@ -3,6 +3,7 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 
+// Converts entire object tree to read-only.
 function readOnly(obj)
 {
     if (typeof obj === 'object')
@@ -23,6 +24,26 @@ function readOnly(obj)
         return obj;
 }
 
+export const PHONE_NUMBER = '8082182723';
+export const EMAIL_ADDRESS = 'mxw002@gmail.com';
+
+export const NAMES = readOnly({
+    GITHUB: 'GitHub',
+    LINKEDIN: 'LinkedIn',
+    FLICKR: 'Flickr',
+    MIT: 'Massachusetts Institute of Technology',
+    CAMBRIDGE: 'Cambridge',
+    MASSACHUSETTS: 'MA'
+});
+
+export const HOME_DISPLAY_TEXT = 'Home';
+export const ABOUT_DISPLAY_TEXT = 'About Me';
+export const PORTFOLIO_DISPLAY_TEXT = 'Portfolio';
+export const EDUCATION_DISPLAY_TEXT = 'Education';
+export const EXPERIENCE_DISPLAY_TEXT = 'Experience';
+export const SKILLS_DISPLAY_TEXT = 'Skills';
+export const CONTACT_DISPLAY_TEXT = 'Contact Me';
+
 export const UNIT_INDENT = 4;
 export const PAGE_HEADER_VARIANT = 'h3';
 export const SECTION_HEADER_VARIANT = 'h4';
@@ -33,16 +54,23 @@ export const TAB_MARGIN = 3;
 export const ICON_BUTTON_SPACING = 1;
 export const DEFAULT_SPACE = 'md';
 export const MAX_GRID_LIST_COLUMNS = 3;
-export const BACK_TO_TOP_MARGIN = 2;
+export const BACK_TO_TOP_BUTTON_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
 export const MAX_SECTION_HEADER_LEVEL = 4;
 export const TIMELINE_TILE_DISPLAY_AREA = 8;
 export const TIMELINE_TILE_IMAGE_HEIGHT = 11;
-export const TIMELINE_TILE_CLOSE_BUTTON_MARGIN = 3;
 export const TIMELINE_TILE_ARROW_ICON_MARGIN = 2;
 export const SHOWCASE_TILE_HOVER_TINT = 'rgba(0, 0, 0, 0.25)';
 export const YOUTUBE_LOADING_PANEL_TINT = 'rgba(0, 0, 0, 0.1)';
 export const IMAGE_DEFAULT_OBJECT_FIT = 'contain';
+export const COURSE_DETAIL_ARROW_MARGIN = 3;
+export const EXPANSION_CLOSE_BUTTON_MARGIN = 3;
+export const VALID_MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+export const HOME_LINK_BUTTONS_WIDTH = UNIT_INDENT * 6;
+export const HOME_CAREER_TITLES_SPACING = 2;
+export const BACK_BUTTON_TEXT = 'Back';
+export const SEE_ON_GITHUB_TEXT = 'See Project on ' + NAMES.GITHUB;
+export const SEE_ON_FLICKR_TEXT = 'See Project on ' + NAMES.FLICKR;
 
 export const SPACE_SIZES = readOnly({
     'xs': 1.0,
@@ -115,13 +143,6 @@ export const SKILL_FILTERS = readOnly({
     GAME_DEV: 'Game Development',
     DESIGN: 'Digital Design',
     COMP_MATH: 'Computational Mathematics'
-});
-
-export const PHONE_NUMBER = '8082182723';
-export const EMAIL_ADDRESS = 'mxw002@gmail.com';
-
-export const NAMES = readOnly({
-    MIT: 'Massachusetts Institute of Technology'
 });
 
 export const LINKS = readOnly({

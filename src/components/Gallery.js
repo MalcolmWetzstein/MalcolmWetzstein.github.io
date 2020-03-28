@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme, GridList, GridListTile } from '@material-ui/core';
 import { CustomComponent } from '.';
+import { ZeroOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 class Gallery extends CustomComponent
@@ -26,6 +26,6 @@ class Gallery extends CustomComponent
     }
 }
 
-Gallery.propTypes = { children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]) };
+Gallery.propTypes = { children: ZeroOrMoreElementsPropType };
 
 export default withTheme(Gallery);

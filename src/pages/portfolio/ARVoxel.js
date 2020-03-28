@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withTheme, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, YoutubeEmbed } from '../../components';
 import { Portfolio } from '..';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 class ARVoxel extends CustomComponent
@@ -25,7 +24,7 @@ class ARVoxel extends CustomComponent
                     />
                 </Container>
                 <Space size='lg'/>
-                <Suggestions labels={['back']}>
+                <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>
                     <Portfolio/>
                 </Suggestions>
             </Page>
@@ -35,7 +34,7 @@ class ARVoxel extends CustomComponent
 
 ARVoxel.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(ARVoxel);

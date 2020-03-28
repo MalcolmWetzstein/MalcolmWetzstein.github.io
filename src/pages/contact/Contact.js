@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Typography, Link, Grid, withTheme } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, PageHeader } from '../../components';
 import { Home } from '..';
-import { PageDequePropType } from '../../components/Util';
+import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
 import EmailIcon from '@material-ui/icons/Email';
@@ -12,7 +11,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 class Contact extends CustomComponent
 {
-    static buttonText = 'Contact Me';
+    static displayText = CONSTANTS.CONTACT_DISPLAY_TEXT;
     
     render()
     {
@@ -23,7 +22,7 @@ class Contact extends CustomComponent
                 maxWidth='fit'
             >
                 <PageHeader>
-                    {Contact.buttonText}
+                    {Contact.displayText}
                 </PageHeader>
                 <Grid
                     container
@@ -90,7 +89,7 @@ class Contact extends CustomComponent
                     </Grid>
                 </Grid>
                 <Space size='lg'/>
-                <Suggestions labels={['home']}>
+                <Suggestions labels={[Home.displayText]}>
                     <Home/>
                 </Suggestions>
             </Page>
@@ -105,7 +104,7 @@ class Contact extends CustomComponent
 
 Contact.propTypes = {
     pageDeque: PageDequePropType.isRequired,
-    children: PropTypes.oneOf([undefined, null])
+    children: NoChildrenPropType
 };
 
 export default withTheme(Contact);
