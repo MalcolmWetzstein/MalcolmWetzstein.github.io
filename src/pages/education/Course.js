@@ -99,55 +99,57 @@ class Course extends CustomComponent
                     </Grid>
                 </ExpansionPanelSummary>
                 <Divider/>
-                <ExpansionPanelDetails>
-                    <Box paddingRight={this.props.theme.spacing(CONSTANTS.COURSE_DETAIL_ARROW_MARGIN) + 'px'}>
-                        <Space size='xs'/>
-                        <Indent>
-                            <Typography variant='h6'>
-                                {'Course ' + this.props.number}
-                            </Typography>
-                            <Typography
-                                variant='subtitle2'
-                                color='textSecondary'
-                            >
-                                {this.props.school}
-                            </Typography>
-                            <Typography
-                                variant='subtitle2'
-                                color='textSecondary'
-                            >
-                                {this.renderInstructors()}
-                            </Typography>
-                            <Space size='sm'/>
+                <Box position='relative'>
+                    <ExpansionPanelDetails>
+                        <Box paddingRight={this.props.theme.spacing(CONSTANTS.COURSE_DETAIL_ARROW_MARGIN) + 'px'}>
+                            <Space size='xs'/>
                             <Indent>
-                                <Typography variant='body1'>
-                                    {this.props.description}
+                                <Typography variant='h6'>
+                                    {'Course ' + this.props.number}
                                 </Typography>
+                                <Typography
+                                    variant='subtitle2'
+                                    color='textSecondary'
+                                >
+                                    {this.props.school}
+                                </Typography>
+                                <Typography
+                                    variant='subtitle2'
+                                    color='textSecondary'
+                                >
+                                    {this.renderInstructors()}
+                                </Typography>
+                                <Space size='sm'/>
+                                <Indent>
+                                    <Typography variant='body1'>
+                                        {this.props.description}
+                                    </Typography>
+                                </Indent>
+                                <Space size='sm'/>
+                                <Typography variant='subtitle1'>
+                                    Topics:
+                                </Typography>
+                                <Bullets
+                                    focus
+                                    bullets={this.props.topics}
+                                />
                             </Indent>
-                            <Space size='sm'/>
-                            <Typography variant='subtitle1'>
-                                Topics:
-                            </Typography>
-                            <Bullets
-                                focus
-                                bullets={this.props.topics}
-                            />
-                        </Indent>
-                    </Box>
-                    <Box
-                        position='absolute'
-                        right={0}
-                        bottom={0}
-                        margin={this.props.theme.spacing(0, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, 0)}
-                    >
-                        <Button
-                            onClick={this.onClick}
-                            size='small'
+                        </Box>
+                        <Box
+                            position='absolute'
+                            right={0}
+                            bottom={0}
+                            margin={this.props.theme.spacing(0, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, CONSTANTS.EXPANSION_CLOSE_BUTTON_MARGIN, 0)}
                         >
-                            Close
-                        </Button>
-                    </Box>
-                </ExpansionPanelDetails>
+                            <Button
+                                onClick={this.onClick}
+                                size='small'
+                            >
+                                Close
+                            </Button>
+                        </Box>
+                    </ExpansionPanelDetails>
+                </Box>
             </ExpansionPanel>
         );
     }

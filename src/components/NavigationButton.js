@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Button } from '@material-ui/core';
-import { CustomComponent, ConditionalRender } from '.';
+import { CustomComponent } from '.';
 import { PageDequePropType } from './Util';
 
 class NavigationButton extends CustomComponent
@@ -16,32 +16,33 @@ class NavigationButton extends CustomComponent
     render()
     {
         return (
-            <ConditionalRender
-                condition={this.props.children.type.custom}
-                alt={React.cloneElement(this.props.children, { fullWidth: true }, this.props.label)}
+            <Button
+                fullWidth
+                onClick={this.clickHandler}
+                href={this.props.href}
+                target='_blank'
             >
-                <Button
-                    onClick={this.clickHandler}
-                    fullWidth
-                >
-                    {this.props.label}
-                </Button>
-            </ConditionalRender>
+                {this.props.label}
+            </Button>
         );
     }
 
     clickHandler()
     {
-        this.props.pageDeque.clear();
-        this.props.pageDeque.push(this.props.children);
-        this.props.pageDeque.finish();
+        if (this.props.children)
+        {
+            this.props.pageDeque.clear();
+            this.props.pageDeque.push(this.props.children);
+            this.props.pageDeque.finish();
 
-        window.scrollTo(0, 0);
+            window.scrollTo(0, 0);
+        }
     }
 }
 
 NavigationButton.propTypes = {
     label: PropTypes.string.isRequired,
+    href: PropTypes.string,
     pageDeque: PageDequePropType,
     children: PropTypes.element.isRequired
 };

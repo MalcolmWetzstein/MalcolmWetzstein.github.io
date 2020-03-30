@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, withTheme, Button, Box, Divider, Grid } from '@material-ui/core';
+import { Typography, withTheme, Box, Divider, Grid } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../../components';
 import { About, Portfolio, Education, Experience, Skills, Contact } from '..';
 import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
@@ -95,28 +95,19 @@ class Home extends CustomComponent
                         </NavigationButton>
                         <NavigationButton
                             label={CONSTANTS.NAMES.GITHUB}
+                            href={CONSTANTS.LINKS.GITHUB}
                             pageDeque={this.props.pageDeque}
-                        >
-                            <Button
-                                href={CONSTANTS.LINKS.GITHUB}
-                                target='_blank'
-                            />
-                        </NavigationButton>
+                        />
                         <NavigationButton
                             label={CONSTANTS.NAMES.LINKEDIN}
+                            href={CONSTANTS.LINKS.LINKEDIN}
                             pageDeque={this.props.pageDeque}
-                        >
-                            <Button
-                                href={CONSTANTS.LINKS.LINKEDIN}
-                                target='_blank'
-                            />
-                        </NavigationButton>
+                        />
                         <NavigationButton
                             label='Resume'
+                            href={CONSTANTS.LINKS.RESUME}
                             pageDeque={this.props.pageDeque}
-                        >
-                            <Button href={CONSTANTS.LINKS.RESUME} target='_blank'/>
-                        </NavigationButton>
+                        />
                         <Space/>
                     </Box>
                 </Center>
