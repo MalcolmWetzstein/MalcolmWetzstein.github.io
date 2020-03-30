@@ -425,12 +425,11 @@ class Skills extends CustomComponent
         const filterFlags = {};
         Object.values(CONSTANTS.SKILL_FILTERS).forEach(value => filterFlags[value] = this.state.filters.includes(value));
 
-        return reKey(Object.values(CONSTANTS.SKILL_FILTERS).map(
-            filter =>
-                <MenuItem value={filter}>
-                    <Checkbox checked={filterFlags[filter]}/>
-                    <ListItemText primary={filter}/>
-                </MenuItem>
+        return reKey(Object.values(CONSTANTS.SKILL_FILTERS).map(filter =>
+            <MenuItem value={filter}>
+                <Checkbox checked={filterFlags[filter]}/>
+                <ListItemText primary={filter}/>
+            </MenuItem>
         ));
     }
 

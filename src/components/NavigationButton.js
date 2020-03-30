@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Button } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, ConditionalRender } from '.';
 import { PageDequePropType } from './Util';
 
 class NavigationButton extends CustomComponent
@@ -15,14 +15,19 @@ class NavigationButton extends CustomComponent
 
     render()
     {
-        return this.props.children.type.custom ? (
-            <Button
-                onClick={this.clickHandler}
-                fullWidth
+        return (
+            <ConditionalRender
+                condition={this.props.children.type.custom}
+                alt={React.cloneElement(this.props.children, { fullWidth: true }, this.props.label)}
             >
-                {this.props.label}
-            </Button>
-        ) : React.cloneElement(this.props.children, { fullWidth: true }, this.props.label);
+                <Button
+                    onClick={this.clickHandler}
+                    fullWidth
+                >
+                    {this.props.label}
+                </Button>
+            </ConditionalRender>
+        );
     }
 
     clickHandler()

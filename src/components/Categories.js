@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tabs, withTheme, Box, IconButton, Paper } from '@material-ui/core';
-import { CustomComponent, CustomTab, OptionalWrapper } from '.';
+import { CustomComponent, CustomTab, ConditionalWrapper } from '.';
 import * as CONSTANTS from '../Constants';
 
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -26,11 +26,11 @@ class Categories extends CustomComponent
     {
         return (
             <React.Fragment>
-                <OptionalWrapper 
+                <ConditionalWrapper 
                     wrapper={<Paper square/>}
                     condition={this.props.backdrop}
                 >
-                    <OptionalWrapper
+                    <ConditionalWrapper
                         wrapper={
                             <Box
                                 display='flex'
@@ -56,8 +56,8 @@ class Categories extends CustomComponent
                                 )
                             }
                         </Tabs>
-                    </OptionalWrapper>
-                </OptionalWrapper>
+                    </ConditionalWrapper>
+                </ConditionalWrapper>
                 {React.Children.toArray(this.props.children)[this.state.currentTab]}
                 <Box
                     display='flex'

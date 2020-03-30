@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Container, Fab, Fade, withTheme } from '@material-ui/core';
-import { CustomComponent, Space, OptionalWrapper, Center } from '.';
+import { CustomComponent, Space, ConditionalWrapper, Center } from '.';
 import { PageDequePropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
@@ -38,7 +38,7 @@ class Page extends CustomComponent
     {
         return (
             <React.Fragment>
-                <OptionalWrapper
+                <ConditionalWrapper
                     wrapper={<Center/>}
                     condition={this.props.maxWidth === 'fit'}
                 >
@@ -47,15 +47,15 @@ class Page extends CustomComponent
                         width={this.props.maxWidth === 'fit' ? undefined : 1}
                         padding={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['sm'], 0, CONSTANTS.SPACE_SIZES['xl'], 0)}
                     >
-                        <OptionalWrapper
+                        <ConditionalWrapper
                             wrapper={<Container maxWidth={this.props.maxWidth}/>}
                             condition={this.props.maxWidth !== 'fit'}
                         >
                             <Space size='sm'/>
                             {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
-                        </OptionalWrapper>
+                        </ConditionalWrapper>
                     </Box>
-                </OptionalWrapper>
+                </ConditionalWrapper>
                 <Box
                     position='fixed'
                     bottom={this.props.theme.spacing(CONSTANTS.BACK_TO_TOP_BUTTON_MARGIN)}

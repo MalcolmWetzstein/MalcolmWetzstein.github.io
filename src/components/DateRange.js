@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, withTheme } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, ConditionalRender } from '.';
 import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
@@ -16,7 +16,12 @@ class DateRange extends CustomComponent
             >
                 {this.renderDate(this.props.startMonth, this.props.startYear)}
                 &mdash;
-                {(this.props.endMonth && this.props.endYear) ? this.renderDate(this.props.endMonth, this.props.endYear) : 'Present'}
+                <ConditionalRender
+                    condition={this.props.endMonth && this.props.endYear}
+                    alt='Present'
+                >
+                    {this.renderDate(this.props.endMonth, this.props.endYear)}
+                </ConditionalRender>
             </Typography>
         );
     }

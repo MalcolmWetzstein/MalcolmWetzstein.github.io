@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Card, CardActionArea, CardContent, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
-import { CustomComponent, Bullets, Image } from '.';
+import { CustomComponent, Bullets, Image, ConditionalRender } from '.';
 import * as CONSTANTS from '../Constants';
 
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
@@ -50,31 +50,26 @@ class TimelineTile extends CustomComponent
                                 alignItems='center'
                                 spacing={CONSTANTS.TIMELINE_TILE_ARROW_ICON_MARGIN}
                             >
-                                {
-                                    this.props.image ? (
-                                        <Grid item>
-                                            <Image
-                                                src={this.props.image}
-                                                alt={this.props.imageInfo}
-                                                height={this.props.theme.spacing(CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT)}
-                                            />
-                                        </Grid>
-                                    ) : undefined
-                                }
-                                {
-                                    this.props.details ? (
-                                        <Grid item>
-                                            {this.state.open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
-                                        </Grid>
-                                    ) : undefined
-                                }
+                                <ConditionalRender condition={this.props.image}>
+                                    <Grid item>
+                                        <Image
+                                            src={this.props.image}
+                                            alt={this.props.imageInfo}
+                                            height={this.props.theme.spacing(CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT)}
+                                        />
+                                    </Grid>
+                                </ConditionalRender>
+                                <ConditionalRender condition={this.props.details}>
+                                    <Grid item>
+                                        {this.state.open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
+                                    </Grid>
+                                </ConditionalRender>
                             </Grid>
                         </Grid>
                     </CardContent>
                 </CardActionArea>
-                {
-                    this.props.details ? (
-                        <Collapse in={this.state.open}>
+                <ConditionalRender condition={this.props.details}>
+                    <Collapse in={this.state.open}>
                         <Divider/>
                         <Box position='relative'>
                             <CardContent>
@@ -98,8 +93,7 @@ class TimelineTile extends CustomComponent
                             </CardContent>
                         </Box>
                     </Collapse>
-                    ) : undefined
-                }
+                </ConditionalRender>
             </Card>
         );
     }

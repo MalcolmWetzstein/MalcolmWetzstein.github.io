@@ -16,11 +16,10 @@ class Showcase extends CustomComponent
                 spacing={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['sm'])}
             >
                 {
-                    React.Children.map(this.props.children,
-                        child =>
-                            <GridListTile>
-                                {this.props.pageDeque.withDequeProps(child)}
-                            </GridListTile>
+                    React.Children.map(this.props.children, child =>
+                        <GridListTile>
+                            {this.props.pageDeque.withDequeProps(child)}
+                        </GridListTile>
                     )
                 }
             </GridList>

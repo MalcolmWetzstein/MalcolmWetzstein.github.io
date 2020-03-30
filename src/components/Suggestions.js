@@ -26,16 +26,15 @@ class Suggestions extends CustomComponent
                     size='large'
                     color='secondary'
                 >
-                    {this.buttonsFromChildren()}
+                    {this.renderButtons()}
                 </ButtonGroup>
             </Box>
         );
     }
 
-    buttonsFromChildren()
+    renderButtons()
     {
-        return React.Children.map(this.props.children,
-            (child, index) =>
+        return React.Children.map(this.props.children, (child, index) =>
             {
                 return child.type.custom ? (
                     <Button onClick={this.clickHandler(index)}>

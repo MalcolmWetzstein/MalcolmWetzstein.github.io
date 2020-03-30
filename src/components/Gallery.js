@@ -14,11 +14,10 @@ class Gallery extends CustomComponent
                 cellHeight='auto'
             >
                 {
-                    React.Children.map(this.props.children,
-                        child => 
-                            <GridListTile>
-                                {child}
-                            </GridListTile>
+                    React.Children.map(this.props.children, child => 
+                        <GridListTile>
+                            {child}
+                        </GridListTile>
                     )
                 }
             </GridList>

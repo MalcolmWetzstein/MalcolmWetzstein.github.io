@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgress, Box } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, ConditionalRender } from '.';
 import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
@@ -42,21 +42,19 @@ class YoutubeEmbed extends CustomComponent
                     allowFullScreen
                     onLoad={this.onLoad}
                 />
-                {
-                    this.state.loading ? (
-                        <Box
-                            display='flex'
-                            justifyContent='center'
-                            alignItems='center'
-                            paddingBottom='56.25%'
-                            paddingTop={25}
-                            height={0}
-                            bgcolor={CONSTANTS.YOUTUBE_LOADING_PANEL_TINT}
-                        >
-                            <CircularProgress color='secondary'/>
-                        </Box>
-                    ) : undefined
-                }
+                <ConditionalRender condition={this.state.loading}>
+                    <Box
+                        display='flex'
+                        justifyContent='center'
+                        alignItems='center'
+                        paddingBottom='56.25%'
+                        paddingTop={25}
+                        height={0}
+                        bgcolor={CONSTANTS.YOUTUBE_LOADING_PANEL_TINT}
+                    >
+                        <CircularProgress color='secondary'/>
+                    </Box>
+                </ConditionalRender>
             </div>
         );
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, withTheme } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, ConditionalRender } from '.';
 import { reKey, NoChildrenPropType } from './Util';
 
 class Bullets extends CustomComponent
@@ -20,7 +20,12 @@ class Bullets extends CustomComponent
                                     variant='body2'
                                     color={this.props.focus ? 'textPrimary' : 'textSecondary'}
                                 >
-                                    {Array.isArray(bullet) ? bullet[0] : bullet}
+                                    <ConditionalRender
+                                        condition={Array.isArray(bullet)}
+                                        alt={bullet}
+                                    >
+                                        {bullet[0]}
+                                    </ConditionalRender>
                                 </Typography>
                                 {
                                     Array.isArray(bullet) ? 

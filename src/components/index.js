@@ -13,7 +13,7 @@ import CustomTab from './CustomTab';
 import PageHeader from './PageHeader';
 import Showcase from './Showcase';
 import ShowcaseTile from './ShowcaseTile';
-import OptionalWrapper from './OptionalWrapper';
+import ConditionalWrapper from './ConditionalWrapper';
 import Gallery from './Gallery';
 import GalleryTile from './GalleryTile';
 import NavigationButton from './NavigationButton';
@@ -27,6 +27,7 @@ import FilterList from './FilterList';
 import FilterItem from './FilterItem';
 import Image from './Image';
 import Preloader from './Preloader';
+import ConditionalRender from './ConditionalRender';
 
 export {
     CustomComponent,
@@ -44,7 +45,6 @@ export {
     PageHeader,
     Showcase,
     ShowcaseTile,
-    OptionalWrapper,
     Gallery,
     GalleryTile,
     NavigationButton,
@@ -57,5 +57,7 @@ export {
     FilterList,
     FilterItem,
     Image,
-    Preloader
+    Preloader,
+    ConditionalRender,
+    ConditionalWrapper
 };

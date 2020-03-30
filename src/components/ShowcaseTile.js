@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, GridListTileBar, ButtonBase, Fade, Box, Typography, CircularProgress } from '@material-ui/core';
-import { CustomComponent, Image } from '.';
+import { CustomComponent, Image, ConditionalRender } from '.';
 import { PageDequePropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
@@ -57,23 +57,21 @@ class ShowcaseTile extends CustomComponent
                     </Fade>
                 </ButtonBase>
                 <GridListTileBar title={this.props.label}/>
-                {
-                    this.state.loading ? (
-                        <Box
-                            position='relative'
-                            display='flex'
-                            justifyContent='center'
-                            alignItems='center'
-                            paddingBottom='100%'
-                            width={1}
-                            height={0}
-                        >
-                            <Box marginTop='-100%'>
-                                <CircularProgress color='secondary'/>
-                            </Box>
+                <ConditionalRender condition={this.state.loading}>
+                    <Box
+                        position='relative'
+                        display='flex'
+                        justifyContent='center'
+                        alignItems='center'
+                        paddingBottom='100%'
+                        width={1}
+                        height={0}
+                    >
+                        <Box marginTop='-100%'>
+                            <CircularProgress color='secondary'/>
                         </Box>
-                    ) : undefined
-                }
+                    </Box>
+                </ConditionalRender>
             </React.Fragment>
         );
     }

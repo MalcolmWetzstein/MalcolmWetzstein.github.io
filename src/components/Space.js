@@ -9,9 +9,7 @@ class Space extends CustomComponent
 {
     render()
     {
-        return (
-            <Box padding={this.padding()}/>
-        );
+        return ( <Box padding={this.padding()}/> );
     }
 
     padding()

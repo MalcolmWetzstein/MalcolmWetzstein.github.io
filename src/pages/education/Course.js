@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Grid, Tooltip, Divider, Box, Button, Typography } from '@material-ui/core';
-import { CustomComponent, Indent, Space, Bullets } from '../../components';
+import { CustomComponent, Indent, Space, Bullets, ConditionalRender } from '../../components';
 import { NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
 
@@ -59,25 +59,18 @@ class Course extends CustomComponent
                             xs={2}
                         >
                             <Tooltip title={CONSTANTS.COURSE_LEVEL_TOOLTIPS[this.props.level]}>
-                                {
-                                    this.state.hover || this.state.open ? (
-                                        <Typography
-                                            variant='subtitle1'
-                                            color='textSecondary'
-                                            align='center'
-                                        >
-                                            {CONSTANTS.COURSE_LEVELS[this.props.level]}
-                                        </Typography>
-                                    ) : (
-                                        <Typography
-                                            variant='subtitle1'
-                                            color='textSecondary'
-                                            align='center'
-                                        >
-                                            &bull;
-                                        </Typography>
-                                    )
-                                }
+                                <ConditionalRender
+                                    condition={this.state.hover || this.state.open}
+                                    alt={this.renderDot()}
+                                >
+                                    <Typography
+                                        variant='subtitle1'
+                                        color='textSecondary'
+                                        align='center'
+                                    >
+                                        {CONSTANTS.COURSE_LEVELS[this.props.level]}
+                                    </Typography>
+                                </ConditionalRender>
                             </Tooltip>
                         </Grid>
                         <Grid
@@ -89,32 +82,25 @@ class Course extends CustomComponent
                             xs={2}
                         >
                             <Tooltip title={CONSTANTS.COURSE_ASSESSMENT_TOOLTIPS[this.props.assessment]}>
-                                {
-                                    this.state.hover || this.state.open ? (
-                                        <Typography
-                                            variant='subtitle1'
-                                            color='textSecondary'
-                                            align='center'
-                                        >
-                                            {CONSTANTS.COURSE_ASSESMENT_STYLES[this.props.assessment]}
-                                        </Typography>
-                                    ) : (
-                                        <Typography
-                                            variant='subtitle1'
-                                            color='textSecondary'
-                                            align='center'
-                                        >
-                                            &bull;
-                                        </Typography>
-                                    )
-                                }
+                                <ConditionalRender
+                                    condition={this.state.hover || this.state.open}
+                                    alt={this.renderDot()}
+                                >
+                                    <Typography
+                                        variant='subtitle1'
+                                        color='textSecondary'
+                                        align='center'
+                                    >
+                                        {CONSTANTS.COURSE_ASSESMENT_STYLES[this.props.assessment]}
+                                    </Typography>
+                                </ConditionalRender>
                             </Tooltip>
                         </Grid>
                     </Grid>
                 </ExpansionPanelSummary>
                 <Divider/>
                 <ExpansionPanelDetails>
-                    <Box paddingRight={this.props.theme.spacing(CONSTANTS.COURSE_DETAIL_ARROW_MARGIN)+'px'}>
+                    <Box paddingRight={this.props.theme.spacing(CONSTANTS.COURSE_DETAIL_ARROW_MARGIN) + 'px'}>
                         <Space size='xs'/>
                         <Indent>
                             <Typography variant='h6'>
@@ -130,7 +116,7 @@ class Course extends CustomComponent
                                 variant='subtitle2'
                                 color='textSecondary'
                             >
-                                {this.instructors()}
+                                {this.renderInstructors()}
                             </Typography>
                             <Space size='sm'/>
                             <Indent>
@@ -166,7 +152,20 @@ class Course extends CustomComponent
         );
     }
 
-    instructors()
+    renderDot()
+    {
+        return (
+            <Typography
+                variant='subtitle1'
+                color='textSecondary'
+                align='center'
+            >
+                &bull;
+            </Typography>
+        );
+    }
+
+    renderInstructors()
     {
         if (this.props.instructors)
         {
