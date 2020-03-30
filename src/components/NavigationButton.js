@@ -44,7 +44,7 @@ NavigationButton.propTypes = {
     label: PropTypes.string.isRequired,
     href: PropTypes.string,
     pageDeque: PageDequePropType,
-    children: PropTypes.element.isRequired
+    children: PropTypes.element
 };
 
 export default withTheme(NavigationButton);
