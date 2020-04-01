@@ -4,13 +4,14 @@ import indigo from '@material-ui/core/colors/indigo';
 import teal from '@material-ui/core/colors/teal';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import amber from '@material-ui/core/colors/amber';
+import orange from '@material-ui/core/colors/orange';
 
 const Indigo = responsiveFontSizes(
     createMuiTheme({
         palette: {
             type: 'dark',
             primary: { main: indigo[800] },
-            secondary: { main: amber[700] }
+            secondary: { main: orange[300] }
         }
     })
 );
