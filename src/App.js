@@ -10,7 +10,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import DescriptionIcon from '@material-ui/icons/Description';
 
 const lightTheme = LightThemes.Blue;
-const darkTheme = DarkThemes.Indigo;
+const darkTheme = DarkThemes.BlueGrey;
 
 function App() 
 {
