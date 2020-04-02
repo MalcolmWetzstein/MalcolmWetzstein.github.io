@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTheme, Container, Button } from '@material-ui/core';
+import { withTheme, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
 import { Portfolio } from '..';
 import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
@@ -18,12 +18,10 @@ class Website extends CustomComponent
                     Personal Website
                 </PageHeader>
                 <Container maxWidth='xs'>
-                    <NavigationButton label={CONSTANTS.SEE_ON_GITHUB_TEXT}>
-                        <Button
-                            href={CONSTANTS.LINKS.PORTFOLIO.WEBSITE}
-                            target='_blank'
-                        />
-                    </NavigationButton>
+                    <NavigationButton
+                        label={CONSTANTS.SEE_ON_GITHUB_TEXT}
+                        href={CONSTANTS.LINKS.PORTFOLIO.WEBSITE}
+                    />
                 </Container>
                 <Space size='lg'/>
                 <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>

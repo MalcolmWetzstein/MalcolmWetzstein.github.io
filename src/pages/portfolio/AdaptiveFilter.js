@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTheme, Button, Container } from '@material-ui/core';
+import { withTheme, Container } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
 import { Portfolio } from '..';
 import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
@@ -18,12 +18,10 @@ class AdaptiveFilter extends CustomComponent
                     Implementation of <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>
                 </PageHeader>
                 <Container maxWidth='xs'>
-                    <NavigationButton label={CONSTANTS.SEE_ON_GITHUB_TEXT}>
-                        <Button
-                            href={CONSTANTS.LINKS.PORTFOLIO.MANIFOLDS_FILTER}
-                            target='_blank'
-                        />
-                    </NavigationButton>
+                    <NavigationButton
+                        label={CONSTANTS.SEE_ON_GITHUB_TEXT}
+                        href={CONSTANTS.LINKS.PORTFOLIO.MANIFOLDS_FILTER}
+                    />
                 </Container>
                 <Space size='lg'/>
                 <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>
