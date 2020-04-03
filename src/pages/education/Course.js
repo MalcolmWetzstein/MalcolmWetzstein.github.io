@@ -59,18 +59,20 @@ class Course extends CustomComponent
                             xs={2}
                         >
                             <Tooltip title={CONSTANTS.COURSE_LEVEL_TOOLTIPS[this.props.level]}>
-                                <ConditionalRender
-                                    condition={this.state.hover || this.state.open}
-                                    alt={this.renderDot()}
-                                >
-                                    <Typography
-                                        variant='subtitle1'
-                                        color='textSecondary'
-                                        align='center'
+                                <Box>
+                                    <ConditionalRender
+                                        condition={this.state.hover || this.state.open}
+                                        alt={this.renderDot()}
                                     >
-                                        {CONSTANTS.COURSE_LEVELS[this.props.level]}
-                                    </Typography>
-                                </ConditionalRender>
+                                        <Typography
+                                            variant='subtitle1'
+                                            color='textSecondary'
+                                            align='center'
+                                        >
+                                            {CONSTANTS.COURSE_LEVELS[this.props.level]}
+                                        </Typography>
+                                    </ConditionalRender>
+                                </Box>
                             </Tooltip>
                         </Grid>
                         <Grid
@@ -82,18 +84,20 @@ class Course extends CustomComponent
                             xs={2}
                         >
                             <Tooltip title={CONSTANTS.COURSE_ASSESSMENT_TOOLTIPS[this.props.assessment]}>
-                                <ConditionalRender
-                                    condition={this.state.hover || this.state.open}
-                                    alt={this.renderDot()}
-                                >
-                                    <Typography
-                                        variant='subtitle1'
-                                        color='textSecondary'
-                                        align='center'
+                                <Box>
+                                    <ConditionalRender
+                                        condition={this.state.hover || this.state.open}
+                                        alt={this.renderDot()}
                                     >
-                                        {CONSTANTS.COURSE_ASSESMENT_STYLES[this.props.assessment]}
-                                    </Typography>
-                                </ConditionalRender>
+                                        <Typography
+                                            variant='subtitle1'
+                                            color='textSecondary'
+                                            align='center'
+                                        >
+                                            {CONSTANTS.COURSE_ASSESMENT_STYLES[this.props.assessment]}
+                                        </Typography>
+                                    </ConditionalRender>
+                                </Box>
                             </Tooltip>
                         </Grid>
                     </Grid>
