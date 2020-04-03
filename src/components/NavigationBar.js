@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AppBar, Tabs, withTheme, Box, Button } from '@material-ui/core';
+import { AppBar, Tabs, withTheme, Box, Button, Grid } from '@material-ui/core';
 import { CustomComponent, CustomTab } from '.';
 import { reKey, PageDequePropType, OneOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
@@ -26,47 +26,54 @@ class NavigationBar extends CustomComponent
     render()
     {
         return (
-           <AppBar position='relative'>
-                <Box
-                    position='absolute'
-                    left={0}
-                    height={1}
-                    display='flex'
+            <AppBar position='relative'>
+                <Grid
+                    container
+                    justify='space-between'
                     alignItems='center'
-                    margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                    wrap='nowrap'
                 >
-                    <Button
-                        onClick={this.onClickHome}
-                        disabled={this.tabsValue() === false}
+                    <Grid item>
+                        <Box
+                            display='flex'
+                            margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                            minWidth={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SIZE * this.props.links.length)}
+                        >
+                            <Button
+                                onClick={this.onClickHome}
+                                disabled={this.tabsValue() === false}
+                            >
+                                MXW
+                            </Button>
+                        </Box>
+                    </Grid>
+                    <Grid
+                        item
+                        zeroMinWidth
                     >
-                        MXW
-                    </Button>
-                </Box>
-                <Box
-                    display='flex'
-                    justifyContent='center'
-                    margin='auto'
-                    width={0.6}
-                >
-                    <Tabs 
-                        indicatorColor='secondary' 
-                        value={this.tabsValue()} 
-                        onChange={this.onTabChange}
-                        variant='scrollable'
-                        scrollButtons='auto'
-                    >
-                        {React.Children.map(this.props.children, (child, index) => <CustomTab label={this.state.tabNames[index]}/>)}
-                    </Tabs>
-                </Box>
-                <Box
-                    position='absolute'
-                    right={0}
-                    display='flex'
-                    margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
-                >
-                    {reKey(this.props.links)}
-                </Box>
-           </AppBar>
+                        <Box>
+                            <Tabs 
+                                indicatorColor='secondary' 
+                                value={this.tabsValue()} 
+                                onChange={this.onTabChange}
+                                variant='scrollable'
+                                scrollButtons='auto'
+                            >
+                                {React.Children.map(this.props.children, (child, index) => <CustomTab label={this.state.tabNames[index]}/>)}
+                            </Tabs>
+                        </Box>
+                    </Grid>
+                    <Grid item>
+                        <Box
+                            display='flex'
+                            margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                            minWidth={this.props.theme.spacing(CONSTANTS.HOME_BUTTON_SIZE)}
+                        >
+                            {reKey(this.props.links)}
+                        </Box>
+                    </Grid>
+                </Grid>
+            </AppBar>
         );
     }
 
@@ -106,6 +113,8 @@ class NavigationBar extends CustomComponent
         return false;
     }
 }
+
+NavigationBar.defaultProps = { links: [] };
 
 NavigationBar.propTypes = {
     links: PropTypes.arrayOf(PropTypes.element),

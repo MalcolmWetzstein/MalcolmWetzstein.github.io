@@ -38,7 +38,7 @@ class Suggestions extends CustomComponent
             {
                 return child.type.custom ? (
                     <Button onClick={this.clickHandler(index)}>
-                        <Box minWidth={CONSTANTS.BUTTON_SIZE}>
+                        <Box minWidth={this.props.theme.spacing(CONSTANTS.SUGGESTION_BUTTON_SIZE)}>
                             {this.props.labels[index]}
                         </Box>
                     </Button>
@@ -48,7 +48,7 @@ class Suggestions extends CustomComponent
                             variant: 'outlined',
                             color: 'secondary'
                         }, 
-                        <Box minWidth={CONSTANTS.BUTTON_SIZE}>
+                        <Box minWidth={this.props.theme.spacing(CONSTANTS.SUGGESTION_BUTTON_SIZE)}>
                             <Center>
                                 {this.props.labels[index]}
                             </Center>
@@ -70,6 +70,7 @@ class Suggestions extends CustomComponent
 }
 
 Suggestions.propTypes = {
+    theme: PropTypes.object.isRequired,
     labels: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     pageDeque: PageDequePropType.isRequired,
     children: OneOrMoreElementsPropType
