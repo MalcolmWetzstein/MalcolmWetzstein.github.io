@@ -24,7 +24,7 @@ class Experience extends CustomComponent
                 <Timeline>
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.SERVCO}
-                        imageInfo='Servco Pacific'
+                        imageInfo={CONSTANTS.NAMES.SERVCO}
                         details={[
                             'Virtual Reality and Augmented Reality prototyping',
                             [
@@ -53,13 +53,13 @@ class Experience extends CustomComponent
                             startMonth={11}
                             startYear={2019}
                             title='Full-Stack Software Engineer (Temporary)'
-                            company='Servco Pacific'
+                            company={CONSTANTS.NAMES.SERVCO}
                             department='Digital Strategy Team'
                         />
                     </TimelineTile>
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.STEP}
-                        imageInfo='Scheller Teacher Education Program'
+                        imageInfo={CONSTANTS.NAMES.STEP.LONG}
                         details={[
                             [
                                 'Rearchitected and optimized WebGL 3D rendering engine',
@@ -90,8 +90,8 @@ class Experience extends CustomComponent
                             endMonth={8}
                             endYear={2019}
                             title='Student Software Developer (Graphics Programmer)'
-                            company='MIT Scheller Teacher Education Program'
-                            department='StarLogo Nova Project'
+                            company={'MIT ' + CONSTANTS.NAMES.STEP.LONG}
+                            department={CONSTANTS.NAMES.STARLOGO + ' Project'}
                         />
                     </TimelineTile>
                 </Timeline>

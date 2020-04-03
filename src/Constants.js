@@ -33,7 +33,13 @@ export const NAMES = readOnly({
     FLICKR: 'Flickr',
     MIT: 'Massachusetts Institute of Technology',
     CAMBRIDGE: 'Cambridge',
-    MASSACHUSETTS: 'MA'
+    MASSACHUSETTS: 'MA',
+    STARLOGO: 'StarLogo Nova',
+    STEP: {
+        LONG: 'Scheller Teacher Education Program',
+        SHORT: 'STEP Lab'
+    },
+    SERVCO: 'Servco Pacific'
 });
 
 export const HOME_DISPLAY_TEXT = 'Home';
