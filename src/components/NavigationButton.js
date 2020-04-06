@@ -21,6 +21,7 @@ class NavigationButton extends CustomComponent
                 onClick={this.clickHandler}
                 href={this.props.href}
                 target='_blank'
+                variant={this.props.variant}
             >
                 {this.props.label}
             </Button>
@@ -40,9 +41,12 @@ class NavigationButton extends CustomComponent
     }
 }
 
+NavigationButton.defaultProps = { variant: 'text' };
+
 NavigationButton.propTypes = {
     label: PropTypes.string.isRequired,
     href: PropTypes.string,
+    variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
     pageDeque: PageDequePropType,
     children: PropTypes.element
 };
