@@ -105,7 +105,7 @@ class Home extends CustomComponent
                         />
                         <NavigationButton
                             label='Resume'
-                            href={CONSTANTS.LINKS.RESUME}
+                            href={CONSTANTS.DOCUMENTS.RESUME}
                             pageDeque={this.props.pageDeque}
                         />
                         <Space/>

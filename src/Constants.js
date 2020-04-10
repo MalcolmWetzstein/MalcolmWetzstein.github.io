@@ -79,6 +79,10 @@ export const HOME_CAREER_TITLES_SPACING = 2;
 export const BACK_BUTTON_TEXT = 'Back';
 export const SEE_ON_GITHUB_TEXT = 'See Project on ' + NAMES.GITHUB;
 export const SEE_ON_FLICKR_TEXT = 'See Project on ' + NAMES.FLICKR;
+export const VIEW_PAPER_TEXT = 'View Research Paper';
+export const ASPECT_RATIO_16_9_PADDING = '56.25%';
+export const YOUTUBE_HEADER_PADDING = 25;
+export const GOOGLE_SLIDES_CONTROLS_PADDING = 29;
 
 export const SPACE_SIZES = readOnly({
     'xs': 1.0,
@@ -156,7 +160,6 @@ export const SKILL_FILTERS = readOnly({
 export const LINKS = readOnly({
     LINKEDIN: 'https://www.linkedin.com/in/malcolmwetzstein',
     GITHUB: 'https://github.com/MalcolmWetzstein',
-    RESUME: 'documents/resume.pdf',
     PORTFOLIO: {
         INTRO_ARCH: 'https://flic.kr/s/aHsmLAdjiw',
         MANIFOLDS_FILTER: 'https://github.com/MalcolmWetzstein/Implementation-of-Adaptive-Manifolds-for-Real-Time-High-Dimensional-Filtering',
@@ -207,6 +210,20 @@ export const VIDEO = readOnly({
             YANK_GRID: 'https://www.youtube.com/embed/oemSm6cUtDI',
             YANK_CONTINUOUS: 'https://www.youtube.com/embed/4kaQjtPlEAQ',
         },
+        SURFACE_FLUID: 'https://www.youtube.com/embed/Jbz7SobDzok',
         AR_GAME: 'https://www.youtube.com/embed/CPJAs7iY2Qo'
     }
-})
+});
+
+export const SLIDES = readOnly({
+    PORTFOLIO: {
+        SURFACE_FLUID: 'https://docs.google.com/presentation/d/e/2PACX-1vQkiVx_pSPOUIU6-0U-_VeNFfRznn5WpbcSco3txZjPrYF3CaUYe1qr-3dVYCLoUrtPmsIaC29CCY-o/embed?start=false&loop=false&delayms=5000'
+    }
+});
+
+export const DOCUMENTS = readOnly({
+    RESUME: 'documents/resume.pdf',
+    PORTFOLIO: {
+        SURFACE_FLUID: 'documents/surface_fluid_flow.pdf'
+    }
+});

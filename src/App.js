@@ -25,7 +25,7 @@ function App()
             <IconLink href={CONSTANTS.LINKS.LINKEDIN}>
               <LinkedInIcon/>
             </IconLink>,
-            <IconLink href={CONSTANTS.LINKS.RESUME}>
+            <IconLink href={CONSTANTS.DOCUMENTS.RESUME}>
               <DescriptionIcon/>
             </IconLink>
           ]}

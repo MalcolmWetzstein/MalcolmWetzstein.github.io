@@ -28,6 +28,7 @@ import FilterItem from './FilterItem';
 import Image from './Image';
 import Preloader from './Preloader';
 import ConditionalRender from './ConditionalRender';
+import GoogleSlidesEmbed from './GoogleSlidesEmbed';
 
 export {
     CustomComponent,
@@ -59,5 +60,6 @@ export {
     Image,
     Preloader,
     ConditionalRender,
-    ConditionalWrapper
+    ConditionalWrapper,
+    GoogleSlidesEmbed
 };

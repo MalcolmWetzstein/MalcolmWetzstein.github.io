@@ -5,7 +5,7 @@ import { CustomComponent, ConditionalRender } from '.';
 import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
-class YoutubeEmbed extends CustomComponent
+class GoogleSlidesEmbed extends CustomComponent
 {
     constructor(props)
     {
@@ -22,8 +22,8 @@ class YoutubeEmbed extends CustomComponent
             <div
                 style={{
                     position: 'relative',
-                    paddingBottom: CONSTANTS.ASPECT_RATIO_16_9_PADDING,
-                    paddingTop: 25,
+                    paddingTop: '56.25%' /* 16:9 */,
+                    paddingBottom: CONSTANTS.GOOGLE_SLIDES_CONTROLS_PADDING,
                     height: 0
                 }}
             >
@@ -38,7 +38,6 @@ class YoutubeEmbed extends CustomComponent
                     }}
                     src={this.props.src}
                     frameBorder='0'
-                    allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
                     allowFullScreen
                     onLoad={this.onLoad}
                 />
@@ -47,8 +46,8 @@ class YoutubeEmbed extends CustomComponent
                         display='flex'
                         justifyContent='center'
                         alignItems='center'
-                        paddingBottom={CONSTANTS.ASPECT_RATIO_16_9_PADDING}
-                        paddingTop={CONSTANTS.YOUTUBE_HEADER_PADDING}
+                        paddingTop='56.25%'
+                        paddingBottom={CONSTANTS.GOOGLE_SLIDES_CONTROLS_PADDING}
                         height={0}
                         bgcolor={CONSTANTS.YOUTUBE_LOADING_PANEL_TINT}
                     >
@@ -65,10 +64,11 @@ class YoutubeEmbed extends CustomComponent
     }
 }
 
-YoutubeEmbed.propTypes = {
+GoogleSlidesEmbed.propTypes = {
     title: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     children: NoChildrenPropType
 };
 
-export default YoutubeEmbed;
+export default GoogleSlidesEmbed;
+                
