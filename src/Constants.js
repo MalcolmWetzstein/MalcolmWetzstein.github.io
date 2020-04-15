@@ -79,7 +79,7 @@ export const HOME_CAREER_TITLES_SPACING = 2;
 export const BACK_BUTTON_TEXT = 'Back';
 export const SEE_ON_GITHUB_TEXT = 'See Project on ' + NAMES.GITHUB;
 export const SEE_ON_FLICKR_TEXT = 'See Project on ' + NAMES.FLICKR;
-export const VIEW_PAPER_TEXT = 'View Research Paper';
+export const VIEW_PAPER_TEXT = 'Read Research Paper';
 export const ASPECT_RATIO_16_9_PADDING = '56.25%';
 export const YOUTUBE_HEADER_PADDING = 25;
 export const GOOGLE_SLIDES_CONTROLS_PADDING = 29;
@@ -162,7 +162,10 @@ export const LINKS = readOnly({
     GITHUB: 'https://github.com/MalcolmWetzstein',
     PORTFOLIO: {
         INTRO_ARCH: 'https://flic.kr/s/aHsmLAdjiw',
-        MANIFOLDS_FILTER: 'https://github.com/MalcolmWetzstein/Implementation-of-Adaptive-Manifolds-for-Real-Time-High-Dimensional-Filtering',
+        MANIFOLDS_FILTER: {
+            PROJECT: 'https://github.com/MalcolmWetzstein/Implementation-of-Adaptive-Manifolds-for-Real-Time-High-Dimensional-Filtering',
+            ORIGINAL: 'https://www.inf.ufrgs.br/~eslgastal/AdaptiveManifolds/'
+        },
         SURFACE_FLUID: 'https://github.com/MalcolmWetzstein/Surface-Fluid-Simulation-via-Mesh-Parameterization',
         PAVILLION: 'https://flic.kr/s/aHsmLAdQ48',
         WEBSITE: 'https://github.com/MalcolmWetzstein/MalcolmWetzstein.github.io'

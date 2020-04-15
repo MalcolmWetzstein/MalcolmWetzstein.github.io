@@ -32,7 +32,6 @@ class StarLogo extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 <Suggestions
-                    pageDeque={this.props.pageDeque}
                     labels={[
                         CONSTANTS.NAMES.STEP.SHORT,
                         CONSTANTS.NAMES.STARLOGO,
@@ -66,9 +65,9 @@ class StarLogo extends CustomComponent
                 <Space size='md'/>
                 <Typography>
                     Another feature of the terrain system that I designed is the capability of <i>{CONSTANTS.NAMES.STARLOGO}</i> agents to programmatically interact 
-                    with the terrain. Users can program agents to add or remove material from a terrain patch. This allows for phenomenon such as erosion to be simulated 
-                    in <i>{CONSTANTS.NAMES.STARLOGO}</i>. In conjunction with the terrain editor, users can setup various starting conditions for simulations involving 
-                    agent-terrain interaction.
+                    with the terrain. Users can program agents to add or remove material from the terrain patch beneath them. This allows for phenomenon such as erosion 
+                    to be simulated in <i>{CONSTANTS.NAMES.STARLOGO}</i>. In conjunction with the terrain editor, users can setup various starting conditions for simulations 
+                    involving agent-terrain interaction.
                 </Typography>
                 <Space size='sm'/>
                 <YoutubeEmbed
@@ -79,8 +78,8 @@ class StarLogo extends CustomComponent
                 <Typography>
                     The grid-aligned interaction of agents with the terrain by adding or removing material from the terrain patch beneath them allows for conservation of
                     mass, ideal for accurate simulations. By relaxing the constraint for strict conservation of mass, agents can also interact with the terrain at arbitrary,
-                    continuous locations instead of interacting with a patch aligned grid. This results in more organic alterations to the terrain at the cost of some error
-                    in conservation of mass.
+                    continuous locations instead of interacting with a patch aligned grid. This results in more natural and varied alterations to the terrain at the cost of 
+                    small error in conservation of mass.
                 </Typography>
                 <Space size='sm'/>
                 <YoutubeEmbed
