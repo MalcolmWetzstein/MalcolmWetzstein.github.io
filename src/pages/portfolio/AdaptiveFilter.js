@@ -69,7 +69,7 @@ class AdaptiveFilter extends CustomComponent
                     The bilaterial filter is an example of a high-dimensional filter that can be used for denoising. It is similar to the gaussian blur, but uses the red, green, and 
                     blue color channels in an image as additional dimensions. This has the effect of preserving edges while only blurring noise and other small scale details. I 
                     implemented this filter using the adaptive manifolds technique by generating manifolds in 5D-space with x, y, red, green, and blue dimensions. The bilateral filter 
-                    becomes a gaussian filter over the surface of the manifold. To improve performance I used a recursive filter as an approximation of the gaussian filter as 
+                    becomes a gaussian filter over the surfaces of the manifolds. To improve performance, I used a recursive filter as an approximation of the gaussian filter as 
                     described in <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>.
                 </Typography>
                 <Space size='sm'/>
@@ -81,8 +81,8 @@ class AdaptiveFilter extends CustomComponent
                     together, even if they are far away from each other in the image or their individual RGB values are far apart. The result is more noise reduction and less blurring 
                     of soft or small-scale details than the bilateral filter. The dimensions of the non-local means filter depends on the size of the grid of neighboring pixels. I 
                     implemented a non-local means filter with a 7x7 grid by generating manifolds in 149-dimensional space, 3 dimensions for the RGB values of each of the 49 neighbors 
-                    in the grid and 2 dimensions for the x and y spatial dimensions. The non-local means filter also becomes a gaussian filter over the surface of the manifold. I 
-                    again use the faster recursive filter to approximate the gaussian.  
+                    in the grid and 2 dimensions for the x and y spatial dimensions. The non-local means filter also becomes a gaussian filter over the surfaces of the manifolds. I 
+                    again use a faster recursive filter to approximate the gaussian. 
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of denoising */}
