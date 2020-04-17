@@ -19,9 +19,9 @@ class AdaptiveFilter extends CustomComponent
                     Implementation of <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>
                 </PageHeader>
                 <Typography>
-                    For my class project in <i>Computational Photography</i> I implemented the technique described in the 
+                    For my class project in <i>Computational Photography</i> I implemented the technique described by the 
                     paper <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> by E. Gastal and M. Oliveira. 
-                    The technique performs fast high-dimensional filtering over images and video allowing many kinds of complex 
+                    The technique performs fast high-dimensional filtering over images and video, allowing many kinds of complex 
                     denoising algorithms to be applied in real-time. More about my <i>Computational Photography</i> course 
                     can be found under <b>Education</b>
                 </Typography>
@@ -36,35 +36,53 @@ class AdaptiveFilter extends CustomComponent
                 <Space size='sm'/>
                 <Typography>
                     Simple image filters like the Gaussian Blur operate in two dimensions, the x and y dimensions of the image. These kinds of filters are called spatial, or linear, 
-                    filters; a pre-computation step can be used to speed up evaluation of the filter. High-dimensional, or non-linear, filters operate in three or more dimensions on 
-                    images, where each additional dimension is associated with a pixel value. The bilateral filter is a 5D filter where RGB color values correspond to the three 
-                    additional dimensions. Because they depend on values at each pixel, pre-computation cannot be used to speed up evaluation of the filter and the entire image must 
-                    be looped over once per pixel in order to evaluate the filter at that pixel.
+                    filters; a pre-computation step can be used to speed up evaluation of the filter. High-dimensional, or non-linear, filters operate on images in three or more 
+                    dimensions, where each additional dimension is associated with a pixel value. The bilateral filter is a 5D filter where RGB color values correspond to the three 
+                    additional dimensions. Because high-dimensional filters depend on values at each pixel, pre-computation cannot be used to speed up evaluation of the filter. Since
+                    filters generally require a double loop over all pixels in an image to evaluate, the amount of computation required to evaluate high-dimensional filters is beyond 
+                    the capablities of real-time applications. 
                 </Typography>
                 <Space size='xs'/>
                 <Typography>
-                    Instead of trying to evaluate a high-dimensional filter over a two dimensional image, the algorithm presented 
-                    in <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> computes a series of manifolds, surfaces in high-dimensional space, where applying the 
-                    filter is equivalent to performing a Gaussian Blur over the surface of the manifold. Unlike images, which are flat surfaces, manifolds can be curved surfaces. 
-                    The manifolds are represented by a collection of points on its surface, one per a pixel in the original image. By taking into account the curvature of a 
-                    manifold, a Gaussian Blur can be approximated in a single loop over the points on the manifold. The blurred manifolds can then be sampled to obtain an 
-                    approximation of the filtered image.
+                    Instead of trying to evaluate a high-dimensional filter over the image, the algorithm presented 
+                    in <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> computes a series of manifolds, surfaces in high-dimensional space, where 
+                    applying the filter is equivalent to evaluating a 2D spatial filter over the surface of the manifold. Each manifold is represented by a collection 
+                    of points, one per a pixel in the original image, that outline its surface in high-dimensional space. Unlike images, which are flat surfaces, manifolds 
+                    can be curved surfaces. By taking into account the curvature of a manifold, spatial filters like the Gaussian Blur can be approximated in a single loop over 
+                    the points on the manifold. The blurred manifolds can then be sampled to obtain an approximation of the filtered image. Since only a handful of manifolds 
+                    are needed, this approach is significantly faster than evaluating the high-dimensional filter over the image and can be used in real-time. 
                 </Typography>
                 <Space size='xs'/>
                 <Typography>
-                    QUALITY OF THE APPROXIMATION DEPENDS ON THE MANIFOLDS
+                    The accuracy of the approximation of the filtered image depends on the manifolds that are sampled. Pixels in the original image correspond to a sample point in
+                    each manifold. For a pixel to have an accurate approximation at least one manifold must have a corresponding sample point that is close in distance to the pixel, 
+                    treating the pixel's values as additional spatial dimensions. The adaptive manifolds technique accomplishes this by computing an initial manifold based on the 
+                    original image, then partitions the image into areas with pixels above and below the manifold in high-dimensional space. Recursing on the pixels below the manifold 
+                    allows the technique to generate another manifold that more closely matches those pixels. The same is done for the pixels above the manifold. The recursion is 
+                    repeated until most pixels in the original image (~95%) are close to one of the manifolds. In practice, this usually means generating somewhere between 3 to 7 
+                    manifolds. 
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of manifold tree */}
                 <Space size='md'/>
                 <Typography>
-                    {/* Explaination of blurring */}
+                    The bilaterial filter is an example of a high-dimensional filter that can be used for denoising. It is similar to the gaussian blur, but uses the red, green, and 
+                    blue color channels in an image as additional dimensions. This has the effect of preserving edges while only blurring noise and other small scale details. I 
+                    implemented this filter using the adaptive manifolds technique by generating manifolds in 5D-space with x, y, red, green, and blue dimensions. The bilateral filter 
+                    becomes a gaussian filter over the surface of the manifold. To improve performance I used a recursive filter as an approximation of the gaussian filter as 
+                    described in <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>.
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of blurring */}
                 <Space size='md'/>
                 <Typography>
-                    {/* Explaination of denoising */}
+                    A more advanced denoising technique is the non-local means filter. For the non-local means filter, the values of a single pixel is considered to be it's RGB values 
+                    as well as the RGB values of its neighboring pixels with a square grid. This has the effect of pixels with similar surroundings (i.e. similar noise) to be blurred 
+                    together, even if they are far away from each other in the image or their individual RGB values are far apart. The result is more noise reduction and less blurring 
+                    of soft or small-scale details than the bilateral filter. The dimensions of the non-local means filter depends on the size of the grid of neighboring pixels. I 
+                    implemented a non-local means filter with a 7x7 grid by generating manifolds in 149-dimensional space, 3 dimensions for the RGB values of each of the 49 neighbors 
+                    in the grid and 2 dimensions for the x and y spatial dimensions. The non-local means filter also becomes a gaussian filter over the surface of the manifold. I 
+                    again use the faster recursive filter to approximate the gaussian.  
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of denoising */}
