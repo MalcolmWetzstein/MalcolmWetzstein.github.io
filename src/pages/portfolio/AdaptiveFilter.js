@@ -22,8 +22,8 @@ class AdaptiveFilter extends CustomComponent
                     For my class project in <i>Computational Photography</i> I implemented the technique described by the 
                     paper <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> by E. Gastal and M. Oliveira. 
                     The technique performs fast high-dimensional filtering over images and video, allowing many kinds of complex 
-                    denoising algorithms to be applied in real-time. More about my <i>Computational Photography</i> course 
-                    can be found under <b>Education</b>
+                    denoising algorithms to be applied in real-time. Also, as an extension of their technique, I apply it to implementing a
+                    depth of field a post-process. More about my <i>Computational Photography</i> course can be found under <b>Education</b>
                 </Typography>
                 <Space size='sm'/>
                 <Container maxWidth='xs'>
@@ -66,7 +66,8 @@ class AdaptiveFilter extends CustomComponent
                 {/* Images of manifold tree */}
                 <Space size='md'/>
                 <Typography>
-                    The bilaterial filter is an example of a high-dimensional filter that can be used for denoising. It is similar to the gaussian blur, but uses the red, green, and 
+                    The bilaterial filter is an example of a high-dimensional filter that can be used for denoising and is demonstrated 
+                    in <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>. It is similar to the gaussian blur, but uses the red, green, and 
                     blue color channels in an image as additional dimensions. This has the effect of preserving edges while only blurring noise and other small scale details. I 
                     implemented this filter using the adaptive manifolds technique by generating manifolds in 5D-space with x, y, red, green, and blue dimensions. The bilateral filter 
                     becomes a gaussian filter over the surfaces of the manifolds. To improve performance, I used a recursive filter as an approximation of the gaussian filter as 
@@ -76,19 +77,31 @@ class AdaptiveFilter extends CustomComponent
                 {/* Images of blurring */}
                 <Space size='md'/>
                 <Typography>
-                    A more advanced denoising technique is the non-local means filter. For the non-local means filter, the values of a single pixel is considered to be it's RGB values 
-                    as well as the RGB values of its neighboring pixels with a square grid. This has the effect of pixels with similar surroundings (i.e. similar noise) to be blurred 
-                    together, even if they are far away from each other in the image or their individual RGB values are far apart. The result is more noise reduction and less blurring 
-                    of soft or small-scale details than the bilateral filter. The dimensions of the non-local means filter depends on the size of the grid of neighboring pixels. I 
-                    implemented a non-local means filter with a 7x7 grid by generating manifolds in 149-dimensional space, 3 dimensions for the RGB values of each of the 49 neighbors 
-                    in the grid and 2 dimensions for the x and y spatial dimensions. The non-local means filter also becomes a gaussian filter over the surfaces of the manifolds. I 
-                    again use a faster recursive filter to approximate the gaussian. 
+                    The non-local means filter is a more advanced denoising method also presented in<i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>. 
+                    For the non-local means filter, the values of a single pixel is considered to be it's RGB values as well as the RGB values of its neighboring pixels with a square 
+                    grid. This has the effect of pixels with similar surroundings (i.e. similar noise) to be blurred together, even if they are far away from each other in the image 
+                    or their individual RGB values are far apart. The result is more noise reduction and less blurring of soft or small-scale details than the bilateral filter. The 
+                    dimensions of the non-local means filter depends on the size of the grid of neighboring pixels. I implemented a non-local means filter with a 7x7 grid by 
+                    generating manifolds in 149-dimensional space, 3 dimensions for the RGB values of each of the 49 neighbors in the grid and 2 dimensions for the x and y spatial 
+                    dimensions. The non-local means filter also becomes a gaussian filter over the surfaces of the manifolds. I again use a faster recursive filter to approximate the 
+                    gaussian. 
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of denoising */}
                 <Space size='md'/>
                 <Typography>
-                    {/* Explaination of depth of field */}
+                    The paper <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> focuses on applications of their technique to denoising images. As part of my class 
+                    project I demonstrated that their technique can also be used to implement depth of field as a post-processing effect. The intuition behind this is that depth of 
+                    field behaves a lot like the bilateral filter. The bilateral filter is a blur that preserves edges in an image, where edges are determined by sharp variations in 
+                    color. Depth of field is a blur that preserves edges determined by sharp variations in depth, the distance from the camera to what is shown in the pixel. This 
+                    information can easily be recorded as part of the 3D rendering pipeline in real-time applications. Depth of field differs from the bilateral filter in that the 
+                    intensity of the blur depends on the distance from the focal plane of the image, the distance from the camera at which objects appear most in focus. There are two 
+                    steps in my depth of field post-process. The first step is to compute a depth-edge preserving blur using the adaptive manifolds technique. This is accomplished by 
+                    generating manifolds in 3D-space with camera depth as the third dimension. The second step is to linearly blend the blurred image with the original based on each 
+                    pixel's distance from the focal plane. The further the pixel is from the focal plane, the more weight is applied to the blurred image, up to a certain max 
+                    distance. The original image receives full weight at the focal plane. Although not equivalent to simulating the optical phenomenon of depth of field, the behavior 
+                    is similar enough to provide convincing results and can be used for the same artistic purposes. A degree of artistic control can be implemented by generating one 
+                    or more depth-edge blurs of various intensities and using custom interpolation methods to blend between them and the original image.
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of depth of field */}
