@@ -22,6 +22,7 @@ class NavigationButton extends CustomComponent
                 href={this.props.href}
                 target='_blank'
                 variant={this.props.variant}
+                color={this.props.variant === 'text' ? 'default' : 'secondary'}
             >
                 {this.props.label}
             </Button>

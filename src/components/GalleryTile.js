@@ -9,13 +9,11 @@ class GalleryTile extends CustomComponent
     render()
     {
         return (
-            <React.Fragment>
-                <Image
-                    src={this.props.image}
-                    alt={this.props.label}
-                    height={1}
-                />
-            </React.Fragment>
+            <Image
+                src={this.props.image}
+                alt={this.props.label}
+                height={this.props.height}
+            />
         );
     }
 }
