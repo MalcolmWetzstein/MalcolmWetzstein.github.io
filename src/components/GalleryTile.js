@@ -12,7 +12,9 @@ class GalleryTile extends CustomComponent
             <Image
                 src={this.props.image}
                 alt={this.props.label}
+                width={this.props.width}
                 height={this.props.height}
+                onClick={this.props.onClick}
             />
         );
     }

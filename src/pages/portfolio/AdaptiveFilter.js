@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTheme, Container, Typography, Button } from '@material-ui/core';
-import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton } from '../../components';
+import { CustomComponent, Page, PageHeader, Suggestions, Space, NavigationButton, Gallery, GalleryTile } from '../../components';
 import { Portfolio, Education } from '..';
 import { PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
@@ -64,6 +64,16 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of manifold tree */}
+                <Gallery>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.INTRO_ARCH.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.SURFACE_FLUID.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MUSIC.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.PAVILLION.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.STARLOGO.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.AR_GAME.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.WEBSITE.THUMB}/>
+                </Gallery>
                 <Space size='md'/>
                 <Typography>
                     The bilaterial filter is an example of a high-dimensional filter that can be used for denoising and is demonstrated 
