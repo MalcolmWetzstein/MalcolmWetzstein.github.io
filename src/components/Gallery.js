@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withTheme, Box, Dialog, IconButton } from '@material-ui/core';
 import { CustomComponent } from '.';
 import { ZeroOrMoreElementsPropType } from './Util';
+import * as CONSTANTS from '../Constants';
 
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -42,6 +43,7 @@ class Gallery extends CustomComponent
                         position='absolute'
                         top={0}
                         right={0}
+                        margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, 0, 0)}
                     >
                         <IconButton onClick={this.onClose}>
                             <CloseIcon/>
@@ -71,6 +73,7 @@ Gallery.defaultProps = { height: 180 };
 
 Gallery.propTypes = {
     height: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+    theme: PropTypes.object.isRequired,
     children: ZeroOrMoreElementsPropType
 };
 

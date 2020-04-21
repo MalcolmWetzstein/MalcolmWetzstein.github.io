@@ -36,7 +36,7 @@ class Portfolio extends CustomComponent
                             <ShowcaseTile label='Mesh Surface Fluid Flow' image={CONSTANTS.IMAGES.PORTFOLIO.SURFACE_FLUID.THUMB}>
                                 <SurfaceFluid/>
                             </ShowcaseTile>
-                            <ShowcaseTile label='Real-Time High Dimensional Filtering' image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB}>
+                            <ShowcaseTile label='Real-Time High-Dimensional Filtering' image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB}>
                                 <AdaptiveFilter/>
                             </ShowcaseTile>
                         </Showcase>

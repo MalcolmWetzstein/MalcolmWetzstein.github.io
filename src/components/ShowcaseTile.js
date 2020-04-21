@@ -55,8 +55,8 @@ class ShowcaseTile extends CustomComponent
                             </Typography>
                         </Box>
                     </Fade>
+                    <GridListTileBar title={this.props.label}/>
                 </ButtonBase>
-                <GridListTileBar title={this.props.label}/>
                 <ConditionalRender condition={this.state.loading}>
                     <Box
                         position='relative'

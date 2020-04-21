@@ -27,7 +27,7 @@ class Categories extends CustomComponent
         return (
             <React.Fragment>
                 <ConditionalWrapper 
-                    wrapper={<Paper square/>}
+                    wrapper={<Paper square elevation={3}/>}
                     condition={this.props.backdrop}
                 >
                     <ConditionalWrapper
