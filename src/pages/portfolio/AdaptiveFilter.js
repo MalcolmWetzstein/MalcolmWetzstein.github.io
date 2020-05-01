@@ -74,7 +74,7 @@ class AdaptiveFilter extends CustomComponent
                     <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.AR_GAME.THUMB}/>
                     <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.WEBSITE.THUMB}/>
                 </Gallery>
-                <Space size='md'/>
+                <Space size='sm'/>
                 <Typography>
                     The bilaterial filter is an example of a high-dimensional filter that can be used for denoising and is demonstrated 
                     in <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>. It is similar to the gaussian blur, but uses the red, green, and 
@@ -85,7 +85,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of blurring */}
-                <Space size='md'/>
+                <Space size='sm'/>
                 <Typography>
                     The non-local means filter is a more advanced denoising method also presented in<i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>. 
                     For the non-local means filter, the values of a single pixel is considered to be it's RGB values as well as the RGB values of its neighboring pixels with a square 
@@ -98,7 +98,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of denoising */}
-                <Space size='md'/>
+                <Space size='sm'/>
                 <Typography>
                     The paper <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> focuses on applications of their technique to denoising images. As part of my class 
                     project I demonstrated that their technique can also be used to implement depth of field as a post-processing effect. The intuition behind this is that depth of 
