@@ -23,7 +23,10 @@ class Image extends CustomComponent
                 alt={this.props.alt}
                 width={width}
                 height={height}
-                style={{ objectFit: this.props.objectFit }}
+                style={{
+                    objectFit: this.props.objectFit,
+                    cursor: this.props.onClick ? 'pointer' : undefined
+                }}
                 onLoad={this.props.onLoad}
                 onClick={this.props.onClick}
             />
