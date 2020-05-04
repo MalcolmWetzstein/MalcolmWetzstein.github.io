@@ -29,6 +29,7 @@ class Image extends CustomComponent
                 }}
                 onLoad={this.props.onLoad}
                 onClick={this.props.onClick}
+                ref={this.props.imgRef}
             />
         );
     }

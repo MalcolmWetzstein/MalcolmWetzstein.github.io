@@ -27,6 +27,8 @@ class Gallery extends CustomComponent
         this.onScroll = this.onScroll.bind(this);
         this.onSlideLeft = this.onSlideLeft.bind(this);
         this.onSlideRight = this.onSlideRight.bind(this);
+        this.onPrevious = this.onPrevious.bind(this);
+        this.onNext = this.onNext.bind(this);
     }
 
     render()
@@ -37,8 +39,9 @@ class Gallery extends CustomComponent
             <React.Fragment>
                 <Box
                     display='flex'
+                    position='relative'
                     flexWrap='nowrap'
-                    style={{ overflowX: 'auto' }}
+                    style={{ overflowX: 'hidden' }}
                     ref={this.galleryRef}
                     onScroll={this.onScroll}
                 >
@@ -56,20 +59,68 @@ class Gallery extends CustomComponent
                             position='absolute'
                             top={0}
                             right={0}
-                            margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, 0, 0)}
+                            margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.GALLERY_SIDE_MARGIN, 0, 0)}
                         >
                             <IconButton onClick={this.onClose}>
                                 <CloseIcon/>
                             </IconButton>
                         </Box>
-                        {this.state.fullScreenImage != null ? React.cloneElement(React.Children.toArray(this.props.children)[this.state.fullScreenImage], { width: 1 }) : undefined}
+                        <Box
+                            position='absolute'
+                            left={0}
+                            top='50%'
+                            style={{
+                                WebkitTransform: 'translateY(-50%)',
+                                msTransform: 'translateY(-50%)',
+                                transform: 'transformY(-50%)',
+                                WebkitTouchCallout: 'none',
+                                WebkitUserSelect: 'none',
+                                KhtmlUserSelect: 'none',
+                                MozUserSelect: 'none',
+                                msUserSelect: 'none',
+                                userSelect: 'none'
+                            }}
+                            margin={this.props.theme.spacing(0, 0, 0, CONSTANTS.GALLERY_SIDE_MARGIN)}
+                        >
+                            <IconButton
+                                onClick={this.onPrevious}
+                                disabled={this.state.fullScreenImage === 0}
+                            >
+                                <NavigateBeforeIcon/>
+                            </IconButton>
+                        </Box>
+                        <Box
+                            position='absolute'
+                            right={0}
+                            top='50%'
+                            style={{
+                                WebkitTransform: 'translateY(-50%)',
+                                msTransform: 'translateY(-50%)',
+                                transform: 'transformY(-50%)',
+                                WebkitTouchCallout: 'none',
+                                WebkitUserSelect: 'none',
+                                KhtmlUserSelect: 'none',
+                                MozUserSelect: 'none',
+                                msUserSelect: 'none',
+                                userSelect: 'none'
+                            }}
+                            margin={this.props.theme.spacing(0, CONSTANTS.GALLERY_SIDE_MARGIN, 0, 0)}
+                        >
+                            <IconButton
+                                onClick={this.onNext}
+                                disabled={this.state.fullScreenImage === React.Children.count(this.props.children) - 1}
+                            >
+                                <NavigateNextIcon/>
+                            </IconButton>
+                        </Box>
+                        {this.state.fullScreenImage != null ? React.cloneElement(React.Children.toArray(this.props.children)[this.state.fullScreenImage], { fullScreen: true }) : undefined}
                     </Dialog>
                 </Box>
                 <Box margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING, 0)}>
                     <Grid
                         container
-                        justify='space-around'
-                        
+                        spacing={1}
+                        justify='center'
                     >
                         <Grid item>
                             <IconButton
@@ -142,6 +193,18 @@ class Gallery extends CustomComponent
                 left: this.galleryRef.current.clientWidth,
                 behavior: 'smooth'
             });
+    }
+
+    onPrevious()
+    {
+        if (this.state.fullScreenImage > 0)
+            this.setState({ fullScreenImage: this.state.fullScreenImage - 1 });
+    }
+
+    onNext()
+    {
+        if (this.state.fullScreenImage < React.Children.count(this.props.children) - 1)
+            this.setState({ fullScreenImage: this.state.fullScreenImage + 1 });
     }
 }
 
