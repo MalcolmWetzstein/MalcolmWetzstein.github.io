@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Box, Typography, Container } from '@material-ui/core';
+import { withTheme, Box, Typography } from '@material-ui/core';
 import { CustomComponent, Image, ConditionalRender, ConditionalWrapper } from '.';
 import { NoChildrenPropType } from './Util';
 import * as CONSTANTS from '../Constants';
@@ -23,6 +23,7 @@ class GalleryTile extends CustomComponent
                     alt={this.props.label}
                     width={this.props.fullScreen ? 1 : undefined}
                     height={this.props.height}
+                    objectFit={this.props.fullScreen ? undefined : 'cover'}
                     onClick={this.props.onClick}
                     imgRef={this.imageRef}
                 />

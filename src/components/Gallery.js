@@ -19,6 +19,7 @@ class Gallery extends CustomComponent
         this.state = {
             open: false,
             fullScreenImage: null,
+            scrollEdge: true
         };
 
         this.galleryRef = React.createRef();
@@ -33,7 +34,7 @@ class Gallery extends CustomComponent
 
     render()
     {
-        let scrollElt = this.galleryRef.current;
+        let galleryRef = this.galleryRef.current;
 
         return (
             <React.Fragment>
@@ -125,14 +126,14 @@ class Gallery extends CustomComponent
                         <Grid item>
                             <IconButton
                                 onClick={this.onSlideLeft}
-                                disabled={scrollElt && scrollElt.scrollLeft === 0}
+                                disabled={galleryRef && galleryRef.scrollLeft === 0}
                             >
                                 <NavigateBeforeIcon/>
                             </IconButton>
                         </Grid>
                         <Grid item>
                             <IconButton
-                                onClick={this.onOpenImage(0)}
+                                onClick={this.onOpenImage()}
                                 disabled={React.Children.count(this.props.children) === 0}
                             >
                                 <FullscreenIcon/>
@@ -141,7 +142,7 @@ class Gallery extends CustomComponent
                         <Grid item>
                             <IconButton
                                 onClick={this.onSlideRight}
-                                disabled={scrollElt && scrollElt.clientWidth + scrollElt.scrollLeft >= scrollElt.scrollWidth - 1}
+                                disabled={galleryRef && galleryRef.clientWidth + galleryRef.scrollLeft >= galleryRef.scrollWidth - 1}
                             >
                                 <NavigateNextIcon/>
                             </IconButton>
@@ -154,10 +155,29 @@ class Gallery extends CustomComponent
 
     onOpenImage(index)
     {
-        return () => this.setState({
-            open: true,
-            fullScreenImage: index
-        });
+        if (index == null)
+            return () => {
+                let galleryRef = this.galleryRef.current
+                if (galleryRef)
+                {
+                    for (let i = 0; i < galleryRef.children.length; i++)
+                    {
+                        if (galleryRef.children[i].offsetLeft >= galleryRef.scrollLeft)
+                        {
+                            this.setState({
+                                open: true,
+                                fullScreenImage: i
+                            });
+                            break;
+                        }
+                    }
+                }
+            }
+        else
+            return () => this.setState({
+                open: true,
+                fullScreenImage: index
+            });
     }
 
     onClose()
@@ -167,32 +187,63 @@ class Gallery extends CustomComponent
 
     onScroll()
     {
-        if (this.galleryRef.current)
+        let galleryRef = this.galleryRef.current;
+        if (galleryRef)
         {
-            let scrollElt = this.galleryRef.current;
-            if (scrollElt.scrollLeft === 0 || scrollElt.clientWidth + scrollElt.scrollLeft >= scrollElt.scrollWidth - 1)
-                this.forceUpdate();
+            if (galleryRef.scrollLeft === 0 || galleryRef.clientWidth + galleryRef.scrollLeft >= galleryRef.scrollWidth - 1)
+                this.setState({ scrollEdge: true });
+            else if (this.state.scrollEdge)
+                this.setState({ scrollEdge: false });
         }
     }
 
     onSlideLeft()
     {
-        if (this.galleryRef.current)
-            this.galleryRef.current.scrollBy({
-                top: 0,
-                left: -this.galleryRef.current.clientWidth,
-                behavior: 'smooth'
-            });
+        let galleryRef = this.galleryRef.current;
+        if (galleryRef)
+        {
+            let scrollToElt = null;
+            for (let child of Array.from(galleryRef.children).reverse())
+            {
+                if (child.offsetLeft < galleryRef.scrollLeft)
+                {
+                    scrollToElt = child;
+                    break;
+                }
+                
+            }
+
+            if (scrollToElt)
+                galleryRef.scrollTo({
+                    top: 0,
+                    left: scrollToElt.offsetLeft + scrollToElt.clientWidth - galleryRef.clientWidth,
+                    behavior: 'smooth'
+                });
+        }
     }
 
     onSlideRight()
     {
-        if (this.galleryRef.current)
-            this.galleryRef.current.scrollBy({
-                top: 0,
-                left: this.galleryRef.current.clientWidth,
-                behavior: 'smooth'
-            });
+        let galleryRef = this.galleryRef.current;
+        if (galleryRef)
+        {
+            let scrollToElt = null;
+            for (let child of galleryRef.children)
+            {
+                if (child.offsetLeft + child.clientWidth > galleryRef.scrollLeft + galleryRef.clientWidth + 1)
+                {
+                    scrollToElt = child;
+                    break;
+                }
+            }
+
+            if (scrollToElt)
+                galleryRef.scrollTo({
+                    top: 0,
+                    left: scrollToElt.offsetLeft,
+                    behavior: 'smooth'
+                });
+        }
     }
 
     onPrevious()
@@ -211,7 +262,7 @@ class Gallery extends CustomComponent
 Gallery.defaultProps = { height: 180 };
 
 Gallery.propTypes = {
-    height: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     theme: PropTypes.object.isRequired,
     children: ZeroOrMoreElementsPropType
 };
