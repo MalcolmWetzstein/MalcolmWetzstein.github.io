@@ -64,9 +64,9 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of manifold tree */}
-                <Gallery>
+                <Gallery height={400}>
                     <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.INTRO_ARCH.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB} caption='asdfa sadfas asdfas asdfas asdfasdf asdfsadf sadfsad sadfas asdfsad asdfsad asdfsa asdfasdf sadfas sdfadsf asdfsadf sdafds sdafsad sadfsa sdafas sadfas sadfsa asdfasdf sadf asdf'/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB} caption='asdfa sadfas asdfas asdfas asdfasdf asdfsadf asdfsadf sdafasdf sadfsadf sadf asdf sadfsadf sadfsa fsd sadf sadgf sdag sadgsdagsadg sadgfs gsda gfag asda'/>
                     <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.SURFACE_FLUID.THUMB}/>
                     <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MUSIC.THUMB}/>
                     <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.PAVILLION.THUMB}/>

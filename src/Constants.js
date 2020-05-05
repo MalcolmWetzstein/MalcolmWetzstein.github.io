@@ -84,6 +84,7 @@ export const ASPECT_RATIO_16_9_PADDING = '56.25%';
 export const YOUTUBE_HEADER_PADDING = 25;
 export const GOOGLE_SLIDES_CONTROLS_PADDING = 29;
 export const CAPTION_PADDING_SIZE = 1;
+export const CAPTION_FULLSCREEN_MARGIN = 2;
 export const GALLERY_SIDE_MARGIN = 4;
 
 export const SPACE_SIZES = readOnly({

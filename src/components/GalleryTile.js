@@ -16,8 +16,6 @@ class GalleryTile extends CustomComponent
 
     render()
     {
-        let offsetLeft = this.imageRef.current ? this.imageRef.current.offsetLeft : undefined;
-        let offsetWidth = this.imageRef.current ? this.imageRef.current.clientWidth : undefined;
         return (
             <React.Fragment>
                 <Image
@@ -33,25 +31,25 @@ class GalleryTile extends CustomComponent
                         condition={this.props.fullScreen}
                         wrapper={
                             <Box
-                                position='relative'
-                                display='flex'
-                                justifyContent='center'
-                                maxWidth={600}
+                                margin='0 auto'
+                                padding={this.props.theme.spacing(CONSTANTS.CAPTION_FULLSCREEN_MARGIN, 0, CONSTANTS.CAPTION_FULLSCREEN_MARGIN, 0)}
+                                maxWidth={this.props.theme.breakpoints.values.md}
+                            />
+                        }
+                        alt={
+                            <Box
+                                position='absolute'
+                                left={this.imageRef.current ? this.imageRef.current.offsetLeft : undefined}
+                                bottom={0}
+                                width={this.imageRef.current ? this.imageRef.current.clientWidth : undefined}
+                                padding={this.props.theme.spacing(0, CONSTANTS.CAPTION_PADDING_SIZE, 0, CONSTANTS.CAPTION_PADDING_SIZE)}
+                                bgcolor='rgba(0, 0, 0, 0.5)'
                             />
                         }
                     >
-                        <Box
-                            position='absolute'
-                            left={this.props.fullScreen ? undefined : offsetLeft}
-                            bottom={0}
-                            width={this.props.fullScreen ? 1 : offsetWidth}
-                            padding={this.props.theme.spacing(0, CONSTANTS.CAPTION_PADDING_SIZE, 0, CONSTANTS.CAPTION_PADDING_SIZE)}
-                            bgcolor='rgba(0, 0, 0, 0.5)'
-                        >
-                            <Typography variant={this.props.fullScreen ? 'body1' : 'caption'}>
-                                {this.props.caption}
-                            </Typography>
-                        </Box>
+                        <Typography variant={this.props.fullScreen ? 'body1' : 'caption'}>
+                            {this.props.caption}
+                        </Typography>
                     </ConditionalWrapper>
                 </ConditionalRender>
             </React.Fragment>

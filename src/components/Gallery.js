@@ -41,7 +41,7 @@ class Gallery extends CustomComponent
                     display='flex'
                     position='relative'
                     flexWrap='nowrap'
-                    style={{ overflowX: 'hidden' }}
+                    style={{ overflowX: 'auto' }}
                     ref={this.galleryRef}
                     onScroll={this.onScroll}
                 >

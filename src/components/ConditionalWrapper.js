@@ -7,13 +7,19 @@ class ConditionalWrapper extends CustomComponent
 {
     render()
     {
-        return this.props.condition ? React.cloneElement(this.props.wrapper, undefined, this.props.children) : this.props.children;
+        if (this.props.condition)
+            return React.cloneElement(this.props.wrapper, undefined, this.props.children);
+        else if (this.props.alt)
+            return React.cloneElement(this.props.alt, undefined, this.props.children);
+        else
+            return this.props.children;
     }
 }
 
 ConditionalWrapper.propTypes = {
     condition: PropTypes.any,
     wrapper: PropTypes.element.isRequired,
+    alt: PropTypes.element,
     children: PropTypes.node
 };
 
