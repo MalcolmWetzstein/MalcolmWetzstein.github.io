@@ -95,6 +95,14 @@ export const SPACE_SIZES = readOnly({
     'xl': 8.0
 });
 
+export const GALLERY_SIZES = readOnly({
+    'xs': 180,
+    'sm': 240,
+    'md': 360,
+    'lg': 480,
+    'xl': 600
+})
+
 export const COURSE_LEVELS = readOnly({
     'graduate': 'Graduate',
     'upper': 'Advanced',

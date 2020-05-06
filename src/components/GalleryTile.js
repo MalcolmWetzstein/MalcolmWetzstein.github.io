@@ -23,8 +23,9 @@ class GalleryTile extends CustomComponent
                     alt={this.props.label}
                     width={this.props.fullScreen ? 1 : undefined}
                     height={this.props.height}
-                    objectFit={this.props.fullScreen ? undefined : 'cover'}
+                    objectFit={this.props.fullScreen ? undefined : 'fill'}
                     onClick={this.props.onClick}
+                    cursor={this.props.fullScreen ? undefined : 'zoom-in'}
                     imgRef={this.imageRef}
                 />
                 <ConditionalRender condition={this.props.caption}>

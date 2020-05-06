@@ -51,7 +51,7 @@ class Home extends CustomComponent
                     <About/>
                     {ScrollToButton(this.moreRef)}
                 </Suggestions>
-                <Space size='xl'/>
+                <Space size='md'/>
                 <Center>
                     <Box
                         maxWidth={this.props.theme.spacing(CONSTANTS.HOME_LINK_BUTTONS_WIDTH)}
@@ -108,7 +108,6 @@ class Home extends CustomComponent
                             href={CONSTANTS.DOCUMENTS.RESUME}
                             pageDeque={this.props.pageDeque}
                         />
-                        <Space/>
                     </Box>
                 </Center>
             </Page>

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Box, Dialog, IconButton, Grid } from '@material-ui/core';
+import { withTheme, Box, Dialog, IconButton } from '@material-ui/core';
 import { CustomComponent } from '.';
 import { ZeroOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
 import CloseIcon from '@material-ui/icons/Close';
-import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
@@ -35,9 +34,27 @@ class Gallery extends CustomComponent
     render()
     {
         let galleryRef = this.galleryRef.current;
+        let negativeMarginSize = this.props.noMargins ? this.props.theme.spacing(-(CONSTANTS.ICON_BUTTON_SIZE + CONSTANTS.ICON_BUTTON_SPACING)) + 'px' : undefined;
 
         return (
-            <React.Fragment>
+            <Box
+                display='flex'
+                width={1}
+                flexWrap='nowrap'
+            >
+                <Box
+                    display='flex'
+                    alignItems='center'
+                    marginLeft={negativeMarginSize}
+                    marginRight={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
+                >
+                    <IconButton
+                        onClick={this.onSlideLeft}
+                        disabled={galleryRef && galleryRef.scrollLeft === 0}
+                    >
+                        <NavigateBeforeIcon/>
+                    </IconButton>
+                </Box>
                 <Box
                     display='flex'
                     position='relative'
@@ -48,7 +65,7 @@ class Gallery extends CustomComponent
                 >
                     {
                         React.Children.map(this.props.children, (child, index) => React.cloneElement(child, {
-                            height: this.props.height,
+                            height: CONSTANTS.GALLERY_SIZES[this.props.size],
                             onClick: this.onOpenImage(index)
                         }))
                     }
@@ -117,39 +134,20 @@ class Gallery extends CustomComponent
                         {this.state.fullScreenImage != null ? React.cloneElement(React.Children.toArray(this.props.children)[this.state.fullScreenImage], { fullScreen: true }) : undefined}
                     </Dialog>
                 </Box>
-                <Box margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING, 0)}>
-                    <Grid
-                        container
-                        spacing={1}
-                        justify='center'
+                <Box
+                    display='flex'
+                    alignItems='center'
+                    marginLeft={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
+                    marginRight={negativeMarginSize}
+                >
+                    <IconButton
+                        onClick={this.onSlideRight}
+                        disabled={galleryRef && galleryRef.clientWidth + galleryRef.scrollLeft >= galleryRef.scrollWidth - 1}
                     >
-                        <Grid item>
-                            <IconButton
-                                onClick={this.onSlideLeft}
-                                disabled={galleryRef && galleryRef.scrollLeft === 0}
-                            >
-                                <NavigateBeforeIcon/>
-                            </IconButton>
-                        </Grid>
-                        <Grid item>
-                            <IconButton
-                                onClick={this.onOpenImage()}
-                                disabled={React.Children.count(this.props.children) === 0}
-                            >
-                                <FullscreenIcon/>
-                            </IconButton>
-                        </Grid>
-                        <Grid item>
-                            <IconButton
-                                onClick={this.onSlideRight}
-                                disabled={galleryRef && galleryRef.clientWidth + galleryRef.scrollLeft >= galleryRef.scrollWidth - 1}
-                            >
-                                <NavigateNextIcon/>
-                            </IconButton>
-                        </Grid>
-                    </Grid>
+                        <NavigateNextIcon/>
+                    </IconButton>
                 </Box>
-            </React.Fragment>
+            </Box>
         );
     }
 
@@ -160,9 +158,11 @@ class Gallery extends CustomComponent
                 let galleryRef = this.galleryRef.current
                 if (galleryRef)
                 {
-                    for (let i = 0; i < galleryRef.children.length; i++)
+                    let images = Array.from(galleryRef.children).filter(child => child.children.length === 0 && child.childNodes.length === 0);
+                    for (let i = 0; i < images.length; i++)
                     {
-                        if (galleryRef.children[i].offsetLeft >= galleryRef.scrollLeft)
+                        // Fix bug where caption elements are included in length, causing i to be the wrong image index.
+                        if (images[i].offsetLeft >= galleryRef.scrollLeft)
                         {
                             this.setState({
                                 open: true,
@@ -259,10 +259,12 @@ class Gallery extends CustomComponent
     }
 }
 
-Gallery.defaultProps = { height: 180 };
+Gallery.defaultProps = { size: 'md' };
 
 Gallery.propTypes = {
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    noMargins: PropTypes.bool,
+    size: PropTypes.oneOf(Object.keys(CONSTANTS.GALLERY_SIZES)),
     theme: PropTypes.object.isRequired,
     children: ZeroOrMoreElementsPropType
 };

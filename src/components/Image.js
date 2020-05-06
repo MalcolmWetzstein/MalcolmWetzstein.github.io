@@ -25,7 +25,7 @@ class Image extends CustomComponent
                 height={height}
                 style={{
                     objectFit: this.props.objectFit,
-                    cursor: this.props.onClick ? 'pointer' : undefined
+                    cursor: this.props.cursor
                 }}
                 onLoad={this.props.onLoad}
                 onClick={this.props.onClick}
@@ -48,6 +48,7 @@ Image.propTypes = {
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     onLoad: PropTypes.func,
     onClick: PropTypes.func,
+    cursor: PropTypes.string,
     children: NoChildrenPropType
 };
 
