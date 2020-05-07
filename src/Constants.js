@@ -199,6 +199,7 @@ export const IMAGES = readOnly({
             CLUSTERS: 'portfolio/adaptive_manifolds/clusters.png',
             WHITE_CLUSTER_MANIFOLD: 'portfolio/adaptive_manifolds/white_cluster_manifold.png',
             BLACK_CLUSTER_MANIFOLD: 'portfolio/adaptive_manifolds/black_cluster_manifold.png',
+            ORIGINAL: 'portfolio/adaptive_manifolds/original.png',
             BILATERAL: 'portfolio/adaptive_manifolds/bilateral.png',
             NOISY_IMAGE: 'portfolio/adaptive_manifolds/noisy.png',
             NON_LOCAL_DENOISED: 'portfolio/adaptive_manifolds/non_local_denoised.png',

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withTheme, Box, Dialog, IconButton } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { CustomComponent, ConditionalRender } from '.';
 import { ZeroOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
 
@@ -31,30 +31,37 @@ class Gallery extends CustomComponent
         this.onNext = this.onNext.bind(this);
     }
 
+    componentDidMount() {
+        this.forceUpdate();
+    }
+
     render()
     {
         let galleryRef = this.galleryRef.current;
         let negativeMarginSize = this.props.noMargins ? this.props.theme.spacing(-(CONSTANTS.ICON_BUTTON_SIZE + CONSTANTS.ICON_BUTTON_SPACING)) + 'px' : undefined;
-
+        if (galleryRef) console.log(galleryRef.clientWidth, galleryRef.scrollWidth)
         return (
             <Box
                 display='flex'
                 width={1}
                 flexWrap='nowrap'
+                justifyContent='center'
             >
-                <Box
-                    display='flex'
-                    alignItems='center'
-                    marginLeft={negativeMarginSize}
-                    marginRight={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
-                >
-                    <IconButton
-                        onClick={this.onSlideLeft}
-                        disabled={galleryRef && galleryRef.scrollLeft === 0}
+                <ConditionalRender condition={galleryRef && galleryRef.clientWidth !== galleryRef.scrollWidth}>
+                    <Box
+                        display='flex'
+                        alignItems='center'
+                        marginLeft={negativeMarginSize}
+                        marginRight={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
                     >
-                        <NavigateBeforeIcon/>
-                    </IconButton>
-                </Box>
+                        <IconButton
+                            onClick={this.onSlideLeft}
+                            disabled={galleryRef && galleryRef.scrollLeft === 0}
+                        >
+                            <NavigateBeforeIcon/>
+                        </IconButton>
+                    </Box>
+                </ConditionalRender>
                 <Box
                     display='flex'
                     position='relative'
@@ -134,19 +141,21 @@ class Gallery extends CustomComponent
                         {this.state.fullScreenImage != null ? React.cloneElement(React.Children.toArray(this.props.children)[this.state.fullScreenImage], { fullScreen: true }) : undefined}
                     </Dialog>
                 </Box>
-                <Box
-                    display='flex'
-                    alignItems='center'
-                    marginLeft={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
-                    marginRight={negativeMarginSize}
-                >
-                    <IconButton
-                        onClick={this.onSlideRight}
-                        disabled={galleryRef && galleryRef.clientWidth + galleryRef.scrollLeft >= galleryRef.scrollWidth - 1}
+                <ConditionalRender condition={galleryRef && galleryRef.clientWidth !== galleryRef.scrollWidth}>
+                    <Box
+                        display='flex'
+                        alignItems='center'
+                        marginLeft={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
+                        marginRight={negativeMarginSize}
                     >
-                        <NavigateNextIcon/>
-                    </IconButton>
-                </Box>
+                        <IconButton
+                            onClick={this.onSlideRight}
+                            disabled={galleryRef && galleryRef.clientWidth + galleryRef.scrollLeft >= galleryRef.scrollWidth - 1}
+                        >
+                            <NavigateNextIcon/>
+                        </IconButton>
+                    </Box>
+                </ConditionalRender>
             </Box>
         );
     }

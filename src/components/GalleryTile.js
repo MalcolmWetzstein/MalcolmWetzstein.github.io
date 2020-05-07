@@ -14,6 +14,10 @@ class GalleryTile extends CustomComponent
         this.imageRef = React.createRef();
     }
 
+    componentDidMount() {
+        this.forceUpdate();
+    }
+
     render()
     {
         let width = this.props.height;
