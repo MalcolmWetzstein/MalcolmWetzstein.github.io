@@ -65,14 +65,10 @@ class AdaptiveFilter extends CustomComponent
                 <Space size='sm'/>
                 {/* Images of manifold tree */}
                 <Gallery size='md' noMargins>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.INTRO_ARCH.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB} caption='asdfa sadfas asdfas asdfas asdfasdf asdfsadf asdfsadf sdafasdf sadfsadf sadf asdf sadfsadf sadfsa fsd sadf sadgf sdag sadgsdagsadg sadgfs gsda gfag asda'/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.SURFACE_FLUID.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MUSIC.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.PAVILLION.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.STARLOGO.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.AR_GAME.THUMB}/>
-                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.WEBSITE.THUMB}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.ROOT_MANIFOLD}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.CLUSTERS}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.WHITE_CLUSTER_MANIFOLD}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.BLACK_CLUSTER_MANIFOLD}/>
                 </Gallery>
                 <Space size='md'/>
                 <Typography>
@@ -85,6 +81,9 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of blurring */}
+                <Gallery size='md' noMargins>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.BILATERAL}/>
+                </Gallery>
                 <Space size='md'/>
                 <Typography>
                     The non-local means filter is a more advanced denoising method also presented in<i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i>. 
@@ -98,6 +97,10 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of denoising */}
+                <Gallery size='md' noMargins>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.NOISY_IMAGE}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.NON_LOCAL_DENOISED}/>
+                </Gallery>
                 <Space size='md'/>
                 <Typography>
                     The paper <i>Adaptive Manifolds for Real-Time High-Dimensional Filtering</i> focuses on applications of their technique to denoising images. As part of my class 
@@ -115,6 +118,12 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of depth of field */}
+                <Gallery size='md' noMargins>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.FULL_FOCUS}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.DEPTH_MAP}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.FOCAL_DISTANCE}/>
+                    <GalleryTile image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.DEPTH_OF_FIELD}/>
+                </Gallery>
                 <Space size='lg'/>
                 <Suggestions labels={[
                         'Gastal et al',

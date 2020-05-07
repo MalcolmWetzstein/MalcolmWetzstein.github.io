@@ -194,7 +194,18 @@ export const IMAGES = readOnly({
             THUMB: 'portfolio/architecture.jpg'
         },
         MANIFOLDS_FILTER: {
-            THUMB: 'portfolio/adaptive_manifolds.png'
+            THUMB: 'portfolio/adaptive_manifolds/thumb.png',
+            ROOT_MANIFOLD: 'portfolio/adaptive_manifolds/root_manifold.png',
+            CLUSTERS: 'portfolio/adaptive_manifolds/clusters.png',
+            WHITE_CLUSTER_MANIFOLD: 'portfolio/adaptive_manifolds/white_cluster_manifold.png',
+            BLACK_CLUSTER_MANIFOLD: 'portfolio/adaptive_manifolds/black_cluster_manifold.png',
+            BILATERAL: 'portfolio/adaptive_manifolds/bilateral.png',
+            NOISY_IMAGE: 'portfolio/adaptive_manifolds/noisy.png',
+            NON_LOCAL_DENOISED: 'portfolio/adaptive_manifolds/non_local_denoised.png',
+            FULL_FOCUS: 'portfolio/adaptive_manifolds/full_focus.png',
+            DEPTH_MAP: 'portfolio/adaptive_manifolds/depth_map.png',
+            FOCAL_DISTANCE: 'portfolio/adaptive_manifolds/focal_distance.png',
+            DEPTH_OF_FIELD: 'portfolio/adaptive_manifolds/depth_of_field.png'
         },
         SURFACE_FLUID: {
             THUMB: 'portfolio/surface_fluid.png'

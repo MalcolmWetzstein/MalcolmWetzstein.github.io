@@ -36,9 +36,8 @@ class Home extends CustomComponent
                 {
                     this.renderCareerTitles([
                         'Recent Graduate',
-                        'Software Engineer',
                         'Graphics Programmer',
-                        'Aspiring Game Developer'
+                        'Software Engineer'
                     ])
                 }
                 <Space/>

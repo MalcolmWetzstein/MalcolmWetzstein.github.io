@@ -38,6 +38,7 @@ class GalleryTile extends CustomComponent
                     objectFit={this.props.fullScreen ? undefined : 'fill'}
                     onClick={this.props.onClick}
                     cursor={this.props.fullScreen ? undefined : 'zoom-in'}
+                    imageRendering={this.props.imageRendering}
                     imgRef={this.imageRef}
                 />
                 <ConditionalRender condition={this.props.caption}>
@@ -78,6 +79,7 @@ GalleryTile.propTypes = {
     theme: PropTypes.object.isRequired,
     label: PropTypes.string,
     caption: PropTypes.string,
+    imageRendering: PropTypes.string,
     children: NoChildrenPropType
 };
 
