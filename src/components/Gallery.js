@@ -153,31 +153,10 @@ class Gallery extends CustomComponent
 
     onOpenImage(index)
     {
-        if (index == null)
-            return () => {
-                let galleryRef = this.galleryRef.current
-                if (galleryRef)
-                {
-                    let images = Array.from(galleryRef.children).filter(child => child.children.length === 0 && child.childNodes.length === 0);
-                    for (let i = 0; i < images.length; i++)
-                    {
-                        // Fix bug where caption elements are included in length, causing i to be the wrong image index.
-                        if (images[i].offsetLeft >= galleryRef.scrollLeft)
-                        {
-                            this.setState({
-                                open: true,
-                                fullScreenImage: i
-                            });
-                            break;
-                        }
-                    }
-                }
-            }
-        else
-            return () => this.setState({
-                open: true,
-                fullScreenImage: index
-            });
+        return () => this.setState({
+            open: true,
+            fullScreenImage: index
+        });
     }
 
     onClose()
@@ -262,7 +241,6 @@ class Gallery extends CustomComponent
 Gallery.defaultProps = { size: 'md' };
 
 Gallery.propTypes = {
-    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     noMargins: PropTypes.bool,
     size: PropTypes.oneOf(Object.keys(CONSTANTS.GALLERY_SIZES)),
     theme: PropTypes.object.isRequired,

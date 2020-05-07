@@ -16,12 +16,24 @@ class GalleryTile extends CustomComponent
 
     render()
     {
+        let width = this.props.height;
+        if (this.imageRef.current != null && this.props.height)
+            width = Math.floor(this.imageRef.current.naturalWidth * this.props.height / this.imageRef.current.naturalHeight);
+            
         return (
-            <React.Fragment>
+            <ConditionalWrapper
+                condition={!this.props.fullScreen}
+                wrapper={
+                    <Box
+                        width={width}
+                        height={this.props.height}
+                    />
+                }
+            >
                 <Image
                     src={this.props.image}
                     alt={this.props.label}
-                    width={this.props.fullScreen ? 1 : undefined}
+                    width={this.props.fullScreen ? 1 : width}
                     height={this.props.height}
                     objectFit={this.props.fullScreen ? undefined : 'fill'}
                     onClick={this.props.onClick}
@@ -54,7 +66,7 @@ class GalleryTile extends CustomComponent
                         </Typography>
                     </ConditionalWrapper>
                 </ConditionalRender>
-            </React.Fragment>
+            </ConditionalWrapper>
         );
     }
 }
