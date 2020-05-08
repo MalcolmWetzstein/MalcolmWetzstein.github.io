@@ -203,6 +203,7 @@ export const IMAGES = readOnly({
             BILATERAL: 'portfolio/adaptive_manifolds/bilateral.png',
             NOISY_IMAGE: 'portfolio/adaptive_manifolds/noisy.png',
             NON_LOCAL_DENOISED: 'portfolio/adaptive_manifolds/non_local_denoised.png',
+            BILATERAL_DENOISED: 'portfolio/adaptive_manifolds/bilateral_denoised.png',
             FULL_FOCUS: 'portfolio/adaptive_manifolds/full_focus.png',
             DEPTH_MAP: 'portfolio/adaptive_manifolds/depth_map.png',
             FOCAL_DISTANCE: 'portfolio/adaptive_manifolds/focal_distance.png',

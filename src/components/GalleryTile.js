@@ -12,10 +12,8 @@ class GalleryTile extends CustomComponent
         super(props);
 
         this.imageRef = React.createRef();
-    }
 
-    componentDidMount() {
-        this.forceUpdate();
+        this.onLoad = this.onLoad.bind(this);
     }
 
     render()
@@ -44,6 +42,7 @@ class GalleryTile extends CustomComponent
                     cursor={this.props.fullScreen ? undefined : 'zoom-in'}
                     imageRendering={this.props.imageRendering}
                     imgRef={this.imageRef}
+                    onLoad={this.onLoad}
                 />
                 <ConditionalRender condition={this.props.caption}>
                     <ConditionalWrapper
@@ -73,6 +72,13 @@ class GalleryTile extends CustomComponent
                 </ConditionalRender>
             </ConditionalWrapper>
         );
+    }
+
+    onLoad()
+    {
+        this.forceUpdate();
+        if (this.props.onTileLoad)
+            this.props.onTileLoad();
     }
 }
 

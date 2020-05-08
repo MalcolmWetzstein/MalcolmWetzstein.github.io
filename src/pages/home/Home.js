@@ -23,9 +23,11 @@ class Home extends CustomComponent
             <Page
                 id='home'
                 pageDeque={this.props.pageDeque}
+                bottomRef={this.moreRef}
             >
                 <Typography
-                    variant='h1'
+                    variant='h2'
+                    component='h1'
                     align='center'
                     gutterBottom
                 >
@@ -35,7 +37,7 @@ class Home extends CustomComponent
                 </Typography>
                 {
                     this.renderCareerTitles([
-                        'Recent Graduate',
+                        'Recent Master Graduate',
                         'Graphics Programmer',
                         'Software Engineer'
                     ])
@@ -50,12 +52,9 @@ class Home extends CustomComponent
                     <About/>
                     {ScrollToButton(this.moreRef)}
                 </Suggestions>
-                <Space size='md'/>
+                <Space size='xl'/>
                 <Center>
-                    <Box
-                        maxWidth={this.props.theme.spacing(CONSTANTS.HOME_LINK_BUTTONS_WIDTH)}
-                        ref={this.moreRef}
-                    >
+                    <Box maxWidth={this.props.theme.spacing(CONSTANTS.HOME_LINK_BUTTONS_WIDTH)}>
                         <NavigationButton
                             label={About.displayText}
                             pageDeque={this.props.pageDeque}

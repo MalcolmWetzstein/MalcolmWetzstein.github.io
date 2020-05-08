@@ -64,7 +64,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of manifold tree */}
-                <Gallery size='md' noMargins>
+                <Gallery size='md' >
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.ORIGINAL}
                         caption='Example input image for adaptive manifolds technique.'
@@ -97,7 +97,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of bilateral filter */}
-                <Gallery size='md' noMargins>
+                <Gallery size='md' >
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.ORIGINAL}
                         caption='Original image before applying filter.'
@@ -120,14 +120,18 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of non-local means denoising */}
-                <Gallery size='lg' noMargins>
+                <Gallery size='lg' >
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.NOISY_IMAGE}
                         caption='Night photograph with strong noise.'
                     />
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.NON_LOCAL_DENOISED}
-                        caption='Photograph after applying the non-local means filter using the adaptive manifolds technique.'
+                        caption='Photograph after applying the non-local means filter using the adaptive manifolds technique. Noise is substantially reduced.'
+                    />
+                    <GalleryTile
+                        image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.BILATERAL_DENOISED}
+                        caption='For comparison, same photograph denoised by a bilateral filter using adaptive manifolds. Leaves behind more noise than the non-local means filter.'
                     />
                 </Gallery>
                 <Space size='md'/>
@@ -147,7 +151,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of depth of field */}
-                <Gallery size='md' noMargins>
+                <Gallery size='md' >
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.FULL_FOCUS}
                         caption='Original image before post-process.'

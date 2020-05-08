@@ -29,17 +29,16 @@ class Gallery extends CustomComponent
         this.onSlideRight = this.onSlideRight.bind(this);
         this.onPrevious = this.onPrevious.bind(this);
         this.onNext = this.onNext.bind(this);
-    }
+        this.onRefresh = this.onRefresh.bind(this);
 
-    componentDidMount() {
-        this.forceUpdate();
+        window.addEventListener('resize', this.onRefresh);
     }
 
     render()
     {
         let galleryRef = this.galleryRef.current;
         let negativeMarginSize = this.props.noMargins ? this.props.theme.spacing(-(CONSTANTS.ICON_BUTTON_SIZE + CONSTANTS.ICON_BUTTON_SPACING)) + 'px' : undefined;
-        if (galleryRef) console.log(galleryRef.clientWidth, galleryRef.scrollWidth)
+        
         return (
             <Box
                 display='flex'
@@ -73,7 +72,8 @@ class Gallery extends CustomComponent
                     {
                         React.Children.map(this.props.children, (child, index) => React.cloneElement(child, {
                             height: CONSTANTS.GALLERY_SIZES[this.props.size],
-                            onClick: this.onOpenImage(index)
+                            onClick: this.onOpenImage(index),
+                            onTileLoad: this.onRefresh
                         }))
                     }
                     <Dialog
@@ -158,6 +158,16 @@ class Gallery extends CustomComponent
                 </ConditionalRender>
             </Box>
         );
+    }
+
+    componentWillUnmount()
+    {
+        window.removeEventListener('resize', this.onRefresh);
+    }
+
+    onRefresh()
+    {
+        this.forceUpdate();
     }
 
     onOpenImage(index)

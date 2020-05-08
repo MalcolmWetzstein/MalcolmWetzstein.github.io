@@ -45,8 +45,8 @@ class Page extends CustomComponent
                     <Box 
                         position='absolute'
                         width={this.props.maxWidth === 'fit' ? undefined : 1}
-                        padding={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['sm'], 0, CONSTANTS.SPACE_SIZES['xl'], 0)}
                     >
+                        <Space size='xs'/>
                         <ConditionalWrapper
                             wrapper={<Container maxWidth={this.props.maxWidth}/>}
                             condition={this.props.maxWidth !== 'fit'}
@@ -54,6 +54,7 @@ class Page extends CustomComponent
                             <Space size='sm'/>
                             {React.Children.map(this.props.children, child => this.props.pageDeque.withDequeProps(child))}
                         </ConditionalWrapper>
+                        <Box ref={this.props.bottomRef}><Space size='lg'/></Box>
                     </Box>
                 </ConditionalWrapper>
                 <Box
@@ -71,6 +72,7 @@ class Page extends CustomComponent
                         </Fab>
                     </Fade>
                 </Box>
+                
             </React.Fragment>
         );
     }
@@ -104,6 +106,7 @@ Page.propTypes = {
     theme: PropTypes.object.isRequired,
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     maxWidth: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl', 'fit']),
+    bottomRef: PropTypes.object,
     pageDeque: PageDequePropType.isRequired,
     children: PropTypes.node
 };
