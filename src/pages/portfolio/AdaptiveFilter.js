@@ -64,7 +64,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of manifold tree */}
-                <Gallery size='md' >
+                <Gallery size='md'>
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.ORIGINAL}
                         caption='Example input image for adaptive manifolds technique.'
@@ -97,7 +97,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of bilateral filter */}
-                <Gallery size='md' >
+                <Gallery size='md' noMargins>
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.ORIGINAL}
                         caption='Original image before applying filter.'
@@ -120,7 +120,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of non-local means denoising */}
-                <Gallery size='lg' >
+                <Gallery size='lg' noMargins>
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.NOISY_IMAGE}
                         caption='Night photograph with strong noise.'
@@ -151,7 +151,7 @@ class AdaptiveFilter extends CustomComponent
                 </Typography>
                 <Space size='sm'/>
                 {/* Images of depth of field */}
-                <Gallery size='md' >
+                <Gallery size='md' noMargins>
                     <GalleryTile
                         image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.FULL_FOCUS}
                         caption='Original image before post-process.'

@@ -203,6 +203,8 @@ class Gallery extends CustomComponent
             let scrollToElt = null;
             for (let child of Array.from(galleryRef.children).reverse())
             {
+                if (child.offsetLeft + child.clientWidth >= galleryRef.scrollLeft + galleryRef.clientWidth)
+                    continue;
                 if (child.offsetLeft < galleryRef.scrollLeft)
                 {
                     scrollToElt = child;
@@ -217,6 +219,12 @@ class Gallery extends CustomComponent
                     left: scrollToElt.offsetLeft + scrollToElt.clientWidth - galleryRef.clientWidth,
                     behavior: 'smooth'
                 });
+            else
+                galleryRef.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
         }
     }
 
@@ -228,6 +236,8 @@ class Gallery extends CustomComponent
             let scrollToElt = null;
             for (let child of galleryRef.children)
             {
+                if (child.offsetLeft <= galleryRef.scrollLeft)
+                    continue;
                 if (child.offsetLeft + child.clientWidth > galleryRef.scrollLeft + galleryRef.clientWidth + 1)
                 {
                     scrollToElt = child;
@@ -239,6 +249,12 @@ class Gallery extends CustomComponent
                 galleryRef.scrollTo({
                     top: 0,
                     left: scrollToElt.offsetLeft,
+                    behavior: 'smooth'
+                });
+            else
+                galleryRef.scrollTo({
+                    top: 0,
+                    left: galleryRef.scrollWidth,
                     behavior: 'smooth'
                 });
         }
