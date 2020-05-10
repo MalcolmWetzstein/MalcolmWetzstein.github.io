@@ -79,6 +79,7 @@ export const HOME_CAREER_TITLES_SPACING = 2;
 export const BACK_BUTTON_TEXT = 'Back';
 export const SEE_ON_GITHUB_TEXT = 'See Project on ' + NAMES.GITHUB;
 export const SEE_ON_FLICKR_TEXT = 'See Project on ' + NAMES.FLICKR;
+export const VIEW_PUBLISHED_TEXT = 'Publication';
 export const VIEW_PAPER_TEXT = 'Read Research Paper';
 export const ASPECT_RATIO_16_9_PADDING = '56.25%';
 export const YOUTUBE_HEADER_PADDING = 25;
@@ -179,6 +180,7 @@ export const LINKS = readOnly({
         },
         SURFACE_FLUID: 'https://github.com/MalcolmWetzstein/Surface-Fluid-Simulation-via-Mesh-Parameterization',
         PAVILLION: 'https://flic.kr/s/aHsmLAdQ48',
+        STARLOGO: 'https://dspace.mit.edu/handle/1721.1/124267',
         WEBSITE: 'https://github.com/MalcolmWetzstein/MalcolmWetzstein.github.io'
     }
 });

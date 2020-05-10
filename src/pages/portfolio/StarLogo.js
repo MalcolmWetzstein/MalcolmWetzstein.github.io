@@ -90,11 +90,12 @@ class StarLogo extends CustomComponent
                 <Typography align='center'>
                     The terrain sub-system is slated for release in a future version of <i>{CONSTANTS.NAMES.STARLOGO}</i>. 
                 </Typography>
-                <Typography align='center'>
-                    A publication of my thesis will be available later this summer.
-                </Typography>
                 <Space size='lg'/>
-                <Suggestions labels={[CONSTANTS.BACK_BUTTON_TEXT]}>
+                <Suggestions labels={[CONSTANTS.VIEW_PUBLISHED_TEXT, CONSTANTS.BACK_BUTTON_TEXT]}>
+                    <Button
+                        href={CONSTANTS.LINKS.PORTFOLIO.STARLOGO}
+                        target='_blank'
+                    />
                     <Portfolio/>
                 </Suggestions>
             </Page>
