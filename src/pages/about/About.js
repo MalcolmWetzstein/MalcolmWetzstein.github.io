@@ -20,7 +20,7 @@ class About extends CustomComponent
                     {About.displayText}
                 </PageHeader>
                 <Typography>
-                    My interest in computer graphics stems from an early interest in storytelling in digital media. At age 13 video games made me aware that technology enables us to tell stories that couldn’t be told otherwise; I knew I had to take up programming to become a part of that. Motivated by my experience playing <i>Metroid: Zero Mission</i>, I immediately took up C++ as my first programming language and a few years later started learning computer graphics programming from the book <i>Introduction to DirectX 11</i> by Frank D. Luna. Since then I have also developed an interest in creative applications of technology in film and animation. 
+                    My interest in computer graphics stems from an early interest in storytelling in digital media. At age 13 video games made me aware that technology enables us to tell stories that can't be told otherwise; I knew I had to take up programming to become a part of that. Motivated by my experience playing <i>Metroid: Zero Mission</i>, I immediately took up C++ as my first programming language and a few years later started learning computer graphics programming from the book <i>Introduction to DirectX 11</i> by Frank D. Luna. Since then I have also developed an interest in creative applications of technology in film and animation. 
                 </Typography>
                 <Space size='sm'/>
                 <Typography>

@@ -86,12 +86,6 @@ class Home extends CustomComponent
                             <Skills/>
                         </NavigationButton>
                         <NavigationButton
-                            label={Contact.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <Contact/>
-                        </NavigationButton>
-                        <NavigationButton
                             label={CONSTANTS.NAMES.GITHUB}
                             href={CONSTANTS.LINKS.GITHUB}
                             pageDeque={this.props.pageDeque}
@@ -106,6 +100,12 @@ class Home extends CustomComponent
                             href={CONSTANTS.DOCUMENTS.RESUME}
                             pageDeque={this.props.pageDeque}
                         />
+                        <NavigationButton
+                            label={Contact.displayText}
+                            pageDeque={this.props.pageDeque}
+                        >
+                            <Contact/>
+                        </NavigationButton>
                     </Box>
                 </Center>
             </Page>
