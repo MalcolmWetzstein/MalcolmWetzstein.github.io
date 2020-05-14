@@ -12,6 +12,7 @@ class GalleryTile extends CustomComponent
         super(props);
 
         this.imageRef = React.createRef();
+        this.textRef = React.createRef();
 
         this.onLoad = this.onLoad.bind(this);
     }
@@ -21,6 +22,10 @@ class GalleryTile extends CustomComponent
         let width = this.props.height;
         if (this.imageRef.current != null && this.props.height)
             width = Math.floor(this.imageRef.current.naturalWidth * this.props.height / this.imageRef.current.naturalHeight);
+
+        let captionHeight = this.props.theme.spacing(7);
+        if (this.textRef.current)
+            captionHeight = this.textRef.current.clientHeight;
             
         return (
             <ConditionalWrapper
@@ -36,7 +41,7 @@ class GalleryTile extends CustomComponent
                     src={this.props.image}
                     alt={this.props.label}
                     width={this.props.fullScreen ? 1 : width}
-                    height={this.props.height}
+                    height={this.props.fullScreen ? window.innerHeight - captionHeight + 'px' : this.props.height}
                     objectFit={this.props.fullScreen ? undefined : 'fill'}
                     onClick={this.props.onClick}
                     cursor={this.props.fullScreen ? undefined : 'zoom-in'}
@@ -52,6 +57,7 @@ class GalleryTile extends CustomComponent
                                 margin='0 auto'
                                 padding={this.props.theme.spacing(CONSTANTS.CAPTION_FULLSCREEN_MARGIN, 0, CONSTANTS.CAPTION_FULLSCREEN_MARGIN, 0)}
                                 maxWidth={this.props.theme.breakpoints.values.md}
+                                ref={this.textRef}
                             />
                         }
                         alt={

@@ -37,7 +37,6 @@ class Gallery extends CustomComponent
     render()
     {
         let galleryRef = this.galleryRef.current;
-        let negativeMarginSize = this.props.noMargins ? this.props.theme.spacing(-(CONSTANTS.ICON_BUTTON_SIZE + CONSTANTS.ICON_BUTTON_SPACING)) + 'px' : undefined;
         
         return (
             <Box
@@ -50,7 +49,6 @@ class Gallery extends CustomComponent
                     <Box
                         display='flex'
                         alignItems='center'
-                        marginLeft={negativeMarginSize}
                         marginRight={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
                     >
                         <IconButton
@@ -138,7 +136,13 @@ class Gallery extends CustomComponent
                                 <NavigateNextIcon/>
                             </IconButton>
                         </Box>
-                        {this.state.fullScreenImage != null ? React.cloneElement(React.Children.toArray(this.props.children)[this.state.fullScreenImage], { fullScreen: true }) : undefined}
+                        {
+                            this.state.fullScreenImage != null ? (
+                                    React.cloneElement(React.Children.toArray(this.props.children)[this.state.fullScreenImage], { fullScreen: true })
+                                ) : (
+                                    undefined
+                                )
+                        }
                     </Dialog>
                 </Box>
                 <ConditionalRender condition={galleryRef && galleryRef.clientWidth !== galleryRef.scrollWidth}>
@@ -146,7 +150,6 @@ class Gallery extends CustomComponent
                         display='flex'
                         alignItems='center'
                         marginLeft={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING) + 'px'}
-                        marginRight={negativeMarginSize}
                     >
                         <IconButton
                             onClick={this.onSlideRight}
@@ -276,7 +279,6 @@ class Gallery extends CustomComponent
 Gallery.defaultProps = { size: 'md' };
 
 Gallery.propTypes = {
-    noMargins: PropTypes.bool,
     size: PropTypes.oneOf(Object.keys(CONSTANTS.GALLERY_SIZES)),
     theme: PropTypes.object.isRequired,
     children: ZeroOrMoreElementsPropType

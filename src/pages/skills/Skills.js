@@ -328,6 +328,17 @@ class Skills extends CustomComponent
                         </FilterItem>
                         <FilterItem
                             tags={[
+                                CONSTANTS.SKILL_FILTERS.LANGUAGES,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Lua'
+                                level='beginner'
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
                                 CONSTANTS.SKILL_FILTERS.LIBRARIES,
                                 CONSTANTS.SKILL_FILTERS.GRAPHICS,
                                 CONSTANTS.SKILL_FILTERS.GAME_DEV

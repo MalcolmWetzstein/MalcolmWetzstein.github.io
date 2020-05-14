@@ -15,7 +15,7 @@ class Image extends CustomComponent
         if (typeof width === 'number' && width <= 1)
             width = (width * 100) + '%';
         if (typeof height === 'number' && height <= 1)
-            height = (width * 100) + '%';
+            height = (height * 100) + '%';
 
         return (
             <img
@@ -26,7 +26,8 @@ class Image extends CustomComponent
                 style={{
                     objectFit: this.props.objectFit,
                     cursor: this.props.cursor,
-                    imageRendering: this.props.imageRendering
+                    imageRendering: this.props.imageRendering,
+                    visibility: this.props.hide ? 'hidden' : 'visible'
                 }}
                 onLoad={this.props.onLoad}
                 onClick={this.props.onClick}
