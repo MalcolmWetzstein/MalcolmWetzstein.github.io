@@ -23,7 +23,7 @@ class GalleryTile extends CustomComponent
         if (this.imageRef.current != null && this.props.height)
             width = Math.floor(this.imageRef.current.naturalWidth * this.props.height / this.imageRef.current.naturalHeight);
 
-        let captionHeight = this.props.theme.spacing(7);
+        let captionHeight = this.props.theme.spacing(CONSTANTS.CAPTION_FULLSCREEN_MARGIN * 2 + 3);
         if (this.textRef.current)
             captionHeight = this.textRef.current.clientHeight;
             
