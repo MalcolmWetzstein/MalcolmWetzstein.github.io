@@ -77,6 +77,7 @@ class Gallery extends CustomComponent
                     <Dialog
                         fullScreen
                         open={ this.state.open }
+                        PaperProps={{ style: { overflow: 'hidden' } }}
                     >
                         <Box
                             position='absolute'

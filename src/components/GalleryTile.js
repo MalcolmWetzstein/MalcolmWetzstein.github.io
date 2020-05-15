@@ -25,7 +25,7 @@ class GalleryTile extends CustomComponent
 
         let captionHeight = this.props.theme.spacing(CONSTANTS.CAPTION_FULLSCREEN_MARGIN * 2 + 3);
         if (this.textRef.current)
-            captionHeight = this.textRef.current.clientHeight;
+            captionHeight = this.props.theme.spacing(CONSTANTS.CAPTION_FULLSCREEN_MARGIN * 2) + this.textRef.current.clientHeight;
             
         return (
             <ConditionalWrapper
@@ -57,7 +57,6 @@ class GalleryTile extends CustomComponent
                                 margin='0 auto'
                                 padding={this.props.theme.spacing(CONSTANTS.CAPTION_FULLSCREEN_MARGIN, 0, CONSTANTS.CAPTION_FULLSCREEN_MARGIN, 0)}
                                 maxWidth={this.props.theme.breakpoints.values.md}
-                                ref={this.textRef}
                             />
                         }
                         alt={
@@ -71,7 +70,10 @@ class GalleryTile extends CustomComponent
                             />
                         }
                     >
-                        <Typography variant={this.props.fullScreen ? 'body1' : 'caption'}>
+                        <Typography
+                            variant={this.props.fullScreen ? 'body1' : 'caption'}
+                            ref={this.textRef}
+                        >
                             {this.props.caption}
                         </Typography>
                     </ConditionalWrapper>
