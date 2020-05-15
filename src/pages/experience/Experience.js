@@ -46,13 +46,14 @@ class Experience extends CustomComponent
                                 'Continuous Integration/Continuous Deployment (CI/CD) Setup',
                                 'Git collaboration using pull requests'
                             ],
-                            'Google Optimize, Google Analytics, and Salesforce Marketing Cloud experience'
+                            'Google Optimize and Google Analytics experience',
+                            'Salesforce SFRA development experience'
                         ]}
                     >
                         <Employment
                             startMonth={11}
                             startYear={2019}
-                            title='Full-Stack Software Engineer (Temporary)'
+                            title='Full-Stack Software Engineer'
                             company={CONSTANTS.NAMES.SERVCO}
                             department='Digital Strategy Team'
                         />

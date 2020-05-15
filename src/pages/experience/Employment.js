@@ -23,7 +23,10 @@ class Employment extends CustomComponent
                 <Typography variant='subtitle1'>
                     {this.props.company}
                 </Typography>
-                <Typography variant='subtitle2'>
+                <Typography
+                    variant='subtitle2'
+                    color='textSecondary'
+                >
                     {this.props.department}
                 </Typography>
             </React.Fragment>

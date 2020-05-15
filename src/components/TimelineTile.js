@@ -24,7 +24,7 @@ class TimelineTile extends CustomComponent
     {
         return (
             <Card
-                variant='outlined'
+                elevation={2}
                 ref={this.ref}
             >
                 <CardActionArea
