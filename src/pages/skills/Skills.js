@@ -170,6 +170,17 @@ class Skills extends CustomComponent
                         </FilterItem>
                         <FilterItem
                             tags={[
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Scrum'
+                                level='intermediate'
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
                                 CONSTANTS.SKILL_FILTERS.LANGUAGES,
                                 CONSTANTS.SKILL_FILTERS.COMP_MATH
                             ]}
@@ -290,6 +301,18 @@ class Skills extends CustomComponent
                             <Skill
                                 label='Rhino 3D'
                                 level='intermediate'
+                            />
+                        </FilterItem>
+                        <FilterItem
+                            tags={[
+                                CONSTANTS.SKILL_FILTERS.TOOLS,
+                                CONSTANTS.SKILL_FILTERS.WEB_DEV,
+                                CONSTANTS.SKILL_FILTERS.GAME_DEV
+                            ]}
+                        >
+                            <Skill
+                                label='Jira'
+                                level='beginner'
                             />
                         </FilterItem>
                         <FilterItem
