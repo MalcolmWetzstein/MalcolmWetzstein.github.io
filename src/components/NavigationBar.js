@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AppBar, Tabs, withTheme, Box, Button, Grid } from '@material-ui/core';
+import { AppBar, Tabs, withTheme, Box, Button, Grid, Hidden } from '@material-ui/core';
 import { CustomComponent, CustomTab } from '.';
 import { reKey, PageDequePropType, OneOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
@@ -34,18 +34,33 @@ class NavigationBar extends CustomComponent
                     wrap='nowrap'
                 >
                     <Grid item>
-                        <Box
-                            display='flex'
-                            margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
-                            minWidth={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SIZE * this.props.links.length)}
-                        >
-                            <Button
-                                onClick={this.onClickHome}
-                                disabled={this.tabsValue() === false}
+                        <Hidden mdDown>
+                            <Box
+                                display='flex'
+                                margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                                minWidth={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SIZE * this.props.links.length)}
                             >
-                                MXW
-                            </Button>
-                        </Box>
+                                <Button
+                                    onClick={this.onClickHome}
+                                    disabled={this.tabsValue() === false}
+                                >
+                                    MXW
+                                </Button>
+                            </Box>
+                        </Hidden>
+                        <Hidden lgUp>
+                            <Box
+                                display='flex'
+                                margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                            >
+                                <Button
+                                    onClick={this.onClickHome}
+                                    disabled={this.tabsValue() === false}
+                                >
+                                    MXW
+                                </Button>
+                            </Box>
+                        </Hidden>
                     </Grid>
                     <Grid
                         item

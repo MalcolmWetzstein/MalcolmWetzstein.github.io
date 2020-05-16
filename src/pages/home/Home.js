@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, withTheme, Box, Divider, Grid } from '@material-ui/core';
+import { Typography, withTheme, Box, Divider, Grid, Hidden } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../../components';
 import { About, Portfolio, Education, Experience, Skills, Contact } from '..';
 import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
@@ -119,13 +119,21 @@ class Home extends CustomComponent
         for (let i = 0; i < careerTitles.length; i++)
         {
             renderItems.push(
-                <Typography>
-                    {careerTitles[i]}
-                </Typography>
+                <Grid item>
+                    <Typography>
+                        {careerTitles[i]}
+                    </Typography>
+                </Grid>
             );
 
             if (i < careerTitles.length - 1)
-                renderItems.push(<Divider orientation='vertical'/>);
+                renderItems.push(
+                    <Hidden xsDown>
+                        <Grid item>
+                            <Divider orientation='vertical'/>
+                        </Grid>
+                    </Hidden>
+                );
         }
 
         return (
@@ -134,14 +142,7 @@ class Home extends CustomComponent
                 justify='center'
                 spacing={CONSTANTS.HOME_CAREER_TITLES_SPACING}
             >
-                {
-                    reKey(renderItems.map(
-                        item =>
-                            <Grid item>
-                                {item}
-                            </Grid>
-                    ))
-                }
+                {renderItems}
             </Grid>
         );
     }
