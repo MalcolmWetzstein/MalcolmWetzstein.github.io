@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AppBar, Tabs, withTheme, Box, Button, Grid, Hidden } from '@material-ui/core';
+import { AppBar, Tabs, withTheme, Box, Button, Grid, Hidden, IconButton, Drawer, Tab, Divider } from '@material-ui/core';
 import { CustomComponent, CustomTab } from '.';
 import { reKey, PageDequePropType, OneOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
+
+import MenuIcon from '@material-ui/icons/Menu';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 class NavigationBar extends CustomComponent 
 {
@@ -11,9 +14,14 @@ class NavigationBar extends CustomComponent
     {
         super(props);
 
-        this.state = { tabNames: [] }
+        this.state = {
+            tabNames: [],
+            menuOpen: false
+        }
 
         this.onClickHome = this.onClickHome.bind(this);
+        this.onOpenMenu = this.onOpenMenu.bind(this);
+        this.onCloseMenu = this.onCloseMenu.bind(this);
         this.onTabChange = this.onTabChange.bind(this);
     }
 
@@ -26,7 +34,7 @@ class NavigationBar extends CustomComponent
     render()
     {
         return (
-            <AppBar position='relative'>
+            <AppBar>
                 <Grid
                     container
                     justify='space-between'
@@ -36,37 +44,25 @@ class NavigationBar extends CustomComponent
                     <Grid item>
                         <Hidden mdDown>
                             <Box
-                                display='flex'
                                 margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
                                 minWidth={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SIZE * this.props.links.length)}
                             >
-                                <Button
-                                    onClick={this.onClickHome}
-                                    disabled={this.tabsValue() === false}
-                                >
-                                    MXW
-                                </Button>
+                                {this.renderHomeButton()}
                             </Box>
                         </Hidden>
                         <Hidden lgUp>
                             <Box
-                                display='flex'
                                 margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
                             >
-                                <Button
-                                    onClick={this.onClickHome}
-                                    disabled={this.tabsValue() === false}
-                                >
-                                    MXW
-                                </Button>
+                                {this.renderHomeButton()}
                             </Box>
                         </Hidden>
                     </Grid>
-                    <Grid
-                        item
-                        zeroMinWidth
-                    >
-                        <Box>
+                    <Hidden smDown>
+                        <Grid
+                            item
+                            zeroMinWidth
+                        >
                             <Tabs 
                                 indicatorColor='secondary' 
                                 value={this.tabsValue()} 
@@ -76,25 +72,109 @@ class NavigationBar extends CustomComponent
                             >
                                 {React.Children.map(this.props.children, (child, index) => <CustomTab label={this.state.tabNames[index]}/>)}
                             </Tabs>
-                        </Box>
-                    </Grid>
+                        </Grid>
+                    </Hidden>
                     <Grid item>
-                        <Box
-                            display='flex'
-                            margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
-                            minWidth={this.props.theme.spacing(CONSTANTS.HOME_BUTTON_SIZE)}
-                        >
-                            {reKey(this.props.links)}
-                        </Box>
+                        <Hidden mdDown>
+                            <Box
+                                display='flex'
+                                margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                                minWidth={this.props.theme.spacing(CONSTANTS.HOME_BUTTON_SIZE)}
+                            >
+                                {reKey(this.props.links)}
+                            </Box>
+                        </Hidden>
+                        <Hidden lgUp smDown>
+                            <Box
+                                display='flex'
+                                margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}
+                            >
+                                {reKey(this.props.links)}
+                            </Box>
+                        </Hidden>
+                        <Hidden mdUp>
+                            <Box margin={this.props.theme.spacing(0, CONSTANTS.ICON_BUTTON_SPACING, 0, CONSTANTS.ICON_BUTTON_SPACING)}>
+                                <IconButton onClick={this.onOpenMenu}>
+                                    <MenuIcon/>
+                                </IconButton>
+                            </Box>
+                        </Hidden>
                     </Grid>
                 </Grid>
+                <Drawer
+                    anchor='right'
+                    open={this.state.menuOpen}
+                    onClose={this.onCloseMenu}
+                >
+                    <Box margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING)}>
+                        <Grid container>
+                            <Grid item>
+                                <IconButton onClick={this.onCloseMenu}>
+                                    <NavigateNextIcon/>
+                                </IconButton>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                    <Divider/>
+                    <Tabs 
+                        indicatorColor='secondary' 
+                        value={this.tabsValue()} 
+                        onChange={this.onTabChange}
+                        variant='standard'
+                        orientation='vertical'
+                    >
+                        {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
+                    </Tabs>
+                    <Divider/>
+                    <Box margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING)}>
+                        <Grid container>
+                            {  
+                                this.props.links.map(link =>
+                                    <Grid item>
+                                        {link}
+                                    </Grid>
+                                )
+                            }
+                        </Grid>
+                    </Box>
+                </Drawer>
             </AppBar>
+        );
+    }
+
+    renderHomeButton()
+    {
+        return (
+            <Button
+                onClick={this.onClickHome}
+                disabled={this.tabsValue() === false}
+            >
+                MXW
+            </Button>
         );
     }
 
     onClickHome()
     {
         this.showPage(this.props.homePage);
+    }
+
+    onOpenMenu()
+    {
+        this.setState({ menuOpen: true });
+    }
+
+    onCloseMenu()
+    {
+        this.setState({ menuOpen: false });
+    }
+
+    onMenuSelect(tabIndex)
+    {
+        return () => {
+            this.navigate(tabIndex);
+            this.setState({ menuOpen: false });
+        };
     }
 
     onTabChange(event, tabIndex)

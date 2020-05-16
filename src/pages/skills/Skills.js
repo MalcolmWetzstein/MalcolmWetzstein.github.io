@@ -22,6 +22,7 @@ class Skills extends CustomComponent
         }
 
         this.onOpenFilters = this.onOpenFilters.bind(this);
+        this.onCloseFilters = this.onCloseFilters.bind(this);
         this.onFilterChange = this.onFilterChange.bind(this);
         this.onClearFilters = this.onClearFilters.bind(this);
     }
@@ -49,6 +50,7 @@ class Skills extends CustomComponent
                         value={this.state.filters}
                         open={this.state.filterSelectOpen}
                         onOpen={this.onOpenFilters}
+                        onClose={this.onCloseFilters}
                         onChange={this.onFilterChange}
                         renderValue={
                             selected => (
@@ -472,10 +474,15 @@ class Skills extends CustomComponent
         this.setState({ filterSelectOpen: true });
     }
 
+    onCloseFilters()
+    {
+        this.setState({ filterSelectOpen: false });
+    }
+
     onFilterChange(event)
     {
         if (event.target.value.includes(CLOSE))
-            this.setState({ filterSelectOpen: false });
+            this.onCloseFilters();
         else
             this.setState({ filters: event.target.value });
     }

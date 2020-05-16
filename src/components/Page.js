@@ -46,7 +46,7 @@ class Page extends CustomComponent
                         position='absolute'
                         width={this.props.maxWidth === 'fit' ? undefined : 1}
                     >
-                        <Space size='xs'/>
+                        <Space size='md'/>
                         <ConditionalWrapper
                             wrapper={<Container maxWidth={this.props.maxWidth}/>}
                             condition={this.props.maxWidth !== 'fit'}

@@ -142,7 +142,7 @@ class Home extends CustomComponent
                 justify='center'
                 spacing={CONSTANTS.HOME_CAREER_TITLES_SPACING}
             >
-                {renderItems}
+                {reKey(renderItems)}
             </Grid>
         );
     }
