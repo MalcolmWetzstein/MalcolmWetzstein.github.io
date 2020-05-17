@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, withTheme, Box, Divider, Grid, Hidden } from '@material-ui/core';
-import { CustomComponent, Page, Suggestions, Space, NavigationButton, Center, ScrollToButton } from '../../components';
-import { About, Portfolio, Education, Experience, Skills, Contact } from '..';
+import { Typography, withTheme, Divider, Grid, Hidden, List, ListItem, ListItemIcon, ListItemText, Link } from '@material-ui/core';
+import { CustomComponent, Page, Suggestions, Space, NavigationButton, ScrollToButton } from '../../components';
+import { About, Portfolio, Education, Experience, Skills } from '..';
 import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
+
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import DescriptionIcon from '@material-ui/icons/Description';
+import EmailIcon from '@material-ui/icons/Email';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 class Home extends CustomComponent 
 {
@@ -52,62 +58,15 @@ class Home extends CustomComponent
                     <About/>
                     {ScrollToButton(this.moreRef)}
                 </Suggestions>
-                <Space size='xl'/>
-                <Center>
-                    <Box maxWidth={this.props.theme.spacing(CONSTANTS.HOME_LINK_BUTTONS_WIDTH)}>
-                        <NavigationButton
-                            label={About.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <About/>
-                        </NavigationButton>
-                        <NavigationButton
-                            label={Portfolio.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <Portfolio/>
-                        </NavigationButton>
-                        <NavigationButton
-                            label={Education.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <Education/>
-                        </NavigationButton>
-                        <NavigationButton
-                            label={Experience.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <Experience/>
-                        </NavigationButton>
-                        <NavigationButton
-                            label={Skills.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <Skills/>
-                        </NavigationButton>
-                        <NavigationButton
-                            label={CONSTANTS.NAMES.GITHUB}
-                            href={CONSTANTS.LINKS.GITHUB}
-                            pageDeque={this.props.pageDeque}
-                        />
-                        <NavigationButton
-                            label={CONSTANTS.NAMES.LINKEDIN}
-                            href={CONSTANTS.LINKS.LINKEDIN}
-                            pageDeque={this.props.pageDeque}
-                        />
-                        <NavigationButton
-                            label='Resume'
-                            href={CONSTANTS.DOCUMENTS.RESUME}
-                            pageDeque={this.props.pageDeque}
-                        />
-                        <NavigationButton
-                            label={Contact.displayText}
-                            pageDeque={this.props.pageDeque}
-                        >
-                            <Contact/>
-                        </NavigationButton>
-                    </Box>
-                </Center>
+                <Space size='lg'/>
+                <Grid container justify='space-evenly'>
+                    <Grid item>
+                        {this.renderPageLinks()}
+                    </Grid>
+                    <Grid item>
+                        {this.renderExternalLinks()}
+                    </Grid>
+                </Grid>
             </Page>
         );
     }
@@ -145,6 +104,117 @@ class Home extends CustomComponent
                 {reKey(renderItems)}
             </Grid>
         );
+    }
+
+    renderPageLinks()
+    {
+        return (
+            <List>
+                <NavigationButton
+                    listItem
+                    label={About.displayText}
+                    pageDeque={this.props.pageDeque}
+                >
+                    <About/>
+                </NavigationButton>
+                <NavigationButton
+                    listItem
+                    label={Portfolio.displayText}
+                    pageDeque={this.props.pageDeque}
+                >
+                    <Portfolio/>
+                </NavigationButton>
+                <NavigationButton
+                    listItem
+                    label={Education.displayText}
+                    pageDeque={this.props.pageDeque}
+                >
+                    <Education/>
+                </NavigationButton>
+                <NavigationButton
+                    listItem
+                    label={Experience.displayText}
+                    pageDeque={this.props.pageDeque}
+                >
+                    <Experience/>
+                </NavigationButton>
+                <NavigationButton
+                    listItem
+                    label={Skills.displayText}
+                    pageDeque={this.props.pageDeque}
+                >
+                    <Skills/>
+                </NavigationButton>
+            </List>
+        );
+    }
+
+    renderExternalLinks()
+    {
+        return (
+            <List>
+                <NavigationButton
+                    listItem
+                    icon={<GitHubIcon/>}
+                    label={CONSTANTS.NAMES.GITHUB}
+                    href={CONSTANTS.LINKS.GITHUB}
+                    pageDeque={this.props.pageDeque}
+                />
+                <NavigationButton
+                    listItem
+                    icon={<LinkedInIcon/>}
+                    label={CONSTANTS.NAMES.LINKEDIN}
+                    href={CONSTANTS.LINKS.LINKEDIN}
+                    pageDeque={this.props.pageDeque}
+                />
+                <NavigationButton
+                    listItem
+                    icon={<DescriptionIcon/>}
+                    label='Resume'
+                    href={CONSTANTS.DOCUMENTS.RESUME}
+                    pageDeque={this.props.pageDeque}
+                />
+                <ListItem>
+                    <ListItemIcon>
+                        <EmailIcon/>
+                    </ListItemIcon>
+                    <ListItemText
+                        primary='Email'
+                        secondary={
+                            <Link
+                                href={'mailto:' + CONSTANTS.EMAIL_ADDRESS}
+                                target='_blank'
+                                color='textSecondary'
+                            >
+                                {CONSTANTS.EMAIL_ADDRESS}
+                            </Link>
+                        }
+                    />
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <PhoneIcon/>
+                    </ListItemIcon>
+                    <ListItemText
+                        primary='Phone'
+                        secondary={
+                            <Link
+                                href={'tel:' + CONSTANTS.PHONE_NUMBER}
+                                target='_blank'
+                                color='textSecondary'
+                            >
+                                {this.renderPhoneNumber(CONSTANTS.PHONE_NUMBER)}
+                            </Link>
+                        }
+                    />
+                </ListItem>
+            </List>
+        );
+    }
+
+    renderPhoneNumber(phoneNumber)
+    {
+        return '(' + phoneNumber.slice(0,3) + ')' + phoneNumber.slice(3,6) + '-' + phoneNumber.slice(6);
     }
 }
 

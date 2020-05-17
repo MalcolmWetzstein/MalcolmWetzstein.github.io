@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonGroup, Button, Box, withTheme } from '@material-ui/core';
+import { ButtonGroup, Button, Box, withTheme, Hidden } from '@material-ui/core';
 import { CustomComponent, Center } from '.';
 import { PageDequePropType, OneOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
@@ -21,13 +21,26 @@ class Suggestions extends CustomComponent
                 display='flex'
                 justifyContent='center'
             >
-                <ButtonGroup
-                    variant='outlined'
-                    size='large'
-                    color='secondary'
-                >
-                    {this.renderButtons()}
-                </ButtonGroup>
+                <Hidden xsDown>
+                    <ButtonGroup
+                        variant='outlined'
+                        size='large'
+                        color='secondary'
+                    >
+                        {this.renderButtons()}
+                    </ButtonGroup>
+                </Hidden>
+                <Hidden smUp>
+                    <ButtonGroup
+                        variant='outlined'
+                        size='large'
+                        color='secondary'
+                        orientation={React.Children.count(this.props.children) > 2 ? 'vertical' : 'horizontal'}
+                        fullWidth={React.Children.count(this.props.children) > 2}
+                    >
+                        {this.renderButtons()}
+                    </ButtonGroup>
+                </Hidden>
             </Box>
         );
     }

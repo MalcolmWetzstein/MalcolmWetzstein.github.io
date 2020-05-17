@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Button } from '@material-ui/core';
-import { CustomComponent } from '.';
+import { withTheme, Button, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import { CustomComponent, ConditionalRender } from '.';
 import { PageDequePropType } from './Util';
 
 class NavigationButton extends CustomComponent
@@ -10,26 +10,43 @@ class NavigationButton extends CustomComponent
     {
         super(props);
 
-        this.clickHandler = this.clickHandler.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
 
     render()
     {
-        return (
+        return this.props.listItem ? (
+            <ListItem
+                button
+                onClick={this.onClick}
+                href={this.props.href}
+                target='_blank'
+            >
+                <ConditionalRender condition={this.props.icon}>
+                    <ListItemIcon>
+                        {this.props.icon}
+                    </ListItemIcon>
+                </ConditionalRender>
+                <ListItemText>
+                    {this.props.label}
+                </ListItemText>
+            </ListItem>
+        ) : (
             <Button
                 fullWidth
-                onClick={this.clickHandler}
+                onClick={this.onClick}
                 href={this.props.href}
                 target='_blank'
                 variant={this.props.variant}
                 color={this.props.variant === 'text' ? 'default' : 'secondary'}
+                startIcon={this.props.icon}
             >
                 {this.props.label}
             </Button>
         );
     }
 
-    clickHandler()
+    onClick()
     {
         if (this.props.children)
         {
@@ -48,6 +65,8 @@ NavigationButton.propTypes = {
     label: PropTypes.string.isRequired,
     href: PropTypes.string,
     variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
+    listItem: PropTypes.bool,
+    icon: PropTypes.node,
     pageDeque: PageDequePropType,
     children: PropTypes.element
 };

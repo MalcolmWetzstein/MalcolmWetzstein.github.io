@@ -1,7 +1,7 @@
 import React from 'react';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { PageDeque, NavigationBar, IconLink, Preloader } from './components';
-import { Home, About, Portfolio, Education, Experience, Skills, Contact} from './pages';
+import { Home, About, Portfolio, Education, Experience, Skills} from './pages';
 import Themes from './themes/Themes';
 import * as CONSTANTS from './Constants';
 
@@ -35,7 +35,6 @@ function App()
           <Education/>
           <Experience/>
           <Skills/>
-          <Contact/>
         </NavigationBar>
       </PageDeque>
     </ThemeProvider>

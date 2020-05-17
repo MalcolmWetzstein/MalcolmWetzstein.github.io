@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTheme, Grid, Chip, Select, MenuItem, Box, FormControl, InputLabel, ListItemText, Checkbox, Button } from '@material-ui/core';
 import { CustomComponent, Page, PageHeader, Space, Suggestions, FilterList, FilterItem } from '../../components';
-import { Home, Contact } from '..';
+import { Home } from '..';
 import { Skill } from '.';
 import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
@@ -448,8 +448,7 @@ class Skills extends CustomComponent
                     </FilterList>
                 </Grid>
                 <Space size='lg'/>
-                <Suggestions labels={[Contact.displayText, Home.displayText]}>
-                    <Contact/>
+                <Suggestions labels={[Home.displayText]}>
                     <Home/>
                 </Suggestions>
             </Page>

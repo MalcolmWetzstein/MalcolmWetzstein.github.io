@@ -34,7 +34,7 @@ class NavigationBar extends CustomComponent
     render()
     {
         return (
-            <AppBar>
+            <AppBar style={{ zIndex: this.props.theme.zIndex.drawer + 1}}>
                 <Grid
                     container
                     justify='space-between'
@@ -108,10 +108,20 @@ class NavigationBar extends CustomComponent
                 >
                     <Box margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING)}>
                         <Grid container>
-                            <Grid item>
-                                <IconButton onClick={this.onCloseMenu}>
-                                    <NavigateNextIcon/>
-                                </IconButton>
+                            <Grid
+                                item
+                                container
+                                justify='space-between'
+                                alignItems='center'
+                            >
+                                <Grid item>
+                                    {this.renderHomeButton()}
+                                </Grid>
+                                <Grid item>
+                                    <IconButton onClick={this.onCloseMenu}>
+                                        <NavigateNextIcon/>
+                                    </IconButton>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Box>
@@ -129,11 +139,11 @@ class NavigationBar extends CustomComponent
                     <Box margin={this.props.theme.spacing(CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING, CONSTANTS.ICON_BUTTON_SPACING)}>
                         <Grid container>
                             {  
-                                this.props.links.map(link =>
+                                reKey(this.props.links.map(link =>
                                     <Grid item>
                                         {link}
                                     </Grid>
-                                )
+                                ))
                             }
                         </Grid>
                     </Box>
@@ -157,6 +167,7 @@ class NavigationBar extends CustomComponent
     onClickHome()
     {
         this.showPage(this.props.homePage);
+        this.onCloseMenu();
     }
 
     onOpenMenu()
@@ -180,6 +191,7 @@ class NavigationBar extends CustomComponent
     onTabChange(event, tabIndex)
     {
         this.navigate(tabIndex);
+        this.onCloseMenu();
     }
 
     navigate(tabIndex)
