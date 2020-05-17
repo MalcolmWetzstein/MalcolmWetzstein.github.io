@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, withTheme, Divider, Grid, Hidden, List, ListItem, ListItemIcon, ListItemText, Link } from '@material-ui/core';
+import { Typography, withTheme, Divider, Grid, Hidden, List, ListItem, ListItemIcon, ListItemText, Link, ListSubheader } from '@material-ui/core';
 import { CustomComponent, Page, Suggestions, Space, NavigationButton, ScrollToButton } from '../../components';
 import { About, Portfolio, Education, Experience, Skills } from '..';
 import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
@@ -109,7 +109,8 @@ class Home extends CustomComponent
     renderPageLinks()
     {
         return (
-            <List>
+            <List subheader={<ListSubheader>Overview</ListSubheader>}>
+                <Divider light/>
                 <NavigationButton
                     listItem
                     label={About.displayText}
@@ -214,7 +215,7 @@ class Home extends CustomComponent
 
     renderPhoneNumber(phoneNumber)
     {
-        return '(' + phoneNumber.slice(0,3) + ')' + phoneNumber.slice(3,6) + '-' + phoneNumber.slice(6);
+        return '(' + phoneNumber.slice(0,3) + ') ' + phoneNumber.slice(3,6) + '-' + phoneNumber.slice(6);
     }
 }
 
