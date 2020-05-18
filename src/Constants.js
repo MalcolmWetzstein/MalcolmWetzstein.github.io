@@ -61,7 +61,6 @@ export const ICON_BUTTON_SIZE = 6;
 export const ICON_BUTTON_SPACING = 1;
 export const HOME_BUTTON_SIZE = 8;
 export const DEFAULT_SPACE = 'md';
-export const MAX_GRID_LIST_COLUMNS = 3;
 export const BACK_TO_TOP_BUTTON_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
 export const MAX_SECTION_HEADER_LEVEL = 4;
@@ -87,6 +86,15 @@ export const GOOGLE_SLIDES_CONTROLS_PADDING = 29;
 export const CAPTION_PADDING_SIZE = 1;
 export const CAPTION_FULLSCREEN_MARGIN = 2;
 export const GALLERY_SIDE_MARGIN = 4;
+export const SHOWCASE_SPACING = 2;
+
+export const SHOWCASE_GRID_SIZES = readOnly({
+    'xs': 12,
+    'sm': 6,
+    'md': 4,
+    'lg': 4,
+    'xl': 4
+});
 
 export const SPACE_SIZES = readOnly({
     'xs': 1.0,

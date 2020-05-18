@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, GridList, GridListTile } from '@material-ui/core';
+import { withTheme, Grid } from '@material-ui/core';
 import { CustomComponent } from '.';
 import { PageDequePropType, ZeroOrMoreElementsPropType } from './Util';
 import * as CONSTANTS from '../Constants';
@@ -10,19 +10,23 @@ class Showcase extends CustomComponent
     render()
     {
         return (
-            <GridList
-                cols={CONSTANTS.MAX_GRID_LIST_COLUMNS}
-                cellHeight='auto'
-                spacing={this.props.theme.spacing(CONSTANTS.SPACE_SIZES['sm'])}
+            <Grid
+                container
+                spacing={CONSTANTS.SHOWCASE_SPACING}
             >
                 {
                     React.Children.map(this.props.children, child =>
-                        <GridListTile>
+                        <Grid
+                            item
+                            xs={CONSTANTS.SHOWCASE_GRID_SIZES['xs']}
+                            sm={CONSTANTS.SHOWCASE_GRID_SIZES['sm']}
+                            md={CONSTANTS.SHOWCASE_GRID_SIZES['md']}
+                        >
                             {this.props.pageDeque.withDequeProps(child)}
-                        </GridListTile>
+                        </Grid>
                     )
                 }
-            </GridList>
+            </Grid>
         );
     }
 }

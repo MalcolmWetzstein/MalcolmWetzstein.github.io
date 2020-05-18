@@ -36,10 +36,11 @@ class Portfolio extends CustomComponent
                             <ShowcaseTile label='Mesh Surface Fluid Flow' image={CONSTANTS.IMAGES.PORTFOLIO.SURFACE_FLUID.THUMB}>
                                 <SurfaceFluid/>
                             </ShowcaseTile>
-                            <ShowcaseTile label='Real-Time High-Dimensional Filtering' image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB}>
+                            <ShowcaseTile label='High-Dimensional Filtering' image={CONSTANTS.IMAGES.PORTFOLIO.MANIFOLDS_FILTER.THUMB}>
                                 <AdaptiveFilter/>
                             </ShowcaseTile>
                         </Showcase>
+                        <Space size='xs'/>
                     </React.Fragment>
 
                     {/* Creative */}
@@ -62,6 +63,7 @@ class Portfolio extends CustomComponent
                                 <Music/>
                             </ShowcaseTile>
                         </Showcase>
+                        <Space size='xs'/>
                     </React.Fragment>
                 </Categories>
                 <Space size='lg'/>

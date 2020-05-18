@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Button, ListItem, ListItemText, ListItemIcon, Link, Typography } from '@material-ui/core';
+import { withTheme, Button, ListItem, ListItemText, ListItemIcon, Link } from '@material-ui/core';
 import { CustomComponent, ConditionalRender, ConditionalWrapper } from '.';
 import { PageDequePropType } from './Util';
 

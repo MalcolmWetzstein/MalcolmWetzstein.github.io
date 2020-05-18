@@ -130,7 +130,7 @@ class NavigationBar extends CustomComponent
                         indicatorColor='secondary' 
                         value={this.tabsValue()} 
                         onChange={this.onTabChange}
-                        variant='standard'
+                        variant='scrollable'
                         orientation='vertical'
                     >
                         {React.Children.map(this.props.children, (child, index) => <Tab label={this.state.tabNames[index]}/>)}
