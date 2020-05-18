@@ -1,15 +1,17 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import * as CONSTANTS from '../Constants';
 
 export default function(targetRef, child)
 {
     function onClick()
     {
-        targetRef.current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest',
-            inline: 'nearest'
-        });
+        if (targetRef.current)
+            window.scrollTo({
+                behavior: 'smooth',
+                top: targetRef.current.offsetTop - CONSTANTS.SPACE_SIZES['xl'] * 8,
+                left: targetRef.current.offsetLeft,
+            });
     }
 
     return (

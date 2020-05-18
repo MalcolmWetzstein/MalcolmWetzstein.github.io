@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, withTheme, Divider, Grid, Hidden, List, ListItem, ListItemIcon, ListItemText, Link, ListSubheader } from '@material-ui/core';
-import { CustomComponent, Page, Suggestions, Space, NavigationButton, ScrollToButton } from '../../components';
+import { Typography, withTheme, Divider, Grid, Hidden, List, ListSubheader } from '@material-ui/core';
+import { CustomComponent, Page, Suggestions, Space, NavigationButton, ScrollToButton, ContactMethod } from '../../components';
 import { About, Portfolio, Education, Experience, Skills } from '..';
 import { reKey, PageDequePropType, NoChildrenPropType } from '../../components/Util';
 import * as CONSTANTS from '../../Constants';
@@ -21,6 +21,7 @@ class Home extends CustomComponent
         super(props);
 
         this.moreRef = React.createRef();
+        this.contactRef = React.createRef();
     }
     
     render()
@@ -29,7 +30,7 @@ class Home extends CustomComponent
             <Page
                 id='home'
                 pageDeque={this.props.pageDeque}
-                bottomRef={this.moreRef}
+                bottomRef={this.contactRef}
             >
                 <Typography
                     variant='h2'
@@ -53,15 +54,19 @@ class Home extends CustomComponent
                 <Space/>
                 <Suggestions
                     pageDeque={this.props.pageDeque}
-                    labels={[About.displayText, 'more']}
+                    labels={[About.displayText, 'Contact', 'more']}
                 >
                     <About/>
+                    {ScrollToButton(this.contactRef)}
                     {ScrollToButton(this.moreRef)}
                 </Suggestions>
                 <Space size='lg'/>
                 <Grid container justify='space-evenly'>
                     <Grid item>
                         {this.renderPageLinks()}
+                        <Hidden smUp>
+                            <Space size='sm'/>
+                        </Hidden>
                     </Grid>
                     <Grid item>
                         {this.renderExternalLinks()}
@@ -109,7 +114,7 @@ class Home extends CustomComponent
     renderPageLinks()
     {
         return (
-            <List subheader={<ListSubheader>Overview</ListSubheader>}>
+            <List subheader={<ListSubheader>Overview</ListSubheader>} ref={this.moreRef}>
                 <Divider light/>
                 <NavigationButton
                     listItem
@@ -175,40 +180,19 @@ class Home extends CustomComponent
                     href={CONSTANTS.DOCUMENTS.RESUME}
                     pageDeque={this.props.pageDeque}
                 />
-                <ListItem>
-                    <ListItemIcon>
-                        <EmailIcon/>
-                    </ListItemIcon>
-                    <ListItemText
-                        primary='Email'
-                        secondary={
-                            <Link
-                                href={'mailto:' + CONSTANTS.EMAIL_ADDRESS}
-                                target='_blank'
-                                color='textSecondary'
-                            >
-                                {CONSTANTS.EMAIL_ADDRESS}
-                            </Link>
-                        }
-                    />
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon>
-                        <PhoneIcon/>
-                    </ListItemIcon>
-                    <ListItemText
-                        primary='Phone'
-                        secondary={
-                            <Link
-                                href={'tel:' + CONSTANTS.PHONE_NUMBER}
-                                target='_blank'
-                                color='textSecondary'
-                            >
-                                {this.renderPhoneNumber(CONSTANTS.PHONE_NUMBER)}
-                            </Link>
-                        }
-                    />
-                </ListItem>
+                <Divider light/>
+                <ContactMethod
+                    icon={<EmailIcon/>}
+                    label='Email'
+                    contactHref={'mailto:' + CONSTANTS.EMAIL_ADDRESS}
+                    contactDisplay={CONSTANTS.EMAIL_ADDRESS}
+                />
+                <ContactMethod
+                    icon={<PhoneIcon/>}
+                    label='Phone'
+                    contactHref={'tel:' + CONSTANTS.PHONE_NUMBER}
+                    contactDisplay={this.renderPhoneNumber(CONSTANTS.PHONE_NUMBER)}
+                />
             </List>
         );
     }

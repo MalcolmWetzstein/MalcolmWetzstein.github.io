@@ -36,7 +36,6 @@ class Suggestions extends CustomComponent
                         size='large'
                         color='secondary'
                         orientation={React.Children.count(this.props.children) > 2 ? 'vertical' : 'horizontal'}
-                        fullWidth={React.Children.count(this.props.children) > 2}
                     >
                         {this.renderButtons()}
                     </ButtonGroup>

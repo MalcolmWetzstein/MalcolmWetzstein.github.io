@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Button, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
-import { CustomComponent, ConditionalRender } from '.';
+import { withTheme, Button, ListItem, ListItemText, ListItemIcon, Link, Typography } from '@material-ui/core';
+import { CustomComponent, ConditionalRender, ConditionalWrapper } from '.';
 import { PageDequePropType } from './Util';
 
 class NavigationButton extends CustomComponent
@@ -16,21 +16,31 @@ class NavigationButton extends CustomComponent
     render()
     {
         return this.props.listItem ? (
-            <ListItem
-                button
-                onClick={this.onClick}
-                href={this.props.href}
-                target='_blank'
+            <ConditionalWrapper
+                condition={this.props.href}
+                wrapper={
+                    <Link
+                        href={this.props.href}
+                        target='_blank'
+                        underline='none'
+                        color='inherit'
+                    />
+                }
             >
-                <ConditionalRender condition={this.props.icon}>
-                    <ListItemIcon>
-                        {this.props.icon}
-                    </ListItemIcon>
-                </ConditionalRender>
-                <ListItemText>
-                    {this.props.label}
-                </ListItemText>
-            </ListItem>
+                <ListItem
+                    button
+                    onClick={this.onClick}
+                >
+                    <ConditionalRender condition={this.props.icon}>
+                        <ListItemIcon>
+                            {this.props.icon}
+                        </ListItemIcon>
+                    </ConditionalRender>
+                    <ListItemText primaryTypographyProps={{ color: 'textPrimary' }}>
+                        {this.props.label}
+                    </ListItemText>
+                </ListItem>
+            </ConditionalWrapper>
         ) : (
             <Button
                 fullWidth

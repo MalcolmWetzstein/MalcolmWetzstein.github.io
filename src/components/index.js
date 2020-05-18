@@ -29,6 +29,7 @@ import Image from './Image';
 import Preloader from './Preloader';
 import ConditionalRender from './ConditionalRender';
 import GoogleSlidesEmbed from './GoogleSlidesEmbed';
+import ContactMethod from './ContactMethod';
 
 export {
     CustomComponent,
@@ -61,5 +62,6 @@ export {
     Preloader,
     ConditionalRender,
     ConditionalWrapper,
-    GoogleSlidesEmbed
+    GoogleSlidesEmbed,
+    ContactMethod
 };
