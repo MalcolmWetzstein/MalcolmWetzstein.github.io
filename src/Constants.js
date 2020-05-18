@@ -64,9 +64,6 @@ export const DEFAULT_SPACE = 'md';
 export const BACK_TO_TOP_BUTTON_MARGIN = 2;
 export const BACK_TO_TOP_FADE_IN_POINT = 12;
 export const MAX_SECTION_HEADER_LEVEL = 4;
-export const TIMELINE_TILE_DISPLAY_AREA = 8;
-export const TIMELINE_TILE_IMAGE_HEIGHT = 11;
-export const TIMELINE_TILE_ARROW_ICON_MARGIN = 2;
 export const SHOWCASE_TILE_HOVER_TINT = 'rgba(0, 0, 0, 0.25)';
 export const YOUTUBE_LOADING_PANEL_TINT = 'rgba(0, 0, 0, 0.1)';
 export const IMAGE_DEFAULT_OBJECT_FIT = 'contain';
@@ -87,6 +84,10 @@ export const CAPTION_PADDING_SIZE = 1;
 export const CAPTION_FULLSCREEN_MARGIN = 2;
 export const GALLERY_SIDE_MARGIN = 4;
 export const SHOWCASE_SPACING = 2;
+export const TIMELINE_TILE_IMAGE_HEIGHT = 10;
+export const TIMELINE_TILE_IMAGE_HEIGHT_COMPACT = 5;
+export const TIMELINE_TILE_ARROW_ICON_MARGIN = 2;
+export const TIMELINE_TILE_ARROW_ICON_MARGIN_COMPACT = 0.5;
 
 export const SHOWCASE_GRID_SIZES = readOnly({
     'xs': 12,
@@ -197,7 +198,7 @@ export const IMAGES = readOnly({
     LOGO: {
         MIT: 'logos/mit_logo.svg',
         SERVCO: 'logos/servco_logo.png',
-        STEP: 'logos/step_logo.gif'
+        STEP: 'logos/starlogo_logo.png'
     },
     PORTFOLIO: {
         INTRO_ARCH: {

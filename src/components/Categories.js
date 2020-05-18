@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tabs, withTheme, Box, IconButton, Paper } from '@material-ui/core';
+import { Tabs, withTheme, Box, IconButton, Paper, Hidden, Select, MenuItem } from '@material-ui/core';
 import { CustomComponent, CustomTab, ConditionalWrapper } from '.';
 import * as CONSTANTS from '../Constants';
 
@@ -15,49 +15,65 @@ class Categories extends CustomComponent
 
         this.state = { currentTab: 0 }
 
-        this.ref = React.createRef();
+        this.tabRef = React.createRef();
+        this.selectRef = React.createRef();
 
-        this.tabChange = this.tabChange.bind(this);
-        this.next = this.next.bind(this);
-        this.back = this.back.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onNext = this.onNext.bind(this);
+        this.onBack = this.onBack.bind(this);
     }
 
     render()
     {
         return (
             <React.Fragment>
-                <ConditionalWrapper 
-                    wrapper={<Paper square elevation={2}/>}
-                    condition={this.props.backdrop}
-                >
-                    <ConditionalWrapper
-                        wrapper={
-                            <Box
-                                display='flex'
-                                justifyContent='center'
-                            />
-                        }
-                        condition={!this.props.sparse}
+                <Hidden xsDown>
+                    <ConditionalWrapper 
+                        wrapper={<Paper square elevation={2}/>}
+                        condition={this.props.backdrop}
                     >
-                        <Tabs
-                            indicatorColor='secondary'
-                            value={this.state.currentTab} 
-                            onChange={this.tabChange}
-                            variant={this.props.sparse ? 'fullWidth' : 'scrollable'}
-                            scrollButtons='auto'
-                            ref={this.ref}
-                        >
-                            {
-                                React.Children.map(this.props.children, (child, index) => 
-                                    <CustomTab
-                                        sparse={this.props.sparse}
-                                        label={this.props.labels[index]}
-                                    />
-                                )
+                    
+                        <ConditionalWrapper
+                            wrapper={
+                                <Box
+                                    display='flex'
+                                    justifyContent='center'
+                                />
                             }
-                        </Tabs>
+                            condition={!this.props.sparse}
+                        >
+                            <Tabs
+                                indicatorColor='secondary'
+                                value={this.state.currentTab} 
+                                onChange={this.onChange}
+                                variant={this.props.sparse ? 'fullWidth' : 'scrollable'}
+                                scrollButtons='auto'
+                                ref={this.tabRef}
+                            >
+                                {
+                                    React.Children.map(this.props.children, (child, index) => 
+                                        <CustomTab
+                                            sparse={this.props.sparse}
+                                            label={this.props.labels[index]}
+                                        />
+                                    )
+                                }
+                            </Tabs>
+                        </ConditionalWrapper>
                     </ConditionalWrapper>
-                </ConditionalWrapper>
+                </Hidden>
+                <Hidden smUp>
+                    <Select
+                        fullWidth
+                        color='secondary'
+                        variant={this.props.backdrop ? 'filled' : 'outlined'}
+                        value={this.state.currentTab}
+                        onChange={this.onChange}
+                        ref={this.selectRef}
+                    >
+                        {React.Children.map(this.props.children, (child, index) => <MenuItem value={index}>{this.props.labels[index].toUpperCase()}</MenuItem>)}
+                    </Select>
+                </Hidden>
                 {React.Children.toArray(this.props.children)[this.state.currentTab]}
                 <Box
                     display='flex'
@@ -66,13 +82,13 @@ class Categories extends CustomComponent
                     justifyContent='center'
                 >
                     <IconButton
-                        onClick={this.back}
+                        onClick={this.onBack}
                         disabled={this.state.currentTab === 0}
                     >
                         <NavigateBeforeIcon/>
                     </IconButton>
                     <IconButton
-                        onClick={this.next}
+                        onClick={this.onNext}
                         disabled={this.state.currentTab === React.Children.count(this.props.children) - 1}
                     >
                         <NavigateNextIcon/>
@@ -82,18 +98,18 @@ class Categories extends CustomComponent
         );
     }
 
-    tabChange(event, tabIndex)
+    onChange(event, tabIndex)
     {
-        this.setState({ currentTab: tabIndex });
+        this.setState({ currentTab: typeof tabIndex === 'number' ? tabIndex : event.target.value });
     }
 
-    next()
+    onNext()
     {
         this.setState({ currentTab: Math.min(this.state.currentTab + 1, React.Children.count(this.props.children) - 1) });
         this.scrollToTabs();
     }
 
-    back()
+    onBack()
     {
         this.setState({ currentTab: Math.max(this.state.currentTab - 1, 0) });
         this.scrollToTabs();
@@ -101,7 +117,10 @@ class Categories extends CustomComponent
 
     scrollToTabs()
     {
-        this.ref.current.scrollIntoView(true);
+        if (this.tabRef.current)
+            this.tabRef.current.scrollIntoView(true);
+        if (this.selectRef.current)
+            this.selectRef.current.scrollIntoView(true);
     }
 }
 

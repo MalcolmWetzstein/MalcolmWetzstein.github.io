@@ -30,6 +30,7 @@ class Education extends CustomComponent
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.MIT}
                         imageInfo={CONSTANTS.NAMES.MIT}
+                        mobileCompact
                         details={[
                             [
                                 'Thesis Project',
@@ -61,6 +62,7 @@ class Education extends CustomComponent
                     <TimelineTile
                         image={CONSTANTS.IMAGES.LOGO.MIT}
                         imageInfo={CONSTANTS.NAMES.MIT}
+                        mobileCompact
                         details={[
                             [
                                 'Topics Covered',

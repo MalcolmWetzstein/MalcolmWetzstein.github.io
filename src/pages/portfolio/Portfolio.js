@@ -24,7 +24,7 @@ class Portfolio extends CustomComponent
                 <Categories
                     sparse
                     backdrop
-                    labels={['technical', 'creative']}
+                    labels={['Technical', 'Creative']}
                 >
                     {/* Technical */}
                     <React.Fragment>

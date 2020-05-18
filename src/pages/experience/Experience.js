@@ -90,9 +90,9 @@ class Experience extends CustomComponent
                             startYear={2015}
                             endMonth={8}
                             endYear={2019}
-                            title='Student Software Developer (Graphics Programmer)'
+                            title='Student Software Developer'
                             company={'MIT ' + CONSTANTS.NAMES.STEP.LONG}
-                            department={CONSTANTS.NAMES.STARLOGO + ' Project'}
+                            department={CONSTANTS.NAMES.STARLOGO + ' Project, Graphics Programmer'}
                         />
                     </TimelineTile>
                 </Timeline>

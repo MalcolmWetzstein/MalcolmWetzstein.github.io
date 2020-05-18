@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withTheme, Card, CardActionArea, CardContent, Collapse, Divider, Grid, Box, Button } from '@material-ui/core';
+import { withTheme, Card, CardActionArea, CardContent, Collapse, Divider, Grid, Box, Button, Hidden } from '@material-ui/core';
 import { CustomComponent, Bullets, Image, ConditionalRender } from '.';
 import * as CONSTANTS from '../Constants';
 
@@ -22,6 +22,9 @@ class TimelineTile extends CustomComponent
 
     render()
     {
+        let imageHeightCompact = this.props.mobileCompact ? CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT_COMPACT : CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT;
+        let arrowMarginCompact = this.props.mobileCompact ? CONSTANTS.TIMELINE_TILE_ARROW_ICON_MARGIN_COMPACT : CONSTANTS.TIMELINE_TILE_ARROW_ICON_MARGIN;
+
         return (
             <Card
                 elevation={2}
@@ -35,35 +38,41 @@ class TimelineTile extends CustomComponent
                         <Grid
                             container
                             justify='space-between'
+                            wrap='nowrap'
                         >
-                            <Grid
-                                item
-                                xs={CONSTANTS.TIMELINE_TILE_DISPLAY_AREA}
-                            >
+                            <Grid item>
                                 {this.props.children}
                             </Grid>
-                            <Grid
-                                item
-                                xs={12 - CONSTANTS.TIMELINE_TILE_DISPLAY_AREA}
-                                container
-                                justify='flex-end'
-                                alignItems='center'
-                                spacing={CONSTANTS.TIMELINE_TILE_ARROW_ICON_MARGIN}
-                            >
-                                <ConditionalRender condition={this.props.image}>
-                                    <Grid item>
-                                        <Image
-                                            src={this.props.image}
-                                            alt={this.props.imageInfo}
-                                            height={this.props.theme.spacing(CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT)}
-                                        />
-                                    </Grid>
-                                </ConditionalRender>
-                                <ConditionalRender condition={this.props.details}>
-                                    <Grid item>
+                            <Grid item>
+                                <Box
+                                    display='flex'
+                                    alignItems='center'
+                                    height={1}
+                                >
+                                    <ConditionalRender condition={this.props.image}>
+                                        <Hidden smDown>
+                                            <Box marginRight={this.props.theme.spacing(CONSTANTS.TIMELINE_TILE_ARROW_ICON_MARGIN) + 'px'}>
+                                                <Image
+                                                    src={this.props.image}
+                                                    alt={this.props.imageInfo}
+                                                    height={this.props.theme.spacing(CONSTANTS.TIMELINE_TILE_IMAGE_HEIGHT)}
+                                                />
+                                            </Box>
+                                        </Hidden>
+                                        <Hidden mdUp xsDown>
+                                            <Box marginRight={this.props.theme.spacing(arrowMarginCompact) + 'px'}>
+                                                <Image
+                                                    src={this.props.image}
+                                                    alt={this.props.imageInfo}
+                                                    height={this.props.theme.spacing(imageHeightCompact)}
+                                                />
+                                            </Box>
+                                        </Hidden>
+                                    </ConditionalRender>
+                                    <ConditionalRender condition={this.props.details}>
                                         {this.state.open ? <ExpandLessIcon/> : <ExpandMoreIcon/>}
-                                    </Grid>
-                                </ConditionalRender>
+                                    </ConditionalRender>
+                                </Box>
                             </Grid>
                         </Grid>
                     </CardContent>
@@ -116,6 +125,7 @@ TimelineTile.propTypes = {
     image: PropTypes.string,
     imageInfo: PropTypes.string,
     details: PropTypes.node,
+    mobileCompact: PropTypes.bool,
     children: PropTypes.node.isRequired
 };
 
