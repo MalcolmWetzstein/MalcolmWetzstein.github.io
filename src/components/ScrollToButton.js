@@ -10,7 +10,7 @@ export default function(targetRef, child)
             window.scrollTo({
                 behavior: 'smooth',
                 top: targetRef.current.offsetTop - CONSTANTS.SPACE_SIZES['xl'] * 8,
-                left: targetRef.current.offsetLeft,
+                left: targetRef.current.offsetLeft
             });
     }
 

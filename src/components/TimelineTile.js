@@ -112,10 +112,10 @@ class TimelineTile extends CustomComponent
         this.setState({ open: !this.state.open });
 
         if (this.ref.current && this.ref.current.getBoundingClientRect().top < 0)
-            this.ref.current.scrollIntoView({
+            window.scrollTo({
                 behavior: 'smooth',
-                block: 'start',
-                inline: 'nearest'
+                top: this.ref.current.offsetTop - this.props.theme.spacing(CONSTANTS.SPACE_SIZES['xl']),
+                left: this.ref.current.offsetLeft
             });
     }
 }

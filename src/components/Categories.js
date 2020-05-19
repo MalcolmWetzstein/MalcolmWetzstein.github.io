@@ -117,10 +117,20 @@ class Categories extends CustomComponent
 
     scrollToTabs()
     {
-        if (this.tabRef.current)
-            this.tabRef.current.scrollIntoView(true);
-        if (this.selectRef.current)
-            this.selectRef.current.scrollIntoView(true);
+        setTimeout(() => {
+            if (this.tabRef.current)
+                window.scrollTo({
+                    behavior: 'smooth',
+                    top: this.tabRef.current.offsetTop - this.props.theme.spacing(CONSTANTS.SPACE_SIZES['xl']),
+                    left: this.tabRef.current.offsetLeft
+                });
+            else if (this.selectRef.current)
+                window.scrollTo({
+                    behavior: 'smooth',
+                    top: this.selectRef.current.offsetTop - this.props.theme.spacing(CONSTANTS.SPACE_SIZES['xl']),
+                    left: this.selectRef.current.offsetLeft
+                });
+        }, 100);
     }
 }
 
